@@ -2,6 +2,9 @@
 title: Vector basics
 date: 2016-01-30 18:51:23
 tags:
+- vector
+- drawing
+- beginer
 ---
 
 ## Introduction
@@ -78,7 +81,21 @@ As said before, strokes are determine by the 2 points that are on its end.
 
 ## Styling
 
-it accepts a `stroke` and and `fill` that can be styled differently
-
 {% asset_img shape-style.svg fig.06 different path %} 
+
+- it accepts a `stroke` and and `fill` that can be styled differently (**fig.06 left)
+- if the path is **open** the fill **only** will join the ends. (**fig.06 middle)
+- shapes are always piled up (**fig.06 right)
+
+## Softwares
+
+Here is a short list of softwares you can use for editing vector graphics:
+
+- [Affinity designer](https://affinity.serif.com/designer/)
+- [Adobe Illustrator](http://www.adobe.com/products/illustrator.html)
+- [Sketch](http://www.sketchapp.com/)
+- [Inkscape](http://www.inkscape.org/)
+- …
+
+And many more of course :)
 
