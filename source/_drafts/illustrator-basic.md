@@ -1,11 +1,8 @@
 ---
-title: Illustrator basics (CS6)
-date: 2016-01-30 17:55:20
-layout: false
+title: illustrator-basic
 tags:
 ---
 
-- pouic
 
 {% asset_img fill-and-stroke.png %}
 
