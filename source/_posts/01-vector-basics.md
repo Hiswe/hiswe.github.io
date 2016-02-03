@@ -3,8 +3,9 @@ title: Vector basics
 date: 2016-01-30 18:51:23
 tags:
 - vector
-- drawing
 - beginer
+categories:
+- drawing
 ---
 
 ## Introduction

@@ -36,9 +36,8 @@ gulp.task('clean-css', function (cb) {
 });
 
 gulp.task('css', ['clean-css'], function () {
-
-  // compile LESS
-  var cssApp = gulp.src(themeDir + '/stylus/style.styl')
+  return gulp
+  	.src(themeDir + '/stylus/style.styl')
     .pipe($.plumber(onError))
     .pipe($.sourcemaps.init())
     .pipe($.stylus())
@@ -56,5 +55,22 @@ gulp.task('css', ['clean-css'], function () {
 
 gulp.task('build', ['css']);
 
+gulp.task('dev', ['build'], function () {
+  // browserSync.init({
+  //   server: {
+  //     baseDir: [
+  //     '.tmp/',
+  //     'public/',
+  //     ],
+  //   },
+  //   ghostMode:  false,
+  //   open:       false,
+  // });
+
+  gulp.watch(themeDir + '/stylus/**/*.styl',  ['css']);
+});
+
 gulp.task('default', ['build']);
+
+
 

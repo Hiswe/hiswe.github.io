@@ -1,17 +1,40 @@
 ---
-title: illustrator-basic
+layout: comparison
+title: Creating vector images
 tags:
+categories:
+- drawing
 ---
 
+## Introduction
 
-{% asset_img fill-and-stroke.png %}
+Here will be a short tutorial about how to create simple vector drawings.
 
+This guide will cover 2 softwares:
 
-## interface
+1. Adobe Illustrator (AI – left)
+2. Affinity Designer (AD – right)
 
-- panels options are accessible with icon on the top right of each of them
-- each options can reveal more extended settings 
-- on the right there are the tools
+## Interface
+
+The folks from Affinity organized AD in almost the same way as AI.  
+There is some differences of course, but globally things are almost the same.
+
+- {% asset_img zoning-illustrator.svg fig.01a Illustrator zoning %} 
+- {% asset_img zoning-designer.svg fig.01b Designer zoning %} 
+
+### Context properties…
+
+…will change with the tools you use or the selection you have.  
+It will provide the most common options you should need a this moment
+
+### Artboard(s)
+
+This will be your main working zone.  Detailed will be provided later on.
+
+### Panels
+
+a lot of stuff are placed here
 
 ## Illustrator basics
 
@@ -74,3 +97,5 @@ you can combine **close path** with the `path finder` tool
 
 - fill & border
 - pen tool (straith vs curves)
+
+{% asset_img fill-and-stroke.png %}

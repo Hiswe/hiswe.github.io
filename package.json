@@ -6,8 +6,8 @@
     "version": "3.1.1"
   },
   "scripts": {
-    "start": "gulp && hexo server --draft",
-    "deploy": "hexo clean && hexo generate --deploy"
+    "start": "parallelshell \"gulp dev\" \"hexo server --draft\"",
+    "deploy": "hexo clean && gulp --prod && hexo generate --deploy"
   },
   "dependencies": {
     "hexo": "^3.1.1",
@@ -35,6 +35,7 @@
     "gulp-svg-symbols": "^1.0.0",
     "gulp-util": "^3.0.7",
     "lazypipe": "^1.0.1",
+    "parallelshell": "^2.0.0",
     "yargs": "^3.32.0"
   }
 }
