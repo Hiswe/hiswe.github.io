@@ -5,6 +5,8 @@ var $           = require('gulp-load-plugins')();
 var del 				= require('del');
 var lazypipe 		= require('lazypipe');
 var args        = require('yargs').argv;
+var browserSync = require('browser-sync').create();
+var reload      = browserSync.reload;
 
 var isDev       = args.prod !== true;
 var themeDir 		= 'themes/hiswe-theme';
@@ -46,7 +48,7 @@ gulp.task('css', ['clean-css'], function () {
       ]))
     .pipe($.if(isDev, cssDev(), cssProd()))
     .pipe(gulp.dest(cssDest))
-    // .pipe($.if(isDev, reload({stream: true})))
+    .pipe($.if(isDev, reload({stream: true})));
 });
 
 ////////
@@ -56,17 +58,13 @@ gulp.task('css', ['clean-css'], function () {
 gulp.task('build', ['css']);
 
 gulp.task('dev', ['build'], function () {
-  // browserSync.init({
-  //   server: {
-  //     baseDir: [
-  //     '.tmp/',
-  //     'public/',
-  //     ],
-  //   },
-  //   ghostMode:  false,
-  //   open:       false,
-  // });
-
+  browserSync.init({
+    proxy: 'http://localhost:4000',
+    open: false,
+    port: 7000,
+    ghostMode: false,
+  });
+  gulp.watch('source/**/**.{md, svg, png, jpg}', reload);
   gulp.watch(themeDir + '/stylus/**/*.styl',  ['css']);
 });
 
