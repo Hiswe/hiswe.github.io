@@ -6,3 +6,42 @@ clearfix() {
 		clear: both;
 	}
 }
+
+px2em(px, ref = 16px) {
+  1em * px / ref;
+}
+
+
+// http://foundation.zurb.com/docs/media-queries.html
+
+$small-range      = 0, px2em(600);
+$medium-range     = px2em(601), px2em(1023);
+$large-range      = px2em(1024);
+
+$max-width        = $large-range;
+
+mq($$size) {
+  if ($$size == "==S") {
+    @media only screen and (max-width: $small-range[1]) {
+      {block}
+    }
+  } else if ($$size == ">=M" ) {
+    @media only screen and (min-width: $medium-range[0]) {
+      {block}
+    }
+  } else if ($$size == "==M") {
+    @media only screen and (min-width: $medium-range[0]) and (max-width: $medium-range[1]) {
+      {block}
+    }
+  } else if ($$size == "<=M") {
+    @media only screen and (max-width: $medium-range[1]) {
+      {block}
+    }
+  } else if ($$size == ">=L") {
+    @media only screen and (min-width: $large-range[0]) {
+      {block}
+    }
+  } else {
+    {block}
+  }
+}
