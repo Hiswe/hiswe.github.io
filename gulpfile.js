@@ -65,7 +65,7 @@ gulp.task('dev', ['build'], function () {
     ghostMode: false,
   });
   gulp.watch('source/**/**.{md, svg, png, jpg}', function () {
-    setTimeout(reload, 250);
+    setTimeout(reload, 500);
   });
   gulp.watch(themeDir + '/stylus/**/*.styl',  ['css']);
 });

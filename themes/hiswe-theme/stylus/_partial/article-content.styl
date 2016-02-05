@@ -50,10 +50,18 @@ article .entry
       border none
       border-radius 0
 
-  ul, ol, dl
-    margin-left 20px
-    ul, ol, dl
-      margin-top 0
+  ul,
+  ol,
+  dl {
+    margin-left: 20px;
+    padding: 0;
+
+    ul,
+    ol,
+    dl {
+      margin-top: 0;
+    }
+  }
 
   h1,
   h2 {
@@ -62,8 +70,8 @@ article .entry
     padding-bottom: 10px;
     font-size: 30px;
     margin-top: 20px;
-    margin-left: (icon-size + icon-gap + 20) * -1;
-    margin-right: 20px * -1;
+    margin-left: $gutter * -2;
+    margin-right:  @margin-left;
     padding-left: @margin-left * -1;
   }
   h3,
@@ -126,19 +134,44 @@ article .entry
     width 45%
     font-size 1.5em
 
+  em {
+    background: #ecffd4;
+    font-style: normal;
+    padding-left: .35em;
+    padding-right: @padding-left;
+  }
+
+//////
+// VIDEO
+//////
+
+$stripe = darken(color-background, 5);
+
 .video-wrapper {
   text-align: center;
-  background: #eee;
-  padding: .25em 0;
+  background-image: repeating-linear-gradient(-45deg, color-background, color-background 5px, $stripe 5px, $stripe 10px);
+  padding: .75em 0 .25em;
+
+  +mq('>=M') {
+    margin-left: $gutter * -2;
+    margin-right: @margin-left;
+  }
 }
+
+//////
+// SPLIT PRESENTATION
+//////
+
+$stripe = #fbfbfb;
 
 article .entry .split {
   margin: 1em 0 0;
 
   +mq('>=M') {
-    margin-left: -1em;
     display: flex;
     flex-wrap: wrap;
+    margin-left: $gutter * -2;
+    margin-right: @margin-left;
   }
 
   dt {
@@ -148,6 +181,7 @@ article .entry .split {
     }
   }
   dd {
+    margin: 0;
     +mq('>=M') {
       order: 2;
     }
@@ -158,13 +192,14 @@ article .entry .split {
 
     +mq('>=M') {
       flex: 0 0 50%;
-    }
 
-    &:first-of-type {
-      background: #FAF7F3;
-    }
-    &:not(:first-of-type) {
-      background: #EEFCFF;
+      &:first-of-type {
+         padding-left: $gutter * 2;
+      }
+      &:last-of-type {
+        padding-right: $gutter * 2;
+        // box-shadow: -1px 0 0 rgba(black, .1);
+      }
     }
   }
   dt {
@@ -172,8 +207,14 @@ article .entry .split {
   }
   dd {
     padding-top: 1px;
-  }
-  em {
-    background: rgba(black, .1);
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, $stripe 5px, $stripe 10px);
+
+    &:first-of-type {
+      // box-shadow: inset -1px 0 0 white;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, $stripe 5px, $stripe 10px);
+    }
+    &:last-of-type {
+      box-shadow: -1px 0 0 darken($stripe, 7%);
+    }
   }
 }
