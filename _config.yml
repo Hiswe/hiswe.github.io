@@ -15,7 +15,7 @@ timezone:
 url: http://hiswe.github.io
 root: /
 # permalink: :year/:month/:day/:title/
-permalink: :title/
+permalink: :year/:title/
 permalink_defaults:
 
 # Directory

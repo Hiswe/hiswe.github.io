@@ -1,15 +1,16 @@
 ---
 title: Creating vector images
-comments: false
 tags:
-- affinity designer
-- adobe illustrator
-- vector
-- beginner
+  - affinity designer
+  - adobe illustrator
+  - vector
+  - beginner
+comments: false
 categories:
-- drawing
-
+  - drawing
+date: 2016-02-06 16:14:44
 ---
+
 
 ## Introduction
 
@@ -20,7 +21,7 @@ This small guide will cover 2 softwares:
 - {% link Adobe Illustrator http://www.adobe.com/products/illustrator.html %} (AI – left)
 - {% link Affinity Designer https://affinity.serif.com/designer/ %} (AD – right)
 
-Talking about different softwares is I think, a good way to understand that they do the same thing: creating vectors.  
+Talking about different softwares is, I think, a good way to understand that they do the same thing: creating vectors.  
 Choosing one upon another is more a matter of personal preference. 
 
 <!-- more -->
