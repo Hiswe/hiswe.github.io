@@ -1,4 +1,4 @@
-<article class="<%= item.layout %>">
+<article class="<%= item.layout %><% if (index){ %> index<% } %>">
   <% if (item.photos && item.photos.length){ %>
     <%- partial('post/gallery') %>
   <% } %>

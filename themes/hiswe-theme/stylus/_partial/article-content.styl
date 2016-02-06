@@ -1,4 +1,4 @@
-article .entry
+.entry
   counter-reset: section;
   counter-reset: caption;
   // text-align justify
@@ -86,8 +86,12 @@ article .entry
 
       +mq('>=L') {
         position: absolute;
-        transform: translateX(-120%);
+        transform: translateX(-130%);
       }
+    }
+
+    .index & {
+      display: none;
     }
   }
   h3,
@@ -236,5 +240,9 @@ article .entry .split {
     &:last-of-type {
       box-shadow: -1px 0 0 darken($stripe, 7%);
     }
+  }
+  em {
+    font-weight: bold;
+    background: lighten(color-link, 70%);
   }
 }

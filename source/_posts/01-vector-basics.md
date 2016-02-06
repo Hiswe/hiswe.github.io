@@ -1,13 +1,13 @@
 ---
 title: Vector basics
 date: 2016-01-30 18:51:23
+comments: false
 tags:
 - vector
 - beginner
 categories:
 - drawing
 ---
-
 ## Introduction
 
 ### vector vs pixels
@@ -32,6 +32,8 @@ For some works like:
 - even illustrations
 
 that can be great advantages.
+
+<!-- more -->
 
 ## what is…
 

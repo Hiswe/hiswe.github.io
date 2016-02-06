@@ -1,5 +1,6 @@
 ---
 title: Creating vector images
+comments: false
 tags:
 - affinity designer
 - adobe illustrator
@@ -7,6 +8,7 @@ tags:
 - beginner
 categories:
 - drawing
+
 ---
 
 ## Introduction
@@ -20,6 +22,8 @@ This small guide will cover 2 softwares:
 
 Talking about different softwares is I think, a good way to understand that they do the same thing: creating vectors.  
 Choosing one upon another is more a matter of personal preference. 
+
+<!-- more -->
 
 ### Prerequites
 
@@ -132,7 +136,7 @@ This by doing `click & drag`
 
 whatever tool you have selected those shortcusts works:
 
-**move:** `SPACE` + click & drag  
+**move:** `SPACE` + `click & drag`  
 **zoom/dezoom** `CMD` + `+` / `CMD` + `-`
 
 ## Artboard
@@ -140,22 +144,18 @@ whatever tool you have selected those shortcusts works:
 Those are your working area.
 It's like *custom sized sheets of paper* and you can have as many as you want.
 
-### Exporting
-
-Because vector drawing drawings are computed, you can generate a lot of different files type with those, including JPG (pixel), PDF and SVG (on of the most interoperable vector format)
-
-Artboards helps you by cropping everything that's outside their boundaries.
+I won't cover it here, and stick to the default preset: 1 artboard.
 
 ## Creating shapes
 
-We will cover here only one tool to create *custom shapes*.  The *pen tool*
-*Predefined shapes* (like rectangles, ellipse and so on) usage is t think obvious.
+We will cover here only one tool to create *custom shapes*:  the *pen tool.*  
+*Predefined shapes* (like rectangles, ellipse and so on) usage is I think obvious.
 
 There is of course other way to create shapes, but focusing on the *pen tool* is a good to way to know the core of making vector shapes.
 
 ### Making the shape
 
-Select the `pen tool`
+- Select the `pen tool`
 
 {% split Illustrator | Affinity Designer %} 
 {% asset_img pen-tool-illustrator.gif Illustrator pen tool %} 
@@ -164,9 +164,9 @@ Select the `pen tool`
 {% endsplit %}   
 
 
-Then click on your artboard.  
-Each click will make another point.  
-If you `click & drag`, then you will create a point with handlers.
+- Then click on your artboard.  
+- Each click will make another point.  
+- If you `click & drag`, then you will create a point with handlers.
 
 {% video pen-tool.m4v %}
 
@@ -217,7 +217,7 @@ There is some difference in behaviour in AD an AD:
 
 {% split In Illustrator | In Affinity Designer %} 
 …selecting a shape with the *white arrow* will select all the points  
-So be aware of your selection ^^
+So *be aware of your selection*.
 ---
 …the *white arrow* allow also to modifiy a `stroke`.   
 Simply `Click & drag` on a stroke to reshape it.
@@ -229,30 +229,89 @@ The *pen tool* has also abilities of editing a shape thanks to the *modificator 
 AD & AI treats it differently:
 
 {% split In Illustrator | In Affinity Designer %} 
-- **Adding a point** `click` on a path
-- **Moving a point** `CMD` for getting in *white arrow mode* (`SHIFT` for multiple selection)
-- **Removing a point** `click` on a point
-- **Adding handlers to a point** `ALT` + `click & drag` on a point
-- **Removing handlers of a point** `ALT` + `click` on a point
-- **Breaking handlers** with selected point `ALT` + `click & drag` on an handler
+*Adding a point:*   
+`click` on a path
+*Moving a point:*
+`CMD` for getting in **white arrow mode** (`SHIFT` for multiple selection)
+*Removing a point:* 
+`click` on a point
+*Adding handlers to a point:*
+`ALT` + `click & drag` on a point
+*Removing handlers of a point:* 
+`ALT` + `click` on a point
+*Breaking handlers* 
+with selected point `ALT` + `click & drag` on an handler
 ---
-- **Adding a point** `CMD` + `click` **on a stroke** to add a point
-- **Moving a point** `click  & drag` **on a point** (`SHIFT` for multiple selection)
-- **Removing a point** select points by `click` then press `DEL`
-- **Adding handlers to a point** `click & drag` on a point (have to be on `Mode: pen` in the *context bar*)
-- **Removing handlers of a point** selecting handlers and in the *context bar* click on `convert -> the type you want`
-- **Breaking handlers** while `dragging an handler` click on `ALT`
-- **Reshaping a stroke** `click & drag` on a stroke
+*Adding a point:* 
+`CMD` + `click` **on a stroke** to add a point
+*Moving a point:* 
+`click  & drag` **on a point** (`SHIFT` for multiple selection)
+*Removing a point:* 
+select points by `click` then press `DEL`
+*Adding handlers to a point:* 
+`click & drag` on a point (have to be on `Mode: pen` in the *context bar*)
+*Removing handlers of a point:* 
+selecting handlers and in the *context bar* click on `convert -> the type you want`
+*Breaking handlers:* 
+while `dragging an handler` click on `ALT`
+*Reshaping a stroke:* 
+`click & drag` on a stroke
 {% endsplit %}  
-
 
 ## Styling shapes
 
-fill & border
+### Colors
 
-## About layers
+*After having a shape selected*, fill & border can be styled in the color panel:
 
-you see all the objects you have
-you can lock a layer by clicking on the checkbox next to the eye
+{% split Illustrator | Affinity Designer %} 
+{% asset_img color-panel-illustrator.png Illustrator pen tool %}   
+---
+{% asset_img color-panel-designer.png Designer pen tool %} 
+{% endsplit %}  
 
-{% asset_img fill-and-stroke.png %}
+- *What you are styling appears above the other one*.  
+- `click` to select between border & fill.  
+- `double click` to open a more detailed color panel.
+
+{% video fill-stroke-color.m4v %}
+
+### Stroke
+
+You can also *modify the size of the stroke* by tweaking on the *context properties*.
+
+{% split In Illustrator | In Affinity Designer %} 
+All the stroke properties are put next to each another.
+You can also access a stroke panel by clicking on the **stroke link**
+---
+by clicking on the *stroke line*, a panel will open with all the options you need
+{% endsplit %}  
+
+## Exporting an artwork
+
+Because vector drawing drawings are computed, you can generate a lot of different files type with those, including JPG (pixel), PDF and SVG (one of the most interoperable vector format)
+
+*Artboards helps you by cropping everything that's outside their boundaries.*
+
+{% split In Illustrator | In Affinity Designer %} 
+- *In the menu*: File -> Export
+- Choose the format (JPEG is good for showing to anybody)
+- *check the Use Artboards checkbox*
+- `click` export
+---
+- *In the menu*: File -> Export
+- Choose the format
+- `click` export
+{% endsplit %}  
+
+## Conclusion
+
+There is of course more to see like:
+
+- layers
+- Combining shapes
+- effects
+- …
+
+Affinity provides a lot of great tutorials [here](https://affinity.serif.com/tutorials/designer/)
+
