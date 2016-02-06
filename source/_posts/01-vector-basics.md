@@ -3,22 +3,22 @@ title: Vector basics
 date: 2016-01-30 18:51:23
 tags:
 - vector
-- beginer
+- beginner
 categories:
 - drawing
 ---
 
 ## Introduction
 
-### vector *vs* pixels
+### vector vs pixels
 
-Pixel images are composed of a grid of colored square (*fig.01*)
+Pixel images are composed of a grid of colored square (fig.01)
 
-{% asset_img pixel-example.png fig.01 a pixel image and a zoom on it %} 
+{% asset_img pixel-example.png a pixel image and a zoom on it %} 
 
-Vector are defined by shapes that are rendered by the computer (*fig.02*) 
+Vector are defined by shapes that are rendered by the computer (fig.02) 
 
-{% asset_img vector-example.jpg fig.02 a vector image and a zoom on it %} 
+{% asset_img vector-example.jpg a vector image and a zoom on it %} 
 
 See [wikipedia](https://en.wikipedia.org/wiki/Vector_graphics) for more details
 
@@ -41,7 +41,7 @@ that can be great advantages.
 - it can be left open or close
 - each points will be linked by a `stroke`
 
-{% asset_img shape-basic.svg fig.03 an open and close path %} 
+{% asset_img shape-basic.svg an open and close path %} 
 
 - path have a begin and an end (the red point)
 
@@ -51,19 +51,19 @@ that can be great advantages.
 - strokes are drawn automatically by the computer
 - a stroke link two consecutives points together
 
-{% asset_img point-basic.svg fig.04 different states of points %} 
+{% asset_img point-basic.svg different states of points %} 
 
 - points can have 0, 1 or 2 `handlers`.
-- on the left side of *fig.04*, there is a shape where all points doensn't have handlers
+- on the left side of fig.04, there is a shape where all points doensn't have handlers
 - on the right side, the points are at the same place, but they had handlers attached to them
 
 ### …handlers?
 
 - `handlers` are what make your path curvy (instead of straight)
 - both handler can be :
-	- aligned (*fig.04 point A*)
-	- breaked (*fig.04 point B*)
-	- alone (*fig.04 point C*)
+	- *aligned* (fig.04 point A)
+	- *breaked* (fig.04 point B)
+	- *alone* (fig.04 point C)
 - and can be any sized
 
 ## The mystery of strokes
@@ -74,7 +74,7 @@ As said before, strokes are determine by the 2 points that are on its end.
 - handler are modificators of this behaviour 
 - They “attract” the stroke (like some kind of “gravity force”)
 
-{% asset_img handler-basic.svg fig.05 handler explanation %} 
+{% asset_img handler-basic.svg handler explanation %} 
 
 - So without handlers: no deviations
 - with handlers: deviations
@@ -82,7 +82,7 @@ As said before, strokes are determine by the 2 points that are on its end.
 
 ## Styling
 
-{% asset_img shape-style.svg fig.06 different path %} 
+{% asset_img shape-style.svg different path %} 
 
 - it accepts a `stroke` and and `fill` that can be styled differently (**fig.06 left)
 - if the path is **open** the fill **only** will join the ends. (**fig.06 middle)

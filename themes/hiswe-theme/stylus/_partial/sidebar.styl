@@ -1,11 +1,36 @@
 #sidebar
   line-height 1.8em
-  @media screen and (max-width: 900px)
-    float none
-    width 100%
+
+
+  .in {
+    padding: 0 $gutter;
+
+    +mq('==M') {
+      display: flex;
+      flex-wrap: wrap;
+
+      .search {
+        flex: 0 0 100%;
+      }
+      .widget {
+        // flex: 0 0 50%;
+        flex: 0 0 'calc(%s - %s)' % (50% ($gutter / 2));
+        + .widget {
+          margin-left: $gutter;
+        }
+      }
+    }
+    +mq('>=L') {
+      position: sticky;
+      top: $gutter;
+      padding: 0;
+    }
+  }
+
+
+
   .widget
     background #fff
-    box-shadow 1px 2px 3px #ddd
     margin-bottom 30px
     word-wrap break-word
     .title

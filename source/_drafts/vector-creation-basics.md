@@ -1,9 +1,10 @@
 ---
-layout: comparison
 title: Creating vector images
 tags:
-- affinity deisgner
+- affinity designer
 - adobe illustrator
+- vector
+- beginner
 categories:
 - drawing
 ---
@@ -55,9 +56,9 @@ The folks from Affinity organized AD in almost the same way as AI.
 There is some differences of course, but globally things are the same.
 
 {% split Illustrator | Affinity Designer %} 
-{% asset_img zoning-illustrator.svg fig.01a Illustrator zoning %} 
+{% asset_img zoning-illustrator.svg Illustrator zoning %} 
 ---
-{% asset_img zoning-designer.svg fig.01b Designer zoning %} 
+{% asset_img zoning-designer.svg Designer zoning %} 
 {% endsplit %}
 
 ### Context properties…
@@ -75,7 +76,7 @@ Of course, using a tool, is clicking on it to select it.
 
 #### More tools!
 
-When you see an arrow in the tool square, It means that by making a *long press on this tool*, you can *access to other tools*!
+When you see an arrow in the tool square, It means that by making a *long press on this tool*, you can *access other tools!*
 
 **MORE TOOLS IMAGE**
 
@@ -115,9 +116,9 @@ With a virtual paper, you have new ways to navigate inside your design.
 ### Hand & magnifying glass
 
 {% split Illustrator | Affinity Designer %} 
-{% asset_img move-zoom-illustrator.gif fig.01a Illustrator moving and zooming tool %} 
+{% asset_img move-zoom-illustrator.gif Illustrator moving and zooming tool %} 
 ---
-{% asset_img move-zoom-designer.gif fig.01b Designer moving and zooming tool %}
+{% asset_img move-zoom-designer.gif Designer moving and zooming tool %}
 {% endsplit %}   
 
 **move:** this is the *hand tool*. It will allow you to span around the working zone  
@@ -157,9 +158,9 @@ There is of course other way to create shapes, but focusing on the *pen tool* is
 Select the `pen tool`
 
 {% split Illustrator | Affinity Designer %} 
-{% asset_img pen-tool-illustrator.gif fig.01a Illustrator pen tool %} 
+{% asset_img pen-tool-illustrator.gif Illustrator pen tool %} 
 ---
-{% asset_img pen-tool-designer.gif fig.01b Designer pen tool %} 
+{% asset_img pen-tool-designer.gif Designer pen tool %} 
 {% endsplit %}   
 
 
@@ -181,11 +182,11 @@ You may to edit your object in 2 ways:
 And there is 2 differents tools to accomplish this:
 
 {% split Illustrator | Affinity Designer %} 
-{% asset_img arrows-illustrator.gif fig.01a Illustrator pen tool %}   
+{% asset_img arrows-illustrator.gif Illustrator pen tool %}   
 *Black arrow*: named **selection tool**  
 *White arrow*: named **direct selection tool**
 ---
-{% asset_img arrows-designer.gif fig.01b Designer pen tool %} 
+{% asset_img arrows-designer.gif Designer pen tool %} 
 *Black arrow*: named **move tool**  
 *White arrow*: named **node tool**
 {% endsplit %}  

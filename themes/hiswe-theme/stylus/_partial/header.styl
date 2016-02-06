@@ -1,10 +1,22 @@
 #header {
   text-shadow: 0 0 1px #fff;
   margin: 0;
-  padding: 1em 0;
+  padding: 1em $gutter;
+  text-align: center;
+
+  +mq('>=M') {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  +mq('>=L') {
+    padding: 0;
+  }
 
   a {
-    color: #999;
+    color: color-meta;
     &:hover {
       color: color-link;
       text-decoration: none;
@@ -32,10 +44,15 @@
 
   ul {
     list-style: none
+    padding: 0;
+    margin: 0;
   }
 
   li {
-    float: left;
-    margin-left: 30px;
+    display: inline-block;
+
+    + li {
+      margin-left: 30px;
+    }
   }
 }

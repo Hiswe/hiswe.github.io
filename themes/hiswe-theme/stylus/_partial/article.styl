@@ -1,9 +1,13 @@
-icon-size = 32px
-icon-gap = 25px
-
 article
-  box-shadow 1px 2px 3px #ddd
-  background #fff
+  background: #fff;
+  margin-bottom: 50px;
+  position: relative;
+  padding: $gutter;
+
+  +mq('>=L') {
+    padding-left:  ($gutter * 2);
+    padding-right: @padding-left;
+  }
 
   &.page {
     padding-left: 20px;
@@ -17,12 +21,6 @@ article
       padding-left 10px
       vertical-align super
     }
-  }
-
-  .post-content {
-    padding: $gutter ($gutter * 2);
-    margin-bottom: 50px;
-    position: relative;
   }
 
   .gallery

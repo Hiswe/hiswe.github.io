@@ -1,4 +1,6 @@
 article .entry
+  counter-reset: section;
+  counter-reset: caption;
   // text-align justify
   line-height 1.6
   p, blockquote, ul, ol, dl, table, iframe, h3, h4, h5, h6, .video-container
@@ -65,6 +67,7 @@ article .entry
 
   h1,
   h2 {
+    counter-increment: section;
     font-weight: normal;
     border-bottom: 1px solid color-border;
     padding-bottom: 10px;
@@ -73,6 +76,19 @@ article .entry
     margin-left: $gutter * -2;
     margin-right:  @margin-left;
     padding-left: @margin-left * -1;
+    position: relative;
+
+    &::before {
+      color: color-meta;
+      color: color-background;
+      color: #cddce4;
+      content: counter(section, upper-latin) '. ';
+
+      +mq('>=L') {
+        position: absolute;
+        transform: translateX(-120%);
+      }
+    }
   }
   h3,
   h4,
@@ -88,28 +104,29 @@ article .entry
     font-weight: bold;
   }
 
-  img, video
-    max-width 100%
-    height auto
-    border none
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    border: none;
+  }
 
-  iframe
-    border none
+  iframe {
+    border: none;
+  }
 
-  .caption
-    display block
-    margin-top 5px
-    color color-meta
-    position relative
-    font-size 0.9em
-    padding-left 25px
-    &:before
-      content '\f040'
-      position absolute
-      font 1.3em font-icon
-      position absolute
-      left 0
-      top 3px
+  .caption {
+    counter-increment: caption;
+    display: block;
+    margin-top: 5px;
+    color: color-meta;
+    position: relative;
+    font-size: 0.9em;
+    // https://www.w3.org/wiki/CSS/Properties/list-style-type
+    &::before {
+      content: 'fig.' counter(caption, decimal-leading-zero) ' ';
+    }
+  }
 
   .video-container
     position relative
@@ -135,7 +152,7 @@ article .entry
     font-size 1.5em
 
   em {
-    background: #ecffd4;
+    background: lighten(color-link, 90%);
     font-style: normal;
     padding-left: .35em;
     padding-right: @padding-left;
@@ -145,7 +162,7 @@ article .entry
 // VIDEO
 //////
 
-$stripe = darken(color-background, 5);
+$stripe = darken(color-background, 5%);
 
 .video-wrapper {
   text-align: center;
@@ -176,6 +193,9 @@ article .entry .split {
 
   dt {
     font-weight: bold;
+    text-transform: uppercase;
+    color: color-meta;
+
     +mq('>=M') {
       order: 0;
     }

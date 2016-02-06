@@ -7,13 +7,15 @@
 
 body {
   margin: 0 auto;
-  max-width: 1260px;
+  max-width: 1200px + ($gutter * 2);
+  padding: 0 0;
   background: color-background;
   color: color-font;
   font-family: font-default;
   text-shadow: 0 0 1px transparent;
 
   +mq('>=L') {
+    padding: 0 $gutter;
     display: flex;
     flex-wrap: wrap;
     font-size: 18px;
@@ -32,6 +34,12 @@ main {
 
   +mq('>=L') {
     margin-left: $gutter;
+  }
+}
+#footer {
+  flex: 0 0 100%;
+  +mq('>=M') {
+    flex-basis: 70%;
   }
 }
 
