@@ -11,7 +11,6 @@ categories:
 date: 2016-02-06 16:14:44
 ---
 
-
 ## Introduction
 
 This will be a short tutorial about how to create simple vector drawings.
