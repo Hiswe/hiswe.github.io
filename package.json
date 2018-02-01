@@ -1,6 +1,6 @@
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "hexo": {
     "version": "3.2.0"
@@ -40,5 +40,10 @@
     "lazypipe": "^1.0.1",
     "parallelshell": "^2.0.0",
     "yargs": "^3.32.0"
-  }
+  },
+  "description": "Hiswe blog",
+  "main": "index.js",
+  "repository": "https://github.com/Hiswe/hiswe.github.io.git",
+  "author": "Hiswe <hiswehalya@gmail.com>",
+  "license": "MIT"
 }
