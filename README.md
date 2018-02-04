@@ -6,10 +6,10 @@
 npm install
 ```
 
-### deploy
+### release
 
 ```
-npm run deploy
+npm run release
 ```
 
 ### dev
@@ -22,7 +22,7 @@ npm start
 ### writing
 
 ```
-hexo new [layout] <title>
+yarn run hexo new [layout] <title>
 ```
 
 - post  (source/_posts)

@@ -1,4 +1,14 @@
-'use strict';
+'use strict'
+
+// Example:
+//
+// {% split Title 1 | Title 2 %}
+// content 1
+// …
+// ---
+// content 2
+// …
+// {% endsplit %}
 
 hexo.extend.tag.register('split', (args, content) => {
   const titles        = args.join(' ').split(' | ')
@@ -19,4 +29,4 @@ hexo.extend.tag.register('split', (args, content) => {
     ${ hexo.render.renderSync({text: rightContent, engine: 'markdown'}) }
   </dd>
 </dl>`
-}, {ends: true});
+}, {ends: true})

@@ -14,11 +14,15 @@ categories:
 
 Pixel images are composed of a grid of colored square (fig.01)
 
-{% asset_img pixel-example.png a pixel image and a zoom on it %} 
+{% caption when zoomed, we see squares %}
+{% asset_img pixel-example.png a pixel image and a zoom on it %}
+{% endcaption %}
 
 Vector are defined by shapes that are rendered by the computer (fig.02) 
 
+{% caption vectors can be zoomed without quality loss %}
 {% asset_img vector-example.jpg a vector image and a zoom on it %} 
+{% endcaption %}
 
 See [wikipedia](https://en.wikipedia.org/wiki/Vector_graphics) for more details
 
@@ -43,7 +47,9 @@ that can be great advantages.
 - it can be left open or close
 - each points will be linked by a `stroke`
 
+{% caption an open and close path %}
 {% asset_img shape-basic.svg an open and close path %} 
+{% endcaption %}
 
 - path have a begin and an end (the red point)
 
@@ -53,7 +59,9 @@ that can be great advantages.
 - strokes are drawn automatically by the computer
 - a stroke link two consecutives points together
 
+{% caption point without and with handles %}
 {% asset_img point-basic.svg different states of points %} 
+{% endcaption %}
 
 - points can have 0, 1 or 2 `handlers`.
 - on the left side of fig.04, there is a shape where all points doensn't have handlers
@@ -76,7 +84,9 @@ As said before, strokes are determine by the 2 points that are on its end.
 - handler are modificators of this behaviour 
 - They “attract” the stroke (like some kind of “gravity force”)
 
+{% caption handler explanation %}
 {% asset_img handler-basic.svg handler explanation %} 
+{% endcaption %}
 
 - So without handlers: no deviations
 - with handlers: deviations
@@ -84,7 +94,9 @@ As said before, strokes are determine by the 2 points that are on its end.
 
 ## Styling
 
+{% caption different path %}
 {% asset_img shape-style.svg different path %} 
+{% endcaption %}
 
 - it accepts a `stroke` and and `fill` that can be styled differently (**fig.06 left)
 - if the path is **open** the fill **only** will join the ends. (**fig.06 middle)
@@ -97,7 +109,7 @@ Here is a short list of softwares you can use for editing vector graphics:
 - [Affinity designer](https://affinity.serif.com/designer/)
 - [Adobe Illustrator](http://www.adobe.com/products/illustrator.html)
 - [Sketch](http://www.sketchapp.com/)
-- [Inkscape](http://www.inkscape.org/)
+- [Inkscape](http://www.inkscape.org/) (Free and Open Source)
 - …
 
 And many more of course :)

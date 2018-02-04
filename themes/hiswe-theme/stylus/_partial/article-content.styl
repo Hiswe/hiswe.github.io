@@ -150,16 +150,31 @@
     border: none;
   }
 
-  .caption {
+  .image-container {
     counter-increment: caption;
     display: block;
-    margin-top: 5px;
+    margin: 5px 0 0;
     color: var(--c-primary);
     position: relative;
     font-size: 0.9em;
+
     // https://www.w3.org/wiki/CSS/Properties/list-style-type
-    &::before {
-      content: 'fig.' counter(caption, decimal-leading-zero) ' ';
+    &__caption {
+      text-align: center;
+
+      &::before {
+        content: 'fig.' counter(caption, decimal-leading-zero) ' – ';
+      }
+      &:empty::before {
+        content: 'fig.' counter(caption, decimal-leading-zero);
+      }
+    }
+    p {
+      margin: 0;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
     }
   }
 
