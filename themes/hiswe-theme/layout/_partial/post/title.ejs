@@ -1,13 +1,18 @@
-<% if (item.link){ %>
-  <% if (item.title){ %>
-    <h1 class="title"><a href="<%- item.link %>" target="_blank"><%= item.title %></a></h1>
-  <% } else { %>
-    <h1 class="title"><a href="<%- item.link %>" target="_blank"><%= item.link %></a></h1>
+<header class="article__header">
+  <% if (item.layout != 'page'){ %>
+    <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
   <% } %>
-<% } else { %>
-  <% if (index){ %>
-    <h1 class="title"><a href="<%- config.root %><%- item.path %>"><%= item.title %></a></h1>
+  <% if (item.path){ %>
+      <h1 class="title">
+        <a href="<%- item.path %>"><%= item.title %></a>
+      </h1>
   <% } else { %>
-    <h1 class="title"><%= item.title %></h1>
+    <% if (index){ %>
+      <h1 class="title">
+        <a href="<%- config.root %><%- item.path %>"><%= item.title %></a>
+      </h1>
+    <% } else { %>
+      <h1 class="title"><%= item.title %></h1>
+    <% } %>
   <% } %>
-<% } %>
+</header>

@@ -4,21 +4,22 @@
   padding: 1em $gutter;
   text-align: center;
 
-  +mq('>=M') {
+  @media $mq-medium {
     display: flex;
     height: 100px;
     justify-content: space-between;
     align-items: center;
   }
 
-  +mq('>=L') {
+  @media $mq-big {
     padding: 0;
   }
 
   a {
-    color: color-meta;
+    color: var(--c-primary);
+
     &:hover {
-      color: color-link;
+      color: var(--c-contrast);
       text-decoration: none;
     }
   }

@@ -1,17 +1,16 @@
-// Color
-// color-background  = #eee;
-// color-font        = #444;
-// color-meta        = #999;
-// color-border      = #ddd;
-// color-link        = #258fb8;
+///////
+// FONT
+///////
 
-
-color-background  = #ecf4f8;
-color-font        = #445;
-// color-meta        = #cddce4;
-color-meta        = darken(color-background, 30%);
-color-border      = #ddd;
-color-link        = #ff0078;
+$c-text           = #445;
+color-font        = $c-text;
+$c-primary        = #82b7d1;
+color-background  = lighten( $c-primary, 85% );
+color-meta        = $c-primary;
+$c-border         = #ddd;
+color-border      = $c-border;
+$c-contrast       = #ff0078;
+color-link        = $c-contrast;
 
 // Font
 // font-title = "Lato", Helvetica Neue, Helvetica, Arial, sans-serif
@@ -20,7 +19,6 @@ color-link        = #ff0078;
 
 // font-title    = 'Corben', Georgia, Times, serif;
 // font-default  = 'Nobile', Helvetica, Arial, sans-serif;
-
 
 font-title    = 'Sansita one', Georgia, serif;
 font-default  = 'Kameron', Georgia, serif;
@@ -40,6 +38,31 @@ font-icon-path  = 'font/fontawesome-webfont';
   src: url(font-icon-path.eot?#iefix) format('embedded-opentype'), url(font-icon-path.woff) format('woff'), url(font-icon-path.ttf) format('truetype'), url(font-icon-path.svg#FontAwesomeRegular) format('svg');
 }
 
-// Width
+///////
+// SIZES
+///////
+
 page-width    = 1200px;
 $gutter       = 30px;
+$half-gutter  = ($gutter / 2);
+
+//----- MEDIA QUERIES
+
+$mq-small       = '(max-width: 600px)';
+$mq-medium      = '(min-width: 601px)';
+$mq-medium-only = '(min-width: 601px) and (max-width: 1023px)';
+$mq-not-big     = '(max-width: 1023px)';
+$mq-big         = '(min-width: 1024px)';
+
+///////
+// CSS VARS
+///////
+
+:root {
+  --c-primary: $c-primary;
+  --c-contrast: $c-contrast;
+  --c-border: $c-border;
+  --c-text: $c-text;
+  --gutter: $gutter;
+  --half-gutter: $half-gutter;
+}

@@ -1,11 +1,11 @@
-article
+.article {
   background: #fff;
   margin-bottom: 50px;
   position: relative;
   padding: $gutter;
 
-  +mq('>=L') {
-    padding-left:  ($gutter * 2);
+  @media $mq-big {
+    padding-left: ($gutter * 2);
     padding-right: @padding-left;
   }
 
@@ -14,64 +14,79 @@ article
   }
 
   &.link .title {
-    a:after {
-      content '\f08e'
-      color color-meta
-      font 12px font-icon
-      padding-left 10px
-      vertical-align super
+    a::after {
+      content: '\f08e';
+      color: color-meta;
+      font: 12px font-icon;
+      padding-left: 10px;
+      vertical-align: super;
     }
   }
 
-  .gallery
-    overflow hidden
-    position relative
-    &:hover
-      .control
-        opacity 1
+  .gallery {
+    overflow: hidden;
+    position: relative;
 
-    img
-      min-width 100%
-      max-width 100%
-      height auto
-      position absolute
-      top 0
-      left 0
-      opacity 0
+    &:hover {
+      .control {
+        opacity: 1;
+      }
+    }
 
-    .control
-      opacity 0
-      transition 0.3s
+    img {
+      min-width: 100%;
+      max-width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
 
-    .prev, .next
-      position absolute
-      top 0
-      width 50%
-      height 100%
-      cursor pointer
-      &:before
-        position absolute
-        font 24px/1 font-icon
-        text-align center
-        width 24px
-        text-shadow 0 0 15px rgba(0,0,0,0.5)
-        color #fff
-        margin-top -12px
-        top 50%
+    .control {
+      opacity: 0;
+      transition: 0.3s;
+    }
 
-    .prev
-      left 0
-      &:before
-        content '\f053'
-        left 10px
+    .prev,
+    .next {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      cursor: pointer;
 
-    .next
-      right 0
-      &:before
-        content '\f054'
-        right 10px
+      &:before {
+        position: absolute;
+        font: 24px/1 font-icon;
+        text-align: center;
+        width: 24px;
+        text-shadow: 0 0 15px rgba(0,0,0,0.5);
+        color: #fff;
+        margin-top: -12px;
+        top: 50%;
+      }
+    }
 
-  header {
+    .prev {
+      left: 0;
+
+      &:before {
+        content: '\f053';
+        left: 10px;
+      }
+    }
+    .next {
+      right: 0;
+
+      &:before {
+        content: '\f054';
+        right: 10px;
+      }
+    }
+
+  }
+  &__header {
     time {
       color: color-meta;
       font: 0.9em font-title;
@@ -94,55 +109,77 @@ article
     }
   }
 
-  footer
-    margin-top 15px
-    padding-top 10px
-    border-top 1px solid color-border
-    color color-meta
-    font-size 0.9em
-    line-height 16px
-    position relative
-    min-height 16px
-    a
-      color color-meta
-      &:hover
-        color color-link
-        text-decoration none
-      &:before
+  &__footer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid color-border;
+    color: color-meta;
+    font-size: 0.9em;
+    line-height: 16px;
+    position: relative;
+    min-height: 16px;
+
+    &:empty {
+      display: none;
+    }
+
+    a {
+      color: color-meta;
+
+      &:hover {
+        color: color-link;
+        text-decoration: none;
+      }
+      &:before {
         font 1.1em font-icon
         padding-right 10px
         vertical-align middle
+      }
+      &.more-link {
+        &:before {
+          content: '\f054';
+        }
+      }
 
-      &.more-link
-        &:before
-          content '\f054'
+      &.comment-link {
+        &:before {
+          content: '\f075';
+        }
+      }
+    }
 
-      &.comment-link
-        &:before
-          content '\f075'
+    .categories,
+    .tags {
+      position: relative;
+      padding-left: 25px;
+      margin: 5px 0;
+      &:before {
+        position: absolute;
+        font: 1.1em font-icon;
+      }
+    }
+    .categories {
+      &:before {
+        content: '\f07b';
+        top: 2px;
+        left: 1px;
+      }
+    }
 
-    .categories, .tags
-      position relative
-      padding-left 25px
-      margin 5px 0
-      &:before
-        position absolute
-        font 1.1em font-icon
+    .tags {
+      &:before {
+        content: '\f02b';
+        top: 3px;
+        left: 2px;
+      }
+    }
 
-    .categories
-      &:before
-        content '\f07b'
-        top 2px
-        left 1px
+    .addthis {
+      margin-top: 15px;
 
-    .tags
-      &:before
-        content '\f02b'
-        top 3px
-        left 2px
-
-    .addthis
-      margin-top 15px
       iframe {
         margin-top: 0;
       }
+    }
+  }
+}

@@ -1,16 +1,14 @@
 'use strict';
 
-var pathFn  = require('path');
-var _       = require('lodash');
+const path  = require( `path` )
 
 hexo.extend.tag.register('video', function(args, content) {
-  var videoName = args[0];
-  if (!videoName) return '';
-  var path      = pathFn.join(this.path, videoName);
-  // should use lodash templates
-  return [
-    '<div class="video-wrapper">',
-    '  <video src="/' + path + '" controls>',
-    '</div>',
-  ].join('\n')
-});
+  const videoName = args[0]
+  if ( !videoName ) return ''
+  const src      = path.join(this.path, videoName)
+  return `
+<div class="video-wrapper">
+  <video src="/${src}" controls muted>
+</div>
+`
+})

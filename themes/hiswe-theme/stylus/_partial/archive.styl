@@ -1,26 +1,56 @@
-.archive-title
-  color color-meta
-  font-weight normal
-  margin-bottom 30px
-  text-shadow 0 0 1px #fff
-  &:before
-    font-family font-icon
-    content '\f073'
-    padding-right 15px
+.archive-title {
+  color: color-meta;
+  font-weight: normal;
+  margin-bottom: 30px;
+  text-shadow: 0 0 1px #fff;
+  &:before {
+    font-family: font-icon;
+    content: '\f073';
+    padding-right: 15px;
+  }
 
-  &.tag
-    &:before
-      content '\f02b'
+  &.tag {
+    &:before {
+      content: '\f02b';
+    }
+  }
 
-  &.category
-    &:before
-      content '\f07b'
+  &.category {
+    &:before {
+      content: '\f07b';
+    }
+  }
+}
 
-.archive
-  box-shadow 1px 2px 3px color-border
-  border-bottom 1px solid color-border
-  margin-bottom 50px
-  article
-    box-shadow none
-    .post-content
-      margin-bottom 0
+.post-list {
+  list-style: none;
+  padding: 0;
+  background: white;
+
+  &__item {
+    padding: var(--half-gutter) var(--gutter)
+
+    & + & {
+      border-top: 1px solid var(--c-border);
+    }
+  }
+  &__link {
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__date {
+    display: block;
+  }
+  &__title {
+    font-family: font-title;
+    font-size: 1.35em;
+    color: var(--c-text);
+
+    // http://stylus-lang.com/docs/selectors.html#partial-reference
+    ^[0]__item:hover & {
+      color: var(--c-contrast);
+    }
+  }
+}
