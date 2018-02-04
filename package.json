@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "hexo clean && parallelshell \"gulp dev\" \"hexo server --draft\"",
-    "deploy": "hexo clean && gulp --prod && hexo generate --deploy"
+    "release": "hexo clean && gulp --prod && hexo generate --deploy"
   },
   "dependencies": {
     "hexo": "^3.1.1",
