@@ -18,7 +18,6 @@ npm run release
 npm start
 ```
 
-
 ### writing
 
 ```
@@ -32,5 +31,6 @@ yarn run hexo new [layout] <title>
 ## TODO
 
 1. RSS https://github.com/hexojs/hexo-generator-feed
-2. favicon
-3. comments
+2. TOC https://hexo.io/docs/helpers.html#toc
+3. favicon
+4. comments
