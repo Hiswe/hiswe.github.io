@@ -26,21 +26,29 @@ Even if it's all computers we can differentiate two types of devices:
 
 #### The client
 
+{% caption clients: your everyday devices! %}
+{% asset_img computer-and-phone.svg 350 200 a computer & a phone %} 
+{% endcaption %}
+
 It's *your device* (laptop or smartphone…). 
 
 {% link client article on wikipedia https://en.wikipedia.org/wiki/Client_(computing) %}
 
-It has one or many *browsers installed on it* to access easily the internet
+It has one or many *browsers installed on it* to access easily the internet.
 
-#### The server   
+#### The server
+
+{% caption server: the ones always there to help you! (they never sleep 😶) %}
+{% asset_img server.svg 220 160 a server %} 
+{% endcaption %}
 
 It's a *computer* specialized in *answering request*. 
-It has some special software running on it to behave in that way.
+It has some special software running on it to behave that way.
 Usually you don't own one.
 
 {% link server article on wikipedia https://en.wikipedia.org/wiki/Server_(computing) %}
 
-On a small note, Internet is about making computers talk to each to each other. 
+On a small note, Internet is about making computers talk to each other. 
 So you can transform your own computer in a server if you want by installing those specific softwares!
 
 ### The Browser
