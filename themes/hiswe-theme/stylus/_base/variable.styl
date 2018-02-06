@@ -2,17 +2,18 @@
 // FONT
 ///////
 
-$c-text             = #445;
-color-font          = $c-text;
-$c-primary          = #82b7d1;
-$c-primary-lighter  = lighten( $c-primary, 45% );
-$c-primary-lightest = lighten( $c-primary, 85% );
-color-background    = $c-primary-lightest;
-color-meta          = $c-primary;
-$c-border           = #ddd;
-color-border        = $c-border;
-$c-contrast         = #ff0078;
-color-link          = $c-contrast;
+$c-text               = #445;
+color-font            = $c-text;
+$c-primary            = #82b7d1;
+$c-primary-lighter    = lighten( $c-primary, 45% );
+$c-primary-lightest   = lighten( $c-primary, 85% );
+color-background      = $c-primary-lightest;
+color-meta            = $c-primary;
+$c-border             = #ddd;
+color-border          = $c-border;
+$c-contrast           = #ff0078;
+$c-contrast-lightest  = lighten($c-contrast, 90%);
+color-link            = $c-contrast;
 
 // Font
 // font-title = "Lato", Helvetica Neue, Helvetica, Arial, sans-serif
@@ -65,6 +66,7 @@ $mq-big         = '(min-width: 1024px)';
   --c-primary-lighter: $c-primary-lighter;
   --c-primary-lightest: $c-primary-lightest;
   --c-contrast: $c-contrast;
+  --c-contrast-lightest: $c-contrast-lightest;
   --c-border: $c-border;
   --c-text: $c-text;
   --gutter: $gutter;
