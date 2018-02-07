@@ -1,11 +1,13 @@
 ---
 title: basic web understanding
-comments: false
 tags:
-- beginner
+  - beginner
+comments: false
 categories:
-- web
+  - web
+date: 2018-02-07 12:56:47
 ---
+
 
 ## Introduction
 
