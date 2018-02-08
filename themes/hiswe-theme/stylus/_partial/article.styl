@@ -1,12 +1,12 @@
 .article {
+  --article-left-right-gutter: var(--gutter);
   background: #fff;
   margin-bottom: 50px;
   position: relative;
-  padding: $gutter;
+  padding: var(--gutter) var(--article-left-right-gutter);
 
   @media $mq-big {
-    padding-left: ($gutter * 2);
-    padding-right: @padding-left;
+    --article-left-right-gutter: var(--big-gutter);
   }
 
   &.page {
