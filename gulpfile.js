@@ -68,13 +68,14 @@ function bs() {
   })
 }
 
+// https://github.com/gulpjs/gulp/issues/1626#issuecomment-231020035
+function reloadBrowser( done ) {
+  setTimeout( reload, 500 )
+  done()
+}
+
 function watch() {
-  gulp.watch( `source/**/**.{md,svg,png,jpg}`, done => {
-    console.log( `reload` )
-    setTimeout( reload, 500 )
-    // https://github.com/gulpjs/gulp/issues/1626#issuecomment-231020035
-    done()
-  } )
+  gulp.watch( `source/**/**.{md,svg,png,jpg}`, reloadBrowser )
   gulp.watch( `${ themeDir }/stylus/**/*.styl`,  css )
 }
 
