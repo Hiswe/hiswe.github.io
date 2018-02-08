@@ -11,7 +11,7 @@ date: 2018-02-07 12:56:47
 
 ## Introduction
 
-The purpose of this post is to have a basic understanding of how, when you type an address, you can see a website.  
+The purpose of this post is to provide you with a basic understanding of what makes it possible to see a website by typing its address.
 It's a simplification of what happens in reality, but the main ideas are here 🙂
 
 <!-- more -->
@@ -26,7 +26,7 @@ It's a way of making *devices talking to each other*.
 
 ### Many devices
 
-Even if it's all computers we can differentiate two types of devices:
+Even if they are all computers we can differentiate two types of devices:
 
 #### The client
 
@@ -38,7 +38,7 @@ It's *your device* (laptop or smartphone…).
 
 {% link client article on wikipedia https://en.wikipedia.org/wiki/Client_(computing) %}
 
-It has one or many *browsers installed on it* to access easily the internet.
+It has one or many *browsers installed on it* to easily access the internet.
 
 #### The server
 
@@ -68,7 +68,7 @@ Some common browsers are:
 - [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)
 - [Apple Safari](https://support.apple.com/downloads/safari)
 
-It will do a lot for you so you can have a graphical representation of what you're asking for.  
+It will do a lot for you so that you can have a graphical representation of what you're asking for.  
 Yep, it seems obvious but that's the main thing about computers: how with [bits](https://en.wikipedia.org/wiki/Bit) you can have an interactive display ✨ 
 
 ## How does it works
@@ -77,9 +77,9 @@ Yep, it seems obvious but that's the main thing about computers: how with [bits]
 {% asset_img browser-ask-server.svg 525 200 a web browser asking resources to a server %} 
 {% endcaption %}
 
-When you type an address in the browser, the browser will ask the server what there is to get in that place.
+When you type an address in the browser, the browser will ask the server what is at that location for him to get.
 
-Most of the time you want a webpage, but it can be anything: an image, sound, video, pdf documents…
+Most of the time you want to get a webpage, but it can be anything: an image, sound, video, pdf documents…
 
 ### getting a webpage
 
@@ -104,7 +104,7 @@ It's:
 {% endcaption %}
 
 The latter part is the HTML file telling the browser to ask the server for more files. 
-Beside any images/videos, there are also 2 domains where it needs more specific informations: 
+Beside images/videos, there are also 2 domains where it needs more specific informations: 
 
 - for having a *nice presentation*: those are the *CSS* text files
 - for being *interactive*: those are the *Javascript* text files
@@ -115,7 +115,7 @@ Beside any images/videos, there are also 2 domains where it needs more specific 
 {% asset_img webbrowser-rendering.svg 480 400 the browser rendering a webpage %} 
 {% endcaption %}
 
-And with all those text files, your browser will do the magic and finally show you an interactive display of what you asked the server!
+And now, using all those text files, your browser will do the magic and finally show you an interactive display of the information you wanted to see!
 
 ## So…
 
@@ -125,4 +125,6 @@ And with all those text files, your browser will do the magic and finally show y
 
 *Love your browser and keep it up to date* 😎
 
-And also I will dig in more in all those files (HTML, CSS & Javascript)
+I will go into more details for all those files (HTML, CSS & Javascript) with comings posts
+
+Thanks to [xpac27](https://github.com/xpac27) for the corrections!
