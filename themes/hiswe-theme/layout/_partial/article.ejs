@@ -13,12 +13,12 @@
   <footer class="article__footer">
     <% if (index){ %>
       <% if (item.excerpt){ %>
-        <div class="alignleft">
+        <div class="article__footer-item">
           <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
         </div>
       <% } %>
       <% if (item.comment && config.disqus_shortname){ %>
-      <div class="alignright">
+      <div class="article__footer-item article__footer-item--right">
         <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
       </div>
       <% } %>

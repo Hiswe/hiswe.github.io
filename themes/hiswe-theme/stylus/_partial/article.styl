@@ -111,7 +111,7 @@
 
   &__footer {
     margin-top: 15px;
-    padding-top: 10px;
+    padding-top: var(--gutter);
     border-top: 1px solid color-border;
     color: color-meta;
     font-size: 0.9em;
@@ -121,6 +121,38 @@
 
     &:empty {
       display: none;
+    }
+
+
+    &-item {
+      display: inline-block;
+
+      &--categories,
+      &--tags {
+        display: block;
+        position: relative;
+        padding-left: 25px;
+        margin: 5px 0;
+        &::before {
+          position: absolute;
+          font: 1.1em font-icon;
+        }
+      }
+      &--categories {
+        &::before {
+          content: '\f07b';
+          top: 2px;
+          left: 1px;
+        }
+      }
+
+      &--tags {
+        &::before {
+          content: '\f02b';
+          top: 3px;
+          left: 2px;
+        }
+      }
     }
 
     a {
@@ -145,32 +177,6 @@
         &:before {
           content: '\f075';
         }
-      }
-    }
-
-    .categories,
-    .tags {
-      position: relative;
-      padding-left: 25px;
-      margin: 5px 0;
-      &:before {
-        position: absolute;
-        font: 1.1em font-icon;
-      }
-    }
-    .categories {
-      &:before {
-        content: '\f07b';
-        top: 2px;
-        left: 1px;
-      }
-    }
-
-    .tags {
-      &:before {
-        content: '\f02b';
-        top: 3px;
-        left: 2px;
       }
     }
 
