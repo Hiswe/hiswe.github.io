@@ -42,7 +42,9 @@ function compileCSS() {
   .src( `${themeDir}/stylus/style.styl` )
   .pipe( $.plumber(onError) )
   .pipe( $.sourcemaps.init() )
-  .pipe( $.stylus() )
+  .pipe( $.stylus({
+    'include css': true,
+  }) )
   .pipe( $.postcss([
     autoprefixer({ browsers: ['ie 10', 'last 2 versions'], }),
   ]) )

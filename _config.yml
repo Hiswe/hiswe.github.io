@@ -44,6 +44,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
+  hljs: true
 
 # Category & Tag
 default_category: uncategorized
