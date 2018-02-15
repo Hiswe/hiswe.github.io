@@ -21,7 +21,7 @@ As more posts will be published, we will clarify those 🤓
 
 ## What is an HTML file?
 
-{% caption server: how to guess a file is an HTML file? %}
+{% caption Getting to know each other %}
 {% asset_img browser-guessing-files.svg 400 500 different steps of understanding it's an HTML file %} 
 {% endcaption %}
 
@@ -36,7 +36,9 @@ But for the browser to understand it's reading an HTML file we need two things:
 
 ### Hey! if it's text file, I can use Microsoft Word!
 
-<!-- illustration: a perplex webbrowser looking at a Microsoft Word file -->
+{% caption Guy, I can't understand you %}
+{% asset_img browser-dont-understand-word.svg 400 190 A Word file speaking an incomprehensible language to a browser %} 
+{% endcaption %}
 
 In short: *you can't use Microsoft Word*
 
@@ -53,7 +55,21 @@ Word in its files store a lots of other informations!
 - the images you embedded in
 - and so on…
 
-#### What you can use instead (and they are free):
+### Let's use a proper text editor
+
+So we need another solution.  
+Lucky for us there is a lot of alternative. And some are already on your computer!
+
+
+#### On mac: TextEdit
+
+- don't forget have the `format > Make Plain Text` option checked
+
+{% video textedit-create-html-file.mp4 %}
+
+#### On Windows: Notepad
+
+### What are the better alternatives (and they are free):
 
 <!-- illustration: Happy VSC & Atom icons -->
 
