@@ -44,7 +44,7 @@ In short: *you can't use Microsoft Word*
 
 #### If you're interested about the reasons:
 
-*Microsoft Word* (let's call it Word for now on) *produces docx files not HTML* files.
+*Microsoft Word* (let's call it Word for now on) *produces **docx** files **not HTML*** files.
 
 And *your browser can't understand Docx* files.
 Even if, when looking at word document *it looks like only text, it isn't.*  
@@ -63,15 +63,23 @@ Lucky for us there is a lot of alternative. And some are already on your compute
 
 #### On mac: TextEdit
 
-- don't forget have the `format > Make Plain Text` option checked
+- don't forget to have the `format > Make Plain Text` option checked
 
 {% video textedit-create-html-file.mp4 %}
 
 #### On Windows: Notepad
 
+- don't forget to set `save as type` to `All Files (*.*)`
+
+{% caption You need to specify ”save as type: All Files” %}
+{% asset_img notepad@2x.png 978 556 A screenshot of Notepad %} 
+{% endcaption %}
+
 ### What are the better alternatives (and they are free):
 
-<!-- illustration: Happy VSC & Atom icons -->
+{% caption We're ok on every computers! %}
+{% asset_img visual-studio-and-atom.svg 460 160 Atom & Visual Studio Code %} 
+{% endcaption %}
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Atom](https://atom.io/)
