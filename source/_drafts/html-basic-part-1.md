@@ -89,7 +89,9 @@ So you can download and use one of them 👍
 
 ## Let's begin!
 
-<!-- illustration: a baby HTML file -->
+{% caption น่ารัก %}
+{% asset_img baby-html.svg 150 160 A baby HTML file %} 
+{% endcaption %}
 
 Make a new file named `my-first-webpage.html` and save it somewhere.  
 You can now type:
