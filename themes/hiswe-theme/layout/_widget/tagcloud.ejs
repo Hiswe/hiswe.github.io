@@ -1,7 +1,7 @@
 <% if (site.tags.length){ %>
-<div class="widget tagcloud">
-  <h3 class="title"><%= __('tagcloud') %></h3>
-  <div class="entry">
+<div class="widget widget--tagcloud">
+  <h3 class="widget__title"><%= __('tagcloud') %></h3>
+  <div class="widget__entry">
     <%- tagcloud(site.tags, {}) %>
   </div>
 </div>

@@ -113,7 +113,7 @@ It means having some:
 - Maybe some text formatting like bold and italic
 
 *Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.*  
-Because right now, you *only wrote two lines of text*, and ***for him it's just some text***.
+Because right now, you *only wrote two lines of text*, and ***for him it's just some text***. (he merges multiple spaces and ignore carriage return…)
 
 ### Let tell the browser we want a headline and paragraph
 

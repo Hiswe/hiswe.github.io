@@ -4,6 +4,7 @@ menu:
 
 widgets:
 - search
+- toc
 - category
 - tag
 
