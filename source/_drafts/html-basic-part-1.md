@@ -2,12 +2,11 @@
 title: html basic (part 1)
 tags:
   - beginner
+  - html
 comments: false
 categories:
   - web
 ---
-
-<!-- https://google.github.io/styleguide/htmlcssguide.html#Optional_Tags -->
 
 ## Introduction
 
@@ -78,7 +77,7 @@ Lucky for us there is a lot of alternative. And some are already on your compute
 ### What are the better alternatives (and they are free):
 
 {% caption We're ok on every computers! %}
-{% asset_img visual-studio-and-atom.svg 460 160 Atom & Visual Studio Code %} 
+{% asset_img visual-studio-and-atom.svg 360 150 Atom & Visual Studio Code %} 
 {% endcaption %}
 
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -102,7 +101,9 @@ And open it with your web browser! (or click on the `view raw` to have the final
 
 ### Why everything is on the same line?
 
-<!-- illustration: a sad html file with a broken heart -->
+{% caption Hey, just doing my job… %}
+{% asset_img browser-rendering-text.svg 430 400 The browser rendering the previous example %} 
+{% endcaption %}
 
 You want to a formated article, right?  
 It means having some:
@@ -111,11 +112,14 @@ It means having some:
 - [paragraph](https://en.wikipedia.org/wiki/Paragraph) because reading a text without space is uncomfortable 
 - Maybe some text formatting like bold and italic
 
-*Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.*
+*Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.*  
+Because right now, you *only wrote two lines of text*, and ***for him it's just some text***.
 
 ### Let tell the browser we want a headline and paragraph
 
-<!-- illustration: ??? -->
+{% caption Ah ok! you want a heading and a paragraph! %}
+{% asset_img browser-rendering-html.svg 430 450 The browser rendering the example below %} 
+{% endcaption %}
 
 Let's update our example like this:
 
@@ -125,14 +129,14 @@ After saving reload, your browser aaand… It's done! 🥇 (ok it's still kind o
 
 ### But what happened?
 
-<!-- illustration: ??? -->
+*We just told the browser which type of content we want* 😊
 
-*We just told the browser which type of content we want*
+<!-- - `<h1>` is a way to indicate we want a *h*eading of *first* level 
+- `<p>` is a way to indicate we want a *p*aragraph -->
 
-- `<h1>` is a way to indicate we want a *h*eading of *first* level 
-- `<p>` is a way to indicate we want a *p*aragraph
+#### HTML elements & Tags
 
-#### What are those strange `<h1>` & `<p>`? ➡️  Tags!
+<!-- #### What are those strange `<h1>` & `<p>`? ➡️  Tags! -->
 
 <!-- illustration: anatomy of a tag-->
 <!--  https://en.wikipedia.org/wiki/HTML_element#Syntax -->
@@ -145,10 +149,3 @@ It's *the most important thing to understand about HTML*
 - they most often come by 2:
   - a starting tag `<p>`: to tell the browser where it starts
   - an ending tag `</p>`: to tell the browser where it ends
-
-
-#### about metadata
-
-- all the informations that are evolving around the main datas
-- words: author…
-- images: camera lens, position

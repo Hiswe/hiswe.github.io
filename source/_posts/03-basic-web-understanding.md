@@ -125,6 +125,8 @@ And now, using all those text files, your browser will do the magic and finally 
 
 *Love your browser and keep it up to date* 😎
 
-I will go into more details for all those files (HTML, CSS & Javascript) with comings posts
+I will go into more details for all those files (HTML, CSS & Javascript) with comings posts.  
+
+**[UPDATE]** {% post_link html-basic-part-1 here is the the first part of HTML document! %} 
 
 Thanks to [xpac27](https://github.com/xpac27) for the corrections!
