@@ -2,13 +2,13 @@
   a {
     display: block;
     padding: 5px 10px;
-    background: color-border;
-    color: color-meta;
-    font-family: font-title;
+    background: var(--c-border);
+    color: var(--c-primary);
+    font-family: $font-title;
     text-shadow: 0 0 1px #fff;
     margin-bottom: 50px;
     &:hover {
-      background: color-link;
+      background: var(--c-contrast);
       color: #fff;
       text-decoration: none;
       text-shadow: none;
@@ -19,7 +19,7 @@
     &::before {
       content: '\f053';
       padding-right: 10px;
-      font-family: font-icon;
+      font-family: $font-icon;
     }
   }
 
@@ -27,7 +27,7 @@
     &::after {
       content: '\f054';
       padding-left: 10px;
-      font-family: font-icon;
+      font-family: $font-icon;
     }
   }
 }

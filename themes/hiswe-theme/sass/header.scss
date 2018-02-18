@@ -4,15 +4,18 @@
   padding: 1em $gutter;
   text-align: center;
 
-  @media $mq-medium {
+  @media #{$mq-medium} {
     display: flex;
-    height: 100px;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
     justify-content: space-between;
     align-items: center;
   }
 
-  @media $mq-big {
-    padding: 0;
+  @media #{$mq-big} {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
   }
 
   a {
@@ -40,11 +43,11 @@
 }
 
 #main-nav {
-  font-family: font-title;
+  font-family: $font-title;
   line-height: 2.5em;
 
   ul {
-    list-style: none
+    list-style: none;
     padding: 0;
     margin: 0;
   }

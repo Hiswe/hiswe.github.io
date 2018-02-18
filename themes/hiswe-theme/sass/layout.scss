@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: var(--page-width);
+  padding: 0 0;
+  background: var(--c-background);
+  color: var(--c-text);
+  font-family: $font-default;
+  text-shadow: 0 0 1px transparent;
+
+  @media #{$mq-big} {
+    padding: 0 $gutter;
+    display: grid;
+    font-size: 18px;
+    grid-gap: var(--gutter);
+    grid-template-columns:
+      [main-start article-start] 70%
+      [sidebar-start article-end] 1fr
+      [main-end];
+  }
+}
+
+#header {
+  grid-column: main-start / main-end;
+}
+
+#footer {
+  grid-column: main-start / main-end;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-title;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--c-contrast);
+  &:hover {
+    text-decoration: underline;
+  }
+}

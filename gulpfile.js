@@ -37,23 +37,22 @@ function cleanCSS() {
   return del([`${themeDir}/*.css`,`${cssDest}/*.css.map`])
 }
 
-function compileCSS() {
+function compileSass() {
   return gulp
-  .src( `${themeDir}/stylus/style.styl` )
+  .src( `${themeDir}/sass/index.scss` )
   .pipe( $.plumber(onError) )
   .pipe( $.sourcemaps.init() )
-  .pipe( $.stylus({
-    'include css': true,
-  }) )
+  .pipe( $.sass() )
   .pipe( $.postcss([
     autoprefixer({ browsers: ['ie 10', 'last 2 versions'], }),
   ]) )
   .pipe( $.if(isDev, cssDev(), cssProd()) )
+  .pipe( $.rename({basename: `hiswe-theme`}) )
   .pipe( gulp.dest(cssDest) )
   .pipe( $.if(isDev, reload({stream: true})) )
 }
 
-const css = gulp.series( cleanCSS, compileCSS )
+const css = gulp.series( cleanCSS, compileSass )
 
 ////////
 // DEV
@@ -78,7 +77,7 @@ function reloadBrowser( done ) {
 
 function watch() {
   gulp.watch( `source/**/**.{md,svg,png,jpg}`, reloadBrowser )
-  gulp.watch( `${ themeDir }/stylus/**/*.styl`,  css )
+  gulp.watch( `${ themeDir }/sass/*.scss`,  css )
 }
 
 const bsAndWatch = () => {
@@ -90,5 +89,6 @@ const dev = gulp.series(build, bsAndWatch)
 
 gulp.task( `dev`, dev )
 gulp.task( `build`, build )
+gulp.task( `sass`, compileSass )
 gulp.task( `css`, css )
 gulp.task( `default`, build )

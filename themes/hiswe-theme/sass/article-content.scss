@@ -19,10 +19,10 @@
   }
 
   blockquote {
-    border-top: 1px solid color-border;
-    border-bottom: 1px solid color-border;
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
     font-style: italic;
-    font-family: font-serif;
+    font-family: $font-serif;
     font-size: 1.2em;
     padding: 0 30px 15px;
     text-align: center;
@@ -35,7 +35,7 @@
       padding-top: 0;
 
       cite {
-        &:before {
+        &::before {
           content: '—';
           color: #ccc;
           padding: 0 0.5em;
@@ -46,7 +46,7 @@
 
   code,
   pre {
-    font-family: font-mono;
+    font-family: $font-mono;
   }
 
   code {
@@ -55,13 +55,13 @@
     padding: 0 5px;
     margin: 0 2px;
     font-size: 0.9em;
-    border: 1px solid color-border;
+    border: 1px solid var(--c-border);
     border-radius: 3px;
   }
 
   pre {
     background: #eee;
-    border: 1px solid color-border;
+    border: 1px solid var(--c-border);
     margin-top: 15px;
     overflow: auto;
     padding: 7px 15px;
@@ -98,18 +98,19 @@
 
   // h1,
   h2 {
+    --margin-left-right: calc( var(--article-left-right-gutter) * -1);
     counter-increment: section;
     font-weight: normal;
     padding-bottom: 10px;
     font-size: 30px;
     margin-top: 20px;
-    margin-left: calc( var(--article-left-right-gutter) * -1);
-    margin-right:  @margin-left;
+    margin-left: var(--margin-left-right);
+    margin-right:  var(--margin-left-right);
     padding-left: var(--article-left-right-gutter);
     position: relative;
 
     .article--full & {
-      border-bottom: 1px solid color-border;
+      border-bottom: 1px solid var(--c-border);
 
       &::before {
         color: var(--c-primary-lighter);
@@ -117,7 +118,7 @@
         position: absolute;
         transform: translateX(-130%);
 
-        @media $mq-big {
+        @media #{$mq-big} {
           content: counter(section, upper-latin) '. ';
         }
       }
@@ -210,19 +211,17 @@
     background: var(--c-contrast-lightest);
     font-style: normal;
     padding-left: .35em;
-    padding-right: @padding-left;
+    padding-right: .35em;
   }
 
   //////
   // SPLIT PRESENTATION
   //////
 
-  $stripe = #fbfbfb;
-
   .split {
     margin: 1em calc(var(--article-left-right-gutter)*-1) 0;
 
-    @media $mq-medium {
+    @media #{$mq-medium} {
       display: flex;
       flex-wrap: wrap;
     }
@@ -231,7 +230,7 @@
     &__content {
       padding: .5em 1em;
 
-      @media $mq-medium {
+      @media #{$mq-medium} {
         flex: 0 0 50%;
 
         &:first-of-type {
@@ -248,7 +247,7 @@
       color: var(--c-primary);
       padding-bottom: 0;
 
-      @media $mq-medium {
+      @media #{$mq-medium} {
         order: 0;
       }
     }
@@ -256,25 +255,20 @@
       margin: 0;
       padding-top: 1px;
 
-      @media $mq-medium {
+      @media #{$mq-medium} {
         order: 2;
       }
 
       &--first {
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, $stripe 5px, $stripe 10px);
+        background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, var(--c-stripe-img) 5px, var(--c-stripe-img) 10px);
       }
       &--second {
-        background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, $stripe 5px, $stripe 10px);
-        @media $mq-medium {
-          box-shadow: -1px 0 0 darken($stripe, 7%);
+        background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, var(--c-stripe-img) 5px, var(--c-stripe-img) 10px);
+        @media #{$mq-medium} {
+          box-shadow: -1px 0 0 darken($c-stripe-img, 7%);
         }
       }
 
-    }
-
-    em {
-      font-weight: bold;
-      background: lighten(color-link, 70%);
     }
   }
 }
@@ -283,12 +277,9 @@
 // VIDEO
 //////
 
-$stripe = darken(color-background, 5%);
-
 .video-wrapper {
   text-align: center;
-  background-image: repeating-linear-gradient(-45deg, color-background, color-background 5px, $stripe 5px, $stripe 10px);
+  background-image: repeating-linear-gradient(-45deg, var(--c-background), var(--c-background) 5px, var(--c-stripe-video) 5px, var(--c-stripe-video) 10px);
   padding: .75em 0 .25em;
   margin: 0 calc(var(--article-left-right-gutter)*-1);
 }
-

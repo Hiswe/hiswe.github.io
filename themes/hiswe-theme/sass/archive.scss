@@ -1,34 +1,35 @@
 .archive-title {
-  color: color-meta;
+  color: var(--c-primary);
   font-weight: normal;
   margin-bottom: 30px;
   text-shadow: 0 0 1px #fff;
-  &:before {
-    font-family: font-icon;
+  &::before {
+    font-family: $font-icon;
     content: '\f073';
     padding-right: 15px;
   }
 
   &.tag {
-    &:before {
+    &::before {
       content: '\f02b';
     }
   }
 
   &.category {
-    &:before {
+    &::before {
       content: '\f07b';
     }
   }
 }
 
 .post-list {
+  $root: &;
   list-style: none;
   padding: 0;
   background: white;
 
   &__item {
-    padding: var(--half-gutter) var(--gutter)
+    padding: var(--half-gutter) var(--gutter);
 
     & + & {
       border-top: 1px solid var(--c-border);
@@ -44,12 +45,12 @@
     display: block;
   }
   &__title {
-    font-family: font-title;
+    font-family: $font-title;
     font-size: 1.35em;
     color: var(--c-text);
 
-    // http://stylus-lang.com/docs/selectors.html#partial-reference
-    ^[0]__item:hover & {
+    // https://codeburst.io/how-to-do-sass-grandparent-selectors-b8666dcaf961
+    #{$root}__item:hover & {
       color: var(--c-contrast);
     }
   }

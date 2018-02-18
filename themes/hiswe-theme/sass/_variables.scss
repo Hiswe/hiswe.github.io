@@ -1,0 +1,81 @@
+///////
+// COLORS
+///////
+
+$c-text: #445;
+
+$c-border: #ddd;
+
+$c-primary: #82b7d1;
+$c-primary-lighter: lighten( $c-primary, 15% );
+$c-primary-lightest: lighten( $c-primary, 29% );
+
+$c-contrast: #ff0078;
+$c-contrast-lightest: lighten($c-contrast, 40%);
+
+$color-background: $c-primary-lightest;
+
+$c-stripe-img: #fbfbfb;
+$c-stripe-video: darken($color-background, 5%);
+
+///////
+// FONTS
+///////
+
+$font-title: 'Sansita one', Georgia, serif;
+$font-default: 'Kameron', Georgia, serif;
+
+$font-serif: "Georgia", serif;
+$font-mono: Monaco, Menlo, Consolas, Courier New, monospace;
+
+$font-icon: 'FontAwesome';
+$font-icon-path: 'font/fontawesome-webfont';
+
+@font-face {
+  font-family: $font-icon;
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$font-icon-path}.woff') format('woff');
+}
+
+///////
+// SIZES
+///////
+
+$page-width: 1200px;
+$gutter: 30px;
+$half-gutter: ($gutter / 2);
+$quarter-gutter: ($gutter / 4);
+$big-gutter: ($gutter * 2);
+
+//----- MEDIA QUERIES
+
+$mq-small: '(max-width: 600px)';
+$mq-medium: '(min-width: 601px)';
+$mq-medium-only: '(min-width: 601px) and (max-width: 1023px)';
+$mq-not-big: '(max-width: 1023px)';
+$mq-big: '(min-width: 1024px)';
+
+///////
+// CSS VARS
+///////
+
+:root {
+  --c-primary: $c-primary;
+  --c-primary-lighter: $c-primary-lighter;
+  --c-primary-lightest: $c-primary-lightest;
+  --c-contrast: $c-contrast;
+  --c-contrast-lightest: $c-contrast-lightest;
+  --c-border: $c-border;
+  --c-text: $c-text;
+  --c-background: var(--c-primary-lightest);
+  --c-stripe-img: $c-stripe-img;
+  --c-stripe-video: $c-stripe-video;
+
+  --gutter: $gutter;
+  --half-gutter: $half-gutter;
+  --quarter-gutter: $quarter-gutter;
+  --big-gutter: $big-gutter;
+
+  --page-width: $page-width;
+}
