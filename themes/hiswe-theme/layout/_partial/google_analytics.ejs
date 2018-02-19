@@ -1,4 +1,8 @@
-<% if (theme.google_analytics){ %>
+<%
+  const isDev = env.env === `development`
+  const showAnalytics = theme.google_analytics && !isDev
+%>
+<% if (showAnalytics){ %>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
 <script>
