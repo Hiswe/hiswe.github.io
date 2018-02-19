@@ -1,4 +1,5 @@
 .article {
+  $root: &;
   --article-left-right-gutter: var(--gutter);
   background: #fff;
   margin-bottom: var(--gutter);
@@ -12,6 +13,11 @@
 
   &--short + &--short {
     margin-top: var(--gutter);
+  }
+
+  &--short#{$root}--draft .title::before {
+    content: '[DRAFT] ';
+    color: var(--c-primary-lighter);
   }
 
   &.page {

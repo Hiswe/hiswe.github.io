@@ -9,6 +9,8 @@ comments: false
 The purpose here is to select part of images and/or process only part of images.  
 You need to know what is **layers** (Add Link)
 
+<!-- more -->
+
 ### unlocking the first layer
 
 ## The dirty way

@@ -1,4 +1,11 @@
-<article class="article article--<% if (index){ %>short<% } else { %>full<% } %>">
+<%
+  const isListPage = index === true
+  const isDraft = !item.published
+  const articleLayoutClass = `article--${ isListPage ? 'short' : 'full' }`
+  const articleDraftCLass = isDraft ? `article--draft` : ``
+%>
+
+<article class="article <%= articleLayoutClass %> <%= articleDraftCLass %>">
   <% if (item.photos && item.photos.length){ %>
     <%- partial('post/gallery') %>
   <% } %>
