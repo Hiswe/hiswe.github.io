@@ -310,10 +310,17 @@
     font-weight: bold;
     cursor: pointer;
 
-    &::before {
-      font: 18px/1 $font-icon;
-      content: '\f022';
+    &-show::before,
+    &-hide::before {
+      font-family: $font-icon;
       color: var(--c-primary-lighter);
+      padding-right: .5em;
+    }
+    &-show::before {
+      content: '\f055';
+    }
+    &-hide::before {
+      content: '\f056';
     }
   }
 }
