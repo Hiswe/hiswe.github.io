@@ -42,6 +42,5 @@ ffmpeg -an -i source-720.mov -vcodec h264 -acodec aac -strict -2 output.mp4
 ## TODO
 
 1. RSS https://github.com/hexojs/hexo-generator-feed
-2. TOC https://hexo.io/docs/helpers.html#toc
 3. favicon
 4. comments

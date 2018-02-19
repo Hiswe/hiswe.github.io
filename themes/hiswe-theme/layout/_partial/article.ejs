@@ -7,6 +7,17 @@
     <% if (item.excerpt && index){ %>
       <%- item.excerpt %>
     <% } else { %>
+      <% if (is_post()){ %>
+        <div class="toc-wrapper">
+          <input type="checkbox" class="toc-wrapper__toggle" id="toggle-toc" checked/>
+          <label class="toc-wrapper__label" for="toggle-toc">
+            <span class="toc-wrapper__label-show">Show</span>
+            <span class="toc-wrapper__label-hide">Hide</span>
+            Table of Content
+          </label>
+          <%- toc(item.content, {list_number: false, max_depth: 3}) %>
+        </div>
+      <% } %>
       <%- item.content %>
     <% } %>
   </div>
