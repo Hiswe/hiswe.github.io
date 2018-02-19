@@ -82,7 +82,7 @@ Of course, using a tool, is clicking on it to select it.
 
 When you see an arrow in the tool square, It means that by making a *long press on this tool*, you can *access other tools!*
 
-**MORE TOOLS IMAGE**
+<!-- **MORE TOOLS IMAGE** -->
 
 ### Artboard(s)
 
@@ -94,11 +94,11 @@ A lot of stuff are placed here.
 It can be colors, layers and so on.  
 Every panel can be grouped with `tabs`.
 
-**TABS IMAGE**
+<!-- **TABS IMAGE** -->
 
 And every panel as some options:
 
-**OPTION ICON**
+<!-- **OPTION ICON** -->
 
 You can check it every time you want. Be curious :P
 

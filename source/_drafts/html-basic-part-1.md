@@ -47,12 +47,8 @@ In short: *you can't use Microsoft Word*
 
 And *your browser can't understand Docx* files.
 Even if, when looking at word document *it looks like only text, it isn't.*  
-Word in its files store a lots of other informations! 
 
-- the text in itself but also…
-- the font styles you use (which font, the size, if it's bold or not)
-- the images you embedded in
-- and so on…
+Word in its files store a lots of other informations! the text in itself but also the font styles you use (which font, the size, if it's bold or not), the images you use, etc.
 
 ### Let's use a proper text editor
 
@@ -117,7 +113,7 @@ Because right now, you *only wrote two lines of text*, and ***for him it's just 
 
 ### Let tell the browser we want a headline and paragraph
 
-{% caption Ah ok! you want a heading and a paragraph! %}
+{% caption Ah ok! you want a heading & a paragraph! %}
 {% asset_img browser-rendering-html.svg 430 450 The browser rendering the example below %} 
 {% endcaption %}
 
@@ -131,21 +127,37 @@ After saving reload, your browser aaand… It's done! 🥇 (ok it's still kind o
 
 *We just told the browser which type of content we want* 😊
 
-<!-- - `<h1>` is a way to indicate we want a *h*eading of *first* level 
-- `<p>` is a way to indicate we want a *p*aragraph -->
+#### The anatomy of an HTML element
 
-#### HTML elements & Tags
+{% caption What's inside an HTML element %}
+{% asset_img html-element-anatomy.svg 500 280 Two detailed HTML elements %} 
+{% endcaption %}
 
-<!-- #### What are those strange `<h1>` & `<p>`? ➡️  Tags! -->
+An HTML Element is a **group having a semantic value** (like heading, paragraph, list…)  
+It's composed most of the time by:
 
-<!-- illustration: anatomy of a tag-->
-<!--  https://en.wikipedia.org/wiki/HTML_element#Syntax -->
+- a *starting tag* (`<h1>` & `<p>` in our example)
+- the *content* (your different texts)
+- a *closing tag* (`</h1>` & `</p>` in our example)
 
-Those are what we called: [`tags`]().
-It's *the most important thing to understand about HTML*
+you can see more on this [wikipedia article](https://en.wikipedia.org/wiki/HTML_element#Syntax)
 
-- **tags** are the *base bricks to build an HTML document* 
-- they define an [HTML element](https://en.wikipedia.org/wiki/HTML_element)
-- they most often come by 2:
-  - a starting tag `<p>`: to tell the browser where it starts
-  - an ending tag `</p>`: to tell the browser where it ends
+#### Starting and closing tags
+
+Thats's how you tell the browser where an HTML element begin and stop.  
+Without it, as clever as the browser is, he can't guess what you have in your mind when writing your HTML page.  
+It's *the most important thing to understand about HTML!*
+
+#### h1 & p
+
+As told previously, any HTML carry a **semantic value**. So: 
+
+- `h1` stands for *h*eading of *1*<sup>st</sup> level 
+- `p` stands for *p*aragraph
+
+You can preview an [extensive list of tags here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+
+## Conclusion
+
+Writing an HTML Page is easy! 
+But we have more to see on the second part to make it a little bit more nicer ⭐️
