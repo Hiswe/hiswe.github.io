@@ -28,6 +28,12 @@ yarn run hexo new [layout] <title>
 - page  (source)
 - draft (source/_drafts)
 
+### converting a draft
+
+```
+yarn run hexo publish <title>
+```
+
 ### converting videos
 
 [vestride's gist](https://gist.github.com/Vestride/278e13915894821e1d6f)
@@ -41,6 +47,7 @@ ffmpeg -an -i source-720.mov -vcodec h264 -acodec aac -strict -2 output.mp4
 
 ## TODO
 
-1. RSS https://github.com/hexojs/hexo-generator-feed
-3. favicon
-4. comments
+- better sticky style https://developers.google.com/web/updates/2017/09/sticky-headers
+- better video player
+- favicon
+- comments
