@@ -51,6 +51,5 @@ ffmpeg -an -i source-720.mov -vcodec h264 -acodec aac -strict -2 output.mp4
 - remove font-awesome => go with svg symbols
 - better video player
 - better sticky style https://developers.google.com/web/updates/2017/09/sticky-headers
-- .afdesigns shouldn't be published 
 - favicon
 - comments
