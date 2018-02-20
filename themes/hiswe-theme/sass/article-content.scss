@@ -150,6 +150,11 @@
     border: none;
   }
 
+  a[href^="https://en.wikipedia.org"]::after {
+    content: ' (wikipedia)';
+    color: var(--c-primary);
+  }
+
   .image-container {
     counter-increment: caption;
     display: block;
@@ -279,7 +284,9 @@
 
 .video-wrapper {
   text-align: center;
-  background-image: repeating-linear-gradient(-45deg, var(--c-background), var(--c-background) 5px, var(--c-stripe-video) 5px, var(--c-stripe-video) 10px);
+  background-image: repeating-linear-gradient(-45deg,
+    white, white 5px,
+    var(--c-stripe-img) 5px, var(--c-stripe-img) 10px);
   padding: .75em 0 .25em;
   margin: 0 calc(var(--article-left-right-gutter)*-1);
 }

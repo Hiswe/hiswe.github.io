@@ -33,7 +33,7 @@ But for the browser to understand it's reading an HTML file we need two things:
 - the *right file extension:* ***.html***
 - a *small text at the top of the file* to indicate the content is really HTML.<br> This will be `<!DOCTYPE html>`  
 
-### Hey! if it's text file, I can use Microsoft Word!
+### Hey! if it's a text file, I can use Microsoft Word!
 
 {% caption Guy, I can't understand you %}
 {% asset_img browser-dont-understand-word.svg 400 190 A Word file speaking an incomprehensible language to a browser %} 
@@ -53,8 +53,7 @@ Word in its files store a lots of other informations! the text in itself but als
 ### Let's use a proper text editor
 
 So we need another solution.  
-Lucky for us there is a lot of alternative. And some are already on your computer!
-
+Luckily there is a lot of alternative, and some are already on your computer!
 
 #### On mac: TextEdit
 
@@ -73,7 +72,7 @@ Lucky for us there is a lot of alternative. And some are already on your compute
 ### What are the better alternatives (and they are free):
 
 {% caption We're ok on every computers! %}
-{% asset_img visual-studio-and-atom.svg 360 150 Atom & Visual Studio Code %} 
+{% asset_img visual-studio-and-atom.svg 430 180 Atom & Visual Studio Code %} 
 {% endcaption %}
 
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -95,33 +94,34 @@ You can now type:
 
 And open it with your web browser! (or click on the `view raw` to have the final result)
 
-### Why everything is on the same line?
+### Why is everything on the same line?
 
 {% caption Hey, just doing my job… %}
 {% asset_img browser-rendering-text.svg 430 400 The browser rendering the previous example %} 
 {% endcaption %}
 
-You want to a formated article, right?  
-It means having some:
+You wanted to have a formated article, right?  
+It means for a better reading experience having some:
 
 - [headlines](https://en.wikipedia.org/wiki/Headline) 
-- [paragraph](https://en.wikipedia.org/wiki/Paragraph) because reading a text without space is uncomfortable 
+- [paragraph](https://en.wikipedia.org/wiki/Paragraph)
 - Maybe some text formatting like bold and italic
 
 *Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.*  
-Because right now, you *only wrote two lines of text*, and ***for him it's just some text***. (he merges multiple spaces and ignore carriage return…)
+Because right now, you *only wrote two lines of text*, and ***for him it's just some text***: **he merges multiple spaces and ignore carriage return** 😇 (and believe me, he's doing this for your own good)
 
-### Let tell the browser we want a headline and paragraph
+### Let's tell the browser we want a headline and paragraph!
 
 {% caption Ah ok! you want a heading & a paragraph! %}
 {% asset_img browser-rendering-html.svg 430 450 The browser rendering the example below %} 
 {% endcaption %}
 
-Let's update our example like this:
+We need to update our example like this:
 
 {% include_code lang:html 04-html-basic-part-1/my-improved-webpage.html %}
 
-After saving reload, your browser aaand… It's done! 🥇 (ok it's still kind of ugly but we will address that later)
+After saving reload, your browser aaand… It's done! 🥇  
+ok it's still kind of ugly but we will address that on another post talking about [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets).
 
 ### But what happened?
 
@@ -129,35 +129,37 @@ After saving reload, your browser aaand… It's done! 🥇 (ok it's still kind o
 
 #### The anatomy of an HTML element
 
-{% caption What's inside an HTML element %}
+{% caption XRay vision of HTML elements  %}
 {% asset_img html-element-anatomy.svg 500 280 Two detailed HTML elements %} 
 {% endcaption %}
 
 An HTML Element is a **group having a semantic value** (like heading, paragraph, list…)  
 It's composed most of the time by:
 
-- a *starting tag* (`<h1>` & `<p>` in our example)
+- a *starting tag* (`<h1>` & `<p>` in our example) always written by the * tag's name of the  surrounded by angle brackets*
 - the *content* (your different texts)
-- a *closing tag* (`</h1>` & `</p>` in our example)
+- a *closing tag* (`</h1>` & `</p>` in our example) like the starting tag **but**:   
+  ⚠️ *add an additional* `/` *after the first angle bracket!*
 
 you can see more on this [wikipedia article](https://en.wikipedia.org/wiki/HTML_element#Syntax)
 
 #### Starting and closing tags
 
-Thats's how you tell the browser where an HTML element begin and stop.  
-Without it, as clever as the browser is, he can't guess what you have in your mind when writing your HTML page.  
-It's *the most important thing to understand about HTML!*
+That's how you tell the browser where an HTML element begin and stop.  
+Without it, as clever as the browser is, he can't guess what you have in your mind when writing your HTML page.
+
+***Writting properly an HTML element is the most important thing to understand about HTML!***
 
 #### h1 & p
 
-As told previously, any HTML carry a **semantic value**. So: 
+As told previously, any HTML carry a **semantic value**, so: 
 
 - `h1` stands for *h*eading of *1*<sup>st</sup> level 
 - `p` stands for *p*aragraph
 
-You can preview an [extensive list of tags here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+You can view an [extensive list of HTML elements here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
 ## Conclusion
 
-Writing an HTML Page is easy! 
-But we have more to see on the second part to make it a little bit more nicer ⭐️
+Writing an HTML page is easy! 
+But we have more to see on the second part to make it a little bit more complex ⚙️

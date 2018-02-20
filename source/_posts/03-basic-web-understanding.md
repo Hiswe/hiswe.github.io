@@ -22,7 +22,7 @@ It's a simplification of what happens in reality, but the main ideas are here �
 
 It's a way of making *devices talking to each other*. 
 
-{% link internet article on wikipedia https://en.wikipedia.org/wiki/Internet %}
+[an extensive article about internet](https://en.wikipedia.org/wiki/Internet)
 
 ### Many devices
 
@@ -36,7 +36,8 @@ Even if they are all computers we can differentiate two types of devices:
 
 It's *your device* (laptop or smartphone…). 
 
-{% link client article on wikipedia https://en.wikipedia.org/wiki/Client_(computing) %}
+[//]: # ( need to suse {% link %} regular link doesn't handle well parenthesis )
+{% link an extensive article about the client https://en.wikipedia.org/wiki/Client_(computing) %}
 
 It has one or many *browsers installed on it* to easily access the internet.
 
@@ -50,7 +51,8 @@ It's a *computer* specialized in *answering request*.
 It has some special software running on it to behave that way.
 Usually you don't own one.
 
-{% link server article on wikipedia https://en.wikipedia.org/wiki/Server_(computing) %}
+[//]: # ( need to suse {% link %} regular link doesn't handle well parenthesis )
+{% link an extensive article about the server https://en.wikipedia.org/wiki/Server_(computing) %}
 
 On a small note, Internet is about making computers talk to each other. 
 So you can transform your own computer in a server if you want by installing those specific softwares!
@@ -87,7 +89,7 @@ Most of the time you want to get a webpage, but it can be anything: an image, so
 {% asset_img server-give-html.svg 525 200 the server giving a HTML file %} 
 {% endcaption %}
 
-A *webpage* is just a *text file!* we call it *html file*… ({% link your wikipedia article about this https://en.wikipedia.org/wiki/HTML %})
+A *webpage* is just a *text file!* we call it *html file*… You can read [a lot more about HTML](https://en.wikipedia.org/wiki/HTML)
 
 ### HTML
 
