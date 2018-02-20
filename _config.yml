@@ -73,3 +73,4 @@ theme: hiswe-theme
 deploy:
   type: git
   repo: https://github.com/Hiswe/hiswe.github.io
+  ignore_pattern: /illustrations/
