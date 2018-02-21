@@ -9,7 +9,6 @@ categories:
 date: 2018-02-20 09:57:44
 ---
 
-
 ## Introduction
 
 As seen in {% post_link 03-basic-web-understanding %} the HTML file is the backbone of a webpage.  
@@ -50,7 +49,7 @@ In short: *you can't use Microsoft Word*
 And *your browser can't understand Docx* files.
 Even if, when looking at word document *it looks like only text, it isn't.*  
 
-Word in its files store a lots of other informations! the text in itself but also the font styles you use (which font, the size, if it's bold or not), the images you use, etc.
+Word in its files stores a lots of other information! the text in itself but also the font styles you use (which font, the size, if it's bold or not), the images you use, etc.
 
 ### Let's use a proper text editor
 
@@ -150,7 +149,7 @@ you can see more on this [wikipedia article](https://en.wikipedia.org/wiki/HTML_
 That's how you tell the browser where an HTML element begin and stop.  
 Without it, as clever as the browser is, he can't guess what you have in your mind when writing your HTML page.
 
-***Writting properly an HTML element is the most important thing to understand about HTML!***
+***Writing properly an HTML element is the most important thing to understand about HTML!***
 
 #### h1 & p
 

@@ -32,7 +32,7 @@ Vector are getting you a very clean render. Also it's easily editable.
 For some works like:
 
 - Logo design
-- Webdesign
+- web-design
 - even illustrations
 
 that can be great advantages.
@@ -53,18 +53,17 @@ that can be great advantages.
 
 - path have a begin and an end (the red point)
 
-
 ### …a stroke? a point? 
 
 - strokes are drawn automatically by the computer
-- a stroke link two consecutives points together
+- a stroke link two consecutive points together
 
 {% caption point without and with handles %}
 {% asset_img point-basic.svg different states of points %} 
 {% endcaption %}
 
 - points can have 0, 1 or 2 `handlers`.
-- on the left side of fig.04, there is a shape where all points doensn't have handlers
+- on the left side of fig.04, there is a shape where all points doesn't have handlers
 - on the right side, the points are at the same place, but they had handlers attached to them
 
 ### …handlers?
@@ -72,7 +71,7 @@ that can be great advantages.
 - `handlers` are what make your path curvy (instead of straight)
 - both handler can be :
 	- *aligned* (fig.04 point A)
-	- *breaked* (fig.04 point B)
+	- *broken* (fig.04 point B)
 	- *alone* (fig.04 point C)
 - and can be any sized
 
@@ -81,7 +80,7 @@ that can be great advantages.
 As said before, strokes are determine by the 2 points that are on its end.
 
 - a stroke will always take the shortest path to link 2 points
-- handler are modificators of this behaviour 
+- handler are modifiers of this behavior 
 - They “attract” the stroke (like some kind of “gravity force”)
 
 {% caption handler explanation %}
@@ -90,7 +89,7 @@ As said before, strokes are determine by the 2 points that are on its end.
 
 - So without handlers: no deviations
 - with handlers: deviations
-- the bigger the handler is, the more powerfull the deviation will be
+- the bigger the handler is, the more powerful the deviation will be
 
 ## Styling
 
