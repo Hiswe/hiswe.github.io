@@ -15,25 +15,6 @@
     margin-top: var(--gutter);
   }
 
-  &--short#{$root}--draft .title::before {
-    content: '[DRAFT] ';
-    color: var(--c-primary-lighter);
-  }
-
-  &.page {
-    padding-left: 20px;
-  }
-
-  &.link .title {
-    a::after {
-      content: '\f08e';
-      color: var(--c-primary);
-      font: 12px $font-icon;
-      padding-left: 10px;
-      vertical-align: super;
-    }
-  }
-
   // .gallery {
   //   overflow: hidden;
   //   position: relative;
@@ -100,6 +81,11 @@
   &__title {
     margin-top: 0;
     font-size: 36px;
+
+    #{$root}--short#{$root}--draft &::before {
+      content: '[DRAFT] ';
+      color: var(--c-primary-lighter);
+    }
 
     a {
       color: var(--c-text);
