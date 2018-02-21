@@ -30,7 +30,7 @@ const cssDev        = lazypipe()
   .pipe( $.sourcemaps.write )
 
 const cssProd       = lazypipe()
-  .pipe( $.minifyCss )
+  .pipe( $.cleanCss )
 
 function cleanCSS() {
   if (isDev) return Promise.resolve()
