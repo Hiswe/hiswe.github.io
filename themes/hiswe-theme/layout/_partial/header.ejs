@@ -2,10 +2,10 @@
   <h1><a href="<%- config.root %>"><%= config.title %></a></h1>
   <% if (config.subtitle){ %><h2><a href="<%- config.root %>"><%= config.subtitle %></a></h2><% } %>
 </div>
-<nav id="main-nav">
-  <ul>
+<nav class="main-nav">
+  <ul class="main-nav__list">
     <% for (var i in theme.menu){ %>
-      <li><a href="<%- config.root %><%- theme.menu[i] %>"><%= i %></a></li>
+      <li class="main-nav__item"><a href="<%- config.root %><%- theme.menu[i] %>"><%= i %></a></li>
     <% } %>
   </ul>
 </nav>
