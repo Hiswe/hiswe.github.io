@@ -317,17 +317,9 @@
     font-weight: bold;
     cursor: pointer;
 
-    &-show::before,
-    &-hide::before {
-      font-family: $font-icon;
-      color: var(--c-primary-lighter);
-      padding-right: .5em;
-    }
-    &-show::before {
-      content: '\f055';
-    }
-    &-hide::before {
-      content: '\f056';
+    .icon {
+      fill: var(--c-primary-lighter);
+      vertical-align: text-bottom;
     }
   }
 }

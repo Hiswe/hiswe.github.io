@@ -107,6 +107,13 @@
     border-bottom: 1px solid var(--c-border);
     font-weight: normal;
     color: var(--c-primary);
+    display: flex;
+    align-items: center;
+
+    .icon {
+      fill: var(--c-primary-lighter);
+      margin-right: .25em;
+    }
   }
 
   ul, ol, dl {

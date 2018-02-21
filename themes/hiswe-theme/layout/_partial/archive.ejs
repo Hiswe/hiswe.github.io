@@ -1,5 +1,11 @@
 <%
 var title = '';
+const icons = {
+  category: `folder`,
+  tag: `local-offer`,
+  archive: `access-time`,
+};
+const type = page.category ? `category` : page.tag ? `tag` : `archive`;
 if (page.category) title = page.category;
 if (page.tag) title = page.tag;
 if (page.archive){
@@ -7,7 +13,9 @@ if (page.archive){
   else title = __('archive_a');
 }
 %>
-<h2 class="archive-title<% if (page.tag){ %> tag<% } else if (page.category){ %> category<% } %>"><%= title %></h2>
+<h2 class="archive-title<% if (page.tag){ %> tag<% } else if (page.category){ %> category<% } %>">
+  <%- partial('_icon', {name: icons[ type ]}) %>  <%= title %>
+</h2>
 
 <% if (pagination == 2){ %>
   <% page.posts.each( item =>{ %>
@@ -18,8 +26,10 @@ if (page.archive){
   <ul class="post-list">
     <% page.posts.each( item =>{ %>
       <li class="post-list__item">
-        <a class="post-list__link" href="<%- config.root %><%- item.path %>" target="_blank">
-          <time class="post-list__date" datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format(config.date_format) %></time>
+        <a class="post-list__link" href="<%- config.root %><%- item.path %>">
+          <div class="post-list__date dates">
+            <time class="dates__item" datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format(config.date_format) %></time>
+          </div>
           <span class="post-list__title" ><%= item.title %></span>
         </a>
       </li>

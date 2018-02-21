@@ -18,16 +18,12 @@
       text-shadow: none;
     }
 
-    &::before {
-      font-family: $font-icon;
-    }
-
     &--prev::before {
-      content: '\f053';
+      content: '<<';
       padding-right: 10px;
     }
     &--next::before {
-      content: '\f054';
+      content: '>>';
       padding-left: 10px;
     }
   }

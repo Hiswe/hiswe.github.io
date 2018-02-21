@@ -18,8 +18,12 @@
         <div class="toc-wrapper">
           <input type="checkbox" class="toc-wrapper__toggle" id="toggle-toc"/>
           <label class="toc-wrapper__label" for="toggle-toc">
-            <span class="toc-wrapper__label-show">Show</span>
-            <span class="toc-wrapper__label-hide">Hide</span>
+            <span class="toc-wrapper__label-show">
+              <%- partial('_icon', {name: `add-circle`}) %> Show
+            </span>
+            <span class="toc-wrapper__label-hide">
+              <%- partial('_icon', {name: `remove-circle`}) %> Hide
+            </span>
             Table of Content
           </label>
           <%- toc(item.content, {list_number: false, max_depth: 3}) %>
@@ -32,7 +36,7 @@
     <% if (index){ %>
       <% if (item.excerpt){ %>
         <div class="article__footer-item">
-          <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+          <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%- partial('_icon', {name: `chevron-right`}) %> <%= theme.excerpt_link %></a>
         </div>
       <% } %>
       <% if (item.comment && config.disqus_shortname){ %>

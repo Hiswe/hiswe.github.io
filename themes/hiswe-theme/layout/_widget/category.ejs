@@ -1,6 +1,6 @@
 <% if (site.categories.length){ %>
 <div class="widget widget--category">
-  <h3 class="widget__title"><%= __('categories') %></h3>
+  <h3 class="widget__title"><%- partial('_icon', {name: `folder`}) %> <%= __('categories') %></h3>
   <ul class="widget__entry">
   <% site.categories.sort('name').each(function(item){ %>
     <li><a href="<%- config.root %><%- item.path %>"><%= item.name %></a><small><%= item.posts.length %></small></li>

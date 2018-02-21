@@ -27,16 +27,6 @@ $font-default: 'Kameron', Georgia, serif;
 $font-serif: "Georgia", serif;
 $font-mono: Monaco, Menlo, Consolas, Courier New, monospace;
 
-$font-icon: 'FontAwesome';
-$font-icon-path: 'font/fontawesome-webfont';
-
-@font-face {
-  font-family: $font-icon;
-  font-style: normal;
-  font-weight: normal;
-  src: url('#{$font-icon-path}.woff') format('woff');
-}
-
 ///////
 // SIZES
 ///////

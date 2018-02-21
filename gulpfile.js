@@ -54,6 +54,50 @@ function compileSass() {
 
 const css = gulp.series( cleanCSS, compileSass )
 
+
+////////
+// ASSETS
+////////
+
+const svgTemplates  = [
+  `default-svg`,
+  `default-css`,
+  `default-demo`,
+]
+
+const icons = () => {
+  return gulp
+  .src( `icons/*.svg` )
+  .pipe( $.cheerio({
+    run: $ => {
+      // remove Google's background path
+      $( `path[fill=none]` ).remove()
+    },
+    parserOptions: {
+      xmlMode: true,
+    },
+  }) )
+  .pipe( $.rename( path => {
+    const { basename }    = path
+    const materialNameReg = /ic_([^\d]*)_black_24px/
+    const isMaterialIcon  = materialNameReg.test(basename)
+    if (!isMaterialIcon) return
+    path.basename = materialNameReg.exec(basename)[1].replace(/_/g, `-`)
+  }) )
+  .pipe( $.svgSymbols({
+    id:         `icon-%f`,
+    class:      `.icon--%f`,
+    fontSize:   20,
+    templates:  svgTemplates,
+    svgAttrs:   { class: `svg-icon-library` },
+  }) )
+  .pipe( $.rename({basename: `svg-icons`}) )
+  .pipe( $.if( /[.]svg$/, gulp.dest(`${themeDir}/layout`)) )
+  .pipe( $.if( /[.]html$/, gulp.dest('.tmp')) )
+  .pipe( $.if( /[.]css$/, gulp.dest(`${themeDir}/sass`)) )
+}
+icons.description = `bundle SVG files`
+
 ////////
 // DEV
 ////////
@@ -77,7 +121,7 @@ function reloadBrowser( done ) {
 
 function watch() {
   gulp.watch( `source/**/**.{md,svg,png,jpg}`, reloadBrowser )
-  gulp.watch( `${ themeDir }/sass/*.scss`,  css )
+  gulp.watch( `${ themeDir }/sass/*.{scss,css}`,  css )
 }
 
 const bsAndWatch = () => {
@@ -91,4 +135,5 @@ gulp.task( `dev`, dev )
 gulp.task( `build`, build )
 gulp.task( `sass`, compileSass )
 gulp.task( `css`, css )
+gulp.task( `icons`, icons )
 gulp.task( `default`, build )

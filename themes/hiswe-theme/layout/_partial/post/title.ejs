@@ -1,17 +1,17 @@
 <header class="article__header">
   <% if (item.layout != 'page'){ %>
-    <div class="article__dates">
+    <div class="article__dates dates">
       <%
         const published = item.date.format(config.date_format)
         const updated = item.updated.format(config.date_format)
       %>
-      <time class="article__date-item article__date-item--published" datetime="<%= item.date.toDate().toISOString() %>">
+      <time class="dates__item dates__item--published" datetime="<%= item.date.toDate().toISOString() %>">
         <a href="<%- config.root %><%- item.path %>">
           <%= published %>
         </a>
       </time>
       <% if (published !== updated && !index) { %>
-        <time class="article__date-item article__date-item--updated" datetime="<%= item.updated.toDate().toISOString() %>">
+        <time class="dates__item dates__item--updated" datetime="<%= item.updated.toDate().toISOString() %>">
             updated on <%= updated %>
         </time>
       <% } %>
