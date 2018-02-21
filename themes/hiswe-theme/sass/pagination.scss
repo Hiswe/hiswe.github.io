@@ -1,5 +1,8 @@
-#pagination {
-  a {
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+  &__item {
     display: block;
     padding: 5px 10px;
     background: var(--c-border);
@@ -7,27 +10,25 @@
     font-family: $font-title;
     text-shadow: 0 0 1px #fff;
     margin-bottom: 50px;
+
     &:hover {
       background: var(--c-contrast);
       color: #fff;
       text-decoration: none;
       text-shadow: none;
     }
-  }
 
-  .prev {
     &::before {
-      content: '\f053';
-      padding-right: 10px;
       font-family: $font-icon;
     }
-  }
 
-  .next {
-    &::after {
+    &--prev::before {
+      content: '\f053';
+      padding-right: 10px;
+    }
+    &--next::before {
       content: '\f054';
       padding-left: 10px;
-      font-family: $font-icon;
     }
   }
 }
