@@ -124,7 +124,7 @@ We need to update our example like this:
 After saving reload, your browser aaand… It's done! 🥇  
 ok it's still kind of ugly but we will address that on another post talking about [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets).
 
-### But what happened?
+### But what happened? HTML elements
 
 *We just told the browser which type of content we want* 😊
 
@@ -163,4 +163,9 @@ You can view an [extensive list of HTML elements here](https://developer.mozilla
 ## Conclusion
 
 Writing an HTML page is easy! 
+Now you know how to:
+
+- use a *proper text editor* to create and edit a HTML document
+- what is a *HTML element*
+
 But we have more to see on the second part to make it a little bit more complex ⚙️
