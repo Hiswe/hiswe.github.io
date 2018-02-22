@@ -1,4 +1,7 @@
 <header class="article__header">
+  <%
+    const postUrl = url_for(item.path)
+  %>
   <% if (item.layout != 'page'){ %>
     <div class="article__dates dates">
       <%
@@ -6,7 +9,7 @@
         const updated = item.updated.format(config.date_format)
       %>
       <time class="dates__item dates__item--published" datetime="<%= item.date.toDate().toISOString() %>">
-        <a href="<%- config.root %><%- item.path %>">
+        <a href="<%- postUrl %>">
           <%= published %>
         </a>
       </time>
@@ -19,14 +22,6 @@
   <% } %>
 
   <h1 class="article__title">
-    <% if (item.path){ %>
-      <a href="<%- item.path %>"><%= item.title %></a>
-    <% } else { %>
-      <% if (index){ %>
-        <a href="<%- config.root %><%- item.path %>"><%= item.title %></a>
-      <% } else { %>
-        <%= item.title %>
-      <% } %>
-    <% } %>
+    <a href="<%- postUrl %>"><%= item.title %></a>
   </h1>
 </header>
