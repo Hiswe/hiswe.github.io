@@ -6,12 +6,16 @@ $c-text: #445;
 
 $c-border: #ddd;
 
-$c-primary: #82b7d1;
-$c-primary-lighter: lighten( $c-primary, 15% );
-$c-primary-lightest: lighten( $c-primary, 29% );
+$c-primary: hsl(200, 46%, 66%);
+$c-primary-h: hue($c-primary);
+$c-primary-s: saturation($c-primary);
+$c-primary-lighter: hsl($c-primary-h, $c-primary-s, 82%);
+$c-primary-lightest: hsl($c-primary-h, $c-primary-s, 95%);
 
 $c-contrast: #ff0078;
-$c-contrast-lightest: lighten($c-contrast, 40%);
+$c-contrast-h: hue($c-contrast);
+$c-contrast-s: saturation($c-contrast);
+$c-contrast-lightest: hsl($c-contrast-h, $c-contrast-s, 95%);
 
 $color-background: $c-primary-lightest;
 
