@@ -43,6 +43,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
+  first_line: false
   tab_replace:
   hljs: true
 
