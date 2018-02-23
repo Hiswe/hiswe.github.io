@@ -52,6 +52,14 @@ figure.highlight {
   position: relative;
   font-size: 0.9em;
 
+  @media #{$mq-small} {
+    border-left: 0;
+    border-right: 0;
+    margin-left: calc( var(--gutter) * -1 );
+    margin-right: calc( var(--gutter) * -1 );
+    border-radius: 0;
+  }
+
   figcaption {
     color: var(--c-primary);
     margin-bottom: 5px;
