@@ -1,5 +1,5 @@
 ---
-title: html-basic-part-2
+title: html basic (part 2)
 tags:
   - beginner
   - html
@@ -27,7 +27,9 @@ Now we will see how to build more upon that!
 
 ## Enumerating toys: nesting HTML elements
 
-<!-- Illustrations of toys -->
+{% caption An amazing cast %}
+{% asset_img toys.svg 500 170 a sheppard, a sheep, a wolf and an dinosaur %} 
+{% endcaption %}
 
 It could be nice if me make a list of toys 🐑  
 Something like: 
@@ -45,8 +47,6 @@ How this translate to HTML?
 {% include_code lang:html 05-html-basic-part-2/01-list.html %}
 
 ### semantic of ul & li
-
-<!-- Illustrations of an HTML element containing other html elements -->
 
 As seen before, *HTML elements carry a semantic value*:  
 
