@@ -46,11 +46,11 @@ How this translate to HTML?
 
 {% include_code lang:html 05-html-basic-part-2/01-list.html %}
 
-### semantic of ul & li
+### Semantic of ul & li
 
 As seen before, *HTML elements carry a semantic value*:  
 
-- `ul` stands for *u*organized *l*ist
+- `ul` stands for *u*organized *l*ist (unorganized because it's bullet points and not a numeric value)
 - `li` stands for *l*ist *item*
 
 So because we wanted a list of elements, the obvious choice was to use those elements 😎
@@ -58,23 +58,26 @@ So because we wanted a list of elements, the obvious choice was to use those ele
 
 ### HTML element content
 
-<!-- Illustrations of a plate with apples -->
+{% caption Yummy apples with daddy basket %}
+{% asset_img basket-of-apples.svg 410 180 a basket with 3 apples %} 
+{% endcaption %}
 
 In the first part I said that the content contains your text.  
 That was partially true: *It can also contain other HTML elements!*  
 
-As example, if we want to describe in HTML a plate with 3 apples we can do something like:
+As example, if we want to describe in HTML a basket with 3 apples we can do something like:
 
 [//]: # ( Don't use backtrick as it mess with further include_code )
 {% codeblock lang:xml %}
-<plate>
+<basket>
   <apple></apple>
   <apple></apple>
   <apple></apple>
-</plate>
+</basket>
 {% endcodeblock %}
 
-Of course `plate` and `apple` are not proper elements ^^
+Of course `basket` and `apple` are not proper HTML elements ⛔ 🗑 + 🍎
+Don't use then in your HTML code. 
 
 ### Parent & Children
 
@@ -83,17 +86,21 @@ We often refer of the *HTML elements containing the other* as *the parent* of *h
 
 In the example above:
 
-- the parent will be the plate
-- the children of the plate will be the apples
+- the parent will be the basket
+- the children of the basket will be the apples
 
 ### A common mistake: not nesting properly
 
-<!-- Illustrations of an a plate overlapping an apple -->
+{% caption HTML doesn't like HTML elements in a quantum state %}
+{% asset_img intertwined-apple.svg 270 180 an apple stuck in the border of a basket %} 
+{% endcaption %}
 
 What is very important to understand, is that the browser need to know where to start and where to stop.  
-So *if we mess with the order of starting and closing tags* it can *lead to some problems*.
+So *if we mess with the order of starting and closing tags* it can *lead to some problems:*
 
-#### This HTML code is bad:
+Your browser is an amazing thing. He will try to fix it for you, but maybe not in the way you intended
+
+#### So this HTML code is bad:
 
 [//]: # ( Don't use backtrick as it mess with further include_code )
 {% codeblock lang:html %}
@@ -119,7 +126,9 @@ it *ends **outside*** his parent
 
 ### Why the spaces before `<li>`?
 
-<!-- Illustration a rainbow of indentation -->
+{% caption Spaces are helping %}
+{% asset_img indentation.svg 320 240 a nested kitchen, table, basket & apples separated by spaces %} 
+{% endcaption %}
 
 In order to prevent this problem, we use a convention:
 
@@ -143,7 +152,7 @@ Add an illustration (illustrations are good)
 
 {% include_code lang:html 05-html-basic-part-2/02-image.html %}
 
-### semantic of img
+### Semantic of img
 
 This one is easy:
 
@@ -151,7 +160,7 @@ This one is easy:
 
 Want an image? use `img` 🌆
 
-### self-closing HTML elements
+### Self-closing HTML elements
 
 <!-- Illustration an HTML who doesn't to have children -->
 
@@ -160,18 +169,20 @@ In the `img` element example, well… *an image is an image, what else do you wa
 
 ### The anatomy of attributes
 
-<!-- Illustration XRay of a tag -->
+{% caption Yummy apples can come in all sort of kind %}
+{% asset_img basket-of-colored-apples.svg 270 180 a basket with 3 apples of different kind %} 
+{% endcaption %}
 
 If we go on a deeper view, HTML elements can also have some properties that describe it.  
-Following our plate/apple example, we might want to know more about the apples:
+Following our basket/apple example, we might want to know more about the apples:
 
 [//]: # ( Don't use backtrick as it mess with further include_code )
 {% codeblock lang:xml %}
-<plate>
+<basket>
   <apple skin="pink" taste="sugary" />
   <apple skin="blue" taste="sour" />
   <apple skin="soft-pink" taste="not so much" />
-</plate>
+</basket>
 {% endcodeblock %}
 
 #### How to write an attributes
@@ -190,10 +201,12 @@ Following our plate/apple example, we might want to know more about the apples:
 
 ### The image src attribute
 
-We need to tell the browser where he can find the image.  
-The `src` attribute is simply that: where we can find the file.
+Some information like the one for an image, can't be included in the HTML document.  
+We need to tell the browser where to find them.  
 
-#### beware of spaces and letter case
+The `src` attribute is simply that: where we can find the file containing the data of my image!
+
+#### Beware of spaces and letter case
 
 The browser take a deep care of respecting what you write. 
 *He will even make a difference between [lowercase and uppercase](https://en.wikipedia.org/wiki/Letter_case)* so a file named `WOLF.jpg` and `wolf.jpg` are not similar to him.  
@@ -220,11 +233,11 @@ In order to do this we need some adjustments:
 <!-- Illustration: a man html webpage -->
 
 Developers are poet 🌈 But they also like to keep things simple & stupid 👷‍♀   
-If something is organized with `parent ➡️ children` relations, they will apply it everywhere.  
+If something is organized with `parent ➡️ children` relations, they will apply it everywhere, no exceptions allowed.
 
 #### <html\>
 
-Before we used to just put our content floating inside the text file.  
+Before, we used to just put our content floating inside the text file.  
 
 Now we put a single parent for everything: the `<html>` element.  
 Just to make sure that nobody's left without a parent.
