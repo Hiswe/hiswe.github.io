@@ -171,6 +171,15 @@ Want an image? use `img` 🌆
 Some HTML elements doesn't allow content.  
 In the `img` element example, well… *an image is an image, what else do you want to add?*
 
+to write them:
+
+- just make *only 1 tag*
+- have to *finish with **<span class="u-c-contrast">/</span>>***
+
+{% caption I'm an self-closed HTML element! %}
+{% asset_img auto-closing-tag.svg 300 140 a HTML element with a self-closed tag %} 
+{% endcaption %}
+
 ### The anatomy of attributes
 
 {% caption Yummy apples can come in all sort of kind %}
@@ -236,7 +245,7 @@ In order to do this we need some adjustments:
 
 <!-- Illustration: a man html webpage -->
 
-Developers are poet 🌈 But they also like to keep things simple & stupid 👷‍♀   
+Developers are poet 🌈 But like poetry there is some conventions: like keep things simple & stupid 👷‍♀   
 If something is organized with `parent ➡️ children` relations, they will apply it everywhere, no exceptions allowed.
 
 #### <html\>
