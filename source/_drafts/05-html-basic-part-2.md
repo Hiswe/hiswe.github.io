@@ -58,7 +58,7 @@ So because we wanted a list of elements, the obvious choice was to use those ele
 
 ### HTML element content
 
-{% caption Yummy apples with daddy basket %}
+{% caption Yummy child apples inside daddy basket %}
 {% asset_img basket-of-apples.svg 410 180 a basket with 3 apples %} 
 {% endcaption %}
 
@@ -98,7 +98,7 @@ In the example above:
 What is very important to understand, is that the browser need to know where to start and where to stop.  
 So *if we mess with the order of starting and closing tags* it can *lead to some problems:*
 
-Your browser is an amazing thing. He will try to fix it for you, but maybe not in the way you intended
+Your browser is an amazing thing. He will try to fix it for you, but maybe not in the way you intended.
 
 #### So this HTML code is bad:
 
@@ -126,8 +126,8 @@ it *ends **outside*** his parent
 
 ### Why the spaces before `<li>`?
 
-{% caption Spaces are helping %}
-{% asset_img indentation.svg 320 240 a nested kitchen, table, basket & apples separated by spaces %} 
+{% caption Spaces are helping you to read, always %}
+{% asset_img indentation.svg 500 260 a nested kitchen, table, basket & apples separated by spaces %} 
 {% endcaption %}
 
 In order to prevent this problem, we use a convention:
@@ -145,7 +145,9 @@ you can read [a more extensive article on indentation here](https://www.grannema
 
 ## Adding an image: self-closing HTML element & attributes
 
-<!-- Illustration ?? -->
+{% caption Hey, I need U ❤️ %}
+{% asset_img browser-needing-a-picture.svg 300 140 a browser taking a picture with his tiny hands %} 
+{% endcaption %}
 
 Let move on and make our HTML more fun:  
 Add an illustration (illustrations are good)
@@ -162,7 +164,9 @@ Want an image? use `img` 🌆
 
 ### Self-closing HTML elements
 
-<!-- Illustration an HTML who doesn't to have children -->
+{% caption What is it? %}
+{% asset_img what-is-this.svg 320 210 a picture looking perplexedly at a text %} 
+{% endcaption %}
 
 Some HTML elements doesn't allow content.  
 In the `img` element example, well… *an image is an image, what else do you want to add?*
@@ -212,8 +216,8 @@ The browser take a deep care of respecting what you write.
 *He will even make a difference between [lowercase and uppercase](https://en.wikipedia.org/wiki/Letter_case)* so a file named `WOLF.jpg` and `wolf.jpg` are not similar to him.  
 In the same ways, spaces can be a tricky thing so ***as a rule of thumb***:
 
-- always name your files in lowercase
-- replace spaces by `-`
+- *always name your files in lowercase*
+- *replace spaces by `-` in the name*
 
 **example:**
 
