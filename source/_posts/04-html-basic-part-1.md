@@ -19,6 +19,20 @@ The purpose of this post is to have a better understanding of those, and how you
 Like on the basic understanding, I will omit some stuff to keep it simple.  
 As more posts will be published, we will clarify those 🤓
 
+## Why HTML?
+
+Every device (computer, mobile phone, TV…) has a web-browser. So it's the most universal language you can learn!
+
+With it you can make:
+
+- blog
+- sales sites
+- video games
+- books
+- and everything more
+
+And also it can be read to people with disabilities! 
+
 ## What is an HTML file?
 
 {% caption Getting to know each other %}
