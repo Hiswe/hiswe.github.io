@@ -2,16 +2,19 @@
 <html>
 
 <%- partial('_partial/head') %>
-
-<body>
+<%
+  const pageClass = is_post() ? `layout--post` : `layout--listing`
+%>
+<body class="<%= pageClass %>">
   <%- partial('svg-icons.svg') %>
   <header id="" class="main-header"><%- partial('_partial/header') %></header>
   <main role="main">
     <%- body %>
   </main>
-  <aside class="sidebar">
-    <div class="sidebar__sticky">
-      <%- partial('_partial/sidebar') %>
+  <aside class="widgets">
+    <div class="widgets__sticky">
+      <%- partial(`_widget/category`) %>
+      <%- partial(`_widget/tag`) %>
     </div>
   </aside>
   <footer class="main-footer"><%- partial('_partial/footer') %></footer>

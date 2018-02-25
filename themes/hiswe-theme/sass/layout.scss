@@ -19,7 +19,12 @@ body {
   text-shadow: 0 0 1px transparent;
 
   @media #{$mq-big} {
-    padding: 0 $gutter;
+    font-size: 18px;
+  }
+}
+
+.layout--listing {
+  @media #{$mq-big} {
     display: grid;
     font-size: 18px;
     grid-gap: var(--gutter);
@@ -75,4 +80,8 @@ a {
 
 .icon {
   fill: currentColor;
+}
+
+.u-c-contrast {
+  color: var(--c-contrast);
 }

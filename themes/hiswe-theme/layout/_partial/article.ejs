@@ -1,54 +1,34 @@
 <%
   const isListPage = index === true
   const isDraft = !item.published
-  const articleLayoutClass = `article--${ isListPage ? 'short' : 'full' }`
   const articleDraftCLass = isDraft ? `article--draft` : ``
 %>
 
-<article class="article <%= articleLayoutClass %> <%= articleDraftCLass %>">
+<article class="article article--full <%= articleDraftCLass %>">
   <% if (item.photos && item.photos.length){ %>
     <%- partial('post/gallery') %>
   <% } %>
   <%- partial('post/title') %>
   <div class="article__content">
-    <% if (item.excerpt && index){ %>
-      <%- item.excerpt %>
-    <% } else { %>
-      <% if (is_post()){ %>
-        <div class="toc-wrapper">
-          <input type="checkbox" class="toc-wrapper__toggle" id="toggle-toc"/>
-          <label class="toc-wrapper__label" for="toggle-toc">
-            <span class="toc-wrapper__label-show">
-              <%- partial('_icon', {name: `add-circle`}) %> Show
-            </span>
-            <span class="toc-wrapper__label-hide">
-              <%- partial('_icon', {name: `remove-circle`}) %> Hide
-            </span>
-            Table of Content
-          </label>
-          <%- toc(item.content, {list_number: false, max_depth: 3}) %>
-        </div>
-      <% } %>
-      <%- item.content %>
-    <% } %>
+    <div class="toc-wrapper">
+      <input type="checkbox" class="toc-wrapper__toggle" id="toggle-toc"/>
+      <label class="toc-wrapper__label" for="toggle-toc">
+        <span class="toc-wrapper__label-show">
+          <%- partial('_icon', {name: `add-circle`}) %> Show
+        </span>
+        <span class="toc-wrapper__label-hide">
+          <%- partial('_icon', {name: `remove-circle`}) %> Hide
+        </span>
+        Table of Content
+      </label>
+      <%- toc(item.content, {list_number: false, max_depth: 3}) %>
+    </div>
+    <%- item.content %>
   </div>
   <footer class="article__footer">
-    <% if (index){ %>
-      <% if (item.excerpt){ %>
-        <div class="article__footer-item">
-          <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%- partial('_icon', {name: `chevron-right`}) %> <%= theme.excerpt_link %></a>
-        </div>
-      <% } %>
-      <% if (item.comment && config.disqus_shortname){ %>
-      <div class="article__footer-item article__footer-item--right">
-        <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-      </div>
-      <% } %>
-    <% } else { %>
-      <%- partial('post/category') %>
-      <%- partial('post/tag') %>
-      <%- partial('post/share') %>
-    <% } %>
+    <%- partial('post/category') %>
+    <%- partial('post/tag') %>
+    <%- partial('post/share') %>
   </footer>
 </article>
 
