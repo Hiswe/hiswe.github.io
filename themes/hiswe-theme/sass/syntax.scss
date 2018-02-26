@@ -41,8 +41,7 @@
 }
 
 figure.highlight {
-  background: #eee;
-  border: 1px solid var(--c-border);
+  background: var(--c-code);
   margin: 0;
   padding: 7px 15px;
   border-radius: 2px;
@@ -84,13 +83,12 @@ figure.highlight {
   .gutter {
     color: var(--c-primary);
     padding-right: 15px;
-    border-right: 1px solid var(--c-border);
+    border-right: 1px solid var(--c-primary-lighter);
     text-align: right;
   }
 
   .code {
     padding-left: 15px;
-    border-left: 1px solid #fff;
     color: #666;
   }
 

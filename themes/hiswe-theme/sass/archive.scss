@@ -1,7 +1,7 @@
 .archive-title {
   color: var(--c-primary);
   font-weight: normal;
-  padding: var(--gutter);
+  padding: var(--gutter) 0;
   margin: 0;
   text-shadow: 0 0 1px #fff;
   background: white;
@@ -19,11 +19,8 @@
   background: white;
 
   &__item {
-    padding: var(--half-gutter) var(--gutter);
-
-    & + & {
-      border-top: 1px solid var(--c-border);
-    }
+    padding: var(--half-gutter) 0;
+    border-bottom: 1px solid var(--c-border);
   }
 
   .title {

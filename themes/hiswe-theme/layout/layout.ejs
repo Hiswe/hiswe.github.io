@@ -3,8 +3,6 @@
 
 <%- partial('_partial/head') %>
 <%
-  // const pageClass = is_post() ? `layout--post` : `layout--listing`
-  // const archiveClass = page.archive ? `layout--archive` : ``
   const classes = [
     `layout`,
     is_post() ? `layout--post` : `layout--listing`,
@@ -13,7 +11,9 @@
 %>
 <body class="<%= classes.join(' ') %>">
   <%- partial('svg-icons.svg') %>
-  <header id="" class="main-header"><%- partial('_partial/header') %></header>
+  <header class="main-header">
+    <%- partial('_partial/header') %>
+  </header>
   <main role="main">
     <%- body %>
   </main>

@@ -12,8 +12,7 @@ html {
 body {
   margin: 0 auto;
   max-width: var(--page-width);
-  padding: 0 0;
-  background: var(--c-background);
+  padding: 0 var(--gutter);
   color: var(--c-text);
   font-family: $font-default;
   text-shadow: 0 0 1px transparent;
@@ -44,20 +43,14 @@ body {
 }
 
 %card {
-  --article-left-right-gutter: var(--gutter);
-  background: #fff;
-  position: relative;
-  padding: var(--gutter) var(--article-left-right-gutter) 0;
-
-  @media #{$mq-big} {
-    --article-left-right-gutter: var(--big-gutter);
-  }
+  --article-left-right-gutter: 0;
+  padding: var(--gutter) 0 0;
 }
 
 %card-footer {
   margin-top: var(--half-gutter);
-  padding: var(--half-gutter) 0;
-  border-top: 1px solid var(--c-border);
+  padding: 0 0 var(--half-gutter);
+  border-bottom: 5px solid var(--c-background);
   color: var(--c-primary);
   font-size: 0.9em;
   line-height: 16px;

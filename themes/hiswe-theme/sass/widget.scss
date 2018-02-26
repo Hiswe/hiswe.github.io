@@ -1,13 +1,7 @@
 .widgets {
   line-height: 1.8em;
-  --padding-left-right: var(--gutter);
-  padding: 0 var(--padding-left-right);
+  padding: 0;
   margin-top: var(--gutter);
-
-  @media #{$mq-big} {
-    margin-top: 0;
-    --padding-left-right: 0;
-  }
 
   &__sticky {
     @media #{$mq-medium} {
@@ -34,7 +28,10 @@
 }
 
 .widget {
+  $root: &;
+  --c-bg-widget: var(--c-background);
   word-wrap: break-word;
+  background: var(--c-bg-widget);
 
   @media #{$mq-small} {
     & + & {
@@ -43,8 +40,12 @@
   }
 
   @media #{$mq-big} {
-    .layout--listing & + & {
-      margin-top: var(--gutter);
+    .layout--listing & {
+      --c-bg-widget: none;
+
+      & + #{$root} {
+        margin-top: var(--gutter);
+      }
     }
   }
 
@@ -53,6 +54,7 @@
     small {
       margin-left: var(--quarter-gutter);
       color: var(--c-primary);
+
       &::before {
         content: '(';
       }
@@ -66,9 +68,13 @@
     @extend %aside-title;
   }
 
+  &__title,
+  &__entry {
+    padding: var(--quarter-gutter) var(--half-gutter);
+  }
+
   &__entry {
     margin: 0;
-    padding: var(--quarter-gutter) 0;
   }
 
   ul, ol, dl {

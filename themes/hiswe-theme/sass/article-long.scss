@@ -8,8 +8,8 @@
     padding-right: 0;
     display: grid;
     font-size: 18px;
-    grid-column-gap: var(--gutter);
-    grid-template-columns: 70% 1fr;
+    grid-column-gap: var(--s-grid-gutter-column);
+    grid-template-columns: 700px 1fr;
     grid-template-rows: auto;
     grid-template-areas:
       "title toc"
@@ -23,10 +23,8 @@
       grid-area: 1 / 1 / last-line / span 1;
     }
 
-    &__header,
-    &__content,
-    &__footer {
-      padding: var(--gutter) var(--big-gutter);
+    &__header  {
+      padding: var(--gutter) 0;
     }
   }
 
@@ -42,6 +40,11 @@
 
     &-title {
       @extend %aside-title;
+      display: none;
+
+      @media #{$mq-big} {
+        display: block;
+      }
     }
 
     @media #{$mq-big} {

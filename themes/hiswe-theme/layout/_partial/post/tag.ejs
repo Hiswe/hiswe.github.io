@@ -5,7 +5,7 @@
     tags.push('<a href="' + config.root + tag.path + '">' + tag.name + '</a>');
   });
   %>
-  <div class="article__footer-item article__footer-item--tags">
+  <div class="article-long__footer-item article__footer-item--tags">
     <%- partial('_icon', {name: `local-offer`}) %>  <%- tags.join(', ') %>
   </div>
 <% } %>

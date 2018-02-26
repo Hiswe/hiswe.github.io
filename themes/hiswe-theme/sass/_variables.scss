@@ -35,7 +35,7 @@ $font-mono: Monaco, Menlo, Consolas, Courier New, monospace;
 // SIZES
 ///////
 
-$page-width: 1200px;
+$page-width: 1100px;
 $gutter: 30px;
 $half-gutter: ($gutter / 2);
 $quarter-gutter: ($gutter / 4);
@@ -64,12 +64,14 @@ $mq-big: '(min-width: 1024px)';
   --c-text: $c-text;
   --c-background: var(--c-primary-lightest);
   --c-stripe-img: $c-stripe-img;
+  --c-code: var(--c-primary-lightest);
 
   --gutter: $gutter;
   --half-gutter: calc(var(--gutter) / 2);
   --quarter-gutter: calc(var(--gutter) / 4);
   --big-gutter: calc(var(--gutter) * 2);
   --s-right-column-width: $right-column-width;
+  --s-grid-gutter-column: var(--big-gutter);
 
   --page-width: $page-width;
 }

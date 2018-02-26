@@ -1,13 +1,12 @@
 .main-header {
-  text-shadow: 0 0 1px #fff;
   margin: 0;
-  padding: 1em $gutter;
+  padding: var(--gutter) 0;
   text-align: center;
 
   @media #{$mq-medium} {
     display: flex;
-    padding-top: $gutter;
-    padding-bottom: $gutter;
+    padding-top: var(--gutter);
+    padding-bottom: var(--gutter);
     justify-content: space-between;
     align-items: center;
   }
@@ -57,6 +56,24 @@
 
     & + & {
       margin-left: 30px;
+    }
+  }
+}
+
+.search {
+  input {
+    background: #fff;
+    font-family: $font-title;
+    font-style: italic;
+    font-size: 1em;
+    padding: 10px 15px;
+    border: 1px solid var(--c-border);
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--c-primary);
+
+    &:focus {
+      color: var(--c-text);
     }
   }
 }
