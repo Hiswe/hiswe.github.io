@@ -7,10 +7,6 @@
   @media #{$mq-big} {
     margin-top: 0;
     --padding-left-right: 0;
-
-    .layout--archive & {
-        padding-top: 4em;
-    }
   }
 
   &__sticky {

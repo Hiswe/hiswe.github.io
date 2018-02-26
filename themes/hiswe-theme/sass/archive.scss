@@ -1,8 +1,10 @@
 .archive-title {
   color: var(--c-primary);
   font-weight: normal;
-  margin-bottom: 30px;
+  padding: var(--gutter);
+  margin: 0;
   text-shadow: 0 0 1px #fff;
+  background: white;
 
   .icon {
     vertical-align: text-bottom;
@@ -13,6 +15,7 @@
   $root: &;
   list-style: none;
   padding: 0;
+  margin: 0;
   background: white;
 
   &__item {
