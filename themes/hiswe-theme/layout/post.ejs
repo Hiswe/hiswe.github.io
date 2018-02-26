@@ -1,27 +1,22 @@
-<%
-  const isDraft = !page.published
-  const articleDraftCLass = isDraft ? `article--draft` : ``
-%>
-
-<article class="article article--full <%= articleDraftCLass %>">
+<article class="article-long">
   <% if (page.photos && page.photos.length){ %>
     <%- partial('_partial/post/gallery') %>
   <% } %>
-  <%- partial('_partial/post/title', {item: page, index: false}) %>
-  <aside class="article__toc">
-    <div class="article__toc-sticky">
+  <%- partial('_post/title_block', {item: page, index: false, className: `article-long__header`}) %>
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky">
       Table of Content
       <%- toc(page.content, {list_number: false, max_depth: 3}) %>
     </div>
   </aside>
-  <div class="article__content">
+  <div class="article-long__content">
     <%- page.content %>
   </div>
-  <footer class="article__footer">
+  <footer class="article-long__footer">
     <%- partial('_partial/post/category', {item: page}) %>
     <%- partial('_partial/post/tag', {item: page}) %>
     <%- partial('_partial/post/share', {item: page}) %>
   </footer>
 </article>
 
-<%- partial('comment') %>
+<%- partial('_partial/comment') %>

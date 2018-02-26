@@ -65,9 +65,9 @@ $mq-big: '(min-width: 1024px)';
   --c-stripe-img: $c-stripe-img;
 
   --gutter: $gutter;
-  --half-gutter: $half-gutter;
-  --quarter-gutter: $quarter-gutter;
-  --big-gutter: $big-gutter;
+  --half-gutter: calc(var(--gutter) / 2);
+  --quarter-gutter: calc(var(--gutter) / 4);
+  --big-gutter: calc(var(--gutter) * 2);
 
   --page-width: $page-width;
 }

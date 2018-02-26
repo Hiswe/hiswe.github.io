@@ -1,0 +1,31 @@
+<%
+  const postUrl = url_for(item.path)
+  const isDraft = !item.published
+  const draftCLass = isDraft ? `title__heading--draft` : ``
+  const topLevalClass = className ? className : ``
+%>
+
+<header class="title <%= topLevalClass %>">
+  <% if (item.layout != 'page'){ %>
+    <div class="title__dates">
+      <%
+        const published = item.date.format(config.date_format)
+        const updated = item.updated.format(config.date_format)
+      %>
+      <time class="title__date title__date--published" datetime="<%= item.date.toDate().toISOString() %>">
+        <a href="<%- postUrl %>">
+          <%= published %>
+        </a>
+      </time>
+      <% if (published !== updated && !index) { %>
+        <time class="title__date title__date--updated" datetime="<%= item.updated.toDate().toISOString() %>">
+            updated on <%= updated %>
+        </time>
+      <% } %>
+    </div>
+  <% } %>
+
+  <h1 class="title__heading <%= draftCLass %>">
+    <a href="<%- postUrl %>"><%= item.title %></a>
+  </h1>
+</header>

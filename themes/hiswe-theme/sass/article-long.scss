@@ -1,0 +1,128 @@
+.article-long {
+  $root: &;
+  @extend %card;
+
+  @media #{$mq-big} {
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+    display: grid;
+    font-size: 18px;
+    grid-column-gap: var(--gutter);
+    grid-template-columns: 70% 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "title toc"
+      "content toc"
+      "footer toc";
+
+    &::after {
+      content: '';
+      background: white;
+      z-index: -1;
+      grid-area: 1 / 1 / last-line / span 1;
+    }
+
+    &__header,
+    &__content,
+    &__footer {
+      padding: var(--gutter) var(--big-gutter);
+    }
+  }
+
+  &__header {
+    .layout--post & {
+      padding-bottom: 0;
+      grid-area: title;
+    }
+  }
+
+  // &__title {
+  //   margin-top: 0;
+  //   font-size: 36px;
+
+  //   #{$root}--short#{$root}--draft &::before {
+  //     content: '[DRAFT] ';
+  //     color: var(--c-primary-lighter);
+  //   }
+
+  //   a {
+  //     color: var(--c-text);
+  //     &:hover {
+  //       color: var(--c-contrast);
+  //       text-decoration: none;
+  //     }
+  //   }
+  // }
+
+  &__toc {
+    grid-area: toc;
+
+    @media #{$mq-big} {
+      &-sticky {
+        position: sticky;
+        top: var(--gutter);
+        // padding: 0;
+      }
+    }
+  }
+
+  &__content {
+    padding-top: 0;
+    grid-area: content;
+  }
+
+  &__footer {
+    @extend %card-footer;
+
+    .layout--post & {
+      grid-area: footer;
+    }
+
+    &:empty {
+      display: none;
+    }
+
+    &-item {
+      margin: 5px 0;
+
+      .icon {
+        fill: var(--c-primary-lighter);
+        vertical-align: text-bottom;
+      }
+    }
+
+    .addthis {
+      margin-top: 15px;
+
+      iframe {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .title__heading--draft::before {
+    display: none;
+  }
+}
+
+//////
+// TOC
+//////
+
+.toc {
+  list-style-type: upper-alpha;
+
+  &,
+  &-child {
+    color: var(--c-primary-lighter);
+    font-family: $font-title;
+  }
+  &-child {
+    list-style-type: circle;
+  }
+
+  &-link {
+    font-family: $font-default;
+  }
+}

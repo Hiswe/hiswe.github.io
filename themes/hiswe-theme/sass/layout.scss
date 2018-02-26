@@ -43,6 +43,36 @@ body {
   grid-column: main-start / main-end;
 }
 
+%card {
+  --article-left-right-gutter: var(--gutter);
+  background: #fff;
+  position: relative;
+  padding: var(--gutter) var(--article-left-right-gutter) 0;
+
+  @media #{$mq-big} {
+    --article-left-right-gutter: var(--big-gutter);
+  }
+}
+
+%card-footer {
+  margin-top: var(--half-gutter);
+  padding: var(--half-gutter) 0;
+  border-top: 1px solid var(--c-border);
+  color: var(--c-primary);
+  font-size: 0.9em;
+  line-height: 16px;
+  min-height: 16px;
+
+  a {
+    color: var(--c-primary);
+
+    &:hover {
+      color: var(--c-contrast);
+      text-decoration: none;
+    }
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-title;
 }

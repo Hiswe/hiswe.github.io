@@ -8,7 +8,7 @@
   <% if (item.photos && item.photos.length){ %>
     <%- partial('post/gallery') %>
   <% } %>
-  <%- partial('post/title') %>
+  <%- partial('post/title_block', {class: `article__header`}) %>
   <div class="article__content">
     <div class="toc-wrapper">
       <input type="checkbox" class="toc-wrapper__toggle" id="toggle-toc"/>

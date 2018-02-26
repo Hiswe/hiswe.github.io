@@ -1,26 +1,18 @@
 <% page.posts.each( item => { %>
-  <%
-    const isDraft = !item.published
-    const articleDraftCLass = isDraft ? `article--draft` : ``
-  %>
-  <article class="article article--short <%= articleDraftCLass %>">
-    <%- partial( `_partial/post/title`, {item, index: true} ) %>
-    <div class="article__content">
+  <article class="article-short">
+    <%- partial('_post/title_block', {item: item, index: false, className: `article-short__header`}) %>
+    <div class="article-short__content">
       <% if (item.excerpt){ %>
         <%- item.excerpt %>
       <% } else { %>
-        <%- item.content %>
+        definie an excerpt!
       <% } %>
     </div>
-    <% if (item.excerpt){ %>
-      <footer class="article__footer">
-        <div class="article__footer-item">
-          <a href="<%- config.root %><%- item.path %>#more" class="more-link">
-            <%- partial(`_icon`, {name: `chevron-right`}) %> <%= theme.excerpt_link %>
-          </a>
-        </div>
-      </footer>
-    <% } %>
+    <footer class="article-short__read-more">
+      <a href="<%- config.root %><%- item.path %>#more" class="more-link">
+        <%- partial(`_icon`, {name: `chevron-right`}) %> <%= theme.excerpt_link %>
+      </a>
+    </footer>
   </article>
 <% }); %>
 

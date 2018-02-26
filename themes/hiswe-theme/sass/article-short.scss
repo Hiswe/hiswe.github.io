@@ -1,0 +1,22 @@
+.article-short {
+  @extend %card;
+
+  & + & {
+    margin-top: var(--gutter);
+  }
+
+  &__read-more {
+    @extend %card-footer;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+
+      .icon {
+        font-size: 1.75em;
+        margin-right: 0;
+      }
+    }
+  }
+
+}

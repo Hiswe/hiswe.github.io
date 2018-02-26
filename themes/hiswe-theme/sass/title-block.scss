@@ -1,0 +1,33 @@
+.title {
+  &__dates {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__date {
+    color: var(--c-primary-lighter);
+    font: 0.9em $font-title;
+    margin-bottom: 5px;
+    line-height: 1;
+
+    &--updated {
+      display: none;
+    }
+  }
+  &__heading {
+    margin-top: 0;
+    font-size: 36px;
+
+    a {
+      color: var(--c-text);
+
+      &:hover {
+        color: var(--c-contrast);
+        text-decoration: none;
+      }
+    }
+    &--draft::before {
+      content: '[DRAFT] ';
+      color: var(--c-primary-lighter);
+    }
+  }
+}

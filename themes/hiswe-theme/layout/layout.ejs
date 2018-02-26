@@ -5,7 +5,7 @@
 <%
   const pageClass = is_post() ? `layout--post` : `layout--listing`
 %>
-<body class="<%= pageClass %>">
+<body class="layout <%= pageClass %>">
   <%- partial('svg-icons.svg') %>
   <header id="" class="main-header"><%- partial('_partial/header') %></header>
   <main role="main">
@@ -17,7 +17,9 @@
       <%- partial(`_widget/tag`) %>
     </div>
   </aside>
-  <footer class="main-footer"><%- partial('_partial/footer') %></footer>
+  <footer class="main-footer">
+    <%- partial('_partial/footer') %>
+  </footer>
   <%- partial('_partial/after_footer') %>
 </body>
 </html>
