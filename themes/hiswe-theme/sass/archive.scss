@@ -22,23 +22,14 @@
       border-top: 1px solid var(--c-border);
     }
   }
-  &__link {
-    display: block;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  &__date {
-    display: block;
-  }
-  &__title {
-    font-family: $font-title;
-    font-size: 1.35em;
-    color: var(--c-text);
 
-    // https://codeburst.io/how-to-do-sass-grandparent-selectors-b8666dcaf961
-    #{$root}__item:hover & {
-      color: var(--c-contrast);
+  .title {
+    &__dates a {
+      color: var(--c-primary-lighter);
+    }
+    &__heading {
+      font-size: 1.35em;
+      font-weight: 400;
     }
   }
 }

@@ -40,6 +40,7 @@ $gutter: 30px;
 $half-gutter: ($gutter / 2);
 $quarter-gutter: ($gutter / 4);
 $big-gutter: ($gutter * 2);
+$right-column-width: 30%;
 
 //----- MEDIA QUERIES
 
@@ -68,6 +69,7 @@ $mq-big: '(min-width: 1024px)';
   --half-gutter: calc(var(--gutter) / 2);
   --quarter-gutter: calc(var(--gutter) / 4);
   --big-gutter: calc(var(--gutter) * 2);
+  --s-right-column-width: $right-column-width;
 
   --page-width: $page-width;
 }

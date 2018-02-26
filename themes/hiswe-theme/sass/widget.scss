@@ -5,7 +5,12 @@
   margin-top: var(--gutter);
 
   @media #{$mq-big} {
+    margin-top: 0;
     --padding-left-right: 0;
+
+    .layout--archive & {
+        padding-top: 4em;
+    }
   }
 
   &__sticky {
@@ -21,6 +26,12 @@
         position: sticky;
         top: var(--gutter);
         padding: 0;
+      }
+    }
+
+    .layout--post & {
+      @media #{$mq-big} {
+        margin-right: var(--s-right-column-width);
       }
     }
   }
@@ -55,25 +66,13 @@
     }
   }
 
-  &__title,
+  &__title {
+    @extend %aside-title;
+  }
+
   &__entry {
     margin: 0;
     padding: var(--quarter-gutter) 0;
-  }
-
-  &__title {
-    padding-top: 0;
-    font-size: 1em;
-    border-bottom: 1px solid var(--c-border);
-    font-weight: normal;
-    color: var(--c-primary);
-    display: flex;
-    align-items: center;
-
-    .icon {
-      fill: var(--c-primary-lighter);
-      margin-right: .25em;
-    }
   }
 
   ul, ol, dl {

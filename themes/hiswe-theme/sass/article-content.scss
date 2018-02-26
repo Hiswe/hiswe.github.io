@@ -108,19 +108,16 @@
     margin-right:  var(--margin-left-right);
     padding-left: var(--article-left-right-gutter);
     position: relative;
+    border-bottom: 1px solid var(--c-border);
 
-    .article--full & {
-      border-bottom: 1px solid var(--c-border);
+    &::before {
+      color: var(--c-primary-lighter);
+      content: counter(section, upper-latin) ' ';
+      position: absolute;
+      transform: translateX(-130%);
 
-      &::before {
-        color: var(--c-primary-lighter);
-        content: counter(section, upper-latin) ' ';
-        position: absolute;
-        transform: translateX(-130%);
-
-        @media #{$mq-big} {
-          content: counter(section, upper-latin) '. ';
-        }
+      @media #{$mq-big} {
+        content: counter(section, upper-latin) '. ';
       }
     }
   }

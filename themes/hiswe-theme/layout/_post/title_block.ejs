@@ -2,7 +2,7 @@
   const postUrl = url_for(item.path)
   const isDraft = !item.published
   const draftCLass = isDraft ? `title__heading--draft` : ``
-  const topLevalClass = className ? className : ``
+  const topLevalClass = typeof className === `string` ? className : ``
 %>
 
 <header class="title <%= topLevalClass %>">

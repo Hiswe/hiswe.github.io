@@ -26,12 +26,7 @@ if (page.archive){
   <ul class="post-list">
     <% page.posts.each( item =>{ %>
       <li class="post-list__item">
-        <a class="post-list__link" href="<%- config.root %><%- item.path %>">
-          <div class="post-list__date dates">
-            <time class="dates__item" datetime="<%= item.date.toDate().toISOString() %>"><%= item.date.format(config.date_format) %></time>
-          </div>
-          <span class="post-list__title" ><%= item.title %></span>
-        </a>
+        <%- partial('_post/title_block', {item, index: true}) %>
       </li>
     <% }); %>
   </ul>

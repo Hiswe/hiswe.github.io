@@ -3,9 +3,15 @@
 
 <%- partial('_partial/head') %>
 <%
-  const pageClass = is_post() ? `layout--post` : `layout--listing`
+  // const pageClass = is_post() ? `layout--post` : `layout--listing`
+  // const archiveClass = page.archive ? `layout--archive` : ``
+  const classes = [
+    `layout`,
+    is_post() ? `layout--post` : `layout--listing`,
+  ]
+  if (page.archive) classes.push(`layout--archive`)
 %>
-<body class="layout <%= pageClass %>">
+<body class="<%= classes.join(' ') %>">
   <%- partial('svg-icons.svg') %>
   <header id="" class="main-header"><%- partial('_partial/header') %></header>
   <main role="main">

@@ -5,25 +5,12 @@
 %>
 
 <article class="article article--full <%= articleDraftCLass %>">
-  <% if (item.photos && item.photos.length){ %>
+  <% if (page.photos && page.photos.length){ %>
     <%- partial('post/gallery') %>
   <% } %>
-  <%- partial('post/title_block', {class: `article__header`}) %>
+  <%- partial('_post/title_block', {item: page, className: `article__header`}) %>
   <div class="article__content">
-    <div class="toc-wrapper">
-      <input type="checkbox" class="toc-wrapper__toggle" id="toggle-toc"/>
-      <label class="toc-wrapper__label" for="toggle-toc">
-        <span class="toc-wrapper__label-show">
-          <%- partial('_icon', {name: `add-circle`}) %> Show
-        </span>
-        <span class="toc-wrapper__label-hide">
-          <%- partial('_icon', {name: `remove-circle`}) %> Hide
-        </span>
-        Table of Content
-      </label>
-      <%- toc(item.content, {list_number: false, max_depth: 3}) %>
-    </div>
-    <%- item.content %>
+    <%- page.content %>
   </div>
   <footer class="article__footer">
     <%- partial('post/category') %>
