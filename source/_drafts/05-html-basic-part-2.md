@@ -176,7 +176,7 @@ to write them:
 - just make *only 1 tag*
 - have to *finish with **<span class="u-c-contrast">/</span>>***
 
-{% caption I'm an self-closed HTML element! %}
+{% caption I'm a self-closed HTML element! %}
 {% asset_img auto-closing-tag.svg 300 140 a HTML element with a self-closed tag %} 
 {% endcaption %}
 

@@ -21,7 +21,7 @@
 
     .layout--post & {
       @media #{$mq-big} {
-        margin-right: var(--s-right-column-width);
+        margin-right: calc( calc(var(--s-grid-gutter-column)/2) + var(--s-right-column-width) );
       }
     }
   }

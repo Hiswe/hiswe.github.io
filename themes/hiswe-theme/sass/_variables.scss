@@ -56,6 +56,8 @@ $mq-big: '(min-width: 1024px)';
 
 :root {
   --c-primary: $c-primary;
+  --c-primary-h: $c-primary-h;
+  --c-primary-s: $c-primary-s;
   --c-primary-lighter: $c-primary-lighter;
   --c-primary-lightest: $c-primary-lightest;
   --c-contrast: $c-contrast;
@@ -64,7 +66,7 @@ $mq-big: '(min-width: 1024px)';
   --c-text: $c-text;
   --c-background: var(--c-primary-lightest);
   --c-stripe-img: $c-stripe-img;
-  --c-code: var(--c-primary-lightest);
+  --c-code: HSL(var(--c-primary-h), var(--c-primary-s), 97%);
 
   --gutter: $gutter;
   --half-gutter: calc(var(--gutter) / 2);

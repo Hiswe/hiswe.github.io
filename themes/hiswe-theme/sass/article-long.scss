@@ -99,15 +99,12 @@
 //////
 
 .toc {
-  padding: 0;
-  counter-reset: section;
+  padding: 0 0 0 1.15em;
 
   &-level-2 {
-    counter-increment: section;
-    list-style: none;
+    list-style-type: upper-latin;
 
     &::before {
-      content: counter(section, upper-latin) '. ';
       color: var(--c-primary-lighter);
     }
 
@@ -120,10 +117,23 @@
   }
   &-child {
     list-style-type: disc;
-    padding-left: 2em;
+    padding-left: 1em;
+  }
+
+  &-item {
+
   }
 
   &-link {
+    color: var(--c-text);
     font-family: $font-default;
+    padding-bottom: .5em;
+    display: inline-block;
+    vertical-align: text-top;
+
+    &:hover {
+      color: var(--c-contrast);
+      text-decoration: none;
+    }
   }
 }
