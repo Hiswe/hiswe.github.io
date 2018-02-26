@@ -91,7 +91,7 @@ In the example above:
 
 ### A common mistake: not nesting properly
 
-{% caption HTML doesn't like HTML elements in a quantum state %}
+{% caption Browser doesn't like HTML elements in a quantum state %}
 {% asset_img intertwined-apple.svg 270 180 an apple stuck in the border of a basket %} 
 {% endcaption %}
 
@@ -168,7 +168,7 @@ Want an image? use `img` 🌆
 {% asset_img what-is-this.svg 320 210 a picture looking perplexedly at a text %} 
 {% endcaption %}
 
-Some HTML elements doesn't allow content.  
+Some HTML elements doesn't need content.  
 In the `img` element example, well… *an image is an image, what else do you want to add?*
 
 to write them:
@@ -245,8 +245,8 @@ In order to do this we need some adjustments:
 
 <!-- Illustration: a man html webpage -->
 
-Developers are poet 🌈 But like poetry there is some conventions: like keep things simple & stupid 👷‍♀   
-If something is organized with `parent ➡️ children` relations, they will apply it everywhere, no exceptions allowed.
+Developers are poet 🌈 But like poetry there is some conventions: like keeping things simple & stupid 👷‍♀   
+If something is organized with `parent ➡️ children` relations, then we should apply it everywhere, no exceptions allowed.
 
 #### <html\>
 
