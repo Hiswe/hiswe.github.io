@@ -12,10 +12,10 @@ $c-primary-s: saturation($c-primary);
 $c-primary-lighter: hsl($c-primary-h, $c-primary-s, 82%);
 $c-primary-lightest: hsl($c-primary-h, $c-primary-s, 95%);
 
-$c-contrast: #ff0078;
-$c-contrast-h: hue($c-contrast);
-$c-contrast-s: saturation($c-contrast);
-$c-contrast-lightest: hsl($c-contrast-h, $c-contrast-s, 95%);
+$c-accent: #ff0078;
+$c-accent-h: hue($c-accent);
+$c-accent-s: saturation($c-accent);
+$c-accent-lightest: hsl($c-accent-h, $c-accent-s, 95%);
 
 $color-background: $c-primary-lightest;
 
@@ -60,8 +60,8 @@ $mq-big: '(min-width: 1024px)';
   --c-primary-s: $c-primary-s;
   --c-primary-lighter: $c-primary-lighter;
   --c-primary-lightest: $c-primary-lightest;
-  --c-contrast: $c-contrast;
-  --c-contrast-lightest: $c-contrast-lightest;
+  --c-accent: $c-accent;
+  --c-accent-lightest: $c-accent-lightest;
   --c-border: $c-border;
   --c-text: $c-text;
   --c-background: var(--c-primary-lightest);

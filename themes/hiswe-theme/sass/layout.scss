@@ -60,7 +60,7 @@ body {
     color: var(--c-primary);
 
     &:hover {
-      color: var(--c-contrast);
+      color: var(--c-accent);
       text-decoration: none;
     }
   }
@@ -102,7 +102,7 @@ h3 {
 
 a {
   text-decoration: none;
-  color: var(--c-contrast);
+  color: var(--c-accent);
   &:hover {
     text-decoration: underline;
   }
@@ -123,6 +123,6 @@ a {
   fill: currentColor;
 }
 
-.u-c-contrast {
-  color: var(--c-contrast);
+.u-c-accent {
+  color: var(--c-accent);
 }
