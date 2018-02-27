@@ -200,14 +200,16 @@ Following our basket/apple example, we might want to know more about the apples:
 
 #### How to write an attributes
 
-<!-- Illustration an attribute -->
+{% caption XRay the tag %}
+{% asset_img anatomy-of-an-attribute.svg 480 280 a description of a tag %} 
+{% endcaption %}
 
-- those properties are name ***attributes***
+- those properties are named ***attributes***
 - those attributes are ***always on the starting tag***
 - those attributes ***come*** more often ***in two parts***:
-  - an ***attribute name***
-  - an ***attribute value***
-- we always write in `attributename="the content on my property"`  
+  - an ***attribute name***: a text **without** space
+  - an ***attribute value***: a text that can contain space
+- we always write it that way: `attributename="the content on my property"`  
   - Notice the * **equal sign** right after the attribute name*
   - The *equal sign **shouldn't be separate by space***  (`attributename = "the content on my property"` is wrong)
   - The *content* always come *surrounded by double quotes*
@@ -221,6 +223,10 @@ The `src` attribute is simply that: where we can find the file containing the da
 
 #### Beware of spaces and letter case
 
+{% caption Don't mess with the wolves %}
+{% asset_img wolf-vs-wolf.svg 460 180 two wolfs' picture, which are written one in lowercase & the other in uppercase  %} 
+{% endcaption %}
+
 The browser take a deep care of respecting what you write. 
 *He will even make a difference between [lowercase and uppercase](https://en.wikipedia.org/wiki/Letter_case)* so a file named `WOLF.jpg` and `wolf.jpg` are not similar to him.  
 In the same ways, spaces can be a tricky thing so ***as a rule of thumb***:
@@ -233,6 +239,10 @@ In the same ways, spaces can be a tricky thing so ***as a rule of thumb***:
 `My long Image name.jpg` is better written `my-long-image-name.jpg`
 
 ## The page title
+
+{% caption I put a title here %}
+{% asset_img website-title.svg 220 160 The browser tab is named “wolf story” %} 
+{% endcaption %}
 
 The browser let's us specify the text that appear in the tab.  
 We call it the page title.
@@ -250,10 +260,10 @@ If something is organized with `parent ➡️ children` relations, then we shoul
 
 #### <html\>
 
-Before, we used to just put our content floating inside the text file.  
+Before, we used to just put our content, floating inside the HTML file.  
 
-Now we put a single parent for everything: the `<html>` element.  
-Just to make sure that nobody's left without a parent.
+Now we put a single parent for everything: the `<html>` element, just to make sure that nobody's left without a parent.  
+And we called it `<html>` because it's what we're writing right?
 
 #### <head\>
 

@@ -174,7 +174,7 @@ As told previously, any HTML carry a **semantic value**, so:
 
 You can view an [extensive list of HTML elements here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
-## Conclusion
+## Wrapping up
 
 Writing an HTML page is easy! 
 Now you know how to:
