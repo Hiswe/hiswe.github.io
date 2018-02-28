@@ -1,17 +1,37 @@
-<div class="header__title">
-  <h1><a href="<%- config.root %>"><%= config.title %></a></h1>
-  <% if (config.subtitle){ %><h2><a href="<%- config.root %>"><%= config.subtitle %></a></h2><% } %>
+<div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="<%- config.root %>">
+        <%= config.title %>
+        <%#
+        // http://lea.verou.me/2012/05/text-masking-the-standards-way/
+        // https://css-tricks.com/how-to-do-knockout-text/#article-header-id-4
+        // https://codepen.io/giana/pen/RPdLaQ/
+        <svg>
+          <defs>
+            <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" class="main-header__title-stop--1"/>
+              <stop offset="100%" class="main-header__title-stop--2"/>
+            </linearGradient>
+          </defs>
+          <text y="1.2em"></text>
+          </svg>
+          %>
+      </a>
+    </h1>
+    <% if (config.subtitle){ %><h2><a href="<%- config.root %>"><%= config.subtitle %></a></h2><% } %>
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      <% for (var i in theme.menu){ %>
+        <li class="main-nav__item"><a href="<%- config.root %><%- theme.menu[i] %>"><%= i %></a></li>
+      <% } %>
+      <li class="main-nav__item">
+        <form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+          <input type="search" name="q" results="0" placeholder="<%= __('search') %>">
+          <input type="hidden" name="q" value="site:<%- config.url.replace(/^https?:\/\//, '') %>">
+        </form>
+      </li>
+    </ul>
+  </nav>
 </div>
-<nav class="main-nav">
-  <ul class="main-nav__list">
-    <% for (var i in theme.menu){ %>
-      <li class="main-nav__item"><a href="<%- config.root %><%- theme.menu[i] %>"><%= i %></a></li>
-    <% } %>
-    <li class="main-nav__item">
-      <form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-        <input type="search" name="q" results="0" placeholder="<%= __('search') %>">
-        <input type="hidden" name="q" value="site:<%- config.url.replace(/^https?:\/\//, '') %>">
-      </form>
-    </li>
-  </ul>
-</nav>

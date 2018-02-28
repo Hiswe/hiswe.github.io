@@ -1,4 +1,5 @@
 .article-short {
+  $root: &;
   @extend %card;
 
   & + & {
@@ -7,6 +8,10 @@
 
   &__read-more {
     @extend %card-footer;
+
+    #{$root}:last-of-type & {
+      border: 0;
+    }
 
     a {
       display: inline-flex;

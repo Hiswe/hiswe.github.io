@@ -1,28 +1,32 @@
 .widgets {
+  $root: &;
   line-height: 1.8em;
-  padding: 0;
   margin-top: var(--gutter);
 
+  .layout--listing & {
+    grid-area: right;
+
+
+    &__sticky {
+      @media #{$mq-left-with-aside} {
+        display: block;
+        position: sticky;
+        top: var(--s-gutter);
+      }
+    }
+  }
+
   &__sticky {
-    @media #{$mq-medium} {
+    @media #{$mq-no-asides} {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: var(--gutter);
     }
 
-    .layout--listing & {
-      @media #{$mq-big} {
-        display: block;
-        position: sticky;
-        top: var(--gutter);
-        padding: 0;
-      }
-    }
-
     .layout--post & {
-      @media #{$mq-big} {
-        margin-right: calc( calc(var(--s-grid-gutter-column)/2) + var(--s-right-column-width) );
-      }
+      @extend %layout;
+      --max-width: var(--s-article-width);
+      padding: 0;
     }
   }
 }
@@ -33,19 +37,21 @@
   word-wrap: break-word;
   background: var(--c-bg-widget);
 
-  @media #{$mq-small} {
-    & + & {
-      margin-top: var(--gutter);
+  & + & {
+    margin-top: var(--gutter);
+
+    @media #{$mq-no-asides} {
+      margin-top: 0;
     }
   }
 
-  @media #{$mq-big} {
-    .layout--listing & {
+  .layout--listing & {
+    @media #{$mq-left-with-aside} {
       --c-bg-widget: none;
-
       & + #{$root} {
         margin-top: var(--gutter);
       }
+
     }
   }
 

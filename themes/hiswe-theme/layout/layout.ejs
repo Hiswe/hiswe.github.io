@@ -16,13 +16,13 @@
   </header>
   <main role="main">
     <%- body %>
+    <aside class="widgets">
+      <div class="widgets__sticky">
+        <%- partial(`_widget/category`) %>
+        <%- partial(`_widget/tag`) %>
+      </div>
+    </aside>
   </main>
-  <aside class="widgets">
-    <div class="widgets__sticky">
-      <%- partial(`_widget/category`) %>
-      <%- partial(`_widget/tag`) %>
-    </div>
-  </aside>
   <footer class="main-footer">
     <%- partial('_partial/footer') %>
   </footer>

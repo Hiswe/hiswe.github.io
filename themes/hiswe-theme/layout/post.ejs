@@ -4,9 +4,6 @@
   <% } %>
   <%- partial('_post/title_block', {item: page, index: false, className: `article-long__header`}) %>
   <aside class="article-long__toc">
-    <header class="article-long__toc-title">
-      Table of Content
-    </header>
     <div class="article-long__toc-sticky">
       <%- toc(page.content, {list_number: false, max_depth: 3}) %>
     </div>

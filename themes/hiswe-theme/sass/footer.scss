@@ -1,6 +1,8 @@
 .main-footer {
-  color: var(--c-primary);
-  padding: var(--half-gutter) 0 ;
+  background: var(--c-primary-lightest);
+  color: var(--c-primary-lighter);
+  margin-top: var(--s-gutter);
+  padding: var(--s-half-gutter) 0 ;
   font: 0.9em/1.6 $font-title;
   text-shadow: 0 0 1px #fff;
   text-align: center;

@@ -1,24 +1,28 @@
 .main-header {
-  margin: 0;
-  padding: var(--gutter) 0;
-  text-align: center;
+  background: linear-gradient(
+    var(--c-primary-lighter),
+    var(--c-accent-lightest)
+  );
+  padding: 0 var(--s-gutter);
 
-  @media #{$mq-medium} {
-    display: flex;
-    padding-top: var(--gutter);
-    padding-bottom: var(--gutter);
-    justify-content: space-between;
-    align-items: center;
-  }
+  &__content {
+    @extend %layout;
+    text-align: center;
+    padding-top: var(--s-half-gutter);
+    padding-bottom: var(--s-half-gutter);
 
-  @media #{$mq-big} {
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
+    @media #{$mq-centered-with-asides} {
+      --max-width: var(--s-article-width);
+    }
+    @media #{$mq-medium} {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   a {
-    color: var(--c-primary);
+    color: white;
 
     &:hover {
       color: var(--c-accent);
@@ -38,6 +42,19 @@
     font-size: 0.9em;
     line-height: 1;
     margin-top: 10px;
+  }
+
+  &__title {
+    &-stop--1 {
+      stop-color: var(--c-primary);
+    }
+    &-stop--2 {
+      stop-color: var(--c-primary-lightest);
+    }
+    text {
+      fill: url(#Gradient2);
+    }
+
   }
 }
 
@@ -67,7 +84,7 @@
     font-style: italic;
     font-size: 1em;
     padding: 10px 15px;
-    border: 1px solid var(--c-border);
+    border: 0;
     width: 100%;
     box-sizing: border-box;
     color: var(--c-primary);

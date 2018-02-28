@@ -1,20 +1,22 @@
 .article-long {
   $root: &;
-  @extend %card;
+  @extend %layout;
+  @extend %grid-layout;
+  padding: var(--s-gutter) 0 0;
 
-  @media #{$mq-big} {
-    background: none;
-    padding-left: 0;
-    padding-right: 0;
-    display: grid;
+  @media #{$mq-left-with-aside} {
     font-size: 18px;
-    grid-column-gap: var(--s-grid-gutter-column);
-    grid-template-columns: 700px 1fr;
-    grid-template-rows: auto;
     grid-template-areas:
-      "title toc"
-      "content toc"
-      "footer toc";
+      "title right"
+      "content right"
+      "footer right";
+  }
+
+  @media #{$mq-centered-with-asides} {
+    grid-template-areas:
+      "left title right"
+      "left content right"
+      "left footer right";
 
     &::after {
       content: '';
@@ -24,7 +26,7 @@
     }
 
     &__header  {
-      padding: var(--gutter) 0;
+      padding: 0 0 var(--gutter);
     }
   }
 
@@ -36,18 +38,9 @@
   }
 
   &__toc {
-    grid-area: toc;
+    grid-area: right;
 
-    &-title {
-      @extend %aside-title;
-      display: none;
-
-      @media #{$mq-big} {
-        display: block;
-      }
-    }
-
-    @media #{$mq-big} {
+    @media #{$mq-left-with-aside} {
       &-sticky {
         position: sticky;
         top: var(--gutter);
@@ -99,6 +92,7 @@
 //////
 
 .toc {
+  margin: 0;
   padding: 0 0 0 1.15em;
 
   &-level-2 {
@@ -118,10 +112,6 @@
   &-child {
     list-style-type: disc;
     padding-left: 1em;
-  }
-
-  &-item {
-
   }
 
   &-link {

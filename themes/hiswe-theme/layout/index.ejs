@@ -1,21 +1,21 @@
-<% page.posts.each( item => { %>
-  <article class="article-short">
-    <%- partial('_post/title_block', {item: item, index: false, className: `article-short__header`}) %>
-    <div class="article-short__content">
-      <% if (item.excerpt){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        definie an excerpt!
-      <% } %>
-    </div>
-    <footer class="article-short__read-more">
-      <a href="<%- config.root %><%- item.path %>#more" class="more-link">
-        <%- partial(`_icon`, {name: `chevron-right`}) %> <%= theme.excerpt_link %>
-      </a>
-    </footer>
-  </article>
-<% }); %>
+ <div class="home-articles">
+  <% page.posts.each( item => { %>
+    <article class="article-short">
+      <%- partial('_post/title_block', {item: item, index: false, className: `article-short__header`}) %>
+      <div class="article-short__content">
+        <% if (item.excerpt){ %>
+          <%- item.excerpt %>
+        <% } else { %>
+          definie an excerpt!
+        <% } %>
+      </div>
+      <footer class="article-short__read-more">
+        <a href="<%- config.root %><%- item.path %>#more" class="more-link">
+          <%- partial(`_icon`, {name: `chevron-right`}) %> <%= theme.excerpt_link %>
+        </a>
+      </footer>
+    </article>
+  <% }); %>
 
-<%- partial('_partial/pagination') %>
-
-
+  <%- partial('_partial/pagination') %>
+</div>
