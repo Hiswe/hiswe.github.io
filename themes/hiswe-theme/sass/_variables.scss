@@ -46,13 +46,6 @@ $article-width: 700px;
 
 //----- MEDIA QUERIES
 
-$mq-small: '(max-width: 600px)';
-$mq-medium: '(min-width: 601px)';
-$mq-medium-only: '(min-width: 601px) and (max-width: #{$page-width-max - 1})';
-$mq-not-big: '(max-width: #{$page-width-max - 1})';
-$mq-big: '(min-width: #{$page-width-max})';
-
-// $mq-no-asides-tiny: '(max-width: #{$article-width - 300})';
 $mq-no-asides: '(min-width: #{$article-width - 150})';
 $mq-left-with-aside: '(min-width: #{$page-width})';
 $mq-centered-with-asides: '(min-width: #{$page-width-max})';
@@ -75,18 +68,12 @@ $mq-centered-with-asides: '(min-width: #{$page-width-max})';
   --c-stripe-img: $c-stripe-img;
   --c-code: HSL(var(--c-primary-h), var(--c-primary-s), 97%);
 
-  --gutter: $gutter;
-  --half-gutter: calc(var(--gutter) / 2);
-  --quarter-gutter: calc(var(--gutter) / 4);
-  --big-gutter: calc(var(--gutter) * 2);
-
-
   --s-gutter: $gutter;
-  --s-half-gutter: calc(var(--gutter) / 2);
-  --s-quarter-gutter: calc(var(--gutter) / 4);
-  --s-big-gutter: calc(var(--gutter) * 2);
+  --s-half-gutter: calc(var(--s-gutter) / 2);
+  --s-quarter-gutter: calc(var(--s-gutter) / 4);
+  --s-big-gutter: calc(var(--s-gutter) * 2);
   --s-right-column-width: $right-column-width;
-  --s-grid-gutter-column: var(--big-gutter);
+  --s-grid-gutter-column: var(--s-big-gutter);
   --s-page-width: $page-width;
   --s-page-width-max: $page-width-max;
   --s-article-width: $article-width;

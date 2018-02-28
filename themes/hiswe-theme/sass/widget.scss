@@ -1,7 +1,7 @@
 .widgets {
   $root: &;
   line-height: 1.8em;
-  margin-top: var(--gutter);
+  margin-top: var(--s-gutter);
 
   .layout--listing & {
     grid-area: right;
@@ -20,7 +20,7 @@
     @media #{$mq-no-asides} {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: var(--gutter);
+      grid-gap: var(--s-gutter);
     }
 
     .layout--post & {
@@ -38,7 +38,7 @@
   background: var(--c-bg-widget);
 
   & + & {
-    margin-top: var(--gutter);
+    margin-top: var(--s-gutter);
 
     @media #{$mq-no-asides} {
       margin-top: 0;
@@ -49,7 +49,7 @@
     @media #{$mq-left-with-aside} {
       --c-bg-widget: none;
       & + #{$root} {
-        margin-top: var(--gutter);
+        margin-top: var(--s-gutter);
       }
 
     }
@@ -58,7 +58,7 @@
   &--tag,
   &--category {
     small {
-      margin-left: var(--quarter-gutter);
+      margin-left: var(--s-quarter-gutter);
       color: var(--c-primary);
 
       &::before {
@@ -76,7 +76,7 @@
 
   &__title,
   &__entry {
-    padding: var(--quarter-gutter) var(--half-gutter);
+    padding: var(--s-quarter-gutter) var(--s-half-gutter);
   }
 
   &__entry {

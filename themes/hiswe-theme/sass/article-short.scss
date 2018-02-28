@@ -3,7 +3,7 @@
   @extend %card;
 
   & + & {
-    margin-top: var(--gutter);
+    margin-top: var(--s-gutter);
   }
 
   &__read-more {

@@ -16,7 +16,7 @@ body {
   font-family: $font-default;
   text-shadow: 0 0 1px transparent;
 
-  @media #{$mq-big} {
+  @media #{$mq-left-with-aside} {
     font-size: 18px;
   }
 }
@@ -30,27 +30,10 @@ main {
     @extend %layout;
     @extend %grid-layout ;
   }
-  // @media #{$mq-left-with-aside} {
-  //   display: grid;
-  //   font-size: 18px;
-  //   grid-gap: var(--gutter);
-  //   grid-template-columns:
-  //     [main-start article-start] 1fr
-  //     [sidebar-start article-end] var(--s-right-column-width)
-  //     [main-end];
-  // }
 }
 
 .home-articles {
   grid-area: content;
-}
-
-.main-header {
-  grid-column: main-start / main-end;
-}
-
-.main-footer {
-  grid-column: main-start / main-end;
 }
 
 %layout {
@@ -76,17 +59,16 @@ main {
     grid-template-columns: 1fr var(--s-article-width) 1fr;
     grid-template-areas: "left content right";
   }
-
 }
 
 %card {
   --article-left-right-gutter: 0;
-  padding: var(--gutter) 0 0;
+  padding: var(--s-gutter) 0 0;
 }
 
 %card-footer {
-  margin-top: var(--half-gutter);
-  padding: 0 0 var(--half-gutter);
+  margin-top: var(--s-half-gutter);
+  padding: 0 0 var(--s-half-gutter);
   border-bottom: 5px solid var(--c-background);
   color: var(--c-primary);
   font-size: 0.9em;
@@ -105,7 +87,7 @@ main {
 
 %aside-title {
   margin: 0;
-  padding: var(--quarter-gutter) 0;
+  padding: var(--s-quarter-gutter) 0;
   padding-top: 0;
   font-family: $font-title;
   font-size: 1em;

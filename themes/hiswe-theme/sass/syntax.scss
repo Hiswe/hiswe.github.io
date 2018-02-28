@@ -42,27 +42,25 @@
 
 figure.highlight {
   background: var(--c-code);
-  margin: 0;
+  --margin-left-right: calc( var(--s-gutter) * -1 );
+  margin: 0 var(--margin-left-right);
   padding: 7px 15px;
-  border-radius: 2px;
   text-shadow: 0 0 1px #fff;
   line-height: 1.6;
   overflow: auto;
   position: relative;
   font-size: 0.9em;
 
-  @media #{$mq-small} {
-    border-left: 0;
-    border-right: 0;
-    margin-left: calc( var(--gutter) * -1 );
-    margin-right: calc( var(--gutter) * -1 );
-    border-radius: 0;
+  @media #{$mq-no-asides} {
+    --margin-left-right: 0;
+    border-radius: var(--s-quarter-gutter);
   }
 
   figcaption {
     color: var(--c-primary);
     margin-bottom: 5px;
     text-shadow: 0 0 1px #fff;
+
     a {
       position: absolute;
       right: 15px;

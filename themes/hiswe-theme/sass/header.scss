@@ -14,7 +14,7 @@
     @media #{$mq-centered-with-asides} {
       --max-width: var(--s-article-width);
     }
-    @media #{$mq-medium} {
+    @media #{$mq-no-asides} {
       display: flex;
       justify-content: space-between;
       align-items: center;
