@@ -14,7 +14,6 @@ body {
   padding: 0;
   color: var(--c-text);
   font-family: $font-default;
-  text-shadow: 0 0 1px transparent;
 
   @media #{$mq-left-with-aside} {
     font-size: 18px;
