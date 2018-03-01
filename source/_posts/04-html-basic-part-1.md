@@ -182,4 +182,4 @@ Now you know how to:
 - use a *proper text editor* to create and edit a HTML document
 - what is a *HTML element*
 
-But we have more to see on the second part to make it a little bit more complex ⚙️
+But we have more to see on {% post_link 05-html-basic-part-2 the second part %}  to make it a little bit more complex ⚙️

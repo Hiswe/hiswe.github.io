@@ -12,8 +12,8 @@ categories:
 
 With {% post_link 04-html-basic-part-1 %} we've seen how to:
 
-- use a **proper text editor** to create and edit a HTML document
-- what is a **HTML element**
+- use a __proper text editor__ to create and edit a HTML document
+- what is a __HTML element__
 
 Now we will see how to build more upon that!
 
@@ -105,22 +105,22 @@ Your browser is an amazing thing. He will try to fix it for you, but maybe not i
 [//]: # ( Don't use backtrick as it mess with further include_code )
 {% codeblock lang:html %}
 <ul>
-  <li>pouic pouic
+  <li>a dinosaur
 </ul>
   </li>
 {% endcodeblock %}
 
 The browser won't understand it: 
-the `<li>` *starts **inside*** the `<ul>` 
-***BUT***
-it *ends **outside*** his parent
+the `<li>` *starts __inside__* the `<ul>` 
+*__BUT__*
+it *ends __outside__* his parent
 
 #### This is the right way to write it:
 
 [//]: # ( Don't use backtrick as it mess with further include_code )
 {% codeblock lang:html %}
 <ul>
-  <li>pouic pouic</li>
+  <li>a dinosaur</li>
 </ul>
 {% endcodeblock %}
 
@@ -135,13 +135,11 @@ In order to prevent this problem, we use a convention:
   - just [indent](https://en.wikipedia.org/wiki/Indentation_style) the content
   - so we can see better what's *inside* what
 
-***It's really important to indent well***: It will prevent you to do a lot of mistakes.  
+*__It's really important to indent well__*: It will prevent you to do a lot of mistakes.  
 …and it looks nicer (developer's poetry 🌈)
 
 Indenting is made easy with a {% post_link 04-html-basic-part-1 a proper text editor %} like [Visual Studio Code](https://code.visualstudio.com/). 
 It will also highlight HTML errors for you. Good guy 🤩
-
-you can read [a more extensive article on indentation here](https://www.granneman.com/webdev/coding/formatting-and-indenting-your-html/)
 
 ## Adding an image: self-closing HTML element & attributes
 
@@ -174,7 +172,7 @@ In the `img` element example, well… *an image is an image, what else do you wa
 to write them:
 
 - just make *only 1 tag*
-- have to *finish with **<span class="u-c-contrast">/</span>>***
+- have to *finish with __<span class="u-c-contrast">/</span>>__*
 
 {% caption I'm a self-closed HTML element! %}
 {% asset_img auto-closing-tag.svg 300 140 a HTML element with a self-closed tag %} 
@@ -204,17 +202,19 @@ Following our basket/apple example, we might want to know more about the apples:
 {% asset_img anatomy-of-an-attribute.svg 480 280 a description of a tag %} 
 {% endcaption %}
 
-- those properties are named ***attributes***
-- those attributes are ***always on the starting tag***
-- those attributes ***come*** more often ***in two parts***:
-  - an ***attribute name***: a text **without** space
-  - an ***attribute value***: a text that can contain space
+- those properties are named *__attributes__*
+- those attributes are *__always on the starting tag__*
+- those attributes *__come__* more often *__in two parts__*:
+  - an *__attribute name__*: a text __without__ space
+  - an *__attribute value__*: a text that can contain space
 - we always write it that way: `attributename="the content on my property"`  
-  - Notice the * **equal sign** right after the attribute name*
-  - The *equal sign **shouldn't be separate by space***  (`attributename = "the content on my property"` is wrong)
+  - Notice the * __equal sign__ right after the attribute name*
+  - The *equal sign __shouldn't be separate by space__*  (`attributename = "the content on my property"` is wrong)
   - The *content* always come *surrounded by double quotes*
 
 ### The image src attribute
+
+*The `src` attribute stands for __source__*
 
 Some information like the one for an image, can't be included in the HTML document.  
 We need to tell the browser where to find them.  
@@ -229,18 +229,18 @@ The `src` attribute is simply that: where we can find the file containing the da
 
 The browser take a deep care of respecting what you write. 
 *He will even make a difference between [lowercase and uppercase](https://en.wikipedia.org/wiki/Letter_case)* so a file named `WOLF.jpg` and `wolf.jpg` are not similar to him.  
-In the same ways, spaces can be a tricky thing so ***as a rule of thumb***:
+In the same ways, spaces can be a tricky thing so *__as a rule of thumb__*:
 
 - *always name your files in lowercase*
 - *replace spaces by `-` in the name*
 
-**example:**
+__example:__
 
 `My long Image name.jpg` is better written `my-long-image-name.jpg`
 
 ## The page title
 
-{% caption I put a title here %}
+{% caption There is a title here %}
 {% asset_img website-title.svg 220 160 The browser tab is named “wolf story” %} 
 {% endcaption %}
 
@@ -253,7 +253,9 @@ In order to do this we need some adjustments:
 
 ### Why <html\>, <head\> & <body\>?
 
-<!-- Illustration: a man html webpage -->
+{% caption You can't see no brain… But read my story! %}
+{% asset_img head-and-body.svg 380 280 a HTML file with a brain, having a “wolf story” book open in front of him %} 
+{% endcaption %}
 
 Developers are poet 🌈 But like poetry there is some conventions: like keeping things simple & stupid 👷‍♀   
 If something is organized with `parent ➡️ children` relations, then we should apply it everywhere, no exceptions allowed.
@@ -275,9 +277,17 @@ Important but less obvious than the rest.
 #### <body\>
 
 In the `<body>` we will keep *everything that's visible*.  
-Our content :)
+Our content 📘
 
 ## wrapping up
 
-pouic pouic
+We have seen:
+
+- More HTML elements and their associated semantic
+- That we can nest HTML elements inside each other
+- That HTML elements can have attributes
+- How to write everything in a clean way
+- A more pertinent organization of the HTML page
+
+It's still ugly, but before digging into that ([CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)), we will make some short improvements in the story… in a part 3!
 
