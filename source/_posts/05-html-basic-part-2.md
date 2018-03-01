@@ -229,7 +229,7 @@ The `src` attribute is simply that: where we can find the file containing the da
 {% asset_img wolf-vs-wolf.svg 460 180 two wolfs' picture, which are written one in lowercase & the other in uppercase  %} 
 {% endcaption %}
 
-The browser take a deep care of respecting what you write. 
+The browser takes a deep care of respecting what you write. 
 *He will even make a difference between [lowercase and uppercase](https://en.wikipedia.org/wiki/Letter_case)* so a file named `WOLF.jpg` and `wolf.jpg` are not similar to him.  
 In the same ways, spaces can be a tricky thing so *__as a rule of thumb__*:
 
