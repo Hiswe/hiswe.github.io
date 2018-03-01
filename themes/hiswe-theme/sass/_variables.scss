@@ -11,6 +11,7 @@ $c-primary-h: hue($c-primary);
 $c-primary-s: saturation($c-primary);
 $c-primary-lighter: hsl($c-primary-h, $c-primary-s, 82%);
 $c-primary-lightest: hsl($c-primary-h, $c-primary-s, 95%);
+$c-code: hsl($c-primary-h, $c-primary-s, 97%);
 
 $c-accent: #ff0078;
 $c-accent-h: hue($c-accent);
@@ -66,7 +67,7 @@ $mq-centered-with-asides: '(min-width: #{$page-width-max})';
   --c-text: $c-text;
   --c-background: var(--c-primary-lightest);
   --c-stripe-img: $c-stripe-img;
-  --c-code: HSL(var(--c-primary-h), var(--c-primary-s), 97%);
+  --c-code: $c-code;
 
   --s-gutter: $gutter;
   --s-half-gutter: calc(var(--s-gutter) / 2);

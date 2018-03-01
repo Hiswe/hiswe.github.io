@@ -127,6 +127,12 @@ And now, using all those text files, your browser will do the magic and finally 
 
 *Love your browser and keep it up to date* 😎
 
+You know now that : 
+
+- a website is mainly text files
+- They are given to you by the server
+- The main text file for a website is the HTML file
+
 I will go into more details for all those files (HTML, CSS & Javascript) with comings posts.  
 
 **[UPDATE]** {% post_link html-basic-part-1 here is the the first part of HTML document! %} 
