@@ -22,7 +22,7 @@
   }
 
   a {
-    color: white;
+    color: var(--c-primary);
 
     &:hover {
       color: var(--c-accent);

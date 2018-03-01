@@ -40,9 +40,17 @@
   &__toc {
     grid-area: right;
     margin-top: var(--s-half-gutter);
+    // opacity: .25;
+    // transition: opacity .25s;
+
+    // &:hover {
+    //   opacity: 1;
+    // }
 
     @media #{$mq-left-with-aside} {
       margin-top: 0;
+      font-size: .8em;
+
       &-sticky {
         position: sticky;
         top: var(--s-gutter);

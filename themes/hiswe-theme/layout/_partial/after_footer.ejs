@@ -11,3 +11,27 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 }());
 </script>
 <% } %>
+<%#
+<script>
+  (function(){
+    // https://developers.google.com/web/updates/2017/09/sticky-headers
+    // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+    if (!'IrntersectionObserver' in window) return
+    console.log('IntersectionObserver')
+    var toc = document.querySelector('.js-toc')
+    var root = document.querySelector('.article-long')
+    console.log(toc)
+    if (!toc) return
+    var oberverCb = function() {
+      console.log( arguments )
+    }
+    var observer = new IntersectionObserver(oberverCb, {
+      root: root,
+      // rootMargin: '30px',
+      threshold: 1,
+    })
+    observer.observe(toc)
+
+  })()
+%>
+</script>
