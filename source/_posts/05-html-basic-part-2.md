@@ -33,7 +33,7 @@ Now we will see how to build more upon that!
 {% asset_img toys.svg 500 170 a sheppard, a sheep, a wolf and an dinosaur %} 
 {% endcaption %}
 
-It could be nice if me make a list of toys 🐑  
+It could be nice if we make a list of toys 🐑  
 Something like: 
 
 [//]: # ( Don't use backtrick as it mess with further include_code )
@@ -52,7 +52,7 @@ How this translate to HTML?
 
 As seen before, *HTML elements carry a semantic value*:  
 
-- `ul` stands for *u*organized *l*ist (unorganized because it's bullet points and not a numeric value)
+- `ul` stands for *u*norganized *l*ist (unorganized because it's bullet points and not a numeric value)
 - `li` stands for *l*ist *item*
 
 So because we wanted a list of elements, the obvious choice was to use those elements 😎
@@ -79,12 +79,12 @@ As example, if we want to describe in HTML a basket with 3 apples we can do some
 {% endcodeblock %}
 
 Of course `basket` and `apple` are not proper HTML elements ⛔ 🗑 + 🍎
-Don't use then in your HTML code. 
+Don't use them in your HTML code. 
 
 ### Parent & Children
 
 This is developer's poetry 🌈 
-We often refer of the *HTML elements containing the other* as *the parent* of *his children*  
+We often refer to the *HTML elements containing the other* as *the parent* of *his children*  
 
 In the example above:
 
@@ -149,7 +149,7 @@ It will also highlight HTML errors for you. Good guy 🤩
 {% asset_img browser-needing-a-picture.svg 300 140 a browser taking a picture with his tiny hands %} 
 {% endcaption %}
 
-Let move on and make our HTML more fun:  
+Let's move on and make our HTML more fun:  
 Add an illustration (illustrations are good)
 
 {% include_code lang:html 05-html-basic-part-2/02-image.html %}
@@ -168,7 +168,7 @@ Want an image? use `img` 🌆
 {% asset_img what-is-this.svg 320 210 a picture looking perplexedly at a text %} 
 {% endcaption %}
 
-Some HTML elements doesn't need content.  
+Some HTML elements don't need content.  
 In the `img` element example, well… *an image is an image, what else do you want to add?*
 
 to write them:
