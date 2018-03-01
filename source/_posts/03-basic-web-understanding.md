@@ -55,7 +55,7 @@ Usually you don't own one.
 {% link an extensive article about the server https://en.wikipedia.org/wiki/Server_(computing) %}
 
 On a small note, Internet is about making computers talk to each other. 
-So you can transform your own computer in a server if you want by installing those specific softwares!
+So you can transform your own computer in a server if you want by installing those specific software!
 
 ### The Browser
 
@@ -81,15 +81,15 @@ Yep, it seems obvious but that's the main thing about computers: how with [bits]
 
 When you type an address in the browser, the browser will ask the server what is at that location for him to get.
 
-Most of the time you want to get a webpage, but it can be anything: an image, sound, video, pdf documents…
+Most of the time you want to get a web-page, but it can be anything: an image, sound, video, pdf documents…
 
-### getting a webpage
+### getting a web-page
 
-{% caption Here is your html you asked for! %}
+{% caption Here is the html you asked for! %}
 {% asset_img server-give-html.svg 525 200 the server giving a HTML file %} 
 {% endcaption %}
 
-A *webpage* is just a *text file!* we call it *html file*… You can read [a lot more about HTML](https://en.wikipedia.org/wiki/HTML)
+A *web-page* is just a *text file!* we call it *html file*… You can read [a lot more about HTML](https://en.wikipedia.org/wiki/HTML)
 
 ### HTML
 
@@ -97,7 +97,7 @@ So HTML is a text file but a very specific kind of text file.
 It's: 
 
 - all the information you want to have but written in a specific way 
-- all the information that the webpage need to be more friendly and helpful
+- all the information that the web-page need to be more friendly and helpful
 
 ### CSS, Javascript and other resources 
 
@@ -106,15 +106,15 @@ It's:
 {% endcaption %}
 
 The latter part is the HTML file telling the browser to ask the server for more files. 
-Beside images/videos, there are also 2 domains where it needs more specific informations: 
+Beside images/videos, there are also 2 domains where it needs more specific information: 
 
 - for having a *nice presentation*: those are the *CSS* text files
 - for being *interactive*: those are the *Javascript* text files
 
 ### The browser magic
 
-{% caption It's awesome! A beautiful webpage!  %}
-{% asset_img webbrowser-rendering.svg 480 400 the browser rendering a webpage %} 
+{% caption It's awesome! A beautiful web-page!  %}
+{% asset_img webbrowser-rendering.svg 480 400 the browser rendering a web-page %} 
 {% endcaption %}
 
 And now, using all those text files, your browser will do the magic and finally show you an interactive display of the information you wanted to see!
