@@ -49,7 +49,7 @@ function compileSass() {
   .pipe( $.if(isDev, cssDev(), cssProd()) )
   .pipe( $.rename({basename: `hiswe-theme`}) )
   .pipe( gulp.dest(cssDest) )
-  .pipe( $.if(isDev, reload({stream: true})) )
+  .pipe( $.if(isDev, browserSync.stream()) )
 }
 
 const css = gulp.series( cleanCSS, compileSass )
