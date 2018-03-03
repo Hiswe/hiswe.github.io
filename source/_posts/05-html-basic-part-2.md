@@ -1,9 +1,9 @@
 ---
 title: html basic (part 2)
+comments: false
 tags:
   - beginner
   - html
-comments: false
 categories:
   - web
 date: 2018-03-01 10:13:24
@@ -30,7 +30,7 @@ Now we will see how to build more upon that!
 ## Enumerating toys: nesting HTML elements
 
 {% caption An amazing cast %}
-{% asset_img toys.svg 500 170 a sheppard, a sheep, a wolf and an dinosaur %} 
+{% asset_img toys.svg 500 170 "a sheppard, a sheep, a wolf and an dinosaur 'a sheppard, a sheep, a wolf and an dinosaur'" %} 
 {% endcaption %}
 
 It could be nice if we make a list of toys 🐑  
@@ -61,7 +61,7 @@ So because we wanted a list of elements, the obvious choice was to use those ele
 ### HTML element content
 
 {% caption Yummy child apples inside daddy basket %}
-{% asset_img basket-of-apples.svg 410 180 a basket with 3 apples %} 
+{% asset_img basket-of-apples.svg 410 180 "a basket with 3 apples 'a basket with 3 apples'" %} 
 {% endcaption %}
 
 In the first part I said that the content contains your text.  
@@ -94,7 +94,7 @@ In the example above:
 ### A common mistake: not nesting properly
 
 {% caption Browser doesn't like HTML elements in a quantum state %}
-{% asset_img intertwined-apple.svg 270 180 an apple stuck in the border of a basket %} 
+{% asset_img intertwined-apple.svg 270 180 "an apple stuck in the border of a basket 'an apple stuck in the border of a basket'" %} 
 {% endcaption %}
 
 What is very important to understand, is that the browser need to know where to start and where to stop.  
@@ -129,7 +129,7 @@ it *ends __outside__* his parent
 ### Why the spaces before `<li>`?
 
 {% caption Spaces are helping you to read, always %}
-{% asset_img indentation.svg 500 260 a nested kitchen, table, basket & apples separated by spaces %} 
+{% asset_img indentation.svg 500 260 "a nested kitchen, table, basket & apples separated by spaces 'a nested kitchen, table, basket & apples separated by spaces'" %} 
 {% endcaption %}
 
 In order to prevent this problem, we use a convention:
@@ -146,7 +146,7 @@ It will also highlight HTML errors for you. Good guy 🤩
 ## Adding an image: self-closing HTML element & attributes
 
 {% caption Hey, I need U ❤️ %}
-{% asset_img browser-needing-a-picture.svg 300 140 a browser taking a picture with his tiny hands %} 
+{% asset_img browser-needing-a-picture.svg 300 140 "a browser taking a picture with his tiny hands 'a browser taking a picture with his tiny hands'" %} 
 {% endcaption %}
 
 Let's move on and make our HTML more fun:  
@@ -165,7 +165,7 @@ Want an image? use `img` 🌆
 ### Self-closing HTML elements
 
 {% caption What is it? %}
-{% asset_img what-is-this.svg 320 210 a picture looking perplexedly at a text %} 
+{% asset_img what-is-this.svg 320 210 "a picture looking perplexedly at a text 'a picture looking perplexedly at a text'" %} 
 {% endcaption %}
 
 Some HTML elements don't need content.  
@@ -177,13 +177,13 @@ to write them:
 - have to *finish with __<span class="u-c-contrast">/</span>>__*
 
 {% caption I'm a self-closed HTML element! %}
-{% asset_img auto-closing-tag.svg 300 140 a HTML element with a self-closed tag %} 
+{% asset_img auto-closing-tag.svg 300 140 "a HTML element with a self-closed tag 'a HTML element with a self-closed tag'" %} 
 {% endcaption %}
 
 ### The anatomy of attributes
 
 {% caption Yummy apples can come in all sort of kind %}
-{% asset_img basket-of-colored-apples.svg 270 180 a basket with 3 apples of different kind %} 
+{% asset_img basket-of-colored-apples.svg 270 180 "a basket with 3 apples of different kind 'a basket with 3 apples of different kind'" %} 
 {% endcaption %}
 
 If we go on a deeper view, HTML elements can also have some properties that describe it.  
@@ -201,7 +201,7 @@ Following our basket/apple example, we might want to know more about the apples:
 #### How to write an attributes
 
 {% caption XRay the tag %}
-{% asset_img anatomy-of-an-attribute.svg 480 280 a description of a tag %} 
+{% asset_img anatomy-of-an-attribute.svg 480 280 "a description of a tag 'a description of a tag'" %} 
 {% endcaption %}
 
 - those properties are named *__attributes__*
@@ -226,7 +226,7 @@ The `src` attribute is simply that: where we can find the file containing the da
 #### Beware of spaces and letter case
 
 {% caption Don't mess with the wolves %}
-{% asset_img wolf-vs-wolf.svg 460 180 two wolfs' picture, which are written one in lowercase & the other in uppercase  %} 
+{% asset_img wolf-vs-wolf.svg 460 180 "two wolfs' picture, which are written one in lowercase & the other in uppercase 'two wolfs' picture, which are written one in lowercase & the other in uppercase'" %} 
 {% endcaption %}
 
 The browser takes a deep care of respecting what you write. 
@@ -243,7 +243,7 @@ __example:__
 ## The page title
 
 {% caption There is a title here %}
-{% asset_img website-title.svg 220 160 The browser tab is named “wolf story” %} 
+{% asset_img website-title.svg 220 160 "The browser tab is named “wolf story” 'The browser tab is named “wolf story”'" %} 
 {% endcaption %}
 
 The browser let's us specify the text that appear in the tab.  
@@ -256,7 +256,7 @@ In order to do this we need some adjustments:
 ### Why <html\>, <head\> & <body\>?
 
 {% caption You can't see no brain… But read my story! %}
-{% asset_img head-and-body.svg 380 280 a HTML file with a brain, having a “wolf story” book open in front of him %} 
+{% asset_img head-and-body.svg 380 280 "a HTML file with a brain, having a “wolf story” book open in front of him 'a HTML file with a brain, having a “wolf story” book open in front of him'" %} 
 {% endcaption %}
 
 Developers are poet 🌈 But like poetry there is some conventions: like keeping things simple & stupid 👷‍♀   
