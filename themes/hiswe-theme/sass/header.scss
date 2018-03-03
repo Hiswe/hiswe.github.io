@@ -78,7 +78,10 @@
 }
 
 .search {
-  input {
+  &__label {
+    @include hidden-accessible
+  }
+  &__input {
     background: #fff;
     font-family: $font-title;
     font-style: italic;

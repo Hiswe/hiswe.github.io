@@ -145,6 +145,11 @@
     color: var(--c-primary);
   }
 
+  a[href^="https://developer.mozilla.org"]::after {
+    content: ' (mdn)';
+    color: var(--c-primary);
+  }
+
   .pullquote {
     float: right;
     border: none;

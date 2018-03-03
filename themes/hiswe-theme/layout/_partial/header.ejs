@@ -28,7 +28,9 @@
       <% } %>
       <li class="main-nav__item">
         <form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-          <input type="search" name="q" results="0" placeholder="<%= __('search') %>">
+          <%# label for accessibility %>
+          <label class="search__label" for="search">Search</label>
+          <input class="search__input" id="search" type="search" name="q" results="0" placeholder="<%= __('search') %>">
           <input type="hidden" name="q" value="site:<%- config.url.replace(/^https?:\/\//, '') %>">
         </form>
       </li>
