@@ -39,7 +39,7 @@ Something like:
 [//]: # ( Don't use backtrick as it mess with further include_code )
 {% codeblock lang:text %}
 - a bunch of sheep
-- a shepard
+- a shepherd
 - a dinosaur
 - a wolf
 {% endcodeblock %}
