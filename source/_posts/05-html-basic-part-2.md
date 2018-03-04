@@ -290,5 +290,5 @@ We have seen:
 - How to write everything in a clean way
 - A more pertinent organization of the HTML page
 
-It's still ugly, but before digging into that ([CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)), we will make some short improvements in the story… in a part 3!
+It's still ugly, but before digging into that ([CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)), we will make some short improvements in the story… in {% post_link 06-html-basic-part-3 the part 3! %}
 
