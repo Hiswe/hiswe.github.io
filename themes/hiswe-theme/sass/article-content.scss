@@ -18,6 +18,16 @@
     margin-top: 15px;
   }
 
+  q {
+    font-family: $font-serif;
+    color: var(--c-text-lighter);
+
+    &::before,
+    &::after {
+      color: var(--c-accent-lighter);
+    }
+  }
+
   blockquote {
     font-style: italic;
     font-family: $font-serif;
@@ -126,10 +136,15 @@
       content: counter(section, upper-latin) '. ';
     }
   }
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1em;
 
-  @for $i from 1 through 6 {
-    h#{$i} {
-      line-height: 1.1em;
+    em {
+      background: none;
+      font-style: italic;
+      color: var(--c-text-lighter);
+      font-weight: normal;
+      padding: 0;
     }
   }
 
@@ -165,6 +180,12 @@
 
   a[href^="https://developer.mozilla.org"]::after {
     content: ' (mdn)';
+    color: var(--c-primary);
+  }
+
+  a[href^="https://www.youtube.com"]::after,
+  a[href^="https://youtu.be"]::after {
+    content: ' (youtube)';
     color: var(--c-primary);
   }
 

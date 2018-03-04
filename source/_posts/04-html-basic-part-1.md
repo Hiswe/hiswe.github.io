@@ -135,7 +135,7 @@ We need to update our example like this:
 
 {% include_code lang:html 04-html-basic-part-1/my-improved-webpage.html %}
 
-After saving reload, your browser aaand… It's done! 🥇  
+After saving, __reload your browser__ aaand… It's done! 🥇  
 ok it's still kind of ugly but we will address that on another post talking about [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets).
 
 ### But what happened? HTML elements

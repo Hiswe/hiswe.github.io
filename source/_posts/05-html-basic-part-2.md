@@ -9,7 +9,6 @@ categories:
 date: 2018-03-01 10:13:24
 ---
 
-
 ## Introduction
 
 With {% post_link 04-html-basic-part-1 %} we've seen how to:

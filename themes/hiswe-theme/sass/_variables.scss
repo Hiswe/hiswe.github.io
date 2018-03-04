@@ -2,23 +2,19 @@
 // COLORS
 ///////
 
-$c-text: #445;
+$c-text: hsl(240, 11%, 30%);
+$c-text-h: hue($c-text) / 1deg;
+$c-text-s: saturation($c-text);
 
 $c-border: #ddd;
 
 $c-primary: hsl(200, 46%, 66%);
-$c-primary-h: hue($c-primary);
+$c-primary-h: hue($c-primary) / 1deg;
 $c-primary-s: saturation($c-primary);
-$c-primary-lighter: hsl($c-primary-h, $c-primary-s, 82%);
-$c-primary-lightest: hsl($c-primary-h, $c-primary-s, 95%);
-$c-code: hsl($c-primary-h, $c-primary-s, 97%);
 
 $c-accent: #ff0078;
 $c-accent-h: hue($c-accent);
 $c-accent-s: saturation($c-accent);
-$c-accent-lightest: hsl($c-accent-h, $c-accent-s, 95%);
-
-$color-background: $c-primary-lightest;
 
 $c-stripe-img: #fbfbfb;
 
@@ -26,6 +22,8 @@ $c-stripe-img: #fbfbfb;
 // FONTS
 ///////
 
+// TODO: should have better fallback
+// https://css-tricks.com/css-basics-fallback-font-stacks-robust-web-typography/
 $font-title: 'Sansita one', Georgia, serif;
 // http://markdotto.com/2018/02/07/github-system-fonts/
 $font-default: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -59,18 +57,28 @@ $mq-centered-with-asides: '(min-width: #{$page-width-max})';
 ///////
 
 :root {
+  // primary & variations
   --c-primary: $c-primary;
   --c-primary-h: $c-primary-h;
   --c-primary-s: $c-primary-s;
-  --c-primary-lighter: $c-primary-lighter;
-  --c-primary-lightest: $c-primary-lightest;
+  --c-primary-darker: HSL(var(--c-primary-h), var(--c-primary-s), 50%);
+  --c-primary-lighter: HSL(var(--c-primary-h), var(--c-primary-s), 82%);
+  --c-primary-lightest: HSL(var(--c-primary-h), var(--c-primary-s), 95%);
+  --c-background: var(--c-primary-lightest);
+  --c-code: HSL(var(--c-primary-h), var(--c-primary-s), 97%);
+  // accent & variations
   --c-accent: $c-accent;
-  --c-accent-lightest: $c-accent-lightest;
+  --c-accent-h: $c-accent-h;
+  --c-accent-s: $c-accent-s;
+  --c-accent-lighter: HSL(var(--c-accent-h), var(--c-accent-s), 82%);
+  --c-accent-lightest: HSL(var(--c-accent-h), var(--c-accent-s), 95%);
+  // black & variations
   --c-border: $c-border;
   --c-text: $c-text;
-  --c-background: var(--c-primary-lightest);
+  --c-text-h: $c-text-h;
+  --c-text-s: $c-text-s;
+  --c-text-lighter: HSL(var(--c-text-h), var(--c-text-s), 40%);
   --c-stripe-img: $c-stripe-img;
-  --c-code: $c-code;
 
   --s-gutter: $gutter;
   --s-half-gutter: calc(var(--s-gutter) / 2);
@@ -81,4 +89,5 @@ $mq-centered-with-asides: '(min-width: #{$page-width-max})';
   --s-page-width: $page-width;
   --s-page-width-max: $page-width-max;
   --s-article-width: $article-width;
+  --s-big-border: 5px;
 }
