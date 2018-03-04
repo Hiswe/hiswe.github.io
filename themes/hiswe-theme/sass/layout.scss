@@ -79,11 +79,24 @@ main {
 %card-footer {
   margin-top: var(--s-half-gutter);
   padding: 0 0 var(--s-half-gutter);
-  border-bottom: 5px solid var(--c-background);
+  border-bottom: 5px solid transparent;
   color: var(--c-primary);
   font-size: 0.9em;
   line-height: 16px;
   min-height: 16px;
+  position: relative;
+
+  &::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    background: var(--c-background);
+    bottom: calc( var(--s-big-border) * -1 );
+    height: var(--s-big-border);
+    border-radius: var(--s-big-border);
+    width: 100%;
+    pointer-events: none;
+  }
 
   a {
     color: var(--c-primary);

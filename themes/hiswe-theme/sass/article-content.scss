@@ -19,13 +19,31 @@
   }
 
   blockquote {
-    border-top: 1px solid var(--c-border);
-    border-bottom: 1px solid var(--c-border);
     font-style: italic;
     font-family: $font-serif;
     font-size: 1.2em;
-    padding: 0 30px 15px;
+    margin: var(--s-gutter) 0;
+    padding: var(--s-quarter-gutter) var(--s-gutter) var(--s-half-gutter);
+    position: relative;
     text-align: center;
+    color: var(--c-text-lighter);
+
+    &::before {
+      content: ' ';
+      width: var(--s-big-border);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: var(--c-background);
+      border-radius: var(--s-big-border);
+      pointer-events: none;
+    }
+
+    // don't want parenthesis source in blockquote
+    a::after {
+      display: none;
+    }
 
     footer {
       border-top: none;

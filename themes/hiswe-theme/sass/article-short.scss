@@ -6,11 +6,15 @@
     margin-top: var(--s-gutter);
   }
 
+  h2 {
+    display: none;
+  }
+
   &__read-more {
     @extend %card-footer;
 
-    #{$root}:last-of-type & {
-      border: 0;
+    #{$root}:last-of-type &::after {
+      display: none;
     }
 
     a {
@@ -23,5 +27,4 @@
       }
     }
   }
-
 }
