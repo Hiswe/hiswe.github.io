@@ -1,7 +1,7 @@
 .article-long__content {
   counter-reset: section;
   counter-reset: caption;
-  line-height: 1.6;
+  line-height: var(--baseline);
 
   p,
   blockquote,
@@ -15,7 +15,7 @@
   h5,
   h6,
   .video-container {
-    margin-top: 15px;
+    margin-top: 1rem;
   }
 
   q {
@@ -27,6 +27,10 @@
       color: var(--c-accent-lighter);
     }
   }
+
+  // TODO: get links to be more like wired:
+  // https://www.wired.com/story/how-technology-unsettled-the-stock-market/
+  // https://css-tricks.com/styling-underlines-web/
 
   blockquote {
     font-style: italic;
@@ -117,27 +121,10 @@
     }
   }
 
-  .article--short & {
-    h1,
-    h2 {
-      display: none;
-    }
-  }
-
-  h2 {
-    counter-increment: section;
-    font-weight: normal;
-    padding-bottom: 10px;
-    font-size: 30px;
-    margin-top: var(--s-half-gutter);
-
-    &::before {
-      color: var(--c-primary-lighter);
-      content: counter(section, upper-latin) '. ';
-    }
-  }
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.1em;
+    margin-top: vertical-rhythm(1);
+    margin-bottom: vertical-rhythm(.75);
 
     em {
       background: none;
@@ -146,22 +133,34 @@
       font-weight: normal;
       padding: 0;
     }
-  }
 
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: normal;
+    code {
+      background: none;
+      border: 0;
+      padding: 0;
+    }
+  }
+  h2 {
+    counter-increment: section;
+    font-weight: bold;
+    font-size: 1.65rem;
+    margin-top: vertical-rhythm(2);
+    margin-bottom: vertical-rhythm(1);
+
+    &::before {
+      color: var(--c-primary-lighter);
+      content: counter(section, upper-latin) '. ';
+    }
   }
   h3 {
-    font-size: 24px;
+    font-size: 1.3rem;
+    margin-top: vertical-rhythm(1.1);
   }
   h4 {
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: bold;
+    margin-bottom: vertical-rhythm(.5);
   }
-
   img,
   video {
     max-width: 100%;
@@ -189,7 +188,7 @@
     color: var(--c-primary);
   }
 
-  .pullquote {
+  .pull-quote {
     float: right;
     border: none;
     padding: 0;

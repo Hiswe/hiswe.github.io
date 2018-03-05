@@ -35,17 +35,6 @@ main {
   grid-area: content;
 }
 
-@mixin hidden-accessible {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-}
-
 %layout {
   --max-width: var(--s-article-width);
   max-width: var(--max-width);
@@ -82,8 +71,8 @@ main {
   border-bottom: 5px solid transparent;
   color: var(--c-primary);
   font-size: 0.9em;
-  line-height: 16px;
-  min-height: 16px;
+  line-height: 1rem;
+  min-height: 1rem;
   position: relative;
 
   &::after {
@@ -113,7 +102,7 @@ main {
   padding: var(--s-quarter-gutter) 0;
   padding-top: 0;
   font-family: $font-title;
-  font-size: 1em;
+  font-size: 1rem;
   border-bottom: 1px solid var(--c-primary-lighter);
   font-weight: normal;
   color: var(--c-primary);
@@ -131,15 +120,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.8em;
+  font-size: 1.8rem;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.3em;
+  font-size: 1.3rem;
 }
 
 a {
