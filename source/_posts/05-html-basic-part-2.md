@@ -35,7 +35,7 @@ Now we will see how to build more upon that!
 It could be nice if we make a list of toys 🐑  
 Something like: 
 
-[//]: # ( Don't use backtrick as it mess with further include_code )
+[//]: # ( Don't use backtick as it mess with further include_code )
 {% codeblock lang:text %}
 - a bunch of sheep
 - a shepherd
@@ -68,7 +68,7 @@ That was partially true: *It can also contain other HTML elements!*
 
 As example, if we want to describe in HTML a basket with 3 apples we can do something like:
 
-[//]: # ( Don't use backtrick as it mess with further include_code )
+[//]: # ( Don't use backtick as it mess with further include_code )
 {% codeblock lang:xml %}
 <basket>
   <apple></apple>
@@ -103,7 +103,7 @@ Your browser is an amazing thing. He will try to fix it for you, but maybe not i
 
 #### So this HTML code is bad:
 
-[//]: # ( Don't use backtrick as it mess with further include_code )
+[//]: # ( Don't use backtick as it mess with further include_code )
 {% codeblock lang:html %}
 <ul>
   <li>a dinosaur
@@ -118,7 +118,7 @@ it *ends __outside__* his parent
 
 #### This is the right way to write it:
 
-[//]: # ( Don't use backtrick as it mess with further include_code )
+[//]: # ( Don't use backtick as it mess with further include_code )
 {% codeblock lang:html %}
 <ul>
   <li>a dinosaur</li>
@@ -188,7 +188,7 @@ to write them:
 If we go on a deeper view, HTML elements can also have some properties that describe it.  
 Following our basket/apple example, we might want to know more about the apples:
 
-[//]: # ( Don't use backtrick as it mess with further include_code )
+[//]: # ( Don't use backtick as it mess with further include_code )
 {% codeblock lang:xml %}
 <basket>
   <apple skin="pink" taste="sugary" />
@@ -208,9 +208,9 @@ Following our basket/apple example, we might want to know more about the apples:
 - those attributes *__come__* more often *__in two parts__*:
   - an *__attribute name__*: a text __without__ space
   - an *__attribute value__*: a text that can contain space
-- we always write it that way: `attributename="the content on my property"`  
+- we always write it that way: `attribute-name="the content on my property"`  
   - Notice the * __equal sign__ right after the attribute name*
-  - The *equal sign __shouldn't be separate by space__*  (`attributename = "the content on my property"` is wrong)
+  - The *equal sign __shouldn't be separate by space__*  (`attribute-name = "the content on my property"` is wrong)
   - The *content* always come *surrounded by double quotes*
 
 ### The image src attribute

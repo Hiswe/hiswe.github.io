@@ -117,7 +117,7 @@ Here's a lookup of our update:
 
 ### Add some text formatting: `<br/>`, `<em>` & `<strong>`
 
-<!-- ILLUSTRATION a dinosaur shooting lasers with sfx PIOU PIOU -->
+<!-- ILLUSTRATION a dinosaur shooting lasers with sfx PEW PEW -->
 
 Like a lazy cow 🐮, I will just give you the whole document, and we will go on any of the differences.
 
@@ -196,7 +196,7 @@ This will be used by softwares for:
 
 The root problem, is [character encoding](https://en.wikipedia.org/wiki/Character_encoding). 
 
-In a short, computers have evolved from supporting only a subset of english characters to all characters in the world (including emojis 💩).  
+In a short, computers have evolved from supporting only a subset of english characters to all characters in the world (including emoji 💩).  
 But the *web* is an open platform and *try to maintain compatibility with old documents*.
 
 *__So you have to tell your browser that you use the most modern encoding.__*
