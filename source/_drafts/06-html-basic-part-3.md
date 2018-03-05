@@ -21,7 +21,9 @@ This will help us to learn more about HTML and how we can make it [accessible](h
 
 ### Add the author: `<address>` element
 
-<!-- ILLUSTRATION a pretentious author -->
+{% caption A very inspired author %}
+{% asset_img author.svg 400 240 "a writer posing with a pen 'a writer posing with a pen'" %} 
+{% endcaption %}
 
 Why not showing who wrote this amazing piece of art? (short answer: me)
 
@@ -42,7 +44,9 @@ Which seems to be good enough…
 
 ### Add a link to the author page: `<a>` element
 
-<!-- ILLUSTRATION a backpack guy-->
+{% caption Exploring the web %}
+{% asset_img backpacker.svg 500 240 "a backpacker going from a website to another 'a backpacker going from a website to another'" %} 
+{% endcaption %}
 
 …but we can do more!
 
@@ -62,7 +66,9 @@ And *you can mix in any order text child with HTML element child*
 
 #### Semantic of `<a>` and `href`
 
-<!-- ILLUSTRATION an anchor linking two pages -->
+{% caption This how we bound! %}
+{% asset_img anchor.svg 500 180 "an anchor going from a website to another 'an anchor going from a website to another'" %} 
+{% endcaption %}
 
 `<a>` stands for [anchor](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
 
@@ -70,7 +76,9 @@ the `href` attribute refer to `hyperlink reference` (hyperlink is the technical 
 
 #### Why the browser is merging spaces for your own good
 
-<!-- ILLUSTRATION the browser merging text -->
+{% caption FUUUUUSION! %}
+{% asset_img merging-white-space.svg 310 200 "the browser merging two white spaces 'the browser merging two white spaces'" %}
+{% endcaption %}
 
 Even if we wrote the “by” and “Hiswe” on two lines with white-spaces before, *the output will be rendered on a single line.*
 
@@ -87,7 +95,9 @@ In the end whatever way you're choosing this is only a matter of personal apprec
 
 #### More semantic on the link
 
-<!-- ILLUSTRATION an author with many many books smoking a pipe with heart-shaped smoke -->
+{% caption I'm an artist… and this is my humble home %}
+{% asset_img author-home.svg 350 250 "A writer in his house surrounded by books 'A writer in his house surrounded by books'" %}
+{% endcaption %}
 
 Semantic is important, because:
 
