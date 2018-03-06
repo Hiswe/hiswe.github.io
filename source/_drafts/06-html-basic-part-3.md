@@ -77,7 +77,7 @@ the `href` attribute refer to `hyperlink reference` (hyperlink is the technical 
 #### Why the browser is merging spaces for your own good
 
 {% caption FUUUUUSION! %}
-{% asset_img merging-white-space.svg 310 200 "the browser merging two white spaces 'the browser merging two white spaces'" %}
+{% asset_img merging-white-space.svg 500 200 "the browser merging two white spaces 'the browser merging two white spaces'" %}
 {% endcaption %}
 
 Even if we wrote the “by” and “Hiswe” on two lines with white-spaces before, *the output will be rendered on a single line.*
@@ -99,7 +99,7 @@ In the end whatever way you're choosing this is only a matter of personal apprec
 {% asset_img author-home.svg 350 250 "A writer in his house surrounded by books 'A writer in his house surrounded by books'" %}
 {% endcaption %}
 
-Semantic is important, because:
+*Semantic is important, because:*
 
 - It will make your HTML *code more readable for you*
 - It will allow a *better [screen reading](https://en.wikipedia.org/wiki/Screen_reading) experience* for disabled people. 
@@ -127,7 +127,10 @@ Here's a lookup of our update:
 
 ### Add some text formatting: `<br/>`, `<em>` & `<strong>`
 
-<!-- ILLUSTRATION a dinosaur shooting lasers with sfx PEW PEW -->
+
+{% caption PEW! PEW! %}
+{% asset_img laser-dino.svg 320 200 "A dinosaur firing laser beams with his eyes 'A dinosaur firing laser beams with his eyes'" %}
+{% endcaption %}
 
 Like a lazy cow 🐮, I will just give you the whole document, and we will go on any of the differences.
 
@@ -135,7 +138,9 @@ Like a lazy cow 🐮, I will just give you the whole document, and we will go on
 
 #### Semantics of…
 
-<!-- ILLUSTRATION HTML showing that it can do what word does -->
+{% caption I can write in so many ways! %}
+{% asset_img bold-and-italic.svg 400 300 "A web-browser writing bold and italic on a blackboard 'A web-browser writing bold and italic on a blackboard'" %}
+{% endcaption %}
 
 All those elements helps you achieving some basic text formating:
 
