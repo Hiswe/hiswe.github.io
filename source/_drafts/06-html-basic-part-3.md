@@ -160,7 +160,9 @@ And after knowing that, it's just a matter of updating your HTML file and “voi
 
 ## But Sir! We have à `â€œwolf!â€` problem! 
 
-<!-- ILLUSTRATION a worried guy -->
+{% caption â€œwolf!â€, â€œwolf!â€ everywhere! %}
+{% asset_img we-have-a-problem.svg 270 240 "A worried man standing in front of many strange text 'A worried man standing in front of many strange text'" %}
+{% endcaption %}
 
 Your eyesight is as accurate as an eagle 🦅
 
@@ -178,7 +180,9 @@ We just have to modify our document like this:
 
 ### Character encoding: `<meta charset="utf-8" />`
 
-<!-- ILLUSTRATION the browser speaking different “cute” word: Thai, English, French & Emoji  -->
+{% caption Sorry Japanese people, I was lazy to write “Kawai” properly… %}
+{% asset_img speaking-different-language.svg 350 250 "A browser speaking the “cute” word in english, french, thai and japanese 'A browser speaking the “cute” word in english, french, thai and japanese'" %}
+{% endcaption %}
 
 #### TL;DR
 
@@ -189,7 +193,9 @@ We just have to modify our document like this:
 
 #### Understanding metadata
 
-<!-- ILLUSTRATION a photo with some metadata -->
+{% caption Real life metadata %}
+{% asset_img in-paris-with-love.svg 440 220 "A polaroid with some text written at the bottom: the metadata 'A polaroid with some text written at the bottom: the metadata'" %}
+{% endcaption %}
 
 Metadata are everything that isn't the content but that provide context upon it.
 
