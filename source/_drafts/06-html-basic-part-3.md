@@ -180,7 +180,7 @@ We just have to modify our document like this:
 
 ### Character encoding: `<meta charset="utf-8" />`
 
-{% caption Sorry Japanese people, I was lazy to write “Kawai” properly… %}
+{% caption So many characters used around the globe! %}
 {% asset_img speaking-different-language.svg 350 250 "A browser speaking the “cute” word in english, french, thai and japanese 'A browser speaking the “cute” word in english, french, thai and japanese'" %}
 {% endcaption %}
 
@@ -196,7 +196,7 @@ We just have to modify our document like this:
 {% asset_img in-paris-with-love.svg 460 220 "A polaroid with some text written at the bottom: the metadata 'A polaroid with some text written at the bottom: the metadata'" %}
 {% endcaption %}
 
-Metadata are everything that *isn't the content* but that *provide context* upon it.
+*Metadata* are everything that *isn't the content but* that *provide context* upon it.
 
 If we take a photo as an example, metadata would be:
 
@@ -234,7 +234,7 @@ It's good for accessibility (so he can know in which language he should read the
 
 As a rule of thumb: *__always provide it__*.
 
-### A developer 🌈 thing: `<!-- comments -->` 
+## A developer 🌈 thing: `<!-- comments -->` 
 
 {% caption Please! Don't forget! %}
 {% asset_img remember-the-milk.svg 420 220 "A computer speaking a post-it note to a person 'A computer speaking a post-it note to a person'" %}
@@ -255,7 +255,7 @@ It's just this:
 You can see that as [post-it note](https://en.wikipedia.org/wiki/Post-it_note) for you.  
 You can write everything inside it, just make sure that the content is properly enclosed in `<!--`  and `-->`
 
-### The full code example
+## The full code example
 
 {% include_code lang:html 06-html-basic-part-3/02-with-meta.html %}
 
@@ -265,10 +265,10 @@ We have seen:
 
 - how to choose semantic HTML elements to fill our needs from a [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 - how to make links to other webpages: `<a href="">`
-- some vitals information for the web-page to display in a good way with `<html lang="en">` & `<meta charset="utf-8" />`
-- What is a comment in a dev perspective
+- some vitals information for the web-page to display properly with `<html lang="en">` & `<meta charset="utf-8" />`
+- what is a comment in a dev perspective
 
-*Getting better at writing HTML is almost knowing which HTML element should be used & with which attribute.*
+*Getting better at writing HTML is only knowing which HTML element should be used & with which attribute.*
 
 And this is all for the basic of HTML.  
 Next we will see how to make our story nicer with [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
