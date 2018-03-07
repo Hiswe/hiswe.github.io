@@ -54,7 +54,6 @@ function compileSass() {
 
 const css = gulp.series( cleanCSS, compileSass )
 
-
 ////////
 // ASSETS
 ////////

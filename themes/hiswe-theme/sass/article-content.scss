@@ -204,6 +204,13 @@
     font-style: normal;
     padding-left: .35em;
     padding-right: .35em;
+
+    code {
+      border: 0;
+      background: none;
+      color: var(--c-accent-darker);
+      padding: 0;
+    }
   }
 
   //////

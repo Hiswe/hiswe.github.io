@@ -13,7 +13,7 @@ categories:
 In {% post_link 04-html-basic-part-1 the first %} and {% post_link 05-html-basic-part-2 the second %} part we've seen the basis of how to write an HTML document.
 
 Now we're going to play with that and expand our HTML document.  
-This will help us to learn more about HTML and how we can make it [accessible](https://en.wikipedia.org/wiki/Web_accessibility) for people with disabilities easily.
+This will help us to learn more about HTML and how we can easily make it more [accessible](https://en.wikipedia.org/wiki/Web_accessibility) for people with disabilities.
 
 <!-- more -->
 
@@ -82,8 +82,8 @@ the `href` attribute refer to `hyperlink reference` (hyperlink is the technical 
 
 Even if we wrote the “by” and “Hiswe” on two lines with white-spaces before, *the output will be rendered on a single line.*
 
-We have seen in {% post_link 04-html-basic-part-1 part one %} that the browser merges multiple spaces and ignore carriage return.  
-This come handy here! This allow us to have a proper indentation in our code without worrying about the browser rendering 😇
+We have seen in {% post_link 04-html-basic-part-1 part one %} that *__the browser merges multiple spaces and ignore carriage return.__*  
+This come handy here! This *allow us to have a proper indentation in our code without worrying about the browser rendering* 😇
 
 But for a better understanding, we can write our code in that way:
 
@@ -101,16 +101,16 @@ In the end whatever way you're choosing this is only a matter of personal apprec
 
 *Semantic is important, because:*
 
-- It will make your HTML *code more readable for you*
+- It will make your *HTML code more readable for you*
 - It will allow a *better [screen reading](https://en.wikipedia.org/wiki/Screen_reading) experience* for disabled people. 
   In short: the computer will read the text and describe the context of this text. 
   As an example if you have an heading of first level `<h1>`, the screen reader will say:
   <q>heading of first level</q> and then read the content
   
-We wrote a link, but what we really want to achieve, is describing an author.  
+We wrote a link, but what we really want to achieve, is *describing an author*.  
 We already have the `<address>` element but we can add more on the link.
 
-If we take a deeper look at this [HTML element documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), we can see that there is a `rel` attribute:
+If we take a deeper look at this [HTML element documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), we can see that there is a *`rel` attribute:*
 
 {% blockquote Mozilla Developer Network https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-rel rel attribute description %}
 **rel**
@@ -154,9 +154,9 @@ And after knowing that, it's just a matter of updating your HTML file and “voi
 
 *HTML is easy* ✌️ *__It's applying the same recipe again and again:__*
 
-- writing the content
-- choosing the most fitting HTML elements if needed
-- nest and indent everything in a good way
+- *__writing__ the content*
+- *__choosing__ the most fitting __HTML elements__ if needed*
+- *__nest and indent everything__ in a good way*
 
 ## But Sir! We have à `â€œwolf!â€` problem! 
 
@@ -186,18 +186,17 @@ We just have to modify our document like this:
 
 #### TL;DR
 
-- Because it's not appearing in the content of our document, this element place is in the `<head>`
+- Because it's *not really part of the content of our document*, this *element place is in the `<head>`*
 - `<meta>` stands for [metadata](https://en.wikipedia.org/wiki/Metadata)
 - *just always add __<meta charset="utf-8" /\>__ in every HTML document __<head\>__ you create.*
-
 
 #### Understanding metadata
 
 {% caption Real life metadata %}
-{% asset_img in-paris-with-love.svg 440 220 "A polaroid with some text written at the bottom: the metadata 'A polaroid with some text written at the bottom: the metadata'" %}
+{% asset_img in-paris-with-love.svg 460 220 "A polaroid with some text written at the bottom: the metadata 'A polaroid with some text written at the bottom: the metadata'" %}
 {% endcaption %}
 
-Metadata are everything that isn't the content but that provide context upon it.
+Metadata are everything that *isn't the content* but that *provide context* upon it.
 
 If we take a photo as an example, metadata would be:
 
@@ -207,10 +206,10 @@ If we take a photo as an example, metadata would be:
 - with which camera
 - <i>etc.</i>
 
-This will be used by softwares for:
+As example, this can be used by softwares to:
 
-- grouping all the photos taken at the same place, 
-- grouping them by date or time range (every photos taken in the last month) 
+- group all the photos taken at the same place, 
+- group them by date or time range (every photos taken in the last month) 
 - <i>etc.</i>
 
 #### More details
@@ -226,24 +225,32 @@ If you want to have a better understanding of this subject, I recommend you this
 
 ### <html lang="en"\>
 
-<!-- ILLUSTRATION a webpage speaking with bubble containing an english flag -->
+{% caption How do you do my dear fellow? %}
+{% asset_img browser-speaking-english.svg 420 220 "A browser speaking an Union Jack flag 'A browser speaking an Union Jack flag'" %}
+{% endcaption %}
 
 This is to indicate in which language the HTML document is written.  
 It's good for accessibility (so he can know in which language he should read the document)
 
 As a rule of thumb: *__always provide it__*.
 
-### A developer 🌈 thing: `<!-- -->` comments
+### A developer 🌈 thing: `<!-- comments -->` 
 
-<!-- ILLUSTRATION A developer writing on the wall -->
+{% caption Please! Don't forget! %}
+{% asset_img remember-the-milk.svg 420 220 "A computer speaking a post-it note to a person 'A computer speaking a post-it note to a person'" %}
+{% endcaption %}
 
-Your eagle accurate sight 🦅 have spotted this strange HTML element in my previous example. 
+Your eagle accurate sight 🦅 have spotted this strange HTML element in my previous example: 
+
+{% codeblock lang:html %}
+<!-- the rest of our content… -->
+{% endcodeblock%}
 
 This is a *__comment__, a very important thing in the developer's toolbox.*  
 It's just this:
 
-- text that will not appear in the browser…
-- …but that stay in the code for helping us
+- *text that will not appear in the browser*…
+- …*but that stay in the code for helping us*
 
 You can see that as [post-it note](https://en.wikipedia.org/wiki/Post-it_note) for you.  
 You can write everything inside it, just make sure that the content is properly enclosed in `<!--`  and `-->`
@@ -259,7 +266,27 @@ We have seen:
 - how to choose semantic HTML elements to fill our needs from a [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 - how to make links to other webpages: `<a href="">`
 - some vitals information for the web-page to display in a good way with `<html lang="en">` & `<meta charset="utf-8" />`
+- What is a comment in a dev perspective
+
+*Getting better at writing HTML is almost knowing which HTML element should be used & with which attribute.*
 
 And this is all for the basic of HTML.  
 Next we will see how to make our story nicer with [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 
+### Bonus: a simple HTML template
+
+{% codeblock lang:html %}
+<!DOCTYPE html>
+<!-- Change lang to your own language -->
+<html lang="en">
+  <head>
+    <!-- Always put this for a good character encoding -->
+    <meta charset="utf-8" />
+    <!-- This will appear as the text in the browser tab -->
+    <title>Webpage's title</title>
+  </head>
+  <body>
+    <!-- Here go the content -->
+  </body>
+</html>
+{% endcodeblock%}

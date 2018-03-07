@@ -70,6 +70,7 @@ $mq-centered-with-asides: '(min-width: #{$page-width-max})';
   --c-accent: $c-accent;
   --c-accent-h: $c-accent-h;
   --c-accent-s: $c-accent-s;
+  --c-accent-darker: HSL(var(--c-accent-h), var(--c-accent-s), 40%);
   --c-accent-lighter: HSL(var(--c-accent-h), var(--c-accent-s), 82%);
   --c-accent-lightest: HSL(var(--c-accent-h), var(--c-accent-s), 95%);
   // black & variations
