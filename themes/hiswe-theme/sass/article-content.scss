@@ -121,6 +121,22 @@
     }
   }
 
+  // colored bullet-points
+  ul {
+    list-style: none;
+    padding:0;
+    margin:0;
+  }
+  li {
+    padding-left: 1em;
+    text-indent: -.7em;
+
+    &::before {
+      content: "• ";
+      color: var(--c-primary-lighter);
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.1em;
     margin-top: vertical-rhythm(1);
@@ -144,7 +160,7 @@
     counter-increment: section;
     font-weight: bold;
     font-size: 1.65rem;
-    margin-top: vertical-rhythm(2);
+    margin-top: vertical-rhythm(2.5);
     margin-bottom: vertical-rhythm(1);
 
     &::before {
@@ -154,12 +170,12 @@
   }
   h3 {
     font-size: 1.3rem;
-    margin-top: vertical-rhythm(1.2);
+    margin-top: vertical-rhythm(1.5);
   }
   h4 {
     font-size: 1.1rem;
     font-weight: bold;
-    margin-top: vertical-rhythm(1.1);
+    margin-top: vertical-rhythm(1.25);
     margin-bottom: vertical-rhythm(.5);
   }
   img,
