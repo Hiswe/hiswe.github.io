@@ -7,9 +7,6 @@
 %>
 
 <article class="article article--full <%= articleDraftCLass %>">
-  <% if (page.photos && page.photos.length){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
   <%- partial('_post/title_block', {item: page, className: `article__header`}) %>
   <div class="article__content">
     <%- page.content %>
