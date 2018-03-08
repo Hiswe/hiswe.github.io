@@ -10,7 +10,6 @@ cover: cover.png
 date: 2018-03-08 12:02:58
 ---
 
-
 ## Introduction
 
 In {% post_link 04-html-basic-part-1 the first %} and {% post_link 05-html-basic-part-2 the second %} part we've seen the basis of how to write an HTML document.

@@ -13,7 +13,7 @@ $c-primary-h: hue($c-primary) / 1deg;
 $c-primary-s: saturation($c-primary);
 
 $c-accent: #ff0078;
-$c-accent-h: hue($c-accent);
+$c-accent-h: hue($c-accent) / 1deg;
 $c-accent-s: saturation($c-accent);
 
 $c-stripe-img: #fbfbfb;

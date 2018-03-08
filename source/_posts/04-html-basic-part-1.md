@@ -12,7 +12,7 @@ cover: cover.png
 
 ## Introduction
 
-As seen in {% post_link 03-basic-web-understanding %} the HTML file is the backbone of a webpage.  
+As seen in {% post_link 03-basic-web-understanding %} the HTML file is the backbone of a web-page.  
 The purpose of this post is to have a better understanding of those, and how you can write a simple one!
 
 <!-- more -->
