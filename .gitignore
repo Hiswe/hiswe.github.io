@@ -6,4 +6,5 @@ node_modules/
 public/
 .deploy*/
 themes/**/*.css
+themes/hiswe-theme/source/*.js
 .tmp

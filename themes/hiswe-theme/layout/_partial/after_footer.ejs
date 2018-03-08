@@ -11,28 +11,5 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 }());
 </script>
 <% } %>
-<script>
-  (function(){
-    // https://developers.google.com/web/updates/2017/09/sticky-headers
-    // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-    if (!'IntersectionObserver' in window) return
-    var toc = document.querySelector('.js-toc')
-    if (!toc) return
-    var tocSentinel = document.createElement('div')
-    var stuckClass = 'is-stuck'
-    tocSentinel.classList.add('article-long__toc-sentinel')
-    toc.insertBefore( tocSentinel, toc.firstChild )
-    var oberverCb = function(entries) {
-      const tocSentinelEntry = entries[0]
-      if ( tocSentinelEntry.intersectionRatio === 0 )  {
-        toc.classList.add( stuckClass )
-      } else {
-        toc.classList.remove( stuckClass )
-      }
-    }
-    var observer = new IntersectionObserver(oberverCb, {
-      threshold: 1,
-    })
-    observer.observe( tocSentinel)
-  })()
-</script>
+
+<script src="<%- config.root %>hiswe-theme.js" async></script>

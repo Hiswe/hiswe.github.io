@@ -3,9 +3,11 @@
 const gulp        = require( `gulp` )
 const $           = require( `gulp-load-plugins` )()
 const del 				= require( `del` )
+const log         = require( `fancy-log` )
 const lazypipe 		= require( `lazypipe` )
 const args        = require( `yargs` ).argv
 const browserSync = require( `browser-sync` ).create()
+const webpack     = require( `webpack` )
 const reload      = browserSync.reload
 
 const isDev       = args.prod !== true
@@ -24,7 +26,7 @@ function onError(err) {
 ////////
 
 const autoprefixer  = require('autoprefixer')
-const cssDest 			= `${ themeDir }/source/css`
+const cssDest 			= `${ themeDir }/source`
 
 const cssDev        = lazypipe()
   .pipe( $.sourcemaps.write )
@@ -34,7 +36,7 @@ const cssProd       = lazypipe()
 
 function cleanCSS() {
   if (isDev) return Promise.resolve()
-  return del([`${themeDir}/*.css`,`${cssDest}/*.css.map`])
+  return del([`${cssDest}/*.css`,`${cssDest}/*.css.map`])
 }
 
 function compileSass() {
@@ -53,6 +55,25 @@ function compileSass() {
 }
 
 const css = gulp.series( cleanCSS, compileSass )
+
+////////
+// JS
+////////
+
+const bundler     = webpack( require(`./webpack.config.js`) )
+
+const js = done  => {
+  bundler.run((err, stats) => {
+    if (err) return done( err )
+    const info = stats.toJson()
+    if ( stats.hasErrors() ) return done( stats.toString({colors: true}) )
+    done()
+  })
+}
+
+js.description = `Bundle front-app, app server & api-server`
+
+gulp.task( `js`, js )
 
 ////////
 // ASSETS
@@ -101,7 +122,7 @@ icons.description = `bundle SVG files`
 // DEV
 ////////
 
-const build = css
+const build = gulp.parallel(css, js)
 
 function bs() {
   return browserSync.init({
@@ -118,9 +139,26 @@ function reloadBrowser( done ) {
   done()
 }
 
+let hash
 function watch() {
   gulp.watch( `source/**/**.{md,svg,png,jpg}`, reloadBrowser )
   gulp.watch( `${ themeDir }/sass/*.{scss,css}`,  css )
+  bundler.watch({
+    watch: true,
+    progress: true,
+    ignored: /node_modules/,
+  }, (err, stats) => {
+    log(`webpack watch bundle…`)
+    if (err) return onError( err )
+    const info = stats.toJson()
+    if ( stats.hasErrors() ) return log( info.errors )
+    if ( stats.hasWarnings() ) log( info.warnings )
+    if ( hash !== stats.hash ) {
+      hash = stats.hash
+      log(`…BUNDLED`)
+      setTimeout( reload, 400 )
+    }
+  })
 }
 
 const bsAndWatch = () => {
