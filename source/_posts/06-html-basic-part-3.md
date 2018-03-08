@@ -6,7 +6,7 @@ tags:
 comments: false
 categories:
   - web
-cover: anchor.svg
+cover: cover.png
 date: 2018-03-08 12:02:58
 ---
 
