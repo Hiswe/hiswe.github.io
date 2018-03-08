@@ -7,13 +7,17 @@
 // https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
   color: var(--c-text);
   font-family: $font-default;
+  display: flex;
+  flex-direction: column;
 
   @media #{$mq-left-with-aside} {
     font-size: 18px;
@@ -22,6 +26,8 @@ body {
 
 main {
   padding: 0 var(--s-gutter);
+  flex-grow: 1;
+  width: 100%;
 }
 
 .layout--listing {
