@@ -7,6 +7,7 @@ comments: false
 categories:
   - web
 date: 2018-02-20 09:57:44
+cover: cover.png
 ---
 
 ## Introduction
@@ -36,7 +37,7 @@ And also it can be read to people with disabilities!
 ## What is an HTML file?
 
 {% caption Getting to know each other %}
-{% asset_img browser-guessing-files.svg 400 500 different steps of understanding it's an HTML file %} 
+{% asset_img browser-guessing-files.svg 400 500 "different steps of understanding it is an HTML file 'different steps of understanding it is an HTML file'" %} 
 {% endcaption %}
 
 It's a *text file*.
@@ -51,7 +52,7 @@ But for the browser to understand it's reading an HTML file we need two things:
 ### Hey! if it's a text file, I can use Microsoft Word!
 
 {% caption Guy, I can't understand you %}
-{% asset_img browser-dont-understand-word.svg 400 190 A Word file speaking an incomprehensible language to a browser %} 
+{% asset_img browser-dont-understand-word.svg 400 190 "A Word file speaking an incomprehensible language to a browser 'A Word file speaking an incomprehensible language to a browser'" %} 
 {% endcaption %}
 
 In short: *you can't use Microsoft Word*
@@ -81,13 +82,13 @@ Luckily there is a lot of alternative, and some are already on your computer!
 - don't forget to set `save as type` to `All Files (*.*)`
 
 {% caption You need to specify ”save as type: All Files” %}
-{% asset_img notepad@2x.png 978 556 A screenshot of Notepad %} 
+{% asset_img notepad@2x.png 978 556 "A screenshot of the Notepad application 'A screenshot of the Notepad application'" %} 
 {% endcaption %}
 
 ### What are the better alternatives (and they are free):
 
 {% caption We're ok on every computers! %}
-{% asset_img visual-studio-and-atom.svg 430 180 Atom & Visual Studio Code %} 
+{% asset_img visual-studio-and-atom.svg 430 180 "Atom & Visual Studio Code 'Atom & Visual Studio Code'" %} 
 {% endcaption %}
 
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -99,7 +100,7 @@ So you can download and use one of them 👍
 ## Let's begin!
 
 {% caption น่ารัก %}
-{% asset_img baby-html.svg 150 160 A baby HTML file %} 
+{% asset_img baby-html.svg 150 160 "A baby HTML file 'A baby HTML file'" %} 
 {% endcaption %}
 
 Make a new file named `my-first-webpage.html` and save it somewhere.  
@@ -112,7 +113,7 @@ And open it with your web browser! (or click on the `view raw` to have the final
 ### Why is everything on the same line?
 
 {% caption Hey, just doing my job… %}
-{% asset_img browser-rendering-text.svg 430 400 The browser rendering the previous example %} 
+{% asset_img browser-rendering-text.svg 430 400 "The browser rendering the previous example 'The browser rendering the previous example'" %} 
 {% endcaption %}
 
 You wanted to have a formated article, right?  
@@ -128,7 +129,7 @@ Because right now, you *only wrote two lines of text*, and ***for him it's just 
 ### Let's tell the browser we want a headline and paragraph!
 
 {% caption Ah ok! you want a heading & a paragraph! %}
-{% asset_img browser-rendering-html.svg 430 450 The browser rendering the example below %} 
+{% asset_img browser-rendering-html.svg 430 450 "The browser rendering the example below 'The browser rendering the example below'" %} 
 {% endcaption %}
 
 We need to update our example like this:
@@ -145,7 +146,7 @@ ok it's still kind of ugly but we will address that on another post talking abou
 #### The anatomy of an HTML element
 
 {% caption XRay vision of HTML elements  %}
-{% asset_img html-element-anatomy.svg 500 280 Two detailed HTML elements %} 
+{% asset_img html-element-anatomy.svg 500 280 "Two detailed HTML elements 'Two detailed HTML elements'" %} 
 {% endcaption %}
 
 An HTML Element is a **group having a semantic value** (like heading, paragraph, list…)  

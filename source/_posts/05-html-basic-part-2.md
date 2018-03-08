@@ -7,6 +7,7 @@ tags:
 categories:
   - web
 date: 2018-03-01 10:13:24
+cover: cover.png
 ---
 
 ## Introduction

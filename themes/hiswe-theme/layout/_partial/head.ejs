@@ -30,9 +30,7 @@
   <meta property="og:site_name" content="<%= config.title %>"/>
 
   <% if(page.cover) { %>
-    <meta property="og:image" content="<%= page.cover %>" />
-  <% } else { %>
-    <meta property="og:image" content="<%= config.cover %>"/>
+    <meta property="og:image" content="<%= page.permalink %><%= page.cover %>" />
   <% } %>
 
   <link href="<%- config.root %>favicon.png" rel="icon">

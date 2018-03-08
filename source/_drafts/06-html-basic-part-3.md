@@ -6,6 +6,7 @@ tags:
   - html
 categories:
   - web
+cover: anchor.svg
 ---
 
 ## Introduction
