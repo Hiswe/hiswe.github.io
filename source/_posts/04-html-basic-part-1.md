@@ -30,7 +30,7 @@ With it you can make:
 - sales sites
 - video games
 - books
-- and everything more
+- and a lot more!
 
 And also it can be read to people with disabilities! 
 
@@ -116,7 +116,7 @@ And open it with your web browser! (or click on the `view raw` to have the final
 {% asset_img browser-rendering-text.svg 430 400 "The browser rendering the previous example 'The browser rendering the previous example'" %} 
 {% endcaption %}
 
-You wanted to have a formated article, right?  
+You wanted to have a formatted article, right?  
 It means for a better reading experience having some:
 
 - [headlines](https://en.wikipedia.org/wiki/Headline) 
@@ -124,7 +124,7 @@ It means for a better reading experience having some:
 - Maybe some text formatting like bold and italic
 
 *Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.*  
-Because right now, you *only wrote two lines of text*, and ***for him it's just some text***: **he merges multiple spaces and ignore carriage return** 😇 (and believe me, he's doing this for your own good)
+Because right now, you *only wrote two lines of text*, and *__for him it's just some text***: **he merges multiple spaces and ignore carriage return__ 😇 (and believe me, he's doing this for your own good)
 
 ### Let's tell the browser we want a headline and paragraph!
 
@@ -145,7 +145,7 @@ ok it's still kind of ugly but we will address that on another post talking abou
 
 #### The anatomy of an HTML element
 
-{% caption XRay vision of HTML elements  %}
+{% caption X-Ray vision of HTML elements  %}
 {% asset_img html-element-anatomy.svg 500 280 "Two detailed HTML elements 'Two detailed HTML elements'" %} 
 {% endcaption %}
 
