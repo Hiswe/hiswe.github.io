@@ -6,6 +6,7 @@ comments: false
 categories:
   - web
 date: 2018-02-07 12:56:47
+cover: cover.png
 ---
 
 
@@ -31,7 +32,7 @@ Even if they are all computers we can differentiate two types of devices:
 #### The client
 
 {% caption clients: your everyday devices! %}
-{% asset_img computer-and-phone.svg 350 200 a computer & a phone %} 
+{% asset_img computer-and-phone.svg 350 200 "a computer & a phone 'a computer & a phone'" %} 
 {% endcaption %}
 
 It's *your device* (laptop or smartphone…). 
@@ -60,7 +61,7 @@ So you can transform your own computer in a server if you want by installing tho
 ### The Browser
 
 {% caption The browser: making your web easier since 1990 %}
-{% asset_img browser.svg 200 130 a web browser %} 
+{% asset_img browser.svg 200 130 "a web browser 'a web browser'" %} 
 {% endcaption %}
 
 A [browser](https://en.wikipedia.org/wiki/Web_browser): It's the software you use to access an internet page.
@@ -76,7 +77,7 @@ Yep, it seems obvious but that's the main thing about computers: how with [bits]
 ## How does it works
 
 {% caption “Hey server! what do you have there?” %}
-{% asset_img browser-ask-server.svg 525 200 a web browser asking resources to a server %} 
+{% asset_img browser-ask-server.svg 525 200 "a web browser asking resources to a server 'a web browser asking resources to a server'" %} 
 {% endcaption %}
 
 When you type an address in the browser, the browser will ask the server what is at that location for him to get.
@@ -86,7 +87,7 @@ Most of the time you want to get a web-page, but it can be anything: an image, s
 ### getting a web-page
 
 {% caption Here is the html you asked for! %}
-{% asset_img server-give-html.svg 525 200 the server giving a HTML file %} 
+{% asset_img server-give-html.svg 525 200 "the server giving a HTML file 'the server giving a HTML file'" %} 
 {% endcaption %}
 
 A *web-page* is just a *text file!* we call it *html file*… You can read [a lot more about HTML](https://en.wikipedia.org/wiki/HTML)
@@ -102,7 +103,7 @@ It's:
 ### CSS, Javascript and other resources 
 
 {% caption You also need CSS & JS %}
-{% asset_img server-give-css-and-js.svg 525 200 the server giving a CSS & a JS file %} 
+{% asset_img server-give-css-and-js.svg 525 200 "the server giving a CSS & a JS file 'the server giving a CSS & a JS file'" %} 
 {% endcaption %}
 
 The latter part is the HTML file telling the browser to ask the server for more files. 
@@ -114,7 +115,7 @@ Beside images/videos, there are also 2 domains where it needs more specific info
 ### The browser magic
 
 {% caption It's awesome! A beautiful web-page!  %}
-{% asset_img webbrowser-rendering.svg 480 400 the browser rendering a web-page %} 
+{% asset_img webbrowser-rendering.svg 480 400 "the browser rendering a web-page 'the browser rendering a web-page'" %} 
 {% endcaption %}
 
 And now, using all those text files, your browser will do the magic and finally show you an interactive display of the information you wanted to see!
@@ -122,7 +123,7 @@ And now, using all those text files, your browser will do the magic and finally 
 ## So…
 
 {% caption Love! Love! Love! %}
-{% asset_img browser-love.svg 260 140 the browser surrounded by heart %} 
+{% asset_img browser-love.svg 260 140 "the browser surrounded by heart 'the browser surrounded by heart'" %} 
 {% endcaption %}
 
 *Love your browser and keep it up to date* 😎
