@@ -1,13 +1,15 @@
 ---
 title: html basic (part 3)
-comments: false
 tags:
   - beginner
   - html
+comments: false
 categories:
   - web
 cover: anchor.svg
+date: 2018-03-08 12:02:58
 ---
+
 
 ## Introduction
 
