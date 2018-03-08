@@ -11,27 +11,28 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 }());
 </script>
 <% } %>
-<%#
 <script>
   (function(){
     // https://developers.google.com/web/updates/2017/09/sticky-headers
     // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-    if (!'IrntersectionObserver' in window) return
-    console.log('IntersectionObserver')
+    if (!'IntersectionObserver' in window) return
     var toc = document.querySelector('.js-toc')
-    var root = document.querySelector('.article-long')
-    console.log(toc)
     if (!toc) return
-    var oberverCb = function() {
-      console.log( arguments )
+    var tocSentinel = document.createElement('div')
+    var stuckClass = 'is-stuck'
+    tocSentinel.classList.add('article-long__toc-sentinel')
+    toc.insertBefore( tocSentinel, toc.firstChild )
+    var oberverCb = function(entries) {
+      const tocSentinelEntry = entries[0]
+      if ( tocSentinelEntry.intersectionRatio === 0 )  {
+        toc.classList.add( stuckClass )
+      } else {
+        toc.classList.remove( stuckClass )
+      }
     }
     var observer = new IntersectionObserver(oberverCb, {
-      root: root,
-      // rootMargin: '30px',
       threshold: 1,
     })
-    observer.observe(toc)
-
+    observer.observe( tocSentinel)
   })()
-%>
 </script>

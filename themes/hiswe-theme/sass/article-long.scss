@@ -40,12 +40,6 @@
   &__toc {
     grid-area: right;
     margin-top: var(--s-half-gutter);
-    // opacity: .25;
-    // transition: opacity .25s;
-
-    // &:hover {
-    //   opacity: 1;
-    // }
 
     @media #{$mq-left-with-aside} {
       margin-top: 0;
@@ -54,6 +48,21 @@
       &-sticky {
         position: sticky;
         top: var(--s-gutter);
+        transition: opacity .25s;
+
+        &.is-stuck {
+          opacity: .25;
+
+          &:hover  {
+            opacity: 1;
+          }
+        }
+      }
+      &-sentinel {
+        position: absolute;
+        height: 0px;
+        width: 100%;
+        top: calc( var(--s-gutter) * -1 - 1px );
       }
     }
   }
