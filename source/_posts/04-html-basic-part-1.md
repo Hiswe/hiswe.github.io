@@ -1,5 +1,6 @@
 ---
 title: html basic (part 1)
+description: Learn some basic things about writing HTML, like using a proper text editor and knowing what is a HTML element
 tags:
   - beginner
   - html
