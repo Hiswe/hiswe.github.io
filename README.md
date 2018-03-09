@@ -45,6 +45,16 @@ ffmpeg -i source.mov -vf scale=720:-2 source-720.mov
 ffmpeg -an -i source-720.mov -vcodec h264 -acodec aac -strict -2 output.mp4
 ```
 
+### social
+
+#### validate twitter cards
+
+https://cards-dev.twitter.com/validator
+
+#### validate open graph
+
+https://developers.facebook.com/tools/debug/sharing
+
 ## TODO
 
 - better video player
