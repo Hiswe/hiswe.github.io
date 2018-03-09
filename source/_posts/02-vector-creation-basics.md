@@ -26,7 +26,7 @@ Choosing one upon another is more a matter of personal preference.
 
 <!-- more -->
 
-### Prerequites
+### Prerequisites
 
 Knowing about what is a vector drawing of course :)  
 I have made a small introduction {% post_link 01-vector-basics here %}
@@ -42,7 +42,7 @@ It will just allow you to express whatever you're able to do in another way.
 For working right, you really need to learn some basic keyboard shortcuts.  
 This will greatly improve your experience with the software and make things more natural.  
 
-Of course you don't have to remeber everything :) Just the most common ones.
+Of course you don't have to remember everything :) Just the most common ones.
 
 #### Mac/PC
 
@@ -130,7 +130,7 @@ With a virtual paper, you have new ways to navigate inside your design.
 This by doing `click & drag`
 
 *zoom:* this is the __magnifying glass tool__. It will allow you to be closer or farther of your design.  
-`ALT` to dezoom.
+`ALT` to unzoom.
 
 
 ### the better way
@@ -138,7 +138,7 @@ This by doing `click & drag`
 whatever tool you have selected those shortcuts works:
 
 *move:* `SPACE` + `click & drag`  
-*zoom/dezoom* `CMD` + `+` / `CMD` + `-`
+*zoom/unzoom* `CMD` + `+` / `CMD` + `-`
 
 ## Artboard
 
@@ -180,7 +180,7 @@ You may to edit your object in 2 ways:
 - move, rotate or scale the __whole object__
 - edit the shape in itself
 
-And there is 2 differents tools to accomplish this:
+And there is 2 different tools to accomplish this:
 
 {% split Illustrator | Affinity Designer %} 
 {% asset_img arrows-illustrator.gif Illustrator pen tool %}   
@@ -220,13 +220,13 @@ There is some difference in behavior in AD an AD:
 …selecting a shape with the __white arrow__ will select all the points  
 So __be aware of your selection__.
 ---
-…the __white arrow__ allow also to modifiy a `stroke`.   
+…the __white arrow__ allow also to modify a `stroke`.   
 Simply `Click & drag` on a stroke to reshape it.
 {% endsplit %}  
 
 #### pen tool (the return)
 
-The __pen tool__ has also abilities of editing a shape thanks to the __modificator keys__  
+The __pen tool__ has also abilities of editing a shape thanks to the __modification keys__  
 AD & AI treats it differently:
 
 {% split In Illustrator | In Affinity Designer %} 
