@@ -33,7 +33,7 @@ With it you can make:
 - books
 - and a lot more!
 
-And also it can be read to people with disabilities! 
+And it also can be read by people with disabilities!
 
 ## What is an HTML file?
 
@@ -125,11 +125,12 @@ It means for a better reading experience having some:
 - Maybe some text formatting like bold and italic
 
 __Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.__  
+
 Because right now, you __only wrote two lines of text__, and __*for him it's just some text*: he merges multiple spaces and ignore carriage return__ 😇 (and believe me, he's doing this for your own good)
 
 ### Let's tell the browser we want a headline and paragraph!
 
-{% caption Ah ok! you want a heading & a paragraph! %}
+{% caption Ah OK! you want a heading & a paragraph! %}
 {% asset_img browser-rendering-html.svg 430 450 "The browser rendering the example below 'The browser rendering the example below'" %} 
 {% endcaption %}
 
@@ -138,7 +139,7 @@ We need to update our example like this:
 {% include_code lang:html 04-html-basic-part-1/my-improved-webpage.html %}
 
 After saving, *reload your browser* aaand… It's done! 🥇  
-ok it's still kind of ugly but we will address that on another post talking about [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets).
+It's still kind of ugly but we will address that on another post talking about [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets).
 
 ### But what happened? HTML elements
 
