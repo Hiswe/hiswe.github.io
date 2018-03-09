@@ -75,7 +75,7 @@ And __you can mix in any order text child with HTML element child__
 
 `<a>` stands for [anchor](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
 
-the `href` attribute refer to `hyperlink reference` (hyperlink is the technical way of saying link… 99% of the times, we just say link)
+the `href` attribute refers to `hyperlink reference` (hyperlink is the technical way of saying link… 99% of the times, we just say link)
 
 #### Why the browser is merging spaces for your own good
 
@@ -86,7 +86,7 @@ the `href` attribute refer to `hyperlink reference` (hyperlink is the technical 
 Even if we wrote the “by” and “Hiswe” on two lines with white-spaces before, __the output will be rendered on a single line.__
 
 We have seen in {% post_link 04-html-basic-part-1 part one %} that __*the browser merges multiple spaces and ignore carriage return.*__
-This come handy here! This __allow us to have a proper indentation in our code without worrying about the browser rendering__ 😇
+This comes in handy here! This __allow us to have a proper indentation in our code without worrying about the browser rendering__ 😇
 
 But for a better understanding, we can write our code in that way:
 
@@ -135,7 +135,7 @@ Here's a lookup of our update:
 {% asset_img laser-dino.svg 320 200 "A dinosaur firing laser beams with his eyes 'A dinosaur firing laser beams with his eyes'" %}
 {% endcaption %}
 
-Like a lazy cow 🐮, I will just give you the whole document, and we will go on any of the differences.
+Like a lazy cow 🐮, I will just give you the updated document and walk you through each modification.
 
 {% include_code lang:html 06-html-basic-part-3/01-full-story.html %}
 
@@ -145,7 +145,7 @@ Like a lazy cow 🐮, I will just give you the whole document, and we will go on
 {% asset_img bold-and-italic.svg 400 300 "A web-browser writing bold and italic on a blackboard 'A web-browser writing bold and italic on a blackboard'" %}
 {% endcaption %}
 
-All those elements helps you achieving some basic text formating:
+All those elements help you achieving some basic text formating:
 
 - `<br />` stands for __break__. Just a regular carriage return __*⏎*__
   Like the `<img />` element, it's a self-closing HTML elements.
@@ -167,7 +167,7 @@ __HTML is easy__ ✌️ __*It's applying the same recipe again and again:*__
 {% asset_img we-have-a-problem.svg 270 240 "A worried man standing in front of many strange text 'A worried man standing in front of many strange text'" %}
 {% endcaption %}
 
-Your eyesight is as accurate as an eagle 🦅
+Your eyesight is as accurate as an eagle's 🦅
 
 We do have a problem but the good news is that it can be fixed very easily.
 
@@ -189,7 +189,7 @@ We just have to modify our document like this:
 
 #### TL;DR
 
-- Because it's __not really part of the content of our document content__, this __element place is in the `<head>`__
+- Because it's __not really part of the content of our document content__, this __element's place is in the `<head>`__
 - `<meta>` stands for [metadata](https://en.wikipedia.org/wiki/Metadata)
 - __just always add *<meta charset="utf-8" /\>* in every HTML document *<head\>* you create.__
 
@@ -205,7 +205,7 @@ If we take a photo as an example, metadata would be:
 
 - where the picture have been taken
 - at what time 
-- by who
+- by whom
 - with which camera
 - <i>etc.</i>
 
@@ -220,7 +220,7 @@ As example, this can be used by softwares to:
 The root problem, is [character encoding](https://en.wikipedia.org/wiki/Character_encoding). 
 
 In a short, computers have evolved from supporting only a subset of english characters to all characters in the world (including emoji 💩).  
-But __the web__ is an open platform and __try to maintain compatibility with old documents__.
+But __the web__ is an open platform and __tries to maintain compatibility with old documents__.
 
 __*So you have to tell your browser that you use the most modern encoding.*__
 
@@ -233,7 +233,7 @@ If you want to have a better understanding of this subject, I recommend you this
 {% endcaption %}
 
 This is to indicate in which language the HTML document is written.  
-It's good for accessibility (so he can know in which language he should read the document)
+It's good for accessibility (so it can know in which language he should read the document)
 
 As a rule of thumb: __*always provide it*__.
 
@@ -253,7 +253,7 @@ This is a __*comment*, a very important thing in the developer's toolbox.__
 It's just this:
 
 - __text that will not appear in the browser__…
-- …__but that stay in the code for helping us__
+- …__but that stays in the code for helping us__
 
 You can see that as [post-it note](https://en.wikipedia.org/wiki/Post-it_note) for you.  
 You can write everything inside it, just make sure that the content is properly enclosed in `<!--`  and `-->`
@@ -268,13 +268,15 @@ We have seen:
 
 - how to choose semantic HTML elements to fill our needs from a [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 - how to make links to other webpages: `<a href="">`
-- some vitals information for the web-page to display properly with `<html lang="en">` & `<meta charset="utf-8" />`
+- some vital information for the web-page to display properly with `<html lang="en">` & `<meta charset="utf-8" />`
 - what is a comment in a dev perspective
 
 __Getting better at writing HTML is only knowing which HTML element should be used & with which attribute.__
 
 And this is all for the basic of HTML.  
 Next we will see how to make our story nicer with [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+
+Again thanks to [xpac27](https://github.com/xpac27) for the corrections
 
 ### Bonus: a simple HTML template
 
