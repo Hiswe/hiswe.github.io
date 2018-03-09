@@ -51,8 +51,8 @@ In Illustrator (as AD is mac only) when I will talk about the key `CMD` you shou
 
 Like in every software you can achieve those actions by pressing:
 
-**undo**: `CMD` + `Z`  
-**redo**: `SHIFT` + `CMD` + `Z`
+*undo*: `CMD` + `Z`  
+*redo*: `SHIFT` + `CMD` + `Z`
 
 ## Interface
 
@@ -73,14 +73,14 @@ It will provide the most common options you should need a this moment
 ### Toolbar
 
 It's the same things as real tools, they are needed to do stuff.  
-**One very important thing is** every tools has multiple powers.  
+*One very important thing is* every tools has multiple powers.  
 Those are unlocked by pressing additional keys (`CMD`  `ALT` `SHIFT`) while using them.
 
 Of course, using a tool, is clicking on it to select it.
 
 #### More tools!
 
-When you see an arrow in the tool square, It means that by making a *long press on this tool*, you can *access other tools!*
+When you see an arrow in the tool square, It means that by making a __long press on this tool__, you can __access other tools!__
 
 <!-- **MORE TOOLS IMAGE** -->
 
@@ -102,14 +102,14 @@ And every panel as some options:
 
 You can check it every time you want. Be curious :P
 
-### Informations / Keyboards modificators help
+### Information / Keyboards modifications help
 
 {% split Illustrator | Affinity Designer %} 
-- At the bottom, there is differents informations about the zoom level, which artboard are you working on and the current tool used.  
-- When you use *modificator keys* (see [Toolbar](/#toolbar)) the current tool will change to reflect what you are going to do
+- At the bottom, there is different information about the zoom level, which artboard are you working on and the current tool used.  
+- When you use __modification keys__ (see [Toolbar](/#toolbar)) the current tool will change to reflect what you are going to do
 ---
 - Every time a small description of what and how you can achieve with the tool you have selected.  
-- They also list all the *modificator keys* you can use, and how they will change the behaviour of the current tool.
+- They also list all the __modification keys__ you can use, and how they will change the behavior of the current tool.
 {% endsplit %}
 
 ## Moving
@@ -125,33 +125,33 @@ With a virtual paper, you have new ways to navigate inside your design.
 {% asset_img move-zoom-designer.gif Designer moving and zooming tool %}
 {% endsplit %}   
 
-**move:** this is the *hand tool*. It will allow you to span around the working zone  
+*move:* this is the __hand tool__. It will allow you to span around the working zone  
 This by doing `click & drag`
 
-**zoom:** this is the *magnifying glass tool*. It will allow you to be closer or farther of your design.  
+*zoom:* this is the __magnifying glass tool__. It will allow you to be closer or farther of your design.  
 `ALT` to dezoom.
 
 
 ### the better way
 
-whatever tool you have selected those shortcusts works:
+whatever tool you have selected those shortcuts works:
 
-**move:** `SPACE` + `click & drag`  
-**zoom/dezoom** `CMD` + `+` / `CMD` + `-`
+*move:* `SPACE` + `click & drag`  
+*zoom/dezoom* `CMD` + `+` / `CMD` + `-`
 
 ## Artboard
 
 Those are your working area.
-It's like *custom sized sheets of paper* and you can have as many as you want.
+It's like __custom sized sheets of paper__ and you can have as many as you want.
 
 I won't cover it here, and stick to the default preset: 1 artboard.
 
 ## Creating shapes
 
-We will cover here only one tool to create *custom shapes*:  the *pen tool.*  
-*Predefined shapes* (like rectangles, ellipse and so on) usage is I think obvious.
+We will cover here only one tool to create __custom shapes__:  the __pen tool.__  
+__Predefined shapes__ (like rectangles, ellipse and so on) usage is I think obvious.
 
-There is of course other way to create shapes, but focusing on the *pen tool* is a good to way to know the core of making vector shapes.
+There is of course other way to create shapes, but focusing on the __pen tool__ is a good to way to know the core of making vector shapes.
 
 ### Making the shape
 
@@ -170,91 +170,91 @@ There is of course other way to create shapes, but focusing on the *pen tool* is
 
 {% video pen-tool.m4v %}
 
-To **close a path** click on the first point you have created (like in the above example).
+To *close a path* click on the first point you have created (like in the above example).
 
 ### Editing the shape
 
 You may to edit your object in 2 ways:
 
-- move, rotate or scale the *whole object*
+- move, rotate or scale the __whole object__
 - edit the shape in itself
 
 And there is 2 differents tools to accomplish this:
 
 {% split Illustrator | Affinity Designer %} 
 {% asset_img arrows-illustrator.gif Illustrator pen tool %}   
-*Black arrow*: named **selection tool**  
-*White arrow*: named **direct selection tool**
+__Black arrow__: named *selection tool*  
+__White arrow__: named *direct selection tool*
 ---
 {% asset_img arrows-designer.gif Designer pen tool %} 
-*Black arrow*: named **move tool**  
-*White arrow*: named **node tool**
+__Black arrow__: named *move tool*  
+__White arrow__: named *node tool*
 {% endsplit %}  
 
 #### The black arrow 
 
-will allow you to *select a whole path*.  
+will allow you to __select a whole path__.  
 When a path is selected, you have a selection box around your object.  
 
 {% video black-arrow-tool.m4v %}
 
-- *moving:* `click & drag` from **inside** the shape
+- __moving:__ `click & drag` from *inside* the shape
   - multiple can be made by pressing `SHIFT` and click on the shapes you want
-- *rotating:*  `click & drag` from a **little further** from a corner. **the icon should change appreance**
-- *resizing:*  `click & drag` from any point of selection box
-- *constraint:* each transforms can be constrains (move on determined angles, scales proportionally…) by pushing `SHIFT` **while dragging**
+- __rotating:__  `click & drag` from a *little further* from a corner. *the icon should change appearance*
+- __resizing:__  `click & drag` from any point of selection box
+- __constraint:__ each transforms can be constrains (move on determined angles, scales proportionally…) by pushing `SHIFT` *while dragging*
 
 #### The white arrow 
 
-will allow you to *select a point* in a path.  
-And also to modify the *handlers of a point* (if any).
+will allow you to __select a point__ in a path.  
+And also to modify the __handlers of a point__ (if any).
 
 {% video white-arrow-tool.m4v %}
 
 You can move many points by selecting them with `SHIFT`.
 
-There is some difference in behaviour in AD an AD: 
+There is some difference in behavior in AD an AD: 
 
 {% split In Illustrator | In Affinity Designer %} 
-…selecting a shape with the *white arrow* will select all the points  
-So *be aware of your selection*.
+…selecting a shape with the __white arrow__ will select all the points  
+So __be aware of your selection__.
 ---
-…the *white arrow* allow also to modifiy a `stroke`.   
+…the __white arrow__ allow also to modifiy a `stroke`.   
 Simply `Click & drag` on a stroke to reshape it.
 {% endsplit %}  
 
 #### pen tool (the return)
 
-The *pen tool* has also abilities of editing a shape thanks to the *modificator keys*  
+The __pen tool__ has also abilities of editing a shape thanks to the __modificator keys__  
 AD & AI treats it differently:
 
 {% split In Illustrator | In Affinity Designer %} 
-*Adding a point:*   
+__Adding a point:__   
 `click` on a path
-*Moving a point:*
-`CMD` for getting in **white arrow mode** (`SHIFT` for multiple selection)
-*Removing a point:* 
+__Moving a point:__
+`CMD` for getting in *white arrow mode* (`SHIFT` for multiple selection)
+__Removing a point:__ 
 `click` on a point
-*Adding handlers to a point:*
+__Adding handlers to a point:__
 `ALT` + `click & drag` on a point
-*Removing handlers of a point:* 
+__Removing handlers of a point:__ 
 `ALT` + `click` on a point
-*Breaking handlers* 
+__Breaking handlers__ 
 with selected point `ALT` + `click & drag` on an handler
 ---
-*Adding a point:* 
-`CMD` + `click` **on a stroke** to add a point
-*Moving a point:* 
-`click  & drag` **on a point** (`SHIFT` for multiple selection)
-*Removing a point:* 
+__Adding a point:__ 
+`CMD` + `click` *on a stroke* to add a point
+__Moving a point:__ 
+`click  & drag` *on a point* (`SHIFT` for multiple selection)
+__Removing a point:__ 
 select points by `click` then press `DEL`
-*Adding handlers to a point:* 
-`click & drag` on a point (have to be on `Mode: pen` in the *context bar*)
-*Removing handlers of a point:* 
-selecting handlers and in the *context bar* click on `convert -> the type you want`
-*Breaking handlers:* 
+__Adding handlers to a point:__ 
+`click & drag` on a point (have to be on `Mode: pen` in the __context bar__)
+__Removing handlers of a point:__ 
+selecting handlers and in the __context bar__ click on `convert -> the type you want`
+__Breaking handlers:__ 
 while `dragging an handler` click on `ALT`
-*Reshaping a stroke:* 
+__Reshaping a stroke:__ 
 `click & drag` on a stroke
 {% endsplit %}  
 
@@ -262,7 +262,7 @@ while `dragging an handler` click on `ALT`
 
 ### Colors
 
-*After having a shape selected*, fill & border can be styled in the color panel:
+__After having a shape selected__, fill & border can be styled in the color panel:
 
 {% split Illustrator | Affinity Designer %} 
 {% asset_img color-panel-illustrator.png Illustrator pen tool %}   
@@ -270,7 +270,7 @@ while `dragging an handler` click on `ALT`
 {% asset_img color-panel-designer.png Designer pen tool %} 
 {% endsplit %}  
 
-- *What you are styling appears above the other one*.  
+- __What you are styling appears above the other one__.  
 - `click` to select between border & fill.  
 - `double click` to open a more detailed color panel.
 
@@ -278,28 +278,28 @@ while `dragging an handler` click on `ALT`
 
 ### Stroke
 
-You can also *modify the size of the stroke* by tweaking on the *context properties*.
+You can also __modify the size of the stroke__ by tweaking on the __context properties__.
 
 {% split In Illustrator | In Affinity Designer %} 
 All the stroke properties are put next to each another.
-You can also access a stroke panel by clicking on the **stroke link**
+You can also access a stroke panel by clicking on the *stroke link*
 ---
-by clicking on the *stroke line*, a panel will open with all the options you need
+by clicking on the __stroke line__, a panel will open with all the options you need
 {% endsplit %}  
 
 ## Exporting an artwork
 
 Because vector drawing drawings are computed, you can generate a lot of different files type with those, including JPG (pixel), PDF and SVG (one of the most interoperable vector format)
 
-*Artboards helps you by cropping everything that's outside their boundaries.*
+__Artboards helps you by cropping everything that's outside their boundaries.__
 
 {% split In Illustrator | In Affinity Designer %} 
-- *In the menu*: File -> Export
+- __In the menu__: File -> Export
 - Choose the format (JPEG is good for showing to anybody)
-- *check the Use Artboards checkbox*
+- __check the Use Artboards checkbox__
 - `click` export
 ---
-- *In the menu*: File -> Export
+- __In the menu__: File -> Export
 - Choose the format
 - `click` export
 {% endsplit %}  

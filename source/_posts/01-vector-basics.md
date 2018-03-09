@@ -70,9 +70,9 @@ that can be great advantages.
 
 - `handlers` are what make your path curvy (instead of straight)
 - both handler can be :
-	- *aligned* (fig.04 point A)
-	- *broken* (fig.04 point B)
-	- *alone* (fig.04 point C)
+	- __aligned__ (fig.04 point A)
+	- __broken__ (fig.04 point B)
+	- __alone__ (fig.04 point C)
 - and can be any sized
 
 ## The mystery of strokes
@@ -97,9 +97,9 @@ As said before, strokes are determine by the 2 points that are on its end.
 {% asset_img shape-style.svg different path %} 
 {% endcaption %}
 
-- it accepts a `stroke` and and `fill` that can be styled differently (**fig.06 left)
-- if the path is **open** the fill **only** will join the ends. (**fig.06 middle)
-- shapes are always piled up (**fig.06 right)
+- it accepts a `stroke` and and `fill` that can be styled differently (fig.06 left)
+- if the path is *open* the fill *only* will join the ends. (fig.06 middle)
+- shapes are always piled up (fig.06 right)
 
 ## Softwares
 

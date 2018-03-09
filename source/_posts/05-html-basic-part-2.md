@@ -14,8 +14,8 @@ cover: cover.png
 
 With {% post_link 04-html-basic-part-1 %} we've seen how to:
 
-- use a __proper text editor__ to create and edit a HTML document
-- what is a __HTML element__
+- use a *proper text editor* to create and edit a HTML document
+- what is a *HTML element*
 
 Now we will see how to build more upon that!
 
@@ -50,10 +50,10 @@ How this translate to HTML?
 
 ### Semantic of ul & li
 
-As seen before, *HTML elements carry a semantic value*:  
+As seen before, __HTML elements carry a semantic value__:  
 
-- `ul` stands for *u*norganized *l*ist (unorganized because it's bullet points and not a numeric value)
-- `li` stands for *l*ist *item*
+- `ul` stands for __u__norganized __l__ist (unorganized because it's bullet points and not a numeric value)
+- `li` stands for __l__ist __item__
 
 So because we wanted a list of elements, the obvious choice was to use those elements 😎
 
@@ -65,7 +65,7 @@ So because we wanted a list of elements, the obvious choice was to use those ele
 {% endcaption %}
 
 In the first part I said that the content contains your text.  
-That was partially true: *It can also contain other HTML elements!*  
+That was partially true: __It can also contain other HTML elements!__  
 
 As example, if we want to describe in HTML a basket with 3 apples we can do something like:
 
@@ -84,7 +84,7 @@ Don't use them in your HTML code.
 ### Parent & Children
 
 This is developer's poetry 🌈 
-We often refer to the *HTML elements containing the other* as *the parent* of *his children*  
+We often refer to the __HTML elements containing the other__ as __the parent__ of __his children__  
 
 In the example above:
 
@@ -98,7 +98,7 @@ In the example above:
 {% endcaption %}
 
 What is very important to understand, is that the browser need to know where to start and where to stop.  
-So *if we mess with the order of starting and closing tags* it can *lead to some problems:*
+So __if we mess with the order of starting and closing tags__ it can __lead to some problems:__
 
 Your browser is an amazing thing. He will try to fix it for you, but maybe not in the way you intended.
 
@@ -113,9 +113,9 @@ Your browser is an amazing thing. He will try to fix it for you, but maybe not i
 {% endcodeblock %}
 
 The browser won't understand it: 
-the `<li>` *starts __inside__* the `<ul>` 
-*__BUT__*
-it *ends __outside__* his parent
+the `<li>` __starts *inside*__ the `<ul>` 
+__*BUT*__
+it __ends *outside*__ his parent
 
 #### This is the right way to write it:
 
@@ -135,9 +135,9 @@ it *ends __outside__* his parent
 In order to prevent this problem, we use a convention:
 
   - just [indent](https://en.wikipedia.org/wiki/Indentation_style) the content
-  - so we can see better what's *inside* what
+  - so we can see better what's __inside__ what
 
-*__It's really important to indent well__*: It will prevent you to do a lot of mistakes.  
+__*It's really important to indent well*__: It will prevent you to do a lot of mistakes.  
 …and it looks nicer (developer's poetry 🌈)
 
 Indenting is made easy with a {% post_link 04-html-basic-part-1 a proper text editor %} like [Visual Studio Code](https://code.visualstudio.com/). 
@@ -158,7 +158,8 @@ Add an illustration (illustrations are good)
 
 This one is easy:
 
-- `img` stands for *im*a*g*e
+[//]: # ( Have some issue on the rendering, resort to write HTML )
+- `img` stands for __im__a<strong>g</strong>e
 
 Want an image? use `img` 🌆
 
@@ -169,12 +170,12 @@ Want an image? use `img` 🌆
 {% endcaption %}
 
 Some HTML elements don't need content.  
-In the `img` element example, well… *an image is an image, what else do you want to add?*
+In the `img` element example, well… __an image is an image, what else do you want to add?__
 
 to write them:
 
-- just make *only 1 tag*
-- have to *finish with __<span class="u-c-contrast">/</span>>__*
+- just make __only 1 tag__
+- have to __finish with *<span class="u-c-accent">/</span>>*__
 
 {% caption I'm a self-closed HTML element! %}
 {% asset_img auto-closing-tag.svg 300 140 "a HTML element with a self-closed tag 'a HTML element with a self-closed tag'" %} 
@@ -204,19 +205,19 @@ Following our basket/apple example, we might want to know more about the apples:
 {% asset_img anatomy-of-an-attribute.svg 480 280 "a description of a tag 'a description of a tag'" %} 
 {% endcaption %}
 
-- those properties are named *__attributes__*
-- those attributes are *__always on the starting tag__*
-- those attributes *__come__* more often *__in two parts__*:
-  - an *__attribute name__*: a text __without__ space
-  - an *__attribute value__*: a text that can contain space
+- those properties are named __*attributes*__
+- those attributes are __*always on the starting tag*__
+- those attributes __*come*__ more often __*in two parts*__:
+  - an __*attribute name*__: a text *without* space
+  - an __*attribute value*__: a text that can contain space
 - we always write it that way: `attribute-name="the content on my property"`  
-  - Notice the * __equal sign__ right after the attribute name*
-  - The *equal sign __shouldn't be separate by space__*  (`attribute-name = "the content on my property"` is wrong)
-  - The *content* always come *surrounded by double quotes*
+  - Notice the __*equal sign* right after the attribute name__
+  - The __equal sign *shouldn't be separate by space*__  (`attribute-name = "the content on my property"` is wrong)
+  - The __content__ always come __surrounded by double quotes__
 
 ### The image src attribute
 
-*The `src` attribute stands for __source__*
+__The `src` attribute stands for *source*__
 
 Some information like the one for an image, can't be included in the HTML document.  
 We need to tell the browser where to find them.  
@@ -230,13 +231,13 @@ The `src` attribute is simply that: where we can find the file containing the da
 {% endcaption %}
 
 The browser takes a deep care of respecting what you write. 
-*He will even make a difference between [lowercase and uppercase](https://en.wikipedia.org/wiki/Letter_case)* so a file named `WOLF.jpg` and `wolf.jpg` are not similar to him.  
-In the same ways, spaces can be a tricky thing so *__as a rule of thumb__*:
+__He will even make a difference between [lowercase and uppercase](https://en.wikipedia.org/wiki/Letter_case)__ so a file named `WOLF.jpg` and `wolf.jpg` are not similar to him.  
+In the same ways, spaces can be a tricky thing so __*as a rule of thumb*__:
 
-- *always name your files in lowercase*
-- *replace spaces by `-` in the name*
+- __always name your files in lowercase__
+- __replace spaces by `-` in the name__
 
-__example:__
+*example:*
 
 `My long Image name.jpg` is better written `my-long-image-name.jpg`
 
@@ -271,14 +272,14 @@ And we called it `<html>` because it's what we're writing right?
 
 #### <head\>
 
-In the `<head>` we will keep *everything that's invisible inside the webpage.*  
+In the `<head>` we will keep __everything that's invisible inside the webpage.__  
 
 Look at it as your thought & identity.  
 Important but less obvious than the rest.
 
 #### <body\>
 
-In the `<body>` we will keep *everything that's visible*.  
+In the `<body>` we will keep __everything that's visible__.  
 Our content 📘
 
 ## wrapping up

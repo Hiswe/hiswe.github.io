@@ -52,7 +52,7 @@ Which seems to be good enough…
 
 …but we can do more!
 
-*The web is all about [links](https://en.wikipedia.org/wiki/Hyperlink)* and getting from one place to another!
+__The web is all about [links](https://en.wikipedia.org/wiki/Hyperlink)__ and getting from one place to another!
 
 So why not include a link to the author website where all his glorious contents live?
 
@@ -64,7 +64,7 @@ So why not include a link to the author website where all his glorious contents 
 {% endcodeblock %} 
 
 As seen in {% post_link 05-html-basic-part-2 part 2 %} the `parent` (`<address>` here) can have many `children`.  
-And *you can mix in any order text child with HTML element child* 
+And __you can mix in any order text child with HTML element child__ 
 
 #### Semantic of `<a>` and `href`
 
@@ -82,10 +82,10 @@ the `href` attribute refer to `hyperlink reference` (hyperlink is the technical 
 {% asset_img merging-white-space.svg 500 200 "the browser merging two white spaces 'the browser merging two white spaces'" %}
 {% endcaption %}
 
-Even if we wrote the “by” and “Hiswe” on two lines with white-spaces before, *the output will be rendered on a single line.*
+Even if we wrote the “by” and “Hiswe” on two lines with white-spaces before, __the output will be rendered on a single line.__
 
-We have seen in {% post_link 04-html-basic-part-1 part one %} that *__the browser merges multiple spaces and ignore carriage return.__*  
-This come handy here! This *allow us to have a proper indentation in our code without worrying about the browser rendering* 😇
+We have seen in {% post_link 04-html-basic-part-1 part one %} that __*the browser merges multiple spaces and ignore carriage return.*__
+This come handy here! This __allow us to have a proper indentation in our code without worrying about the browser rendering__ 😇
 
 But for a better understanding, we can write our code in that way:
 
@@ -101,25 +101,25 @@ In the end whatever way you're choosing this is only a matter of personal apprec
 {% asset_img author-home.svg 350 250 "A writer in his house surrounded by books 'A writer in his house surrounded by books'" %}
 {% endcaption %}
 
-*Semantic is important, because:*
+__Semantic is important, because:__
 
-- It will make your *HTML code more readable for you*
-- It will allow a *better [screen reading](https://en.wikipedia.org/wiki/Screen_reading) experience* for disabled people. 
+- It will make your __HTML code more readable for you__
+- It will allow a __better [screen reading](https://en.wikipedia.org/wiki/Screen_reading) experience__ for disabled people. 
   In short: the computer will read the text and describe the context of this text. 
   As an example if you have an heading of first level `<h1>`, the screen reader will say:
   <q>heading of first level</q> and then read the content
   
-We wrote a link, but what we really want to achieve, is *describing an author*.  
+We wrote a link, but what we really want to achieve, is __describing an author__.  
 We already have the `<address>` element but we can add more on the link.
 
-If we take a deeper look at this [HTML element documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), we can see that there is a *`rel` attribute:*
+If we take a deeper look at this [HTML element documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), we can see that there is a __`rel` attribute:__
 
 {% blockquote Mozilla Developer Network https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-rel rel attribute description %}
-**rel**
+*rel*
 Specifies the relationship of the target object to the link object.
 {% endblockquote %}    
 
-This documentation provides us a link of [the possible values of this rel attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types) and it says that *we can have an author value!*.  
+This documentation provides us a link of [the possible values of this rel attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types) and it says that __we can have an author value!__.  
 
 Here's a lookup of our update:
 
@@ -146,19 +146,19 @@ Like a lazy cow 🐮, I will just give you the whole document, and we will go on
 
 All those elements helps you achieving some basic text formating:
 
-- `<br />` stands for *break*. Just a regular carriage return *__⏎__*
+- `<br />` stands for __break__. Just a regular carriage return __*⏎*__
   Like the `<img />` element, it's a self-closing HTML elements.
   Y'know a break is just a break…
-- `<em />` stands for *emphasis* – rendered by default in [italic](https://en.wikipedia.org/wiki/Italic_type#Usage)
-- `<strong />` obvious strong is *strong* 🧐 – rendered by default in {% link bold https://en.wikipedia.org/wiki/Emphasis_(typography) %}
+- `<em />` stands for __emphasis__ – rendered by default in [italic](https://en.wikipedia.org/wiki/Italic_type#Usage)
+- `<strong />` obvious strong is __strong__ 💪 – rendered by default in {% link bold https://en.wikipedia.org/wiki/Emphasis_(typography) %}
 
 And after knowing that, it's just a matter of updating your HTML file and “voila!”.  
 
-*HTML is easy* ✌️ *__It's applying the same recipe again and again:__*
+__HTML is easy__ ✌️ __*It's applying the same recipe again and again:*__
 
-- *__writing__ the content*
-- *__choosing__ the most fitting __HTML elements__ if needed*
-- *__nest and indent everything__ in a good way*
+- __*writing* the content__
+- __*choosing* the most fitting *HTML elements* if needed__
+- __*nest and indent everything* in a good way__
 
 ## But Sir! We have à `â€œwolf!â€` problem! 
 
@@ -188,9 +188,9 @@ We just have to modify our document like this:
 
 #### TL;DR
 
-- Because it's *not really part of the content of our document*, this *element place is in the `<head>`*
+- Because it's __not really part of the content of our document content__, this __element place is in the `<head>`__
 - `<meta>` stands for [metadata](https://en.wikipedia.org/wiki/Metadata)
-- *just always add __<meta charset="utf-8" /\>__ in every HTML document __<head\>__ you create.*
+- __just always add *<meta charset="utf-8" /\>* in every HTML document *<head\>* you create.__
 
 #### Understanding metadata
 
@@ -198,7 +198,7 @@ We just have to modify our document like this:
 {% asset_img in-paris-with-love.svg 460 220 "A polaroid with some text written at the bottom: the metadata 'A polaroid with some text written at the bottom: the metadata'" %}
 {% endcaption %}
 
-*Metadata* are everything that *isn't the content but* that *provide context* upon it.
+__Metadata__ are everything that __isn't the content but__ that __provide context__ upon it.
 
 If we take a photo as an example, metadata would be:
 
@@ -219,9 +219,9 @@ As example, this can be used by softwares to:
 The root problem, is [character encoding](https://en.wikipedia.org/wiki/Character_encoding). 
 
 In a short, computers have evolved from supporting only a subset of english characters to all characters in the world (including emoji 💩).  
-But the *web* is an open platform and *try to maintain compatibility with old documents*.
+But __the web__ is an open platform and __try to maintain compatibility with old documents__.
 
-*__So you have to tell your browser that you use the most modern encoding.__*
+__*So you have to tell your browser that you use the most modern encoding.*__
 
 If you want to have a better understanding of this subject, I recommend you this [short video on the subject](https://youtu.be/MijmeoH9LT4)
 
@@ -234,7 +234,7 @@ If you want to have a better understanding of this subject, I recommend you this
 This is to indicate in which language the HTML document is written.  
 It's good for accessibility (so he can know in which language he should read the document)
 
-As a rule of thumb: *__always provide it__*.
+As a rule of thumb: __*always provide it*__.
 
 ## A developer 🌈 thing: `<!-- comments -->` 
 
@@ -248,11 +248,11 @@ Your eagle accurate sight 🦅 have spotted this strange HTML element in my prev
 <!-- the rest of our content… -->
 {% endcodeblock%}
 
-This is a *__comment__, a very important thing in the developer's toolbox.*  
+This is a __*comment*, a very important thing in the developer's toolbox.__  
 It's just this:
 
-- *text that will not appear in the browser*…
-- …*but that stay in the code for helping us*
+- __text that will not appear in the browser__…
+- …__but that stay in the code for helping us__
 
 You can see that as [post-it note](https://en.wikipedia.org/wiki/Post-it_note) for you.  
 You can write everything inside it, just make sure that the content is properly enclosed in `<!--`  and `-->`
@@ -270,7 +270,7 @@ We have seen:
 - some vitals information for the web-page to display properly with `<html lang="en">` & `<meta charset="utf-8" />`
 - what is a comment in a dev perspective
 
-*Getting better at writing HTML is only knowing which HTML element should be used & with which attribute.*
+__Getting better at writing HTML is only knowing which HTML element should be used & with which attribute.__
 
 And this is all for the basic of HTML.  
 Next we will see how to make our story nicer with [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)

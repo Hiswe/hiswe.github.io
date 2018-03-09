@@ -59,6 +59,12 @@
       display: none;
     }
 
+    strong {
+      background: none;
+      font-weight: 700;
+      padding: 0;
+    }
+
     footer {
       border-top: none;
       font-size: 0.8em;
@@ -142,7 +148,7 @@
     margin-top: vertical-rhythm(1);
     margin-bottom: vertical-rhythm(.75);
 
-    em {
+    strong {
       background: none;
       font-style: italic;
       color: var(--c-text-lighter);
@@ -215,9 +221,9 @@
     font-size: 1.5em;
   }
 
-  em {
+  strong {
     background: var(--c-accent-lightest);
-    font-style: normal;
+    font-weight: 400;
     padding-left: .35em;
     padding-right: .35em;
 
@@ -227,6 +233,10 @@
       color: var(--c-accent-darker);
       padding: 0;
     }
+  }
+  em {
+    font-style: normal;
+    font-weight: bold;
   }
 
   //////

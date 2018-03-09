@@ -21,7 +21,7 @@ It's a simplification of what happens in reality, but the main ideas are here �
 
 ### Internet 
 
-It's a way of making *devices talking to each other*. 
+It's a way of making __devices talking to each other__. 
 
 [an extensive article about internet](https://en.wikipedia.org/wiki/Internet)
 
@@ -35,12 +35,12 @@ Even if they are all computers we can differentiate two types of devices:
 {% asset_img computer-and-phone.svg 350 200 "a computer & a phone 'a computer & a phone'" %} 
 {% endcaption %}
 
-It's *your device* (laptop or smartphone…). 
+It's __your device__ (laptop or smartphone…). 
 
 [//]: # ( need to suse {% link %} regular link doesn't handle well parenthesis )
 {% link an extensive article about the client https://en.wikipedia.org/wiki/Client_(computing) %}
 
-It has one or many *browsers installed on it* to easily access the internet.
+It has one or many __browsers installed on it__ to easily access the internet.
 
 #### The server
 
@@ -48,7 +48,7 @@ It has one or many *browsers installed on it* to easily access the internet.
 {% asset_img server.svg 220 160 a server %} 
 {% endcaption %}
 
-It's a *computer* specialized in *answering request*. 
+It's a __computer__ specialized in __answering request__. 
 It has some special software running on it to behave that way.
 Usually you don't own one.
 
@@ -90,7 +90,7 @@ Most of the time you want to get a web-page, but it can be anything: an image, s
 {% asset_img server-give-html.svg 525 200 "the server giving a HTML file 'the server giving a HTML file'" %} 
 {% endcaption %}
 
-A *web-page* is just a *text file!* we call it *html file*… You can read [a lot more about HTML](https://en.wikipedia.org/wiki/HTML)
+A __web-page__ is just a __text file!__ we call it __html file__… You can read [a lot more about HTML](https://en.wikipedia.org/wiki/HTML)
 
 ### HTML
 
@@ -109,8 +109,8 @@ It's:
 The latter part is the HTML file telling the browser to ask the server for more files. 
 Beside images/videos, there are also 2 domains where it needs more specific information: 
 
-- for having a *nice presentation*: those are the *CSS* text files
-- for being *interactive*: those are the *Javascript* text files
+- for having a __nice presentation__: those are the __CSS__ text files
+- for being __interactive__: those are the __Javascript__ text files
 
 ### The browser magic
 
@@ -126,7 +126,7 @@ And now, using all those text files, your browser will do the magic and finally 
 {% asset_img browser-love.svg 260 140 "the browser surrounded by heart 'the browser surrounded by heart'" %} 
 {% endcaption %}
 
-*Love your browser and keep it up to date* 😎
+__Love your browser and keep it up to date__ 😎
 
 You know now that : 
 
@@ -136,6 +136,6 @@ You know now that : 
 
 I will go into more details for all those files (HTML, CSS & Javascript) with comings posts.  
 
-**[UPDATE]** {% post_link html-basic-part-1 here is the the first part of HTML document! %} 
+*[UPDATE]* {% post_link html-basic-part-1 here is the the first part of HTML document! %} 
 
 Thanks to [xpac27](https://github.com/xpac27) for the corrections!

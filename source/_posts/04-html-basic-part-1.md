@@ -40,14 +40,14 @@ And also it can be read to people with disabilities!
 {% asset_img browser-guessing-files.svg 400 500 "different steps of understanding it is an HTML file 'different steps of understanding it is an HTML file'" %} 
 {% endcaption %}
 
-It's a *text file*.
+It's a __text file__.
 
 So we can just write some text on it and it will do the thing!
 
 But for the browser to understand it's reading an HTML file we need two things:
 
-- the *right file extension:* ***.html***
-- a *small text at the top of the file* to indicate the content is really HTML.<br> This will be `<!DOCTYPE html>`  
+- the __right file extension:__ __*.html*__
+- a __small text at the top of the file__ to indicate the content is really HTML.<br> This will be `<!DOCTYPE html>`  
 
 ### Hey! if it's a text file, I can use Microsoft Word!
 
@@ -55,14 +55,14 @@ But for the browser to understand it's reading an HTML file we need two things:
 {% asset_img browser-dont-understand-word.svg 400 190 "A Word file speaking an incomprehensible language to a browser 'A Word file speaking an incomprehensible language to a browser'" %} 
 {% endcaption %}
 
-In short: *you can't use Microsoft Word*
+In short: __you can't use Microsoft Word__
 
 #### If you're interested about the reasons:
 
-*Microsoft Word* (let's call it Word for now on) *produces **docx** files **not HTML*** files.
+__Microsoft Word__ (let's call it Word for now on) __produces *docx* files *not HTML*__ files.
 
-And *your browser can't understand Docx* files.
-Even if, when looking at word document *it looks like only text, it isn't.*  
+And __your browser can't understand Docx__ files.
+Even if, when looking at word document __it looks like only text, it isn't.__  
 
 Word in its files stores a lots of other information! the text in itself but also the font styles you use (which font, the size, if it's bold or not), the images you use, etc.
 
@@ -123,8 +123,8 @@ It means for a better reading experience having some:
 - [paragraph](https://en.wikipedia.org/wiki/Paragraph)
 - Maybe some text formatting like bold and italic
 
-*Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.*  
-Because right now, you *only wrote two lines of text*, and *__for him it's just some text***: **he merges multiple spaces and ignore carriage return__ 😇 (and believe me, he's doing this for your own good)
+__Where in Word you can click a button to this, in HTML you have to write it for the web browser to understand.__  
+Because right now, you __only wrote two lines of text__, and __*for him it's just some text*: he merges multiple spaces and ignore carriage return__ 😇 (and believe me, he's doing this for your own good)
 
 ### Let's tell the browser we want a headline and paragraph!
 
@@ -136,12 +136,12 @@ We need to update our example like this:
 
 {% include_code lang:html 04-html-basic-part-1/my-improved-webpage.html %}
 
-After saving, __reload your browser__ aaand… It's done! 🥇  
+After saving, *reload your browser* aaand… It's done! 🥇  
 ok it's still kind of ugly but we will address that on another post talking about [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets).
 
 ### But what happened? HTML elements
 
-*We just told the browser which type of content we want* 😊
+__We just told the browser which type of content we want__ 😊
 
 #### The anatomy of an HTML element
 
@@ -149,13 +149,13 @@ ok it's still kind of ugly but we will address that on another post talking abou
 {% asset_img html-element-anatomy.svg 500 280 "Two detailed HTML elements 'Two detailed HTML elements'" %} 
 {% endcaption %}
 
-An HTML Element is a **group having a semantic value** (like heading, paragraph, list…)  
+An HTML Element is a *group having a semantic value* (like heading, paragraph, list…)  
 It's composed most of the time by:
 
-- a *starting tag* (`<h1>` & `<p>` in our example) always written by the * tag's name of the  surrounded by angle brackets*
-- the *content* (your different texts)
-- a *closing tag* (`</h1>` & `</p>` in our example) like the starting tag **but**:   
-  ⚠️ *add an additional* `/` *after the first angle bracket!*
+- a __starting tag__ (`<h1>` & `<p>` in our example) always written by the __tag's name of the  surrounded by angle brackets__
+- the __content__ (your different texts)
+- a __closing tag__ (`</h1>` & `</p>` in our example) like the starting tag *but*:   
+  ⚠️ __add an additional__ `/` __after the first angle bracket!__
 
 you can see more on this [wikipedia article](https://en.wikipedia.org/wiki/HTML_element#Syntax)
 
@@ -164,14 +164,14 @@ you can see more on this [wikipedia article](https://en.wikipedia.org/wiki/HTML_
 That's how you tell the browser where an HTML element begin and stop.  
 Without it, as clever as the browser is, he can't guess what you have in your mind when writing your HTML page.
 
-***Writing properly an HTML element is the most important thing to understand about HTML!***
+__*Writing properly an HTML element is the most important thing to understand about HTML!*__
 
 #### h1 & p
 
-As told previously, any HTML carry a **semantic value**, so: 
+As told previously, any HTML carry a *semantic value*, so: 
 
-- `h1` stands for *h*eading of *1*<sup>st</sup> level 
-- `p` stands for *p*aragraph
+- `h1` stands for __h__eading of __1__<sup>st</sup> level 
+- `p` stands for __p__aragraph
 
 You can view an [extensive list of HTML elements here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
@@ -180,7 +180,7 @@ You can view an [extensive list of HTML elements here](https://developer.mozilla
 Writing an HTML page is easy! 
 Now you know how to:
 
-- use a *proper text editor* to create and edit a HTML document
-- what is a *HTML element*
+- use a __proper text editor__ to create and edit a HTML document
+- what is a __HTML element__
 
 But we have more to see on {% post_link 05-html-basic-part-2 the second part %}  to make it a little bit more complex ⚙️
