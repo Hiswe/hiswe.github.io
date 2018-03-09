@@ -1,6 +1,6 @@
 ---
 title: html basic (part 2)
-comments: false
+description: 'Learn more about writing HTML: nesting HTML element and achieving a more complex web-page'
 tags:
   - beginner
   - html
@@ -8,6 +8,7 @@ categories:
   - web
 date: 2018-03-01 10:13:24
 cover: cover.png
+comments: false
 ---
 
 ## Introduction

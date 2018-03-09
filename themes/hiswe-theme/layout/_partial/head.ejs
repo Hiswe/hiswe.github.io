@@ -15,15 +15,14 @@
   const title = titleElements.join( ` | ` )
   const description = page.description ? page.description
     : config.description ? config.description
-    : false
+    : page.title ? page.title
+    : config.title
   %>
   <title><%= title %></title>
   <% if (config.author){ %>
     <meta name="author" content="<%= config.author %>" />
   <% } %>
-  <% if (description){ %>
   <meta name="description" content="<%= description %>" />
-  <% } %>
   <% if (page.keywords){ %>
     <meta name="keywords" content="<%= page.keywords %>" />
   <% } %>
@@ -37,9 +36,7 @@
   <% if (page.permalink){ %>
     <meta property="og:url" content="<%= page.permalink %>" />
   <% } %>
-  <% if (description){ %>
   <meta name="og:description" content="<%= description %>" />
-  <% } %>
   <% if(page.cover) { %>
     <meta property="og:image" content="<%= page.permalink %><%= page.cover %>" />
   <% } %>

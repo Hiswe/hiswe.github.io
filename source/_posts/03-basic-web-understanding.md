@@ -1,6 +1,6 @@
 ---
 title: basic web understanding
-description: Learn how you have a nice web-page when after typing an address in your web-browser
+description: Learn how you have a nice web-page after typing an address in your web-browser
 tags:
   - beginner
 comments: false
