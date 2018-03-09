@@ -17,9 +17,7 @@ const client = {
   },
   plugins: [
   ],
-  // TODO: remove source-map in production
-  // https://webpack.js.org/configuration/devtool/
-  devtool:    `inline-source-map`,
+  devtool: isDev ? `inline-source-map` : false,
   // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   optimization: {
     splitChunks: {
@@ -35,7 +33,7 @@ const client = {
   },
   module: {
     rules: [{
-      test:     /\.jsx?$/,
+      test:     /\.js$/,
       include: [
         path.resolve( __dirname, `themes/hiswe-theme/client-javascript` ),
       ],
