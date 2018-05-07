@@ -199,7 +199,7 @@ We just have to modify our document like this:
 {% asset_img in-paris-with-love.svg 460 220 "A polaroid with some text written at the bottom: the metadata 'A polaroid with some text written at the bottom: the metadata'" %}
 {% endcaption %}
 
-__Metadata__ are everything that __isn't the content but__ that __provide context__ upon it.
+__Metadata__ is everything that __isn't the content but__ that __provide context__ upon it.
 
 If we take a photo as an example, metadata would be:
 
