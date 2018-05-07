@@ -149,7 +149,10 @@ function reloadBrowser( done ) {
 let hash
 function watch() {
   gulp.watch( `source/**/**.{md,svg,png,jpg}`, reloadBrowser )
-  gulp.watch( `${ themeDir }/sass/*.{scss,css}`,  css )
+  gulp.watch( [
+    `${ themeDir }/sass/*.{scss,css}`,
+    `!${ themeDir }/sass/solarized-light.scss`,
+  ],  css )
   bundler.watch({
     watch: true,
     progress: true,
