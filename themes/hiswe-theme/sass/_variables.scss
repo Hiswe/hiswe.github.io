@@ -2,9 +2,9 @@
 // COLORS
 ///////
 
-$c-text: hsl(240, 11%, 30%);
-$c-text-h: hue($c-text) / 1deg;
-$c-text-s: saturation($c-text);
+$c-text:  hsl(240, 11%, 30%);
+$c-text-h:  hue($c-text) / 1deg;
+$c-text-s:  saturation($c-text);
 
 $c-border: #ddd;
 
@@ -12,9 +12,9 @@ $c-primary: hsl(200, 46%, 66%);
 $c-primary-h: hue($c-primary) / 1deg;
 $c-primary-s: saturation($c-primary);
 
-$c-accent: #ff0078;
-$c-accent-h: hue($c-accent) / 1deg;
-$c-accent-s: saturation($c-accent);
+$c-accent:  #ff0078;
+$c-accent-h:  hue($c-accent) / 1deg;
+$c-accent-s:  saturation($c-accent);
 
 $c-stripe-img: #fbfbfb;
 
@@ -58,38 +58,38 @@ $mq-centered-with-asides: '(min-width: #{$page-width-max})';
 
 :root {
   // primary & variations
-  --c-primary: $c-primary;
-  --c-primary-h: $c-primary-h;
-  --c-primary-s: $c-primary-s;
+  --c-primary:   #{$c-primary};
+  --c-primary-h: #{$c-primary-h};
+  --c-primary-s: #{$c-primary-s};
   --c-primary-darker: HSL(var(--c-primary-h), var(--c-primary-s), 50%);
   --c-primary-lighter: HSL(var(--c-primary-h), var(--c-primary-s), 82%);
   --c-primary-lightest: HSL(var(--c-primary-h), var(--c-primary-s), 95%);
   --c-background: var(--c-primary-lightest);
   --c-code: HSL(var(--c-primary-h), var(--c-primary-s), 97%);
   // accent & variations
-  --c-accent: $c-accent;
-  --c-accent-h: $c-accent-h;
-  --c-accent-s: $c-accent-s;
+  --c-accent:   #{$c-accent};
+  --c-accent-h: #{$c-accent-h};
+  --c-accent-s: #{$c-accent-s};
   --c-accent-darker: HSL(var(--c-accent-h), var(--c-accent-s), 40%);
   --c-accent-lighter: HSL(var(--c-accent-h), var(--c-accent-s), 82%);
   --c-accent-lightest: HSL(var(--c-accent-h), var(--c-accent-s), 95%);
   // black & variations
-  --c-border: $c-border;
-  --c-text: $c-text;
-  --c-text-h: $c-text-h;
-  --c-text-s: $c-text-s;
+  --c-border: #{$c-border};
+  --c-text:   #{$c-text};
+  --c-text-h: #{$c-text-h};
+  --c-text-s: #{$c-text-s};
   --c-text-lighter: HSL(var(--c-text-h), var(--c-text-s), 40%);
-  --c-stripe-img: $c-stripe-img;
+  --c-stripe-img: #{$c-stripe-img};
 
-  --s-gutter: $gutter;
-  --s-half-gutter: calc(var(--s-gutter) / 2);
+  --s-gutter: #{$gutter};
+  --s-half-gutter:    calc(var(--s-gutter) / 2);
   --s-quarter-gutter: calc(var(--s-gutter) / 4);
-  --s-big-gutter: calc(var(--s-gutter) * 2);
-  --s-right-column-width: $right-column-width;
+  --s-big-gutter:     calc(var(--s-gutter) * 2);
+  --s-right-column-width: #{$right-column-width};
   --s-grid-gutter-column: var(--s-big-gutter);
-  --s-page-width: $page-width;
-  --s-page-width-max: $page-width-max;
-  --s-article-width: $article-width;
+  --s-page-width:     #{$page-width};
+  --s-page-width-max: #{$page-width-max};
+  --s-article-width:  #{$article-width};
   --s-big-border: 5px;
 
   --baseline: 1.6;
