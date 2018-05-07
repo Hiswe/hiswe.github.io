@@ -5,6 +5,7 @@ db.json
 node_modules/
 public/
 .deploy*/
-themes/**/*.css
+themes/**/svg-icons.scss
+themes/**/solarized-light.scss
 themes/hiswe-theme/source/*.js
 .tmp

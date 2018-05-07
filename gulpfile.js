@@ -39,6 +39,13 @@ function cleanCSS() {
   return del([`${cssDest}/*.css`,`${cssDest}/*.css.map`])
 }
 
+function copyHighlightJSFile() {
+  return gulp
+  .src( `./node_modules/highlight.js/styles/solarized-light.css` )
+  .pipe( $.rename({extname: `.scss`}) )
+  .pipe( gulp.dest(`${themeDir}/sass`) )
+}
+
 function compileSass() {
   return gulp
   .src( `${themeDir}/sass/index.scss` )
@@ -54,7 +61,7 @@ function compileSass() {
   .pipe( $.if(isDev, browserSync.stream()) )
 }
 
-const css = gulp.series( cleanCSS, compileSass )
+const css = gulp.series( cleanCSS, copyHighlightJSFile, compileSass )
 
 ////////
 // JS
@@ -81,7 +88,7 @@ gulp.task( `js`, js )
 
 const svgTemplates  = [
   `default-svg`,
-  `default-css`,
+  `default-sass`,
   `default-demo`,
 ]
 
@@ -114,7 +121,7 @@ const icons = () => {
   .pipe( $.rename({basename: `svg-icons`}) )
   .pipe( $.if( /[.]svg$/, gulp.dest(`${themeDir}/layout`)) )
   .pipe( $.if( /[.]html$/, gulp.dest('.tmp')) )
-  .pipe( $.if( /[.]css$/, gulp.dest(`${themeDir}/sass`)) )
+  .pipe( $.if( /[.]scss$/, gulp.dest(`${themeDir}/sass`)) )
 }
 icons.description = `bundle SVG files`
 

@@ -8,6 +8,8 @@
   "scripts": {
     "start": "hexo clean && parallelshell \"gulp dev\" \"hexo server --draft\"",
     "dev": "npm start",
+    "build": "gulp",
+    "build:icons": "gulp icons",
     "release": "hexo clean && gulp --prod && hexo generate --deploy"
   },
   "dependencies": {
