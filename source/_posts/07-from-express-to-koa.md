@@ -7,7 +7,7 @@ comments: false
 categories:
   - nodejs
 date: 2018-05-08 16:02:19
-description:
+description: 'How using async/await push me from using express.js to koa framework'
 ---
 
 
