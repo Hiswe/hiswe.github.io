@@ -55,7 +55,7 @@ The following will do the same as the code above but:
 
 - we achieved to flatten our code
 - we don't duplicate anymore the error control
-- that will no handle synchronous errors
+- the `catch` will not handle synchronous errors
 
 {% include_code lang:js 07-from-express-to-koa/02-express-promise.js %}
 
