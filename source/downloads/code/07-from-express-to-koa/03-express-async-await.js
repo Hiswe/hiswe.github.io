@@ -1,4 +1,4 @@
-// declare an async function
+// declare an async function to allow “await”
 app.get("/", async (request, response, next) => {
   try {
     const firstResult = await database.doStuff();

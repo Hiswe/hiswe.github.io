@@ -5,8 +5,8 @@ const app = new Koa();
 const router = new Router();
 
 // unlike in Express.js
-// • declare our error middleware to the top most position
-// • this will ensure to catch all the errors
+// – declare our error middleware to the top most position
+// – this will ensure to catch all the errors
 //   that might happen in the following middleware call
 app.use(async function handleError(context, next) {
   // call our next middleware

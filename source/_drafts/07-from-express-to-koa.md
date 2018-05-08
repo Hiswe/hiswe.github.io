@@ -33,9 +33,9 @@ Koa just plays more naturally with them ➡️ use Koa.
 
 We will write a simple route that will:
 
-- query a database to get some stuff
-- pass the result to a second database call
-- then send the final result as the response
+1. query a database to get some stuff
+2. pass the result to a second database call
+3. then send the final result as the response
 
 ### node style callbacks
 
@@ -45,7 +45,7 @@ A callback function with `error` as the first argument & `result` as the second.
 {% include_code lang:js 07-from-express-to-koa/01-express-node-callback.js %}
 
 So far so good. 
-But luckily we our database object support also promises.
+But luckily for us our database object support also promises.
 
 ### promises
 
@@ -53,8 +53,9 @@ The following will do the same as the code above but:
 
 - we achieved to flatten our code
 - we don't duplicate anymore the error control
+- that will no handle synchronous errors
 
-{% include_code lang:js 07-from-express-to-koa/01-express-promise.js %}
+{% include_code lang:js 07-from-express-to-koa/02-express-promise.js %}
 
 So far so good. 
 But luckily since we use nodeJS >= 7 we can use async/await.
@@ -65,18 +66,19 @@ The following will do the same as the code above but:
 
 - we achieved to have a less cumbersome code
 - we still don't duplicate the error control
+- any error inside the `try/catch` will be handled 
 
 {% include_code lang:js 07-from-express-to-koa/03-express-async-await.js %}
 
 So far so good. 
-But it will get a little messier if we add more routes
+But it will get a little messier if we add more routes:
 
 {% include_code lang:js 07-from-express-to-koa/04-express-async-multiple-routes.js %}
 
 You see? 
 We write again and again `try {} catch(error){ next(error) }`  
 Not a big deal but quite boring at the end…
-But luckily we can write a middleware for that 
+But luckily we can write a middleware for that! 
 
 ### better async/await
 
@@ -122,13 +124,14 @@ which appears to me more leaner 😀
 - no duplicated `try/catch`
 - no need to write an async middleware
 - no need to wrap all our route handlers into that middleware 
+- handle both sync/async errors
 
-### Koa ecosystem
+## About Koa ecosystem
 
 As for now, Koa hasn't as much middleware as express.js. 
 This can be an issue in migrating.
 
-But the *must have* middlewares are already here, and writing your own middleware is quite easy.
+But the *must have* middlewares are already here, and writing your own is quite easy.
 I never found myself in a situation where I couldn't achieve what I wanted to do with Koa.
 
 So if you like `async/await` code style, give Koa a try 🙂
