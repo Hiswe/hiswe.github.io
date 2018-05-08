@@ -1,5 +1,5 @@
-app.get('/', (request, response, next) => {
-  database.doStuff( (error, firstResult) => {
+app.get("/", (request, response, next) => {
+  database.doStuff((error, firstResult) => {
     // will send it the error middleware below
     if (error) return next(error);
     // we need another database call

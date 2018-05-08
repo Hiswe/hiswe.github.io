@@ -1,5 +1,5 @@
-const Koa = require('koa');
-const Router = require('koa-router');
+const Koa = require("koa");
+const Router = require("koa-router");
 
 const app = new Koa();
 const router = new Router();
@@ -12,7 +12,7 @@ app.use(async function handleError(context, next) {
   // call our next middleware
   try {
     await next();
-  // catch any error that might have occurred
+    // catch any error that might have occurred
   } catch (error) {
     context.status = 500;
     context.body = error;
@@ -25,7 +25,7 @@ app.use(async function handleError(context, next) {
 
 // mount the router to our web application
 app.use(router.routes());
-app.use(router.allowedMethods())
+app.use(router.allowedMethods());
 
 // launch the server
-app.listen( 3000  )
+app.listen(3000);
