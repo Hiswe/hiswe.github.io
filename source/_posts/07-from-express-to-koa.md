@@ -13,7 +13,9 @@ description:
 
 ## Introduction
 
-I want to explain here why I choose to move from [express.js](https://expressjs.com/) to [koa](https://koajs.com/) 
+There are a few nodeJs web framework. One of the most popular is [express.js](https://expressjs.com/).
+
+I want to explain here why when writing server code, I choose to move from *express.js* to [koa](https://koajs.com/).
 
 <!-- more -->
 
@@ -80,19 +82,19 @@ But it will get a little messier if we add more routes:
 You see? 
 We write again and again `try {} catch(error){ next(error) }`  
 Not a big deal but quite boring at the end…
-But luckily we can write a middleware for that! 
+But luckily we can write a wrapper function for that! 
 
 ### better async/await
 
-So let's write our middleware: 
+So let's write our wrapper: 
 
-{% include_code lang:js 07-from-express-to-koa/05-express-async-middleware.js %}
+{% include_code lang:js 07-from-express-to-koa/05-express-async-wrapper.js %}
 
 A more detailed article about that was written by [Alex Bazhenov](https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016)
 
 Finally lets use it in our code:
 
-{% include_code lang:js 07-from-express-to-koa/06-express-async-with-middleware.js %}
+{% include_code lang:js 07-from-express-to-koa/06-express-async-with-wrapper.js %}
 
 So far so good. 
 But we still have to write some boilerplate to handle that…  
