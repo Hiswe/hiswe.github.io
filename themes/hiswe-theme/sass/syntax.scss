@@ -43,7 +43,7 @@
 figure.highlight {
   background: var(--c-code);
   --margin-left-right: calc( var(--s-gutter) * -1 );
-  margin: 0 var(--margin-left-right);
+  margin: 1rem var(--margin-left-right) 0;
   padding: 7px 15px;
   line-height: 1.6;
   overflow: auto;
