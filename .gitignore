@@ -7,5 +7,6 @@ public/
 .deploy*/
 themes/**/svg-icons.scss
 themes/**/solarized-light.scss
+themes/hiswe-theme/source/*.css
 themes/hiswe-theme/source/*.js
 .tmp
