@@ -1,20 +1,22 @@
 ---
 title: Isomorphic application with React/Redux
-cover: cover.png
-comments: false
-description: 'universal application structure'
 tags:
   - advanced
   - react
+cover: cover.png
+comments: false
+description: universal application structure
 categories:
   - nodejs
+date: 2018-05-19 11:52:34
 ---
+
 
 ## Introduction
 
 So I wanted to build an isomorphic/universal web-application…
 
-This will be a long document about the *how* and the *why*.
+This will be a __long document about the *how* and the *why*__
 The web-app was greatly influenced by this [Viktor Turskyi's post](http://blog.koorchik.com/isomorphic-react/).
 
 Unlike most articles, I won't produce here any code example.
