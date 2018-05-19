@@ -6,6 +6,7 @@ cover: cover.png
 comments: false
 categories:
   - nodejs
+  - web
 date: 2018-05-08 16:02:19
 description: 'How using async/await push me from using express.js to koa framework'
 ---
@@ -30,7 +31,7 @@ To understand this article you should know about:
 
 ## TL;DR
 
-With [NodeJS]() version 7 came the [support of `async/await` function](http://node.green/#ES2017-features-async-functions).  
+With [NodeJS](https://nodejs.org/en/) version 7 came the [support of `async/await` function](http://node.green/#ES2017-features-async-functions).  
 Koa just plays more naturally with them ➡️ use Koa.
 
 ## Express
