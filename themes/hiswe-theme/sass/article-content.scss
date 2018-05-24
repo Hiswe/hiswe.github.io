@@ -247,6 +247,11 @@
     color: var(--c-primary);
   }
 
+  a[href^="https://github.com"]::after {
+    content: ' (github)';
+    color: var(--c-primary);
+  }
+
   .pull-quote {
     float: right;
     border: none;

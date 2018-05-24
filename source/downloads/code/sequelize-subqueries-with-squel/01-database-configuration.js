@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize(`postgres://localhost:5432/shopping`);
+const sequelize = new Sequelize(`postgres://localhost:5432/sequelize-example`);
 
 const Basket = sequelize.define(`basket`, {
   id: {
@@ -28,7 +28,7 @@ const Item = sequelize.define(`item`, {
   }
 });
 
-Item.belongsTo(Basket);
-Basket.hasMany(Item);
+Item.Basket = Item.belongsTo(Basket);
+Basket.Items = Basket.hasMany(Item);
 
-sequelize.sync({ force: true });
+sequelize.sync();
