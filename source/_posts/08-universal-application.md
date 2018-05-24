@@ -45,16 +45,16 @@ You should have some notions with:
 
 ## purpose of server rendering
 
-Server rendering seems a good idea for 2 main reason:
+Server rendering seems a good idea for 2 main reasons:
 
-- make our __first display quicker__ 
-- __support no-JS environment__
+- make our __first render quicker__ 
+- __support no-JS environments__
 
-For this we need:
+For this we need to:
 
 1. grab the right components to render (using the [React methods for server rendering](https://reactjs.org/docs/react-dom-server.html))
     a non exiting route means rendering the 404 component
-2. make sure that the components have the right datas to begin with.
+2. make sure that the components have the right data to begin with.
 3. pass everything to the client
 4. after that the client will initialize and run as a [single page application](https://en.wikipedia.org/wiki/Single-page_application)
 
@@ -63,23 +63,23 @@ For this we need:
 The web-application will interact with an API (`packages/api`) which will not be detailed here.
 The only thing we need to know about the API is that:
 
-- It's a REST like API (uses only GET & POST)
-- Communicate with JSON
-- Authenticate with a JSON Web Token (JWT) 
+- it's a REST like API (uses only GET & POST)
+- communicates with JSON
+- authenticates with a JSON Web Token (JWT) 
 
 this document will __only focus__ on the `packages/web-app` folder
 
-__Why no GraphQL?__ [GraphQL](http://graphql.org/) seems a nice tech, but I simply didn't have time to dig into it.
+__Why no GraphQL?__ [GraphQL](http://graphql.org/) seems to be a nice tech, but I simply didn't have time to dig into it.
 
 ## supported features & Tech
 
 ##### NOT USING *CREATE-REACT-APP* OR *NEXT.JS*
 
-I make this universal application to learn more about React.
+I made this universal application to learn more about React.
 
 - I wanted to know how things work, so I didn't use any frameworks like [next.js](https://github.com/zeit/next.js/) or [create-react-app](https://github.com/facebook/create-react-app) that will build things for me that I don't truly understand.
 - I also wanted to make an exhaustive application: not a TODO app example.
-  There are plenty of those already, It's good to begin with but whenever you want to build something more complex, you'll have a hard time to stitch the piece together.
+  There are plenty of those already, It's good to begin with but whenever you want to build something more complex, you'll have a hard time stitching the pieces together.
 
 ##### FEATURES
 
@@ -88,10 +88,10 @@ In order to make it the most *real life* example this web-app will:
 - __mutualise all the code__ we can
 - support __authentication__
 - support __Internationalization__ (i18n)
-- be __testable__ (even if there isn't as much tests that I wanted 😨)
+- be __testable__ (even if there isn't as much tests as I wanted 😨)
 - should __work without JS__ in the browser
   - I believe in progressive enhancement 
-  - while developing, this allow to make API POST request without taking care about the redux actions.  
+  - while developing, this allows us to make API POST request without taking care about the redux actions.  
     Those can be created in a second time.
   - I will use `browser cookie` to store the JWT.  
     It's the only way to store informations on the browser without relying on Javascript.  
@@ -156,19 +156,19 @@ As for the version 1.1.0:
 {% endcaption %}
 
 I don't expect this repartition to change much with futur versions.  
-It should be: 
+There should be: 
 
 - more & more code into the shared folder
 - some small additions in server code (mainly for proxying POST fallback)
 
 ## building the applications
 
-Using React with [JSX](https://reactjs.org/docs/introducing-jsx.html) make the code easier to write and to maintain so:
+Using React with [JSX](https://reactjs.org/docs/introducing-jsx.html) makes the code easier to write and to maintain so:
 
 - a building step is __required to convert JSX to regular JS__
 - the most __popular solution__ right now is the couple [Webpack](https://webpack.js.org/)/[Babel](http://babeljs.io/)
   - Webpack in version 4 since a while
-    It promises to be simpler, but you will still find yourself to add some plugins/loaders at one point or another
+    It promises to be simpler, but you will still find yourself adding some plugins/loaders at one point or another
   - as the latest version of Ava use babel 7, I picked it for my build process also.
     At this time (may 2018) it's in `beta 47` 😳 and working perfectly
     I can't thank enough all the people contributing to this project and I really hope that the final release will come soon
