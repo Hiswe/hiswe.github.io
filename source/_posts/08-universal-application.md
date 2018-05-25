@@ -177,11 +177,12 @@ Using React with [JSX](https://reactjs.org/docs/introducing-jsx.html) makes the 
   - __import our `scss` files directly in the components.__ 
     This is __totally optional__ and could have been done in a classical way (like compiling a SCSS folder to a CSS file)
     But I found that it really __helps to isolate concerns about what your Component is about__
-    Also it will ma it easy to __keep the styles next to the markup__ (no more back & forth from component folder to a scss folder)
-- I __don't use `@babel/register` in my server code__ because it might have performance cost so:
-  __build also the server code with webpack__
-  And that will also allow me to replace some files when needed
-  __But will use it for tests__
+    Also it will make it easy to __keep the styles next to the markup__ (no more back & forth from component folder to a scss folder)
+- I __don't use `@babel/register` in my server code__ because it might have a performance cost so:
+  - __build also the server code with webpack__
+    And that will also allow me to replace some files when needed
+  - __don't build the code for tests__
+    performance aren't an issue there and we can use `@babel/register` without worrying
 
 ##### SERVER
 
