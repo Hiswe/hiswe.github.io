@@ -199,7 +199,7 @@ Using React with [JSX](https://reactjs.org/docs/introducing-jsx.html) makes the 
   → done with [webpack split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/)
 - want to bundle `.scss` in a `.css` separate file
   → done with [webpack extract-text-webpack-plugin](https://www.npmjs.com/package/extract-text-webpack-plugin)
-  working in my case but should migrate to [webpack mini-css-extract-plugin](https://www.npmjs.com/package/mini-css-extract-plugin) (here is [why](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/749#issuecomment-374549467))
+  The `@next version` is working fine with `webpack 4` but I should migrate to [webpack mini-css-extract-plugin](https://www.npmjs.com/package/mini-css-extract-plugin) (here is [why](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/749#issuecomment-374549467))
 
 ##### BUILD SUMMARY
 
@@ -211,12 +211,12 @@ Using React with [JSX](https://reactjs.org/docs/introducing-jsx.html) makes the 
 
 On a side node [ParcelJs](https://parceljs.org/) seems very promising.  
 As I see it, it's still too young (version 1 released on december 2017). 
-I'll wait a little bit for more documentation & tutorials , and surely try it on another side projet
+I'll wait a little bit for more documentation & tutorials, and surely try it on another side projet
 
 ## sharing the configuration
 
 I use to manage my server configuration with [rc](https://www.npmjs.com/package/rc).  
-I wanted to keep it that way but an isomorphic configuration [comes with some challenge](http://blog.koorchik.com/isomorphic-react/#Isomorphic_configuration).
+I wanted to keep it that way but an isomorphic configuration [comes with some challenges](http://blog.koorchik.com/isomorphic-react/#Isomorphic_configuration).
 
 To keep it versatile, I wanted to pass my configuration down to the client like this:
 
