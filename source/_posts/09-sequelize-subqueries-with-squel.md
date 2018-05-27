@@ -1,12 +1,13 @@
 ---
 title: sub-queries in sequelize with squel
-cover: cover.png
-comments: false
-description:
 tags:
   - advanced
+cover: cover.png
+comments: false
 categories:
   - nodejs
+date: 2018-05-27 10:48:58
+description:
 ---
 
 ## Introduction
@@ -46,13 +47,13 @@ __A basket will have many items__
 
 So let's [define our models using Sequelize](https://github.com/Hiswe/sequelize-example/blob/master/index.js#L59-L91):
 
-{% include_code lang:js sequelize-subqueries-with-squel/01-database-configuration.js %}
+{% include_code lang:js 09-sequelize-subqueries-with-squel/01-database-configuration.js %}
 
 ### instances
 
 And we will need [to define our instance](https://github.com/Hiswe/sequelize-example/blob/master/index.js#L125-L165):
 
-{% include_code lang:js sequelize-subqueries-with-squel/02-instance-configuration.js %}
+{% include_code lang:js 09-sequelize-subqueries-with-squel/02-instance-configuration.js %}
 
 ## expected result
 
@@ -61,7 +62,7 @@ And we will need [to define our instance](https://github.com/Hiswe/sequelize-exa
 
 So something like this:
 
-{% include_code lang:json sequelize-subqueries-with-squel/03-expected-result.json %}
+{% include_code lang:json 09-sequelize-subqueries-with-squel/03-expected-result.json %}
 
 ## doing this server side
 
@@ -70,7 +71,7 @@ It should be quite simple:
 - query the basket with his items
 - process everything to have the right informations
 
-{% include_code lang:js sequelize-subqueries-with-squel/04-server-processing.js %}
+{% include_code lang:js 09-sequelize-subqueries-with-squel/04-server-processing.js %}
 
 you can find the [equivalent code in the demo](https://github.com/Hiswe/sequelize-example/blob/master/router.js#L20-L36).
 
@@ -81,7 +82,7 @@ So better do it there.
 
 In order to have this done with our Database, we need Sequelize to generate something like this in the query:
 
-{% include_code lang:sql sequelize-subqueries-with-squel/05-sub-query.sql %}
+{% include_code lang:sql 09-sequelize-subqueries-with-squel/05-sub-query.sql %}
 
 We could have written this manually but we have NodeJS by our side, and it's full eco-system.
 
@@ -91,7 +92,7 @@ Se let's go for [squel](https://www.npmjs.com/package/squel) which does just thi
 
 According [Sequelize documentation](http://docs.sequelizejs.com/manual/tutorial/querying.html#attributes) this is how we can define custom attributes:
 
-{% include_code lang:js sequelize-subqueries-with-squel/06-sequelize-sub-queries-documentation-example.js %}
+{% include_code lang:js 09-sequelize-subqueries-with-squel/06-sequelize-sub-queries-documentation-example.js %}
 
 The main goal here will be to generate the right query for the computed attribute
 
@@ -106,7 +107,7 @@ The main goal here will be to generate the right query for the computed attribut
 
 All those can be done quite easily with a few helpers:
 
-{% include_code lang:js sequelize-subqueries-with-squel/07-squel-configuration.js %}
+{% include_code lang:js 09-sequelize-subqueries-with-squel/07-squel-configuration.js %}
 
 Minoring some slight differences this is the [equivalent code in the demo](https://github.com/Hiswe/sequelize-example/blob/master/router.js#L42-L52).
 
@@ -117,7 +118,7 @@ I'm using [Sequelize.static()](http://docs.sequelizejs.com/class/lib/sequelize.j
 
 And that will be our final code:
 
-{% include_code lang:js sequelize-subqueries-with-squel/08-sequelize-with-squel.js %}
+{% include_code lang:js 09-sequelize-subqueries-with-squel/08-sequelize-with-squel.js %}
 
 and the [related part in the demo](https://github.com/Hiswe/sequelize-example/blob/master/router.js#L54-L85)
 
@@ -137,7 +138,7 @@ I'm not a SQL expert so how to write our `WHERE` query?
 Writing all the squel code can be cumbersome.
 But we can just make a function that will do that for us:
 
-{% include_code lang:js sequelize-subqueries-with-squel/09-squel-generator.js %}
+{% include_code lang:js 09-sequelize-subqueries-with-squel/09-squel-generator.js %}
 
 the [related code in the demo](https://github.com/Hiswe/sequelize-example/blob/master/router.js#L87-L119)
 
