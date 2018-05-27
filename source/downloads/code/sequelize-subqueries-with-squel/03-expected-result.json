@@ -1,18 +1,8 @@
-{
-  "id": "d84fb8e5-071e-4815-8458-ad8ad4f8df26",
-  "name": "fruits",
-  "itemsCount": 2,
-  "totalPrice": 55,
-  "items": [
-    {
-      "id": "703234c6-d0e2-4d36-bb0b-ea7b26acc242",
-      "name": "apples",
-      "price": 20
-    },
-    {
-      "id": "557998f6-4fae-4faf-9b85-65c8e03c93c4",
-      "name": "bananas",
-      "price": 35
-    }
-  ]
-}
+[
+  {
+    "id": "f0bf0e03-368b-405f-9434-4720efa2728f",
+    "name": "fruits",
+    "itemsCount": 2,
+    "totalPrice": 39.8
+  }
+]

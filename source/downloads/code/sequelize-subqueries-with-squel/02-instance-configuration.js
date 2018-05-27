@@ -4,11 +4,11 @@ Basket.create(
     items: [
       {
         name: `apples`,
-        price: 20
+        price: 17.3
       },
       {
         name: `bananas`,
-        price: 35
+        price: 22.5
       }
     ]
   },
