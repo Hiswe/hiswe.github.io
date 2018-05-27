@@ -146,6 +146,6 @@ the [related code in the demo](https://github.com/Hiswe/sequelize-example/blob/m
 ## conclusion
 
 Sequelize is a very fine piece of code. For 95% of the time it will just work as expected.
-For the 5 other percent you can write raw SQL queries 🤓 or use squel to do it for you 🤪
+For the 5 other percents you can write raw SQL queries 🤓 or use squel to do it for you 🤪
 
-By doing so we have removed the burden of processing the Sequelize result in our server 😎
+By doing so we have removed the burden of processing the Sequelize result in our server, and that's a win 😎
