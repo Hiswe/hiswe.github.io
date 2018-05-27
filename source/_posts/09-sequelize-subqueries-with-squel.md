@@ -29,6 +29,7 @@ And so this is the story of how I solved it with [squel](https://hiddentao.com/s
 <!-- more -->
 
 - Some knowledge into the sequelize API will really helps understanding this article 🤓
+- the server's framework used is [Koa](https://koajs.com/)
 - I've put together a [little repository](https://github.com/Hiswe/sequelize-example) containing a working example
 
 ## the database
@@ -76,7 +77,7 @@ It should be quite simple:
 you can find the [equivalent code in the demo](https://github.com/Hiswe/sequelize-example/blob/master/router.js#L20-L36).
 
 But it's a work that can be done on the Database right?
-So better do it there.
+So better doing it there.
 
 ## the SQL sub-query
 
@@ -111,7 +112,7 @@ All those can be done quite easily with a few helpers:
 
 Minoring some slight differences this is the [equivalent code in the demo](https://github.com/Hiswe/sequelize-example/blob/master/router.js#L42-L52).
 
-I'm using [Sequelize.static()](http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html#static-method-literal) but I'm not sure it's necessary. It just prevents Sequelize from escaping the strin.
+I'm using [Sequelize.static()](http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html#static-method-literal) but I'm not sure it's necessary. It just prevents Sequelize from escaping the query string.
 
 
 ### putting things together
