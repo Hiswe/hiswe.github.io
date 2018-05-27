@@ -92,7 +92,7 @@
     color: #666;
     padding: 0 5px;
     margin: 0 2px;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     border: 1px solid var(--c-border);
     border-radius: 3px;
   }
@@ -215,21 +215,23 @@
     border: none;
   }
 
-  table {
+  > table {
     border-collapse: collapse;
     margin-bottom: vertical-rhythm(1);
+
+    th {
+      border-top: 2px solid var(--c-primary);
+      border-bottom: 2px solid var(--c-primary);
+    }
+    td {
+      border-bottom: 1px solid var(--c-primary-lighter);
+    }
+    th,
+    td {
+      padding: .25em 1em;
+    }
   }
-  th {
-    border-top: 2px solid var(--c-primary);
-    border-bottom: 2px solid var(--c-primary);
-  }
-  td {
-    border-bottom: 1px solid var(--c-primary-lighter);
-  }
-  th,
-  td {
-    padding: .25em 1em;
-  }
+
 
   a[href^="https://en.wikipedia.org"]::after {
     content: ' (wikipedia)';
