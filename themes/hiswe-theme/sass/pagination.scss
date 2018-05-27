@@ -5,7 +5,7 @@
   &__item {
     display: block;
     padding: 5px 10px;
-    background: var(--c-border);
+    background: none;
     color: var(--c-primary);
     font-family: $font-title;
     text-shadow: 0 0 1px #fff;
@@ -24,7 +24,7 @@
     }
     &--next::before {
       content: '>>';
-      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 }

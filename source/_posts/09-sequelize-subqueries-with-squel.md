@@ -70,7 +70,7 @@ So something like this:
 It should be quite simple:
 
 - query the basket with his items
-- process everything to have the right informations
+- process everything to have the right information
 
 {% include_code lang:js 09-sequelize-subqueries-with-squel/04-server-processing.js %}
 
@@ -85,7 +85,7 @@ In order to have this done with our Database, we need Sequelize to generate some
 
 {% include_code lang:sql 09-sequelize-subqueries-with-squel/05-sub-query.sql %}
 
-We could have written this manually but we have NodeJS by our side, and it's full eco-system.
+We could have written this manually but we have NodeJS by our side, and it's full ecosystem.
 
 Se let's go for [squel](https://www.npmjs.com/package/squel) which does just this: write SQL in a more JS way.
 

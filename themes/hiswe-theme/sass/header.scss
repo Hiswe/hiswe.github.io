@@ -1,8 +1,5 @@
 .main-header {
-  background: linear-gradient(
-    var(--c-primary-lighter),
-    var(--c-accent-lightest)
-  );
+  background: var(--c-primary-lighter);
   padding: 0 var(--s-gutter);
 
   &__content {
