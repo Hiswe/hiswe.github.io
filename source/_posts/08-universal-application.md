@@ -274,7 +274,7 @@ Here is a little bit of explanation:
   - this is done in the `server/routing-api-backup.js`
 - __REDUX__ will maintain our app state
   - I uses the [duck convention](https://github.com/erikras/ducks-modular-redux) to organize the code
-  - We will define in some `redux actions` the API calls
+  - API calls will be made in `redux actions`
 - __ISO-FETCH__ is a small wrapper around [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch)
   It will handle any Fetch request to the API
   Keep in mind that:
@@ -315,7 +315,7 @@ React Router Config mainly does 3 things:
 
 Like seen before, with react-router-config __it's easy to get which components to render.__
 
-But we need a way to tell our server which datas those components needs.  
+But we need a way to tell our server which data those components need.  
 We will rely on Redux to maintain a coherent state.
 
 What we __need is redux actions__ that we __dispatch to our store__ and redux will do his job. 
@@ -334,14 +334,14 @@ We need to make a [HoC](https://reactjs.org/docs/higher-order-components.html) t
 
 It will:
 
-1. take in input a `component` and an array of redux actions (`actionsCreators`)
+1. take as an input a `component` and an array of redux actions (`actionsCreators`)
 2. always add the authentication action (needed for the app to ensure the right display)
-3. return the `component` in the `render()` passing in any `props`
+3. return the `component` in the `render()`, passing in any `props`
 4. for the __server__: expose a static method named `fetchData` which will `dispatch` any `actions` of the `actionsCreators` array
 5. for the __client__: call `fetchData` in `componentDidMount`
 6. prevent the first call of `componentDidMount` (with a module variable named `SKIP_FIRST_COMPONENTDIDMOUNT`)
 
-{% caption making possible to fetch data before or after a component is instantiated  %}
+{% caption giving the possibility to fetch data before or after a component is instantiated  %}
 {% asset_img page-fetch-actions.svg 900 510 "route fetch actions 'route fetch actions'" %} 
 {% endcaption %}
 
@@ -349,7 +349,7 @@ It will:
 
 The main issue of doing so is that we __need to call all the actions needed for all the children components in the top `page component`__  
 
-It will be nicer if we declared all those actions on the concerned components and find a way to hoist & aggregate them to the page component.
+It would be nicer to declare all those actions on the concerned components and find a way to hoist & aggregate them to the page component.
 
 ##### SERVER FLOW SUMMARY
 
