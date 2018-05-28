@@ -249,8 +249,8 @@ where `window.__CONFIG__` is passed by the server
 By default it uses babel to convert JSX. So I tried to keep it that way so → no Webpack.
 This will make it easier to require a single component and test it.
 
-So I just use the use my configuration entry point as the test configuration: no need to replace it with webpack!  
-I use the same babel configuration than the server, to prevent including the SCSS 😀
+So I just use my configuration's entry point as the test configuration: no need to replace it with webpack!  
+I use the same babel configuration than the server's one to prevent including the SCSS 😀
 
 ##### CONFIGURATION SUMMARY
 
@@ -260,14 +260,14 @@ I use the same babel configuration than the server, to prevent including the SCS
 
 ## application flow summary
 
-This is how the app behave from the __first render__ made by the __server__ to the __subsequent client handling__
+This is how the app behaves from the __first render__ made by the __server__ to the __subsequent client handling__
 
 Here is a little bit of explanation:
 
 - __symbols__
-  - <img alt="the cookie symbol" src="assets/cookie-symbol.svg" width="16" /> represents a cookie either read from a server request, or from the browser
-  - <img alt="the JWT symbol" src="assets/jwt-symbol.svg" width="16" /> represents a JWT which will be used for authentication between our web-application and the API
-  - arrows between them represent reading/writing from/into the cookie
+  - {% asset_img cookie-symbol.svg 16 16 "cookie symbol 'cookie symbol'" %} represents a cookie either read from a server request, or from the browser
+  - {% asset_img jwt-symbol.svg 16 16 "JWT symbol 'JWT symbol'" %}  represents a JWT which will be used for authentication between our web-application and the API
+  - arrows between them represent reading/writing from/to the cookie
 - __REACT-ROUTER__ will mutualise all our pages routes
   - on the __server__: direct call to the API (either in GET or POST) will be manually proxied
   - this for supporting __no-JS__ environment
