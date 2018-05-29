@@ -377,26 +377,31 @@ One of the problem was to be able to send the JWT on any request.
 ## authentication
 
 This one is quite easy.  
-Authentication is handled by 2 [HoC](https://reactjs.org/docs/components-and-props.html)
+
+Authentication is handled by 2 [HoC](https://reactjs.org/docs/components-and-props.html):
 
 1. __public route__ will redirect to private home if connected  
-    `authentication-forbidden.js`
-2. __private route__ will redirect to login page if not connected 
-    `authentication-required.js`
+    → done in `authentication-forbidden.js`
+2. __private route__ will redirect to login page if NOT connected 
+    → done in `authentication-required.js`
 
-They follow the same pattern:
+They have the same requirements:
 
-1. need to be __connected to the redux store__ to check authentication 
+1. be __connected to the redux store__ to check authentication 
     → done with [react-redux](https://redux.js.org/basics/usage-with-react#presentational-and-container-components)
-2. need to be __connected to the react router__ to access the redirection
+2. be __connected to the react router__ to access the redirection
     → done with [react-router-config](https://www.npmjs.com/package/react-router-config)
-    On the __server__ we also a procide a `serverContext` object
-    (on the documentation they call it [staticContext](https://reacttraining.com/react-router/web/guides/server-rendering) but I find it more obvious with the name that I use)
-3. will check `redux store` authentication
-    - redirect if needed
-      update `serverContext` if rendered on server side
-      __this will be used to have the right HTTP status code when serving the application__
-    - render component if everything's fine
+    On the __server__ we also a provide a `serverContext` object
+    (on the documentation they call it [staticContext](https://reacttraining.com/react-router/web/guides/server-rendering) but I find it more obvious to call it serverContext)
+3. the Component to render if everything's ok
+
+And they will act in the same way:
+
+1. check `redux store` authentication status
+2. handle the redirection if needed
+    on the server we will update update `serverContext` if a redirection happens.
+    __This will help Koa to set the right HTTP status code when serving the page__
+3. OR render the Component if not redirection is necessary
 
 ##### AUTHENTICATION HOC FLOW
 
@@ -415,19 +420,19 @@ The documentation is quite good and the implementation straightforward.
 
 We just need to:
 
-- keep our current locale in the `Redux-Store` so we can change our locale dynamically
+- keep our current locale in the `Redux-Store` so we can change it dynamically
 - wrap our application with the `<IntlProvider />` component
-- define our locals files
+- define our `locales` files
 - follow the guide to [server rendering](https://github.com/yahoo/react-intl/wiki#locale-data-in-nodejs)
 
 What we can improve:
 
 This simple take is __suitable for a small application__ but may be __hard to maintain on a larger scale__.
 
-- load our `locales files` async
-  - right now every locales are bundled
-- have a way to extract our keys from the application
-  - a very interesting post was written by [Vlad Goran](https://blog.idagio.com/localisation-or-how-i-learned-to-stop-worrying-and-love-babel-plugin-react-intl-8eeb51d80d77) about extracting with [babel-plugin-react-intl](https://github.com/yahoo/babel-plugin-react-intl) but [it doesn't seem to work with babel-7](https://github.com/yahoo/babel-plugin-react-intl/issues/122)
+- load asynchronously our `locales` files 
+  - right now all `locales` are bundled into the different applications
+- have a way to extract our translation's keys from the application
+  - a very interesting post was written by [Vlad Goran](https://blog.idagio.com/localisation-or-how-i-learned-to-stop-worrying-and-love-babel-plugin-react-intl-8eeb51d80d77) about extracting those keys with [babel-plugin-react-intl](https://github.com/yahoo/babel-plugin-react-intl) but [it doesn't seem to work with babel-7](https://github.com/yahoo/babel-plugin-react-intl/issues/122)
 
 ## adding React-Helmet
 
