@@ -85,7 +85,7 @@ In order to have this done with our Database, we need Sequelize to generate some
 
 {% include_code lang:sql 09-sequelize-subqueries-with-squel/05-sub-query.sql %}
 
-We could have written this manually but we have NodeJS by our side, and it's full ecosystem.
+We could have written this manually but we have NodeJS by our side, and its full ecosystem.
 
 Se let's go for [squel](https://www.npmjs.com/package/squel) which does just this: write SQL in a more JS way.
 
