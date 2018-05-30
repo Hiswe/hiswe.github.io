@@ -447,7 +447,7 @@ It will handle for us:
 
 I didn't put any `<script>` for a reason that I can't remember 😶
 
-Since almost any HTML is handled by React, on the server we don't need to write a lot of things, thus we can use Javascript template strings instead of any template engine
+Since most of the HTML will be handled by React, on the server we won't need to write a lot of tags, thus we can use Javascript template strings instead of a regular template engine.
     
 ## the full chain of components
 
