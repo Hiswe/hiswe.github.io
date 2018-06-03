@@ -92,6 +92,12 @@ const svgTemplates  = [
   `default-demo`,
 ]
 
+// • ic_access_time_black_24px
+const materialNameReg1 = /ic_([^\d]*)_black_24px/
+// june 2018: material come with a new file pattern
+// • baseline-rss_feed-24px
+const materialNameReg2 = /baseline-([^\d]*)-24px/
+
 const icons = () => {
   return gulp
   .src( `icons/*.svg` )
@@ -106,10 +112,15 @@ const icons = () => {
   }) )
   .pipe( $.rename( path => {
     const { basename }    = path
-    const materialNameReg = /ic_([^\d]*)_black_24px/
-    const isMaterialIcon  = materialNameReg.test(basename)
-    if (!isMaterialIcon) return
-    path.basename = materialNameReg.exec(basename)[1].replace(/_/g, `-`)
+    const isMaterialIcon1  = materialNameReg1.test(basename)
+    const isMaterialIcon2  = materialNameReg2.test(basename)
+    if (!isMaterialIcon1 && !isMaterialIcon2) return
+    if (isMaterialIcon1) {
+      path.basename = materialNameReg1.exec(basename)[1].replace(/_/g, `-`)
+    }
+    if (isMaterialIcon2) {
+      path.basename = materialNameReg2.exec(basename)[1].replace(/_/g, `-`)
+    }
   }) )
   .pipe( $.svgSymbols({
     id:         `icon-%f`,
