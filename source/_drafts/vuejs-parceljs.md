@@ -15,11 +15,23 @@ TBD
 
 ## vueJs
 
+### good things
+
+- More “webby” syntax
+- Single file components out off the box
+- Possibility to declare global variables inside the Vue instance:
+    No more wrapping in `connect` or `router` HoC in order to access those
+
 ### migrating from React
 
 - Have an official router
-- Have to declare all dependencies on a component (vs just make an import)
-- Have to declare all accessibles props (vs just make an import)
+- Less Javascript:
+  - Have to declare all dependencies on a component (vs just make an import)
+  - Have to declare all accessibles props (vs just make an import)
+
+### haven't tested yet
+
+- server rendering
 
 ## parcelJS
 
