@@ -19,6 +19,8 @@ TBD
 
 - More “webby” syntax
 - Single file components out off the box
+  - support ≠ languages out of the box (scss, typescript…)
+  - support scoped styles out of the box
 - Possibility to declare global variables inside the Vue instance:
     No more wrapping in `connect` or `router` HoC in order to access those
 
@@ -35,5 +37,18 @@ TBD
 
 ## parcelJS
 
-- Had some problem while building `.vue` files in production mode
+### the good part
+
+- they keep the promise of “simplicity”
+- very good for developing a single page application
+- like the auto installation of missing dependencies
+
+### Some issues
+
+- they keep the promise of “simplicity”
+  - when you have a problem it's most likely you'll have to wait a new version
+- had some problem with building & minifying `.vue` files in production mode
 - [doesn't support (yet) babel 7](https://github.com/parcel-bundler/parcel/issues/868)
+- when building from an html file
+  - can't simply ignore assets: a `manifest.json` will be converted to `manifest.b01ff217.js`…
+  - no PWA support, and since every ressource is parsed can't include a dumb pwa file
