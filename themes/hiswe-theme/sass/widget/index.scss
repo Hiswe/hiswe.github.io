@@ -1,13 +1,21 @@
 @import "widget/search";
+@import "widget/social";
 
 .widgets {
   $root: &;
-  line-height: 1.8em;
-  margin-top: var(--s-gutter);
+  display: grid;
+  grid-gap: var(--s-gutter);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 'search social'
+    'categories-and-tags categories-and-tags';
+
+  @media #{$mq-left-with-aside} {
+    margin-top: var(--s-gutter);
+    display: block;
+  }
 
   .layout--listing & {
     grid-area: right;
-
 
     &__sticky {
       @media #{$mq-left-with-aside} {
@@ -19,7 +27,8 @@
   }
 
   &__sticky {
-    margin-top: var(--s-gutter);
+    // margin-top: var(--s-gutter);
+    grid-area: categories-and-tags;
 
     @media #{$mq-no-asides} {
       display: grid;
@@ -39,7 +48,6 @@
   $root: &;
   --c-bg-widget: var(--c-background);
   word-wrap: break-word;
-  background: var(--c-bg-widget);
 
   & + & {
     margin-top: var(--s-gutter);
@@ -61,6 +69,9 @@
 
   &--tag,
   &--category {
+    background: var(--c-bg-widget);
+    line-height: 1.8em;
+
     small {
       margin-left: var(--s-quarter-gutter);
       color: var(--c-primary);

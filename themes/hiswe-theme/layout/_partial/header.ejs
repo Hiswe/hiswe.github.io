@@ -12,16 +12,6 @@
       <% for (var i in theme.menu){ %>
         <li class="main-nav__item"><a href="<%- config.root %><%- theme.menu[i] %>"><%= i %></a></li>
       <% } %>
-      <li class="main-nav__item">
-        <a href="https://medium.com/@hiswehalya">
-          <%- partial('_icon', {name: `c-medium`}) %>
-        </a>
-      </li>
-      <li class="main-nav__item">
-        <a href="<%- config.root %>atom.xml">
-          <%- partial('_icon', {name: `rss-feed`}) %>
-        </a>
-      </li>
     </ul>
   </nav>
 </div>
