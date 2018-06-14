@@ -13,21 +13,23 @@ if (page.archive){
   else title = __('archive_a');
 }
 %>
-<h2 class="archive-title<% if (page.tag){ %> tag<% } else if (page.category){ %> category<% } %>">
-  <%- partial('_icon', {name: icons[ type ]}) %>  <%= title %>
-</h2>
+<div>
+  <h2 class="archive-title<% if (page.tag){ %> tag<% } else if (page.category){ %> category<% } %>">
+    <%- partial('_icon', {name: icons[ type ]}) %>  <%= title %>
+  </h2>
 
-<% if (pagination == 2){ %>
-  <% page.posts.each( item =>{ %>
-    <%- partial('article', {item: item, index: true}) %>
-  <% }); %>
-  <%- partial('pagination') %>
-<% } else { %>
-  <ul class="post-list">
+  <% if (pagination == 2){ %>
     <% page.posts.each( item =>{ %>
-      <li class="post-list__item">
-        <%- partial('_post/title_block', {item, index: true}) %>
-      </li>
+      <%- partial('article', {item: item, index: true}) %>
     <% }); %>
-  </ul>
-<% } %>
+    <%- partial('pagination') %>
+  <% } else { %>
+    <ul class="post-list">
+      <% page.posts.each( item =>{ %>
+        <li class="post-list__item">
+          <%- partial('_post/title_block', {item, index: true}) %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+</div>

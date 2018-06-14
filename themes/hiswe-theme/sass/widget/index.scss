@@ -1,33 +1,58 @@
 @import "widget/search";
 @import "widget/social";
+@import "widget/categories-and-tags";
 
 .widgets {
   $root: &;
-  display: grid;
   grid-gap: var(--s-gutter);
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas: 'search social'
     'categories-and-tags categories-and-tags';
+
+  @media #{$mq-no-asides} {
+    display: grid;
+  }
 
   @media #{$mq-left-with-aside} {
     margin-top: var(--s-gutter);
     display: block;
   }
 
-  .layout--listing & {
-    grid-area: right;
+  .layout--post & {
+    --max-width: var(--s-article-width);
+    max-width: var(--max-width);
+    margin-top: var(--s-gutter);
+    margin-left: 0;
+    margin-right: auto;
 
-    &__sticky {
-      @media #{$mq-left-with-aside} {
-        display: block;
-        position: sticky;
-        top: var(--s-gutter);
-      }
+    @media #{$mq-no-asides} {
+      margin-left: auto;
+      display: grid;
+    }
+
+    @media #{$mq-left-with-aside} {
+      margin-left: 0;
+    }
+
+    @media #{$mq-centered-with-asides} {
+      margin-left: auto;
     }
   }
 
-  &__sticky {
-    // margin-top: var(--s-gutter);
+  .layout--listing & {
+    grid-area: right;
+    margin-top: var(--s-gutter);
+  }
+}
+
+.widget {
+  margin-top: var(--s-gutter);
+
+  @media #{$mq-no-asides} {
+    margin: 0;
+  }
+
+  &--categories-and-tags {
     grid-area: categories-and-tags;
 
     @media #{$mq-no-asides} {
@@ -35,74 +60,14 @@
       grid-template-columns: 1fr 1fr;
       grid-gap: var(--s-gutter);
     }
-
-    .layout--post & {
-      @extend %layout;
-      --max-width: var(--s-article-width);
-      padding: 0;
-    }
-  }
-}
-
-.widget {
-  $root: &;
-  --c-bg-widget: var(--c-background);
-  word-wrap: break-word;
-
-  & + & {
-    margin-top: var(--s-gutter);
-
-    @media #{$mq-no-asides} {
-      margin-top: 0;
-    }
-  }
-
-  .layout--listing & {
     @media #{$mq-left-with-aside} {
-      --c-bg-widget: none;
-      & + #{$root} {
-        margin-top: var(--s-gutter);
+      display: block;
+      position: sticky;
+      top: 0;
+
+      .layout--post & {
+        display: grid;
       }
-
-    }
-  }
-
-  &--tag,
-  &--category {
-    background: var(--c-bg-widget);
-    line-height: 1.8em;
-
-    small {
-      margin-left: var(--s-quarter-gutter);
-      color: var(--c-primary);
-
-      &::before {
-        content: '(';
-      }
-      &::after {
-        content: ')';
-      }
-    }
-  }
-
-  &__title {
-    @extend %aside-title;
-  }
-
-  &__title,
-  &__entry {
-    padding: var(--s-quarter-gutter) var(--s-half-gutter);
-  }
-
-  &__entry {
-    margin: 0;
-  }
-
-  ul, ol, dl {
-    list-style: none;
-    ul, ol, dl {
-      list-style: disc;
-      margin-left: 20px;
     }
   }
 }

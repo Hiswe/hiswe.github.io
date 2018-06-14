@@ -10,6 +10,10 @@
   @media #{$mq-left-with-aside} {
     margin: var(--s-gutter) 0 var(--s-half-gutter);
   }
+  .layout--post & {
+    margin: 0;
+  }
+
   &__item {
     a {
       display: block;

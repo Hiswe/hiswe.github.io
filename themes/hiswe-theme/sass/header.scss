@@ -3,25 +3,9 @@
   padding: 0 var(--s-gutter);
 
   &__content {
-    @extend %layout;
     text-align: center;
     padding-top: var(--s-half-gutter);
     padding-bottom: var(--s-half-gutter);
-    display: flex;
-    flex-wrap: wrap;
-
-    @media #{$mq-no-asides} {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    @media #{$mq-centered-with-asides} {
-      --max-width: var(--s-page-width-max);
-      display: grid;
-      grid-template-columns: 1fr var(--s-article-width) 1fr;
-      grid-template-areas: "icons title search";
-      grid-gap: 10px var(--s-grid-gutter-column);
-    }
   }
 
   a {
@@ -40,7 +24,6 @@
     text-transform: uppercase;
     text-align: center;
   }
-
   h2 {
     font-weight: normal;
     font-size: 0.9em;

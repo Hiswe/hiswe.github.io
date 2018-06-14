@@ -1,6 +1,6 @@
 .widget--search {
   label {
-    @include hidden-accessible
+    @include hidden-accessible;
   }
   input[type="search"] {
     background: #fff;
