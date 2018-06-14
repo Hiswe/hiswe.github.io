@@ -1,5 +1,7 @@
 <div class="widget widget--search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <%# label for accessibility %>
+    <label for="search">Search</label>
     <input type="search" name="q" results="0" placeholder="<%= __('search') %>">
     <input type="hidden" name="q" value="site:<%- config.url.replace(/^https?:\/\//, '') %>">
   </form>

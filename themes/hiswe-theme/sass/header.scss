@@ -38,6 +38,7 @@
     line-height: 1;
     margin: 0;
     text-transform: uppercase;
+    text-align: center;
   }
 
   h2 {
@@ -53,10 +54,6 @@
       text-align: left;
       flex-grow: 9999;
     }
-  }
-  &__search {
-    grid-area: search;
-    flex-grow: 4;
   }
 }
 
@@ -99,26 +96,5 @@
   .icon--c-medium {
     width: 1.75rem;
     height: 1.75rem;
-  }
-}
-
-.search {
-  &__label {
-    @include hidden-accessible
-  }
-  &__input {
-    background: #fff;
-    font-family: $font-title;
-    font-style: italic;
-    font-size: 1em;
-    padding: 10px 15px;
-    border: 0;
-    width: 100%;
-    box-sizing: border-box;
-    color: var(--c-primary);
-
-    &:focus {
-      color: var(--c-text);
-    }
   }
 }

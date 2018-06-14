@@ -1,3 +1,5 @@
+@import "widget/search";
+
 .widgets {
   $root: &;
   line-height: 1.8em;
@@ -17,6 +19,8 @@
   }
 
   &__sticky {
+    margin-top: var(--s-gutter);
+
     @media #{$mq-no-asides} {
       display: grid;
       grid-template-columns: 1fr 1fr;

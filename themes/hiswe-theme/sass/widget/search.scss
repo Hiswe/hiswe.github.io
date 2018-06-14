@@ -1,0 +1,20 @@
+.widget--search {
+  label {
+    @include hidden-accessible
+  }
+  input[type="search"] {
+    background: #fff;
+    font-family: $font-title;
+    font-style: italic;
+    font-size: 1em;
+    padding: 10px 15px;
+    border: 1px solid var(--c-primary-lighter);
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--c-primary);
+
+    &:focus {
+      color: var(--c-text);
+    }
+  }
+}
