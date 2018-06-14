@@ -1,7 +1,6 @@
 `use strict`
 
 const path    = require( `path` )
-const webpack = require( `webpack` )
 const args    = require( `yargs` ).argv
 
 const isDev = args.prod !== true
