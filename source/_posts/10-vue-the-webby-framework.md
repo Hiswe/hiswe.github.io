@@ -12,14 +12,13 @@ categories:
 date: 2018-07-27 18:15:01
 ---
 
-
 ## Introduction
 
 Both [React 16](https://reactjs.org/) & [Vue 2](https://vuejs.org/) are javascript libraries that solve the same issue: writing components which are kept in sync with your application state.
 
 Having used both of them lately, here is my opinion on the main differences.
 
-I'm not trying to convince anyone which one is better here, but more to describe how confortable I was while learning & using them.
+I'm not trying to convince anyone which one is better here, but more to describe how comfortable I was while learning & using them.
 When it's about making stuff, just choose your preferred tool.
 
 **`[TL;DR]`** Vue feels more _webby_ and React more _tecky_ <small>(If that means something 🙃)</small>
@@ -36,7 +35,7 @@ That's really great! (I mean it 👍)
 
 That being said, using a **compilation step makes you sure that you can use everything the library can provide** (like [single file components](https://vuejs.org/v2/guide/single-file-components.html) for vue and [JSX](https://reactjs.org/docs/introducing-jsx.html) for React)
 
-Those libraries try their best to make things simple for the developpers:
+Those libraries try their best to make things simple for the developers:
 
 **If they say there is a better way to use their framework, you can trust them.**
 
@@ -129,7 +128,7 @@ But if JSX is your way to go, [Vue supports it!](https://vuejs.org/v2/guide/rend
 
 I've been using [Pug](https://pugjs.org/api/getting-started.html) ([ex-Jade](https://github.com/pugjs/pug#rename-from-jade)) template engine for a very long time now.  
 I'm still using it: I'm found of the simple syntax (I hate writing closing tags 😤).
-It makes me write/refactore my markup quicker.
+It makes me write/refactor my markup quicker.
 
 Being able to use it with Vue is so nice!
 
@@ -137,7 +136,7 @@ Being able to use it with Vue is so nice!
 
 Both those frameworks need a [single root element](https://vuejs.org/v2/guide/components.html#A-Single-Root-Element) for every components.
 
-But React allows it _NOT_ to be renderer, thanks to [React.Fragment](https://reactjs.org/docs/react-api.html#reactfragment).
+But React allows it _NOT_ to be rendered, thanks to [React.Fragment](https://reactjs.org/docs/react-api.html#reactfragment).
 
 That is a thing that I missed when working with Vue… even if it's not that important (but I really like to keep my markup as simple as possible 🛁)
 
@@ -215,7 +214,7 @@ Class components can inherit from:
 - [React.Component](https://reactjs.org/docs/react-api.html#reactcomponent)
 - [React.PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent)
 
-there is a subtle difference between the two that I won't detail here
+There is a subtle difference between the two but I won't go into details here.
 
 ```jsx
 import React from "react";
@@ -247,7 +246,7 @@ export default class Foo extends React.Component {
 }
 ```
 
-[Vue component](https://vuejs.org/v2/guide/components.html) are just an object with [many options](https://vuejs.org/v2/api/#Options-Data)
+[Vue components](https://vuejs.org/v2/guide/components.html) are just objects with [many options](https://vuejs.org/v2/api/#Options-Data)
 
 ```html
 <template>
@@ -349,7 +348,7 @@ In this case React come with a little bit more with [react context](https://reac
 
 **BUT**
 
-Let's be honest: You will quickly need (at least):
+Let's be honest, you will quickly need (at least):
 
 - **a router**: for navigation
 - **a state manager**: centralize and manage your application state in a single source of truth (the application store)
@@ -445,9 +444,8 @@ Whereas in Vue, the state is always accessible from any components:
     {{status}}
   </button>
 </template>
-```
 
-```js
+<script>
 export default {
   name: `foo`,
   computed: {
@@ -461,6 +459,7 @@ export default {
     }
   }
 };
+</script>
 ```
 
 Vuex also provide helper functions to write this in a nicer way ([mapState](https://vuex.vuejs.org/api/#mapstate) & [mapMutations](https://vuex.vuejs.org/api/#mapmutations) to name a few)
