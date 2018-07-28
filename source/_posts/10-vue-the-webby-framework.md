@@ -473,7 +473,7 @@ React and Vue have a good documentation.
 You need a little time to learn how React's documentation is structured, but when you get it, it's ok.
 
 For Vue, I really don't know how to explain this feeling but in a way I find it too complete 🤨.
-Maybe I would like to have a big summary of everything that Vue has to offer, because sometimes you just need a small reminder of what is supported, and how to use it.
+Maybe I would like to have a big summary of everything that Vue has to offer, because sometimes you just need a small reminder of what is supported, and how to use it. (ok there's [vue cheatsheet](https://vuejs-tips.github.io/cheatsheet/))
 
 ## Conclusion
 
