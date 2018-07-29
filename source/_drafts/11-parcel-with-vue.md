@@ -115,7 +115,7 @@ Parcel will pass down some configuration to the tools that it uses under the hoo
 This can lead to some [strange issues](https://github.com/parcel-bundler/parcel/issues/1103#issuecomment-406483009) sometimes…
 
 Also be aware that as for now (august 2018) [Parcel relies on Babel 6](https://github.com/parcel-bundler/parcel/issues/868) and not on [Babel 7](https://www.npmjs.com/package/@babel/core/v/7.0.0-beta.55) (still on beta but working fine)  
-That's the small problem of all the “under the hood” solutions (CLI included), you never know what's going on before reading th `package.json`
+That's the small problem with all the “under the hood” solutions (CLI included), you never know what's going on before reading the `package.json`
 
 ## Code splitting
 
