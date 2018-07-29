@@ -26,18 +26,18 @@ How this holds up?
 
 ## The history of bundling
 
-I feel like it's important to know where we came from before talking about what Parcel is trying to solve.
+I feel like it's important to know from where we came before talking about what Parcel is trying to solve.
 
 That's my personal take about how we get there 🤓
 
 [//]: # " need to suse {% link %} regular link doesn't handle well parenthesis "
 
-1.  In the beginning, bundling wasn't a thing: just reference javascript/CSS files in your HTML and you were done (the good ol'days in a way (but damn I hated IE6)).
+1.  In the beginning, bundling wasn't a thing: just reference javascript/CSS files in your HTML and you were done (the good ol'days in a way (but damn I hated IE6))
 2.  Then we began to take care of file sizes and we {% link minified them https://en.wikipedia.org/wiki/Minification_(programming) %} with non-JS tools ([Google Clojure compiler](https://developers.google.com/closure/compiler/) for example)
 3.  Then we began to use [CSS preprocessor](https://drupalize.me/videos/what-css-preprocessor?p=1175) which add a lot of handy stuff (mainly variables, selector nesting & import) with non-JS tools ([Ruby-Sass](https://sass-lang.com/ruby-sass) for example)
 4.  Then [node.js](https://nodejs.org/en/) came and we used its UNLIMITED POWER ⚡️ to handle dependencies & tooling
 5.  Then [Browserify](http://browserify.org/) came and we began to bundle our Javascript that way:
-    better dependencies management and the possibility to split our JS code in multiple files.
+    better dependencies management and the possibility to split our JS code in multiple files
 6.  Then building tools like [Grunt](https://gruntjs.com/) or [Gulp](https://gulpjs.com/) let us coordinate all those build step together.
     It staid that way a couple of time…
 7.  Then [React](https://reactjs.org/) appeared.
