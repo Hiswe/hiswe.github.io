@@ -1,15 +1,19 @@
 ---
 title: testing the parcel bundler with vue
-cover: cover.png
-comments: false
-description: how the “Blazing fast, zero configuration web application bundler” is keeping its promise
 tags:
   - advanced
   - vue
+cover: cover.png
+comments: false
+description: >-
+  how the “Blazing fast, zero configuration web application bundler” is keeping
+  its promise
 categories:
   - web
-  - nodejs  
+  - nodejs
+date: 2018-07-29 18:10:23
 ---
+
 
 ## Introduction
 
