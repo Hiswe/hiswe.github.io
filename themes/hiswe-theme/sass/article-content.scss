@@ -43,7 +43,7 @@
     color: var(--c-text-lighter);
 
     &::before {
-      content: ' ';
+      content: " ";
       width: var(--s-big-border);
       position: absolute;
       top: 0;
@@ -74,7 +74,7 @@
 
       cite {
         &::before {
-          content: '—';
+          content: "—";
           color: #ccc;
           padding: 0 0.5em;
         }
@@ -130,12 +130,12 @@
   // colored bullet-points
   ul {
     list-style: none;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
 
     li {
       padding-left: 1em;
-      text-indent: -.7em;
+      text-indent: -0.7em;
 
       &::before {
         content: "• ";
@@ -150,18 +150,27 @@
 
     li {
       display: block;
+      padding-left: 1.5em;
+      text-indent: -1.15em;
+
       &::before {
         content: counter(ol-item) ". ";
         counter-increment: ol-item;
         color: var(--c-primary-lighter);
+        font-family: sans-serif;
       }
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     line-height: 1.1em;
     margin-top: vertical-rhythm(1);
-    margin-bottom: vertical-rhythm(.75);
+    margin-bottom: vertical-rhythm(0.75);
 
     strong {
       background: none;
@@ -186,7 +195,7 @@
 
     &::before {
       color: var(--c-primary-lighter);
-      content: counter(section, upper-latin) '. ';
+      content: counter(section, upper-latin) ". ";
     }
   }
   h3 {
@@ -197,7 +206,7 @@
     font-size: 1.1rem;
     font-weight: bold;
     margin-top: vertical-rhythm(1.25);
-    margin-bottom: vertical-rhythm(.5);
+    margin-bottom: vertical-rhythm(0.5);
   }
   h5 {
     text-transform: uppercase;
@@ -228,39 +237,38 @@
     }
     th,
     td {
-      padding: .25em 1em;
+      padding: 0.25em 1em;
     }
   }
 
-
   a[href^="https://en.wikipedia.org"]::after {
-    content: ' (wikipedia)';
+    content: " (wikipedia)";
     color: var(--c-primary);
   }
 
   a[href^="https://developer.mozilla.org"]::after {
-    content: ' (mdn)';
+    content: " (mdn)";
     color: var(--c-primary);
   }
 
   a[href^="https://www.youtube.com"]::after,
   a[href^="https://youtu.be"]::after {
-    content: ' (youtube)';
+    content: " (youtube)";
     color: var(--c-primary);
   }
 
   a[href^="https://github.com"]::after {
-    content: ' (github)';
+    content: " (github)";
     color: var(--c-primary);
   }
 
   a[href^="https://github.com"]::after {
-    content: ' (github)';
+    content: " (github)";
     color: var(--c-primary);
   }
 
   a[href^="https://www.npmjs.com"]::after {
-    content: ' (npm)';
+    content: " (npm)";
     color: var(--c-primary);
   }
 
@@ -277,8 +285,8 @@
   strong {
     background: var(--c-accent-lightest);
     font-weight: 400;
-    padding-left: .35em;
-    padding-right: .35em;
+    padding-left: 0.35em;
+    padding-right: 0.35em;
 
     code {
       border: 0;
@@ -297,7 +305,7 @@
   //////
 
   .split {
-    margin: 1em calc(var(--article-left-right-gutter)*-1) 0;
+    margin: 1em calc(var(--article-left-right-gutter) * -1) 0;
 
     @media #{$mq-no-asides} {
       display: flex;
@@ -306,7 +314,7 @@
 
     &__title,
     &__content {
-      padding: .5em 1em;
+      padding: 0.5em 1em;
 
       @media #{$mq-no-asides} {
         flex: 0 0 50%;
@@ -338,15 +346,26 @@
       }
 
       &--first {
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, var(--c-stripe-img) 5px, var(--c-stripe-img) 10px);
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 5px,
+          var(--c-stripe-img) 5px,
+          var(--c-stripe-img) 10px
+        );
       }
       &--second {
-        background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, var(--c-stripe-img) 5px, var(--c-stripe-img) 10px);
+        background-image: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 5px,
+          var(--c-stripe-img) 5px,
+          var(--c-stripe-img) 10px
+        );
         @media #{$mq-no-asides} {
           box-shadow: -1px 0 0 darken($c-stripe-img, 7%);
         }
       }
-
     }
   }
 }
@@ -364,10 +383,10 @@
     text-align: center;
 
     &::before {
-      content: 'fig.' counter(caption, decimal-leading-zero) ' – ';
+      content: "fig." counter(caption, decimal-leading-zero) " – ";
     }
     &:empty::before {
-      content: 'fig.' counter(caption, decimal-leading-zero);
+      content: "fig." counter(caption, decimal-leading-zero);
     }
   }
   p {
@@ -402,10 +421,13 @@
 
 .video-wrapper {
   text-align: center;
-  background-image: repeating-linear-gradient(-45deg,
-    white, white 5px,
-    var(--c-stripe-img) 5px, var(--c-stripe-img) 10px);
-  padding: .75em 0 .25em;
-  margin: 0 calc(var(--article-left-right-gutter)*-1);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    white,
+    white 5px,
+    var(--c-stripe-img) 5px,
+    var(--c-stripe-img) 10px
+  );
+  padding: 0.75em 0 0.25em;
+  margin: 0 calc(var(--article-left-right-gutter) * -1);
 }
-
