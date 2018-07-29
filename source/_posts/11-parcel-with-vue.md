@@ -20,7 +20,7 @@ In this era of libraries needing a build step <small>(even if you can use them w
 
 The baseline is: **Blazing fast, zero configuration web application bundler**.
 
-Is the premise fulfilled?
+How this holds up?
 
 <!-- more -->
 
