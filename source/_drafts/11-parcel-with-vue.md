@@ -1,8 +1,8 @@
 ---
-title: testing parcel bundler with vue
+title: testing the parcel bundler with vue
 cover: cover.png
 comments: false
-description: 
+description: how the “Blazing fast, zero configuration web application bundler” is keeping its promise
 tags:
   - advanced
   - vue
@@ -73,7 +73,7 @@ If we look at the [vue's single file component](https://vuejs.org/v2/guide/singl
 - **Style** can be [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [PostCSS](https://postcss.org/), [less](http://lesscss.org/), [SASS/SCSS](https://sass-lang.com/) or [Stylus](http://stylus-lang.com/) with the support of [style scoping](https://vue-loader.vuejs.org/en/features/scoped-css.html) or not
 - **Script** can be [Javascript](https://developer.mozilla.org/en-US/docs/Web/javascript) (with the support of the latest additions to the language with [babel](http://babeljs.io/)) or [typescript](https://www.typescriptlang.org/)
 
-So it's a good candidate for being bundled & test if it can support everything 😎
+So it's a good candidate for testing Parcel's ability to bundle anything 😎
 
 ## Parcel
 
@@ -91,6 +91,10 @@ const options = {
 };
 ```
 
+That's it.
+
+I hope you're not afraid of the void 🌑.
+
 ## Main use
 
 Just specify a main file (either HTML, JS or CSS) and it will crawl all the dependencies and bundle them.
@@ -102,7 +106,7 @@ Also being able to run a [Hot Module Replacement](https://parceljs.org/hmr.html)
 
 ## Transform configuration
 
-Parcel will pass down some configuration down to the tools that it uses under the hood:
+Parcel will pass down some configuration to the tools that it uses under the hood:
 
 - [.babelrc](https://parceljs.org/transforms.html#babel) for babel
 - [.posthtmlrc](https://parceljs.org/transforms.html#posthtml) for post html
@@ -110,7 +114,8 @@ Parcel will pass down some configuration down to the tools that it uses under th
 
 This can lead to some [strange issues](https://github.com/parcel-bundler/parcel/issues/1103#issuecomment-406483009) sometimes…
 
-Also be aware that as for now (august 2018) [Parcel relies on Babel 6](https://github.com/parcel-bundler/parcel/issues/868) and not on [Babel 7](https://www.npmjs.com/package/@babel/core/v/7.0.0-beta.55) (still on beta but working fine)
+Also be aware that as for now (august 2018) [Parcel relies on Babel 6](https://github.com/parcel-bundler/parcel/issues/868) and not on [Babel 7](https://www.npmjs.com/package/@babel/core/v/7.0.0-beta.55) (still on beta but working fine)  
+That's the small problem of all the “under the hood” solutions (CLI included), you never know what's going on before reading th `package.json`
 
 ## Code splitting
 
