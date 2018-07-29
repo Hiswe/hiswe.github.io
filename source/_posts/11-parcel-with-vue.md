@@ -14,10 +14,9 @@ categories:
 date: 2018-07-29 18:10:23
 ---
 
-
 ## Introduction
 
-In this era of libraries needing a build step <small>(even if you can use them without, but c'mon it's better to do it)</small> I want to talk about the [parcel bundler](https://parceljs.org/).
+In this era of libraries needing a build step <small>(even if you can use them without it, c'mon it's better to do so)</small> I want to talk about the [parcel bundler](https://parceljs.org/).
 
 The baseline is: **Blazing fast, zero configuration web application bundler**.
 
@@ -29,21 +28,24 @@ Is the premise fulfilled?
 
 I feel like it's important to know where we came from before talking about what Parcel is trying to solve.
 
-That's my personal take of how I perceive this evolution 🤓
+That's my personal take about how we get there 🤓
 
 [//]: # " need to suse {% link %} regular link doesn't handle well parenthesis "
 
-1.  In the beginning, bundling wasn't a thing: just reference javascript/CSS files in your HTML and you were done (the good ol'days).
-2.  Then we began to take care of file sizes and we {% link minified https://en.wikipedia.org/wiki/Minification_(programming) %} those files with non-JS tools ([Google Clojure compiler](https://developers.google.com/closure/compiler/) for example)
-3.  Then we began to use [CSS preprocessor](https://drupalize.me/videos/what-css-preprocessor?p=1175) which add a lot of handy stuff (mainly variables, selector nesting & import) with with non-JS tools ([Ruby-Sass](https://sass-lang.com/ruby-sass) for example)
-4.  Then [node.js](https://nodejs.org/en/) came and we used its power to handle dependencies & tooling
-5.  Then [Browserify](http://browserify.org/) came and we begin to bundle our Javascript that way
-6.  Then building tools like [Grunt](https://gruntjs.com/) & [Gulp](https://gulpjs.com/) let us coordinate all those build step.
-    It staid that way a couple of years
-7.  Then [React](https://reactjs.org/) appeared
+1.  In the beginning, bundling wasn't a thing: just reference javascript/CSS files in your HTML and you were done (the good ol'days in a way (but damn I hated IE6)).
+2.  Then we began to take care of file sizes and we {% link minified them https://en.wikipedia.org/wiki/Minification_(programming) %} with non-JS tools ([Google Clojure compiler](https://developers.google.com/closure/compiler/) for example)
+3.  Then we began to use [CSS preprocessor](https://drupalize.me/videos/what-css-preprocessor?p=1175) which add a lot of handy stuff (mainly variables, selector nesting & import) with non-JS tools ([Ruby-Sass](https://sass-lang.com/ruby-sass) for example)
+4.  Then [node.js](https://nodejs.org/en/) came and we used its UNLIMITED POWER ⚡️ to handle dependencies & tooling
+5.  Then [Browserify](http://browserify.org/) came and we began to bundle our Javascript that way:
+    better dependencies management and the possibility to split our JS code in multiple files.
+6.  Then building tools like [Grunt](https://gruntjs.com/) or [Gulp](https://gulpjs.com/) let us coordinate all those build step together.
+    It staid that way a couple of time…
+7.  Then [React](https://reactjs.org/) appeared.
     Even if it was just one step further from previous frameworks (like [backbone](http://backbonejs.org/) or [angularJS](https://angularjs.org/)), the full component way of doing things made people want to bundle thing, not on a language basis, but on a component basis.
-8.  Then [webpack](https://webpack.js.org/) appeared. Doing an amazing job with the drawback of a sometime tricky [configuration](https://webpack.js.org/configuration/#options) (and the team is really pushing hard to solve this 💪)
-9.  Then appeared [CLI](https://en.wikipedia.org/wiki/Command-line_interface) for each framework to simplify the use of webpack
+8.  Thus [webpack](https://webpack.js.org/) appeared.
+    Doing an amazing job with the drawback of a sometime tricky [configuration](https://webpack.js.org/configuration/#options) (and the team is really pushing hard to solve this 💪).
+9.  Then appeared [CLI](https://en.wikipedia.org/wiki/Command-line_interface) for each framework to simplify the use of webpack.
+    Tools configuring tools to use other tools.
 10. And recently **Parcel** appeared with a **no configuration promise**
 
 It's not that we don't like simple stuff anymore (no one likes build steps), it's more that our needs _vs._ what the browser can natively do aren't matching:
@@ -57,7 +59,7 @@ It's not that we don't like simple stuff anymore (no one likes build steps), it'
 
 And we still need to support legacy browsers.
 
-I'm pretty sure it's still every dev's dream to use a thing that _just works_ in every situation (building appeared in the famous [javascript fatigue](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4) post by [Eric Clemmons](https://medium.com/@ericclemmons)).
+I'm pretty sure it's still every dev's dream to use a thing that _just works_ in every situation (_“building”_ appeared in the famous [javascript fatigue](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4) post by [Eric Clemmons](https://medium.com/@ericclemmons)).
 
 On a side note, the web-community is pushing forward for native tools.
 
@@ -65,9 +67,9 @@ After all:
 
 - [document.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) is just [jQuery](https://jquery.com/)'s idea natively implemented
 - [JS arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) is inspired by Coffeescript's [functions](https://coffeescript.org/#functions)
-- JS modules, and CSS custom properties as talked before
+- JS modules, and CSS custom properties as talked before ⏪.
 
-Maybe [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) will be the equivalent native solution for React/Angular/Vue <small>(Even if I think they will still stick because of how much other benefits they can provide)</small>
+Maybe [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) will be the native solution's equivalent for React/Angular/Vue <small>(Even if I think they will stick because of how much other benefits they can provide)</small>
 
 ## Why bundling vue
 
@@ -101,12 +103,12 @@ I hope you're not afraid of the void 🌑.
 
 ## Main use
 
-Just specify a main file (either HTML, JS or CSS) and it will crawl all the dependencies and bundle them.
+Just specify an entry file (either HTML, JS or CSS) and it will crawl all its dependencies and bundle them.
 That's it.
 
-You may have to install other dependencies by I've found that Parcel tries to [install some of them for you](https://parceljs.org/hmr.html#automagically-installed-dependencies). That's such a good idea!
+You may have to install other [NPM packages](https://www.npmjs.com/) by I've found that Parcel tries to [install some of them for you](https://parceljs.org/hmr.html#automagically-installed-dependencies). That's such a good idea!
 
-Also being able to run a [Hot Module Replacement](https://parceljs.org/hmr.html) server in dev is quick way to start coding a web-application.
+Also being able to run a [Hot Module Replacement](https://parceljs.org/hmr.html) server in development is quick way to start coding a web-application.
 
 ## Transform configuration
 
@@ -118,8 +120,9 @@ Parcel will pass down some configuration to the tools that it uses under the hoo
 
 This can lead to some [strange issues](https://github.com/parcel-bundler/parcel/issues/1103#issuecomment-406483009) sometimes…
 
-Also be aware that as for now (august 2018) [Parcel relies on Babel 6](https://github.com/parcel-bundler/parcel/issues/868) and not on [Babel 7](https://www.npmjs.com/package/@babel/core/v/7.0.0-beta.55) (still on beta but working fine)  
-That's the small problem with all the “under the hood” solutions (CLI included), you never know what's going on before reading the `package.json`
+Also be aware that as for now (august 2018) [Parcel relies on Babel 6](https://github.com/parcel-bundler/parcel/issues/868) and not on [Babel 7](https://www.npmjs.com/package/@babel/core/v/7.0.0-beta.55) (still on beta but working fine)
+
+That's a small common problem among the _“under the hood”_ solutions (CLI included), you never know what's going on before reading the `package.json` (or some github issues).
 
 ## Code splitting
 
@@ -154,16 +157,16 @@ I resolved myself to:
 Bundling also a node.js application with it.
 There is a [target](https://parceljs.org/cli.html#target) parameter for it. But I'm not sure if I can do variables or module replacement with it.
 
-When I was building my {% post_link 08-universal-application universal web-application %} (bad idea, don't do it at home, use [next.js](https://nextjs.org/) or [nuxt](https://nuxtjs.org/)) I had to really refine my build configurations.
+When I was building my {% post_link 08-universal-application universal web-application %} (bad idea, don't do it at home, use [next.js](https://nextjs.org/) or [nuxt](https://nuxtjs.org/)) I had to really refine my build configuration.
 I don't know if it would have been possible by using Parcel only.
 
 ## Conclusion
 
 **Parcel is very promising** and very young.
-The team is doing an amazing job ❤️ and is pushing the bundling step in a good direction: simple and just work 🎉.
+The team is doing an amazing job ❤️ and is pushing the bundling step in a good direction: simple and working 🎉.
 
 **I won't advice it (yet) for big projects**. I think, for now, frameworks' CLI are more reliable.
 
-BUT in the future, if I'll be able to use the same simple bundle tool for all my projects I'll go for it!
+BUT in the future, if I'll be able to use the same simple bundle tool for all my projects I'll go for it! (I'm a lazy 🐮 having to read yet another CLI doc isn't my stuff).
 
-I hope they will keep the great job developing this ambitious open source projects.
+I hope they will keep up with developing this ambitious open source projects. Good game!
