@@ -59,7 +59,7 @@ It's not that we don't like simple stuff anymore (no one likes build steps), it'
 
 And we still need to support legacy browsers.
 
-I'm pretty sure it's still every dev's dream to use a thing that _just works_ in every situation (_“building”_ appeared in the famous [javascript fatigue](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4) post by [Eric Clemmons](https://medium.com/@ericclemmons)).
+I'm pretty sure it's still every dev's dream to use a thing that _just works_ in every situation (_“building”_ appeared in [javascript](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f) [fatigue](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4) posts quite often).
 
 On a side note, the web-community is pushing forward for native tools.
 
@@ -140,7 +140,7 @@ So that was a real time saver and a good entry point in Vue's ecosystem.
 But the **promise of _“simplicity”_ as some drawbacks:**
 
 - when you have a problem it's most likely you'll have to wait for a new version
-- I had some problem with building & minifying `.vue` files in production mode
+- I had some problem with building & minifying `.vue` files in production mode for example…
 
 **When building from an html file:**
 
@@ -154,7 +154,10 @@ I resolved myself to:
 
 ## Things I didn't test
 
-Bundling also a node.js application with it.
+Bundling a node.js application with it.
+
+It's useful if you share a lot of code between the client & the server and you want your server code to run as fast as possible.
+
 There is a [target](https://parceljs.org/cli.html#target) parameter for it. But I'm not sure if I can do variables or module replacement with it.
 
 When I was building my {% post_link 08-universal-application universal web-application %} (bad idea, don't do it at home, use [next.js](https://nextjs.org/) or [nuxt](https://nuxtjs.org/)) I had to really refine my build configuration.
@@ -169,4 +172,4 @@ The team is doing an amazing job ❤️ and is pushing the bundling step in a go
 
 BUT in the future, if I'll be able to use the same simple bundle tool for all my projects I'll go for it! (I'm a lazy 🐮 having to read yet another CLI doc isn't my stuff).
 
-I hope they will keep up with developing this ambitious open source projects. Good game!
+I really hope they will keep up with the hard work of developing an ambitious open source projects like that.
