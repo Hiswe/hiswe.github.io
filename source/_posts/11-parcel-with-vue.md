@@ -5,9 +5,7 @@ tags:
   - vue
 cover: cover.png
 comments: false
-description: >-
-  how the “Blazing fast, zero configuration web application bundler” is keeping
-  its promise
+description: how the “Blazing fast, zero configuration web application bundler” is keeping its promise
 categories:
   - web
   - nodejs
