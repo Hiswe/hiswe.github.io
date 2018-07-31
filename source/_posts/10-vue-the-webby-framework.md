@@ -19,7 +19,7 @@ Both [React 16](https://reactjs.org/) & [Vue 2](https://vuejs.org/) are javascri
 Having used both of them lately, here is my opinion on the main differences.
 
 I'm not trying to convince anyone which one is better here, but more to describe how comfortable I was while learning & using them.
-When it's about making stuff, just choose your preferred tool.
+When it's about making stuff, just choose your preferred tool <small>(if you have the choice of course)</small>.
 
 **`[TL;DR]`** Vue feels more _webby_ and React more _tecky_ <small>(If that means something 🙃)</small>
 And coming from a web-developer background, I feel using Vue is more natural for me.
@@ -30,28 +30,28 @@ And coming from a web-developer background, I feel using Vue is more natural for
 
 ### building considerations
 
-Both those framework can be used by just dropping the lib in your webpage and start using it!  
+Both those framework can be used by just dropping the JS file in your webpage and start using it!  
 That's really great! (I mean it 👍)
 
-That being said, using a **compilation step makes you sure that you can use everything the library can provide** (like [single file components](https://vuejs.org/v2/guide/single-file-components.html) for vue and [JSX](https://reactjs.org/docs/introducing-jsx.html) for React)
+That being said, using a **compilation step makes you sure that you can use everything the library can provide** (like [single file components](https://vuejs.org/v2/guide/single-file-components.html) for Vue and [JSX](https://reactjs.org/docs/introducing-jsx.html) for React)
 
 Those libraries try their best to make things simple for the developers:
 
 **If they say there is a better way to use their framework, you can trust them.**
 
-Both frameworks provide an easy way to bundle your code without getting an headache:
+Both provide an easy way to bundle your code without getting an headache:
 
 - [create-react-app](https://github.com/facebook/create-react-app) for React
-- [@vue/cli](https://www.npmjs.com/package/@vue/cli) For vue
+- [@vue/cli](https://www.npmjs.com/package/@vue/cli) for Vue
 
 For using them, you just need to have [Node.js](https://nodejs.org/en/) installed on your computer 🤖
 
-If you want an independent & still simple way to bundle them, you can try [parcel](https://parceljs.org/).
+If you want an independent & still simple way to bundle them, you can try [Parcel](https://parceljs.org/).
 I tested it for my first side project with Vue and it was a real quick starter.
 
 All this building intro get us to…
 
-### JSX/vue templates
+### JSX/Vue templates
 
 If you're working in the web, you've probably heard (or are using) them.
 
@@ -59,13 +59,13 @@ They are both a way to write a kind of HTML that will be compiled to Javascript.
 
 This is how I will represent them on a JS/HTML scale:
 
-{% caption Don't need to be a javascript expert to write with Vue %}
+{% caption Don't need to be a javascript expert to write a Vue template %}
 {% asset_img jsx-vue-template.svg 700 280 "JSX/Vue proximity with HTML 'JSX/Vue proximity with HTML'" %}
 {% endcaption %}
 
 This is the same component written in:
 
-#### JSX
+#### React's JSX
 
 ```js
 import React from "react";
@@ -114,11 +114,11 @@ I found [JSX](https://reactjs.org/docs/introducing-jsx.html) more difficult to r
 - no build in **support for setting/un-setting classes** (I end up using the [classnames](https://www.npmjs.com/package/classnames) module)
 - no build in support for **passing down HTML classes** from a parent to its child components
 - no build-in solutions for **having many part/slot to fill** (for a better explanation about what I'm talking about, read [the Vue's slot doc](https://vuejs.org/v2/guide/components-slots.html))
-- **but most importantly design patterns**: while learning React and writing JSX, I've found myself spending a lot of time learning how to write a clean conditional, what is a render prop, how you can use them…
+- **but most importantly design patterns**: while learning React and writing JSX, I've found myself spending a lot of time learning how to write a clean conditional, what is a [render prop](https://reactjs.org/docs/render-props.html#use-render-props-for-cross-cutting-concerns), how you can [use](https://hackernoon.com/do-more-with-less-using-render-props-de5bcdfbe74c) [them](https://levelup.gitconnected.com/understanding-react-render-props-by-example-71f2162fd0f2), what is a [HOC](https://reactjs.org/docs/higher-order-components.html#use-hocs-for-cross-cutting-concerns) and how to [use](https://medium.com/@toastui/a-deep-dive-into-the-react-hoc-1-fb431c131866) [them](https://medium.com/@toastui/a-deep-dive-into-the-react-hoc-2-3e8ed18b848b)…
 - on a lower note, it's a good thing to be able to use regular javascript in your template but:
   - writing conditional is strange `{props.bar &&…}`
   - I don't like the look of the map function ending `))}`
-  - …so yeah, it's mainly purely aesthetic 🌈
+  - …so yeah, it's mainly purely aesthetic considerations 🌈
 
 #### Vue with JSX
 
@@ -130,7 +130,7 @@ I've been using [Pug](https://pugjs.org/api/getting-started.html) ([ex-Jade](htt
 I'm still using it: I'm found of the simple syntax (I hate writing closing tags 😤).
 It makes me write/refactor my markup quicker.
 
-Being able to use it with Vue is so nice!
+Being able to use it with Vue is a really nice addition!
 
 #### Root node handling
 
@@ -170,7 +170,7 @@ export function Foo(props) {
 }
 ```
 
-In Vue they provide a way to style in the same file it with a [load of options](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors)
+Vue provides a way to style in the same file it with a [load of options](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors) and supports [vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [PostCSS](https://postcss.org/), [less](http://lesscss.org/), [sass/scss](https://sass-lang.com/) or [Stylus](http://stylus-lang.com/) + [style scoping](https://vue-loader.vuejs.org/en/features/scoped-css.html)
 
 ```html
 <template>
@@ -246,7 +246,7 @@ export default class Foo extends React.Component {
 }
 ```
 
-[Vue components](https://vuejs.org/v2/guide/components.html) are just objects with [many options](https://vuejs.org/v2/api/#Options-Data)
+[Vue components](https://vuejs.org/v2/guide/components.html) are just JS objects with [many options](https://vuejs.org/v2/api/#Options-Data)
 
 ```html
 <template>
@@ -284,7 +284,7 @@ And if you're a fan of [functional components](https://vuejs.org/v2/guide/render
 
 This may be the only thing that I found strange in Vue.
 
-In React, referencing a component is just using a Javascript `import`:
+In React, referencing a component is just using a regular Javascript `import`:
 
 ```jsx
 import React from "React";
@@ -351,10 +351,10 @@ In this case React come with a little bit more with [react context](https://reac
 Let's be honest, you will quickly need (at least):
 
 - **a router**: for navigation
-- **a state manager**: centralize and manage your application state in a single source of truth (the application store)
+- **a state manager**: to centralize and manage your application state in a single source of truth (the application store)
 
 The React's team doesn't provide any of those & won't give you any advice about what to use.
-For that there is some popular options out there.
+But there is some popular options out there for that.
 <small>N.B. I didn't make any real research about how popular they are, so that's mostly my feeling… guess you'll have to go it with even if I'm wrong 😐</small>.
 
 On the contrary, Vue's team provides some official packages.
@@ -462,9 +462,9 @@ export default {
 </script>
 ```
 
-Vuex also provide helper functions to write this in a nicer way ([mapState](https://vuex.vuejs.org/api/#mapstate) & [mapMutations](https://vuex.vuejs.org/api/#mapmutations) to name a few)
+Vuex also provides helper functions to write this in a nicer way ([mapState](https://vuex.vuejs.org/api/#mapstate) & [mapMutations](https://vuex.vuejs.org/api/#mapmutations) to name a few)
 
-It's two different ways of doing the same thing, but I was happy to avoid writing wrapper function anymore and to have a build-in way of handling async actions without searching for another module.
+It's two different ways of doing the same thing, but I was happy to avoid writing wrapper function anymore and to have a build-in way of handling async actions without searching for [another module](https://redux-saga.js.org/).
 
 ## A note on documentation
 
@@ -474,7 +474,7 @@ You need a little time to learn how React's documentation is structured, but whe
 
 For Vue, I really don't know how to explain this feeling but in a way I find it too complete 🤨.
 All the options are scattered inside categories with sub-categories. So most of the time I just use the search field.
-There's [vue cheatsheet](https://vuejs-tips.github.io/cheatsheet/) that can helps, but I miss a big fat example with almost everything used.
+There's the[vue cheatsheet](https://vuejs-tips.github.io/cheatsheet/) that can helps, but I miss a big fat example with almost everything used.
 
 ## Conclusion
 
@@ -491,13 +491,13 @@ Vue is more like: “Oh, you're a web-developer, let's write some HTML, CSS & JS
 
 - you feel familiar
 - writing a component is just writing a javascript object
-- the team provides you some must-have modules
+- the team provides some must-have modules
 - those modules integrate quickly in your application
 - …but you're still free to
   - find other modules
   - code the way you prefer
 
 Again it isn't about rating those libraries.
-They are both crafted with care by very skilled peoples.
+They are both carefully crafted by very skilled peoples.
 
 But as a web-developer I like webby things… And for me, Vue looks like more webby, and less about coding patterns & code philosophy.
