@@ -21,7 +21,7 @@ npm start
 ### writing
 
 ```
-yarn run hexo new [layout] <title>
+yarn hexo new [layout] <title>
 ```
 
 - post  (source/_posts)
