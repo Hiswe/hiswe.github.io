@@ -78,4 +78,85 @@ It will take care for us of setting the right `<html><head /><body /></html>` th
 <!-- x-ray of a paint bucket -->
 
 The CSS part is the text contained in the style attribute value: `style="HERE ARE MY STYLE"`.
-And this what we're going to analyze here.
+And this what we're going to analyze here.  
+We will take as an example `color: DeepPink;`
+
+So a CSS rule always goes that way:
+
+[//]: # " need to suse {% link %} regular link doesn't handle well parenthesis "
+
+- the **rule name**
+- the **rule value**
+- the rule name & value are **separate with a {% link colon https://en.wikipedia.org/wiki/Colon_(punctuation) %}** `:`
+- after the value **you need to put a {% link semicolon https://en.wikipedia.org/wiki/Semicolon %}** `;`
+
+### Why is that way?
+
+Like any programming language, it's always about making the link between the human developer and the machine.
+
+So we have:
+
+- a **human part**: the _name_ & the _value_
+- a **machine part**: the _colon_ & the _semicolon_
+  - the _column_ will helps the computer differentiate between the _name_ & the _value_
+  - the _semicolon_ will helps the computer differentiate among different CSS rules
+
+Like with the HTML, your <a href="{% post_path 03-basic-web-understanding %}#The-Browser">browser</a> will do its best to read the CSS.
+
+**_If there's a problem it will just ignore it._**
+
+So in order for your styles to work, **It's crucial to pay attention to your colon & semicolon**
+
+### What those CSS rules means?
+
+<!-- a paint bucket at school -->
+
+If we summarize all the rules we have those:
+
+```css
+* {
+  /* the color of the text */
+  color: SteelBlue;
+  /* the size of the font */
+  font-size: 20px;
+  /* the type of font we're using */
+  font-family: sans-serif;
+  /* border thickness */
+  border-width: 10px;
+  /* border… color */
+  border-color: LightSkyBlue;
+  /* if the border should be plain, dotted… */
+  border-style: solid;
+  /* background is obvious background */
+  background-color: LightSkyBlue;
+}
+```
+
+We can see that:
+
+- a CSS rule `name` can be composed of one or multiple words
+- if a CSS rule `name` is made of **multiple words** they **_MUST_ be separated by [hyphens](https://en.wikipedia.org/wiki/Hyphen-minus)**
+
+### Why those values?
+
+You can't put anything you want on the `values`.
+
+**_Every CSS rules expects a certain type of CSS values._**
+
+- for anything relating to **colors** (`color`, `border-color`, `background-color`…), you need to **provide a [color value](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)**
+- for anything relating to **size** (`font-size`, `border-width`…), you need to **provide a [length value](https://developer.mozilla.org/en-US/docs/Web/CSS/length)**
+  <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/font-family -->
+- for anything relating to **size** (`font-size`, `border-width`…), you need to **provide a [length value](https://developer.mozilla.org/en-US/docs/Web/CSS/length)**
+
+### How we can do better?
+
+<!-- someone writing on the black board: I won't repeat myself -->
+
+We repeat a lot of things there…
+
+But developer have a saying which is [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself): **don't repeat yourself.**
+
+It's good because:
+
+- it's less to write
+- it's less error prone
