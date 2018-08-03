@@ -127,6 +127,10 @@
     }
   }
 
+  li + li {
+    margin-top: 0.5em;
+  }
+
   // colored bullet-points
   ul {
     list-style: none;
@@ -189,7 +193,7 @@
   h2 {
     counter-increment: section;
     font-weight: bold;
-    font-size: 1.65rem;
+    font-size: 1.65em;
     margin-top: vertical-rhythm(2.5);
     margin-bottom: vertical-rhythm(1);
 
@@ -199,11 +203,11 @@
     }
   }
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     margin-top: vertical-rhythm(1.5);
   }
   h4 {
-    font-size: 1.1rem;
+    font-size: 1.1em;
     font-weight: bold;
     margin-top: vertical-rhythm(1.25);
     margin-bottom: vertical-rhythm(0.5);
@@ -211,7 +215,7 @@
   h5 {
     text-transform: uppercase;
     font-family: $font-default;
-    font-size: 1.1rem;
+    font-size: 1.1em;
   }
   img,
   video {
