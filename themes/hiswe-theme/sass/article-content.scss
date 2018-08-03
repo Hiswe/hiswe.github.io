@@ -131,6 +131,11 @@
     margin-top: 0.5em;
   }
 
+  ul ul li + li,
+  ol ol li + li {
+    margin-top: 0em;
+  }
+
   // colored bullet-points
   ul {
     list-style: none;
