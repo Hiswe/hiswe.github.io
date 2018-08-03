@@ -47,7 +47,7 @@ Both provide an easy way to bundle your code without getting an headache:
 For using them, you just need to have [Node.js](https://nodejs.org/en/) installed on your computer 🤖
 
 If you want an independent & still simple way to bundle them, you can try [Parcel](https://parceljs.org/).
-I tested it for my first side project with Vue and it was a real quick starter.
+I {% post_link 11-parcel-with-vue tested it %} for my first side project with Vue and it was a real quick starter.
 
 All this building intro get us to…
 
@@ -151,7 +151,7 @@ But keeping your component styles near your component markup make a lot of sense
 - you have a better overview of your component style perimeter
 
 in React there are [many](https://javascriptplayground.com/css-modules-webpack-react/), [many](https://github.com/tuchk4/awesome-css-in-js#libraries) solutions. I won't address here the merit or not of CSS-in-JS.
-My point is more: You have to choose one thing.
+My point is more: you have to choose one thing.
 
 I went with importing a [SCSS](https://sass-lang.com/) file in my components:
 
@@ -170,7 +170,8 @@ export function Foo(props) {
 }
 ```
 
-Vue provides a way to style in the same file it with a [load of options](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors) and supports [vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [PostCSS](https://postcss.org/), [less](http://lesscss.org/), [sass/scss](https://sass-lang.com/) or [Stylus](http://stylus-lang.com/) + [style scoping](https://vue-loader.vuejs.org/en/features/scoped-css.html)
+Vue provides a way to style from the same file with a [load of options](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors) and supports [vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [PostCSS](https://postcss.org/), [less](http://lesscss.org/), [sass/scss](https://sass-lang.com/) or [Stylus](http://stylus-lang.com/) + [style scoping](https://vue-loader.vuejs.org/en/features/scoped-css.html).
+Just write your CSS inside the `<style />` element.
 
 ```html
 <template>
@@ -272,8 +273,8 @@ export default {
 </script>
 ```
 
-You won't need to take care about bindings or `this` in your template.
-Also **I like how the framework let us update the state in a simple way.**
+You won't need to take care about bindings or `this` in your template, Vue will do it for you 😮
+And they make **updating the state as simple as assigning a value** 😲 The one thing we have done since ever 🤤
 
 It may looks like more code to write, but I found it more obvious to read:
 Need a computed property? write this in the `computed` key of your component
@@ -338,13 +339,14 @@ export default {
 </script>
 ```
 
-It kind of feels weird at first, but not having to import your UI components again and again save you some time.
+It kind of feels weird at first, but not having to import your UI components again and again can save you some time.
 
 ## Building a web-app
 
 Those library are mostly the _view part_ in the [MV\*](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
 They also support a state management per component ([react state](https://reactjs.org/docs/state-and-lifecycle.html) & [vue data](https://vuejs.org/v2/guide/instance.html#Data-and-Methods)) which is very handy.
-In this case React come with a little bit more with [react context](https://reactjs.org/docs/context.html) that allows you to share data across components in an elegant way.
+In this case React, come with a little bit more with the helps of [react context](https://reactjs.org/docs/context.html).
+That allows you to share data across components in an elegant way.
 
 **BUT**
 
@@ -371,7 +373,7 @@ They both work in a pretty straightforward way.
 
 The main difference is that, if one of your React components needs to access the router, you'll have to wrap them in the [withRouter function](https://reacttraining.com/react-router/web/api/withRouter).
 
-In Vue the router will be available in every component (`this.$router` && `this.$route`).
+In Vue the router will be available in every component ([this.$router](https://router.vuejs.org/api/#router-instance-methods) && [this.$route](https://router.vuejs.org/api/#the-route-object)).
 That's one less thing to take care of.
 
 ### application store
@@ -393,7 +395,7 @@ So when you're starting, that's a lot to learn.
 On the contrary, Vuex just handle all those things for you:
 
 - already integrated with Vue
-- no need immutable data
+- no need for immutable data
 - handle [async code](https://vuex.vuejs.org/guide/actions.html)
 
 #### accessing the store from a component
@@ -464,7 +466,10 @@ export default {
 
 Vuex also provides helper functions to write this in a nicer way ([mapState](https://vuex.vuejs.org/api/#mapstate) & [mapMutations](https://vuex.vuejs.org/api/#mapmutations) to name a few)
 
-It's two different ways of doing the same thing, but I was happy to avoid writing wrapper function anymore and to have a build-in way of handling async actions without searching for [another module](https://redux-saga.js.org/).
+It's two different ways of doing the same thing, but:
+
+- I was happy to avoid the `connect boilerplate` thing anymore.
+- having a build-in way of handling async actions without searching for yet another module (should I use [redux-saga](https://redux-saga.js.org/) instead of redux-thunk?).
 
 ## A note on documentation
 
@@ -474,13 +479,13 @@ You need a little time to learn how React's documentation is structured, but whe
 
 For Vue, I really don't know how to explain this feeling but in a way I find it too complete 🤨.
 All the options are scattered inside categories with sub-categories. So most of the time I just use the search field.
-There's the[vue cheatsheet](https://vuejs-tips.github.io/cheatsheet/) that can helps, but I miss a big fat example with almost everything used.
+There's the [vue cheatsheet](https://vuejs-tips.github.io/cheatsheet/) that can helps, but I miss a big fat example with almost everything used.
 
 ## Conclusion
 
 React is freedom. They just provide you a minimal thing that works perfectly for what it was created for.
 
-You can have to:
+You may have to:
 
 - Learn a bunch of (useful) concepts like High Order Functions, Immutable, Render props…
 - Choose some of the many modules that will help you make your application
@@ -490,7 +495,7 @@ You can have to:
 Vue is more like: “Oh, you're a web-developer, let's write some HTML, CSS & JS together”
 
 - you feel familiar
-- writing a component is just writing a javascript object
+- writing a component logic is just writing a javascript object
 - the team provides some must-have modules
 - those modules integrate quickly in your application
 - …but you're still free to
@@ -498,6 +503,6 @@ Vue is more like: “Oh, you're a web-developer, let's write some HTML, CSS & JS
   - code the way you prefer
 
 Again it isn't about rating those libraries.
-They are both carefully crafted by very skilled peoples.
+They are both carefully crafted by very skilled peoples and fulfill the same mission brilliantly.
 
-But as a web-developer I like webby things… And for me, Vue looks like more webby, and less about coding patterns & code philosophy.
+But as a web-developer I like webby things… And for me, Vue feels like more webby, and less about coding patterns & code philosophy.
