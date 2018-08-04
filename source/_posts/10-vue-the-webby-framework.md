@@ -53,7 +53,7 @@ All this building intro get us to…
 
 ### JSX/Vue templates
 
-If you're working in the web, you've probably heard (or are using) them.
+If you're working in the web, you've probably heard of (or are using) them.
 
 They are both a way to write a kind of HTML that will be compiled to Javascript.
 
@@ -274,7 +274,7 @@ export default {
 ```
 
 You won't need to take care about bindings or `this` in your template, Vue will do it for you 😮
-And they make **updating the state as simple as assigning a value** 😲 The one thing we have done since ever 🤤
+And they make **updating the state as simple as assigning a value to the state object** 😲 The one thing we have done since ever 🤤
 
 It may looks like more code to write, but I found it more obvious to read:
 Need a computed property? write this in the `computed` key of your component
@@ -356,7 +356,7 @@ Let's be honest, you will quickly need (at least):
 - **a state manager**: to centralize and manage your application state in a single source of truth (the application store)
 
 The React's team doesn't provide any of those & won't give you any advice about what to use.
-But there is some popular options out there for that.
+But there are some popular options out there for that.
 <small>N.B. I didn't make any real research about how popular they are, so that's mostly my feeling… guess you'll have to go it with even if I'm wrong 😐</small>.
 
 On the contrary, Vue's team provides some official packages.
