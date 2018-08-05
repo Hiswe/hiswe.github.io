@@ -14,11 +14,11 @@ date: 2018-07-27 18:15:01
 
 ## Introduction
 
-Both [React 16](https://reactjs.org/) & [Vue 2](https://vuejs.org/) are javascript libraries that solve the same issue: writing components which are kept in sync with your application state.
+Both [React 16](https://reactjs.org/) & [Vue 2](https://vuejs.org/) are javascript libraries that solve the same issue: writing components which are kept in sync with your application's state.
 
-Having used both of them lately, here is my opinion on the main differences.
+Having used both of them lately, here is my opinion on the main differences between them.
 
-I'm not trying to convince anyone which one is better here, but more to describe how comfortable I was while learning & using them.
+I'm not trying to convince anyone of which one is better here, but more to describe how comfortable I was while learning & using them.
 When it's about making stuff, just choose your preferred tool <small>(if you have the choice of course)</small>.
 
 **`[TL;DR]`** Vue feels more _webby_ and React more _tecky_ <small>(If that means something 🙃)</small>
@@ -30,10 +30,10 @@ And coming from a web-developer background, I feel using Vue is more natural for
 
 ### building considerations
 
-Both those framework can be used by just dropping the JS file in your webpage and start using it!  
+Both those frameworks can be used by just dropping the JS file in your webpage and by starting using it!  
 That's really great! (I mean it 👍)
 
-That being said, using a **compilation step makes you sure that you can use everything the library can provide** (like [single file components](https://vuejs.org/v2/guide/single-file-components.html) for Vue and [JSX](https://reactjs.org/docs/introducing-jsx.html) for React)
+That being said, using a **compilation step makes it sure that you can use everything the library can provide** (like [single file components](https://vuejs.org/v2/guide/single-file-components.html) for Vue and [JSX](https://reactjs.org/docs/introducing-jsx.html) for React)
 
 Those libraries try their best to make things simple for the developers:
 
@@ -44,12 +44,12 @@ Both provide an easy way to bundle your code without getting an headache:
 - [create-react-app](https://github.com/facebook/create-react-app) for React
 - [@vue/cli](https://www.npmjs.com/package/@vue/cli) for Vue
 
-For using them, you just need to have [Node.js](https://nodejs.org/en/) installed on your computer 🤖
+To use them, you just need to have [Node.js](https://nodejs.org/en/) installed on your computer 🤖
 
 If you want an independent & still simple way to bundle them, you can try [Parcel](https://parceljs.org/).
 I {% post_link 11-parcel-with-vue tested it %} for my first side project with Vue and it was a real quick starter.
 
-All this building intro get us to…
+All this building intro gets us to…
 
 ### JSX/Vue templates
 
@@ -276,7 +276,7 @@ export default {
 You won't need to take care about bindings or `this` in your template, Vue will do it for you 😮
 And they make **updating the state as simple as assigning a value to the state object** 😲 The one thing we have done since ever 🤤
 
-It may looks like more code to write, but I found it more obvious to read:
+It may look like more code to write, but I found it more obvious to read:
 Need a computed property? write this in the `computed` key of your component
 
 And if you're a fan of [functional components](https://vuejs.org/v2/guide/render-function.html#Functional-Components) Vue supports them.
@@ -343,9 +343,9 @@ It kind of feels weird at first, but not having to import your UI components aga
 
 ## Building a web-app
 
-Those library are mostly the _view part_ in the [MV\*](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
+Those libraries are mostly the _view part_ in the [MV\*](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
 They also support a state management per component ([react state](https://reactjs.org/docs/state-and-lifecycle.html) & [vue data](https://vuejs.org/v2/guide/instance.html#Data-and-Methods)) which is very handy.
-In this case React, come with a little bit more with the helps of [react context](https://reactjs.org/docs/context.html).
+In this case, React comes with a little bit more with the help of [react context](https://reactjs.org/docs/context.html).
 That allows you to share data across components in an elegant way.
 
 **BUT**
@@ -353,13 +353,13 @@ That allows you to share data across components in an elegant way.
 Let's be honest, you will quickly need (at least):
 
 - **a router**: for navigation
-- **a state manager**: to centralize and manage your application state in a single source of truth (the application store)
+- **a state manager**: to centralize and manage your application's state in a single source of truth (the application store)
 
-The React's team doesn't provide any of those & won't give you any advice about what to use.
+The React team doesn't provide any of those & won't give you any advice about what to use.
 But there are some popular options out there for that.
-<small>N.B. I didn't make any real research about how popular they are, so that's mostly my feeling… guess you'll have to go it with even if I'm wrong 😐</small>.
+<small>N.B. I didn't make any real research about how popular they are, so that's mostly my feeling… guess you'll have to go with it even if I'm wrong 😐</small>.
 
-On the contrary, Vue's team provides some official packages.
+On the contrary, the Vue team provides some official packages.
 You still can use other packages but when learning, it's a good thing to know that you can start with the official ones.
 
 **So here's my list of the most common solutions to fulfill those needs:**
@@ -386,13 +386,13 @@ Redux is:
 
 You can use it without installing more packages, but I find it better to use libraries to help me with that:
 
-- [react-redux](https://redux.js.org/basics/usage-with-react) will make Redux plays more nicely with React
+- [react-redux](https://redux.js.org/basics/usage-with-react) will make Redux play more nicely with React
 - [immutable-js](https://facebook.github.io/immutable-js/) prevents you from accidentally mutate your state
-- [redux-thunk](https://github.com/reduxjs/redux-thunk) handle async actions in a more friendly way
+- [redux-thunk](https://github.com/reduxjs/redux-thunk) handles async actions in a more friendly way
 
 So when you're starting, that's a lot to learn.
 
-On the contrary, Vuex just handle all those things for you:
+On the contrary, Vuex just handles all those things for you:
 
 - already integrated with Vue
 - no need for immutable data
@@ -468,14 +468,14 @@ Vuex also provides helper functions to write this in a nicer way ([mapState](htt
 
 It's two different ways of doing the same thing, but:
 
-- I was happy to avoid the `connect boilerplate` thing anymore.
+- I was happy to avoid writing the `connect boilerplate` thing anymore.
 - having a build-in way of handling async actions without searching for yet another module (should I use [redux-saga](https://redux-saga.js.org/) instead of redux-thunk?).
 
 ## A note on documentation
 
 React and Vue have a good documentation.
 
-You need a little time to learn how React's documentation is structured, but when you get it, it's ok.
+You need a little time to learn how React's documentation is structured, but once you get it, it's ok.
 
 For Vue, I really don't know how to explain this feeling but in a way I find it too complete 🤨.
 All the options are scattered inside categories with sub-categories. So most of the time I just use the search field.
