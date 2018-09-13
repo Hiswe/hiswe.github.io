@@ -42,3 +42,7 @@ But which solution to choose?
 ## Universal Web Application
 
 ## A note about PWA
+
+## Conclusion
+
+[Another article about Nuxt](https://medium.com/vue-mastery/10-reasons-to-use-nuxt-js-for-your-next-web-application-522397c9366b)
