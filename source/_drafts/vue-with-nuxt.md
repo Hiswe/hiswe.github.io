@@ -271,18 +271,121 @@ This will remove my `browser.js` file from the server bundle, and now I'm assure
 
 ## Prototyping & evolution
 
-In my opinion the main advantage of Nuxt is how convenient is it to make a small prototype and build upon it until a first result.
-When building anything, I want to be assured that I can make my application evolutes in any direction without being worried about it's future needs.
+In my opinion the main advantage of Nuxt is how convenient it is to make a small prototype and build upon it until a first result.
+When creating anything, I want to be assured that I can make my application evolutes in any direction without being concerned about how I can make it grows.
 
 ### Single Page Application
 
-This always a good start. It makes you able to do quick prototypes and give anybody the opportunity to play with it.
+This can be a good start.
+It makes you able to prototype any application and give anyone the opportunity to play with it in almost real conditions.
+
+You can make a simple static API by putting some JSON files inside the `static` folder.
+And You can persist your application's state by using the [local storage api](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage) with [vuex-persistedstate](https://www.npmjs.com/package/vuex-persistedstate)
+
+Hosting solutions like [firebase](https://firebase.google.com/), [netlify](https://www.netlify.com/) or [github pages](https://pages.github.com/) provide a way to share your application for a free cost.
+
+Also thanks the nuxt community, there is a great choice of [modules](https://github.com/nuxt-community/awesome-nuxt#official) to make you develop faster.
+
+### about PWA integration
+
+[Progressive Web Application](https://en.wikipedia.org/wiki/Progressive_Web_Apps) is a set of technology that can make your app load faster and feels more native on mobile.
+
+There is the [pwa-module](https://pwa.nuxtjs.org/) for it! 🎉
+Thanks to that it will:
+
+- generate the [webmanifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) file
+- generate the needed icons
+- generate the [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker) with [workbox](https://developers.google.com/web/tools/workbox/)
+
+Just don't forget to set the right [cache-control](https://developers.google.com/web/tools/workbox/guides/service-worker-checklist#cache-control_of_your_service_worker_file) for your service worker file 🤓
+
+Everything can be deactivate/configurable in your `nuxt.config.js`
+
+As I wanted more control about my `service worker` (like having a [reload prompt](https://developers.google.com/web/tools/workbox/guides/advanced-recipes)) I've decided to stop the `pwa-module` for generating it, and roll my own [workbox-build](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build)
 
 ### Universal Web Application
 
-## Ecosystem
+And now that you're satisfied with your prototype, you can push it further by integrating it to a Node server.
+Nuxt provides some templates to see how integration works many frameworks:
 
-### Progressive Web Application
+- [express template](https://github.com/nuxt-community/express-template)
+- [koa template](https://github.com/nuxt-community/koa-template)
+
+I'll use Koa 🐨
+
+In a `server/index.js` file:
+
+```js
+import Koa from 'koa'
+import Router from 'koa-router'
+import koaBody from 'koa-body'
+import { Nuxt, Builder } from 'nuxt'
+
+startServer()
+
+async function startServer() {
+  const app = new Koa()
+  const HOST = process.env.HOST || `127.0.0.1`
+  const PORT = process.env.PORT || 3000
+
+  app.use(async function handleError(ctx, next) {
+    try {
+      await next()
+    } catch (err) {
+      ctx.status = err.statusCode || err.status || 500
+      ctx.body = {
+        code: ctx.status,
+        reason: err.message,
+        stacktrace: err.stacktrace || err.stack,
+      }
+    }
+  })
+
+  //----- integrate a server API
+
+  const apiRouter = new Router({ prefix: `/api` })
+
+  apiRouter.get(`/foo`, async ctx => {
+    ctx.body = { foo: `foo nuxt example` }
+  })
+  apiRouter.get(`/bar/:id`, async ctx => {
+    const { id } = req.params
+    ctx.body = { bar: `bar ${id}` }
+  })
+  apiRouter.post(`/bar/:id`, koaBody(), async ctx => {
+    const { id } = req.params
+    ctx.body = { bar: `bar ${id} is updated!` }
+  })
+
+  app.use(apiRouter.routes())
+  app.use(apiRouter.allowedMethods())
+
+  //----- NUXT
+
+  const config = require('../nuxt.config.js')
+  config.dev = !(app.env === `production`)
+
+  // Instantiate nuxt.js
+  const nuxt = new Nuxt(config)
+
+  // Build in development
+  if (config.dev) {
+    const builder = new Builder(nuxt)
+    await builder.build()
+  }
+
+  app.use(ctx => {
+    ctx.status = 200
+    ctx.respond = false // Mark request as handled for Koa
+    ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
+    nuxt.render(ctx.req, ctx.res)
+  })
+
+  app.listen(PORT, HOST, function endInit() {
+    console.log(`APP Server is listening on ${HOST}:${PORT}`)
+  })
+}
+```
 
 ## Conclusion
 

@@ -271,7 +271,7 @@
     color: var(--c-primary);
   }
 
-  a[href^="https://github.com"]::after {
+  a[href*='github.com']::after {
     content: ' (github)';
     color: var(--c-primary);
   }
@@ -286,8 +286,13 @@
     color: var(--c-primary);
   }
 
-  a[href^="https://nuxtjs.org"]::after {
+  a[href*='nuxtjs.org']::after {
     content: ' (nuxt)';
+    color: var(--c-primary);
+  }
+
+  a[href*='google.com']::after {
+    content: ' (google)';
     color: var(--c-primary);
   }
 
