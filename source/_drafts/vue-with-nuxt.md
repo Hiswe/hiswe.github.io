@@ -12,14 +12,14 @@ categories:
 
 ## Introduction
 
-I really like the framework [Vue.js](https://vuejs.org/).  
+The [Vue.js](https://vuejs.org/) is a solid option for building web applications.  
 To use it, we have many bootstrapping tools:
 
-- [Vue CLI 3](https://cli.vuejs.org/) the Standard Tooling for Vue.js Development
+- [Vue CLI 3](https://cli.vuejs.org/) _the Standard Tooling for Vue.js Development_
   The official solution to setup quickly a vue application.
-- [ParcelJs](https://parceljs.org/) the Blazing fast, zero configuration web application bundler
+- [Nuxt](https://nuxtjs.org/) _Universal Vue.js Applications_
+- [ParcelJs](https://parceljs.org/) _the Blazing fast, zero configuration web application bundler_
   You can read {% post_link 11-parcel-with-vue in this post %} my own experience with it.
-- [Nuxt](https://nuxtjs.org/) Universal Vue.js Applications
 
 But which solution to choose?
 
@@ -27,7 +27,7 @@ But which solution to choose?
 
 - an easy setup
 - [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
-- keeping the ability to move from a [Single-page application](https://en.wikipedia.org/wiki/Single-page_application) to a Universal Web application
+- keeping the ability to move from a [Single-page application (SPA)](https://en.wikipedia.org/wiki/Single-page_application) to a Universal Web application
 
 <!-- more -->
 
@@ -52,9 +52,9 @@ Having the internationalization being done as soon as possible doesn't add a lot
 
 ### application structure
 
-Vue doesn't enforce any kind of structure but you'll need to stay organized.
+Vue doesn't enforce any kind of structure but we all like to stay organized, right?
 
-If you use Vue CLI, it will create [this kind of structure](https://nuxtjs.org/guide/directory-structure):
+If you use Vue CLI, it will create this kind of structure:
 
 - vue.config.js `vue configuration`
 - 📁 src
@@ -66,9 +66,7 @@ If you use Vue CLI, it will create [this kind of structure](https://nuxtjs.org/g
   - 📁 store
     - index.js `your Vuex Store`
 
-It's a good start, but you may want to separate page components from other components.
-
-In Nuxt it's something like that:
+In Nuxt it will be something [like that](https://nuxtjs.org/guide/directory-structure):
 
 - nuxt.config.js `nuxt configuration`
 - 📁 static `all static files`
@@ -78,24 +76,43 @@ In Nuxt it's something like that:
 - 📁 plugins [Vue plugins](https://vuejs.org/v2/guide/plugins.html#Using-a-Plugin)
 
 It's a flatter structure with obvious names.
-You don't have to think where to put things…
-
-…and I don't like to think too much 😀
+I like the clear separation of `pages components` and `components` .
 
 ### commands
 
-Both Vue CLI & Nuxt propose some commands to start coding:
+Both Vue CLI & Nuxt propose useful commands to start coding.
+I'll just speak about the main ones and they both have the same purpose:
 
-[Nuxt commands](https://nuxtjs.org/guide/commands):
+- make a quick development server to start coding
+- build for production
 
-- `nuxt` Launch a development server on localhost:3000 with hot-reloading.
-- `nuxt build` Build your application with webpack and minify the JS & CSS (for production).
+Vue CLI use [vue-cli-service](https://cli.vuejs.org/guide/cli-service.html) which is a local package to launch the magic.
 
-## Prototyping & evolution
+- `vue-cli-service serve` development server
+- `vue-cli-service build` build for production
 
-In my opinion the main advantage of Nuxt is how convenient is it to make a small prototype and build upon it until a first result.
+Nuxt has the equivalent [commands](https://nuxtjs.org/guide/commands).
+No need to install an additional module 👍
 
-Nuxt rely heavily on _convention over configuration_.
+- `nuxt` development server
+- `nuxt build` build for production
+
+I usually make the same [npm scripts](https://docs.npmjs.com/misc/scripts) aliases across all my projects:
+
+```json
+{
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build"
+  }
+}
+```
+
+After that I can do `yarn dev` to start coding & `yarn build` to export. Those commands will stay independent of what the application is using underneath.
+
+## Small Nuxt overview
+
+Nuxt relies heavily on _convention over configuration_.
 By creating files, Nuxt will take care of integrating them in your Vue application's.
 
 Here are the main domains where it shines.
@@ -143,6 +160,8 @@ If you want to rename a route, you'll have to:
 
 - rename the component
 - modify the `router.js` file
+  - change the component import
+  - change the route name
 
 With Nuxt, this routing will look like this:
 
@@ -156,7 +175,7 @@ Renaming a route is now just changing a file/folder name.
 
 ### store
 
-The same goes with a standard Vuex Store:
+The same goes with a standard Vuex store:
 
 ```js
 import Vue from 'vue'
@@ -186,10 +205,78 @@ With the same advantages as the routing.
 
 ### plugins (like vue I18N)
 
-Integrating more things from the Vue ecosystem is as simple as it is from a standard Vue application.
-No real advantages here but the satisfaction of having all those regrouped in the `plugin` folder.
+Integrating more things from the Vue ecosystem is similar to what it is in a standard Vue application.
 
-## One module to export them all
+This is well [documented here](https://nuxtjs.org/guide/plugins).
+
+For example, create a `i18n.js` file in the `plugin` folder…
+
+```js
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+
+import { en, fr } from '~/locales'
+
+Vue.use(VueI18n)
+
+export default nuxtContext => {
+  const { app } = nuxtContext
+  app.i18n = new VueI18n({
+    fallbackLocale: `en`,
+    messages: { en, fr },
+  })
+}
+```
+
+…and update the `nuxt.config.js`.
+
+```js
+{
+  build: {
+    // this is to bundle the library inside the `vendor` bundle
+    vendor: [`vue-i18n`]
+  },
+  plugins: [
+    // reference my plugin, so Nuxt will load it
+    `@/plugins/i18n.js`,
+  ],
+}
+```
+
+This is more boilerplate than expected and doesn't follow the `convention over configuration` pattern 😐
+But once integrated, it's mostly unlikely that you would modify it.
+
+**What in fact looks like an unnecessary configuration serves in fact a very important purpose.**
+
+Nuxt allows us to build `universal web applications`.
+This means that it should be able to bundle your code:
+
+- for the browser
+- for the server
+
+If you're only targeting the browser (SPA), you don't have to worry about it.
+**But if you're willing run the code on the server, you don't want it to break because of the use of some browser API**.
+
+Nuxt allows that with a [small additional configuration](https://nuxtjs.org/guide/plugins#client-side-only).
+
+```js
+plugins: [
+  `@/plugins/i18n.js`,
+  // remove Server Side Rendering from this specific file
+  { src: `@/plugins/browser.js`, ssr: false },
+]
+```
+
+This will remove my `browser.js` file from the server bundle, and now I'm assured that it won't error because of a missing `window` object 😅
+
+## Prototyping & evolution
+
+In my opinion the main advantage of Nuxt is how convenient is it to make a small prototype and build upon it until a first result.
+When building anything, I want to be assured that I can make my application evolutes in any direction without being worried about it's future needs.
+
+### Single Page Application
+
+This always a good start. It makes you able to do quick prototypes and give anybody the opportunity to play with it.
 
 ### Universal Web Application
 

@@ -43,7 +43,7 @@
     color: var(--c-text-lighter);
 
     &::before {
-      content: " ";
+      content: ' ';
       width: var(--s-big-border);
       position: absolute;
       top: 0;
@@ -74,7 +74,7 @@
 
       cite {
         &::before {
-          content: "—";
+          content: '—';
           color: #ccc;
           padding: 0 0.5em;
         }
@@ -147,7 +147,7 @@
       text-indent: -0.7em;
 
       &::before {
-        content: "• ";
+        content: '• ';
         color: var(--c-primary-lighter);
       }
     }
@@ -163,7 +163,7 @@
       text-indent: -1.15em;
 
       &::before {
-        content: counter(ol-item) ". ";
+        content: counter(ol-item) '. ';
         counter-increment: ol-item;
         color: var(--c-primary-lighter);
         font-family: sans-serif;
@@ -204,7 +204,7 @@
 
     &::before {
       color: var(--c-primary-lighter);
-      content: counter(section, upper-latin) ". ";
+      content: counter(section, upper-latin) '. ';
     }
   }
   h3 {
@@ -251,38 +251,43 @@
   }
 
   a[href^="https://en.wikipedia.org"]::after {
-    content: " (wikipedia)";
+    content: ' (wikipedia)';
     color: var(--c-primary);
   }
 
   a[href^="https://developer.mozilla.org"]::after {
-    content: " (mdn)";
+    content: ' (mdn)';
     color: var(--c-primary);
   }
 
   a[href^="https://www.youtube.com"]::after,
   a[href^="https://youtu.be"]::after {
-    content: " (youtube)";
+    content: ' (youtube)';
     color: var(--c-primary);
   }
 
   a[href^="https://github.com"]::after {
-    content: " (github)";
+    content: ' (github)';
     color: var(--c-primary);
   }
 
   a[href^="https://github.com"]::after {
-    content: " (github)";
+    content: ' (github)';
     color: var(--c-primary);
   }
 
   a[href^="https://www.npmjs.com"]::after {
-    content: " (npm)";
+    content: ' (npm)';
     color: var(--c-primary);
   }
 
   a[href^="https://medium.com"]::after {
-    content: " (medium)";
+    content: ' (medium)';
+    color: var(--c-primary);
+  }
+
+  a[href^="https://nuxtjs.org"]::after {
+    content: ' (nuxt)';
     color: var(--c-primary);
   }
 
@@ -397,10 +402,10 @@
     text-align: center;
 
     &::before {
-      content: "fig." counter(caption, decimal-leading-zero) " – ";
+      content: 'fig.' counter(caption, decimal-leading-zero) ' – ';
     }
     &:empty::before {
-      content: "fig." counter(caption, decimal-leading-zero);
+      content: 'fig.' counter(caption, decimal-leading-zero);
     }
   }
   p {
