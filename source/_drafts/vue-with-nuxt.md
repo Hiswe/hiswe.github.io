@@ -13,21 +13,20 @@ categories:
 ## Introduction
 
 The [Vue.js](https://vuejs.org/) is a solid option for building web applications.  
-To use it, we have many bootstrapping tools:
+To use it, we have two major bootstrapping tools:
 
 - [Vue CLI 3](https://cli.vuejs.org/) _the Standard Tooling for Vue.js Development_
   The official solution to setup quickly a vue application.
 - [Nuxt](https://nuxtjs.org/) _Universal Vue.js Applications_
-- [ParcelJs](https://parceljs.org/) _the Blazing fast, zero configuration web application bundler_
-  You can read {% post_link 11-parcel-with-vue in this post %} my own experience with it.
+  Yeah, we will talk about that.
 
-But which solution to choose?
+But what is Nuxt?
 
-**`[TL;DR]`** go with nuxt if you like:
+**`[TL;DR]`**
 
-- an easy setup
-- [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
-- keeping the ability to move from a [Single-page application (SPA)](https://en.wikipedia.org/wiki/Single-page_application) to a Universal Web application
+- A tool to setup your Vue application quickly
+- Some [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) to make you write less
+- The ability to move from a [Single-page application (SPA)](https://en.wikipedia.org/wiki/Single-page_application) to a Universal Web application
 
 <!-- more -->
 
@@ -36,7 +35,7 @@ But which solution to choose?
 Nuxt provides two ways to [install the module](https://nuxtjs.org/guide/installation)
 
 - with vue-cli
-- a basic `npm install nuxt` or `yarn add nuxt` if you're a [yarn](https://yarnpkg.com/en/) person
+- a basic `npm install nuxt` or `yarn add nuxt` if you're a [yarn](https://yarnpkg.com/en/) person, create some folders and add some modules if you want to [use pre-processors](https://nuxtjs.org/faq/pre-processors#how-to-use-pre-processors-)
 
 I prefer the latter as it doesn't rely on any global dependency… and it's also a good way to integrate it to an existing project.
 
@@ -48,11 +47,11 @@ For a web application, I always add:
 
 I'm 100% sure that at one point or another I will need them.
 
-Having the internationalization being done as soon as possible doesn't add a lot of additional effort and prevents me the boring task of including later (going file by file and adding the i18n calls & keys…)
+Having the internationalization being done as soon as possible doesn't demand a lot of extra efforts and prevents me the boring task of including later (going file by file and adding the i18n calls & keys…)
 
 ### application structure
 
-Vue doesn't enforce any kind of structure but we all like to stay organized, right?
+Vue doesn't enforce any kind of structure but we all like & need to stay organized.
 
 If you use Vue CLI, it will create this kind of structure:
 
@@ -66,7 +65,7 @@ If you use Vue CLI, it will create this kind of structure:
   - 📁 store
     - index.js `your Vuex Store`
 
-In Nuxt it will be something [like that](https://nuxtjs.org/guide/directory-structure):
+Nuxt will require something [like that](https://nuxtjs.org/guide/directory-structure):
 
 - nuxt.config.js `nuxt configuration`
 - 📁 static `all static files`
@@ -76,12 +75,12 @@ In Nuxt it will be something [like that](https://nuxtjs.org/guide/directory-stru
 - 📁 plugins [Vue plugins](https://vuejs.org/v2/guide/plugins.html#Using-a-Plugin)
 
 It's a flatter structure with obvious names.
-I like the clear separation of `pages components` and `components` .
+I like the clear separation of `pages components` and `components`.
 
 ### commands
 
 Both Vue CLI & Nuxt propose useful commands to start coding.
-I'll just speak about the main ones and they both have the same purpose:
+I'll just speak about the main ones. They both serve the same purpose:
 
 - make a quick development server to start coding
 - build for production
@@ -108,11 +107,12 @@ I usually make the same [npm scripts](https://docs.npmjs.com/misc/scripts) alias
 }
 ```
 
-After that I can do `yarn dev` to start coding & `yarn build` to export. Those commands will stay independent of what the application is using underneath.
+After that I can do `yarn dev` to start coding & `yarn build` to export.
+Those commands will stay independent of what the application is using underneath.
 
 ## Small Nuxt overview
 
-Nuxt relies heavily on _convention over configuration_.
+Nuxt relies in some part in _convention over configuration_.
 By creating files, Nuxt will take care of integrating them in your Vue application's.
 
 Here are the main domains where it shines.
@@ -140,6 +140,7 @@ export default new Router({
     {
       path: '/foo',
       name: 'foo',
+      // needed for webpack's code splitting
       component: () => import(/* webpackChunkName: "foo" */ './views/Foo.vue'),
     },
     {
@@ -172,6 +173,7 @@ With Nuxt, this routing will look like this:
     - \_id.vue
 
 Renaming a route is now just changing a file/folder name.
+And you have the code splitting out of the box.
 
 ### store
 
@@ -202,6 +204,20 @@ And as you've guessed in Nuxt it just follows the same principles as for the rou
   - bar.js
 
 With the same advantages as the routing.
+Still, there is the [classic mode](https://nuxtjs.org/guide/vuex-store#classic-mode) if you want to do it by yourself.
+
+### a note on layouts
+
+Nuxt provides a way to handle [many page layout](https://nuxtjs.org/guide/views#layouts) in a breeze.
+
+I think most of the time you'll stick with the basic:
+
+- `layouts/default.vue`
+- `layouts/error.vue`
+
+If you want to achieve this in a regular Vue application, you'll have to do it manually by wrapping every page components inside the desired layout component… which will bloat a little bit your code.
+
+So _not a must have_ but definitively a nice addition 🏅.
 
 ### plugins (like vue I18N)
 
@@ -228,7 +244,7 @@ export default nuxtContext => {
 }
 ```
 
-…and update the `nuxt.config.js`.
+…and update the `nuxt.config.js`…
 
 ```js
 {
@@ -243,10 +259,12 @@ export default nuxtContext => {
 }
 ```
 
-This is more boilerplate than expected and doesn't follow the `convention over configuration` pattern 😐
-But once integrated, it's mostly unlikely that you would modify it.
+…and you can use `$t('my-i18n0key')` inside your app!
 
-**What in fact looks like an unnecessary configuration serves in fact a very important purpose.**
+As for now, Nuxt doesn't support a `convention over configuration` pattern for plugin 😐.
+So you'll have to write some boilerplate code, that would be mostly unlikely to change in the future.
+
+**But what in fact looks like an unnecessary configuration serves in fact a very important purpose.**
 
 Nuxt allows us to build `universal web applications`.
 This means that it should be able to bundle your code:
@@ -255,7 +273,7 @@ This means that it should be able to bundle your code:
 - for the server
 
 If you're only targeting the browser (SPA), you don't have to worry about it.
-**But if you're willing run the code on the server, you don't want it to break because of the use of some browser API**.
+**But if you're running the code on the server, you don't want it to break because of the use of some browser API**.
 
 Nuxt allows that with a [small additional configuration](https://nuxtjs.org/guide/plugins#client-side-only).
 
@@ -267,43 +285,23 @@ plugins: [
 ]
 ```
 
-This will remove my `browser.js` file from the server bundle, and now I'm assured that it won't error because of a missing `window` object 😅
+This will remove the `browser.js` file from the server bundle, and we're now assured that it won't error because of a missing `window` object 😅
 
 ## Prototyping & evolution
 
 In my opinion the main advantage of Nuxt is how convenient it is to make a small prototype and build upon it until a first result.
-When creating anything, I want to be assured that I can make my application evolutes in any direction without being concerned about how I can make it grows.
+While being sure that we can make it evolve in any direction in the future.
 
-### Single Page Application
+### single page application
 
-This can be a good start.
-It makes you able to prototype any application and give anyone the opportunity to play with it in almost real conditions.
+Writing a SPA makes you able to build quite quickly a small app and give anyone the opportunity to play with it in almost real conditions.
 
 You can make a simple static API by putting some JSON files inside the `static` folder.
-And You can persist your application's state by using the [local storage api](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage) with [vuex-persistedstate](https://www.npmjs.com/package/vuex-persistedstate)
+And you can persist your application's state by using the [local storage api](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage) with [vuex-persistedstate](https://www.npmjs.com/package/vuex-persistedstate)
 
 Hosting solutions like [firebase](https://firebase.google.com/), [netlify](https://www.netlify.com/) or [github pages](https://pages.github.com/) provide a way to share your application for a free cost.
 
-Also thanks the nuxt community, there is a great choice of [modules](https://github.com/nuxt-community/awesome-nuxt#official) to make you develop faster.
-
-### about PWA integration
-
-[Progressive Web Application](https://en.wikipedia.org/wiki/Progressive_Web_Apps) is a set of technology that can make your app load faster and feels more native on mobile.
-
-There is the [pwa-module](https://pwa.nuxtjs.org/) for it! 🎉
-Thanks to that it will:
-
-- generate the [webmanifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) file
-- generate the needed icons
-- generate the [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker) with [workbox](https://developers.google.com/web/tools/workbox/)
-
-Just don't forget to set the right [cache-control](https://developers.google.com/web/tools/workbox/guides/service-worker-checklist#cache-control_of_your_service_worker_file) for your service worker file 🤓
-
-Everything can be deactivate/configurable in your `nuxt.config.js`
-
-As I wanted more control about my `service worker` (like having a [reload prompt](https://developers.google.com/web/tools/workbox/guides/advanced-recipes)) I've decided to stop the `pwa-module` for generating it, and roll my own [workbox-build](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build)
-
-### Universal Web Application
+### universal web application
 
 And now that you're satisfied with your prototype, you can push it further by integrating it to a Node server.
 Nuxt provides some templates to see how integration works many frameworks:
@@ -316,10 +314,10 @@ I'll use Koa 🐨
 In a `server/index.js` file:
 
 ```js
-import Koa from 'koa'
-import Router from 'koa-router'
-import koaBody from 'koa-body'
-import { Nuxt, Builder } from 'nuxt'
+const Koa = require('koa')
+const Router = require('koa-router')
+const koaBody = require('koa-body')
+const { Nuxt, Builder } = require('nuxt')
 
 startServer()
 
@@ -333,11 +331,7 @@ async function startServer() {
       await next()
     } catch (err) {
       ctx.status = err.statusCode || err.status || 500
-      ctx.body = {
-        code: ctx.status,
-        reason: err.message,
-        stacktrace: err.stacktrace || err.stack,
-      }
+      ctx.body = err
     }
   })
 
@@ -376,8 +370,8 @@ async function startServer() {
 
   app.use(ctx => {
     ctx.status = 200
-    ctx.respond = false // Mark request as handled for Koa
-    ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
+    ctx.respond = false
+    ctx.req.ctx = ctx
     nuxt.render(ctx.req, ctx.res)
   })
 
@@ -387,6 +381,39 @@ async function startServer() {
 }
 ```
 
+In the `package.json` you can add this script:
+
+```json
+{
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "serve": "node server/index.js"
+  }
+}
+```
+
+And minus updating your store's actions to point to your new API, you're done.
+No need to modify other parts of your Vue application.
+
+## And also…
+
+This post isn't an exhaustive list of what Nuxt can offer you.
+Here's a quick list of other things that it provides:
+
+- A solution for handling [HTML meta tags](https://nuxtjs.org/guide/views#html-head) comes with Nuxt ([vue-meta](https://www.npmjs.com/package/vue-meta))
+- [Page transitions](https://nuxtjs.org/api/pages-transition)
+- [Loading Progress Bar](https://nuxtjs.org/api/configuration-loading)
+- A great choice of [modules](https://github.com/nuxt-community/awesome-nuxt#official) thanks to the nuxt community.
+  Those provide a good way to integrate some popular libraries (like [Axios](https://github.com/nuxt-community/axios-module) for example)
+- hooks ([asyncData](https://nuxtjs.org/api/) & [fetch](https://nuxtjs.org/api/pages-fetch)) to get async data both browser & server side
+- documentation is good
+- etc.
+
 ## Conclusion
 
-[Another article about Nuxt](https://medium.com/vue-mastery/10-reasons-to-use-nuxt-js-for-your-next-web-application-522397c9366b)
+Nuxt doesn't have a beautiful GUI 😶 but it's a very clever piece of code that makes me feel more productive while building an website or application.
+
+I've made a [small repo](https://github.com/Hiswe/nuxt-universal-application) with almost what I've been talking about in this post.
+
+You have [this article](https://medium.com/vue-mastery/10-reasons-to-use-nuxt-js-for-your-next-web-application-522397c9366b) if you want another take on the subject and also a [list of tutorials](https://github.com/nuxt-community/awesome-nuxt#tutorials) if want to!
