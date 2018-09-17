@@ -65,6 +65,9 @@ If you use Vue CLI, it will create this kind of structure:
   - 📁 store
     - index.js `your Vuex Store`
 
+[In this article](https://medium.com/@koreus/vue-js-there-and-back-again-in-1-5-years-756c1582aa96#5aea) about a Vue experience in 1.5 year, they discuss a bit about the component's folder structure.
+They want for creating a `pages` sub-folder.
+
 Nuxt will require something [like that](https://nuxtjs.org/guide/directory-structure):
 
 - nuxt.config.js `nuxt configuration`
@@ -75,7 +78,7 @@ Nuxt will require something [like that](https://nuxtjs.org/guide/directory-struc
 - 📁 plugins [Vue plugins](https://vuejs.org/v2/guide/plugins.html#Using-a-Plugin)
 
 It's a flatter structure with obvious names.
-I like the clear separation of `pages components` and `components`.
+The `pages` folder is already here waiting for you!
 
 ### commands
 
