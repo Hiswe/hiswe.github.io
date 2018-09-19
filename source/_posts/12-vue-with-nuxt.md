@@ -204,6 +204,10 @@ This means that it should be able to bundle your code:
 If you're only targeting the browser (SPA), you don't have to worry about it.
 **But if you're running the code on the server, you don't want it to break because of the use of some browser API**.
 
+{% caption window killed me! %}
+{% asset_img node-error.svg 300 240 "Node.js being killed by window 'Node.js being killed by window'" %}
+{% endcaption %}
+
 Nuxt prevents that with a [small additional configuration](https://nuxtjs.org/guide/plugins#client-side-only).
 
 {% include_code lang:js 12-vue-with-nuxt/nuxt-config-ssr.js %}
