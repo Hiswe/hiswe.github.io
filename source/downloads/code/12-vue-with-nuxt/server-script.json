@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "serve": "node server/index.js"
+  }
+}
