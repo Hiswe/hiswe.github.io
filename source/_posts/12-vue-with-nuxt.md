@@ -52,10 +52,6 @@ Having the internationalization being done as soon as possible doesn't demand a 
 
 ### application structure
 
-{% caption I ❤️ folders %}
-{% asset_img structure.svg 600 285 "Comparison between Vue & Nuxt file structure 'Comparison between Vue & Nuxt file structure'" %}
-{% endcaption %}
-
 Vue doesn't enforce any kind of structure but we all like & need to stay organized.
 
 If you use Vue CLI, it will create this kind of structure:
@@ -81,6 +77,10 @@ Nuxt will require something [like that](https://nuxtjs.org/guide/directory-struc
 - 📁 plugins [Vue plugins](https://vuejs.org/v2/guide/plugins.html#Using-a-Plugin)
 
 It's a flatter structure with obvious names.
+
+{% caption I ❤️ folders %}
+{% asset_img structure.svg 600 285 "Comparison between Vue & Nuxt file structure 'Comparison between Vue & Nuxt file structure'" %}
+{% endcaption %}
 
 ### commands
 
@@ -109,10 +109,6 @@ After that, I can do `yarn dev` to start coding & `yarn build` to export.
 Those commands will stay independent of whatever the application is using underneath.
 
 ## Small Nuxt overview
-
-{% caption Who does not like todo lists? %}
-{% asset_img routing.svg 700 285 "a Vue todo list longer than the Nuxt one 'a Vue todo list longer than the Nuxt one'" %}
-{% endcaption %}
 
 Nuxt relies in some part in _convention over configuration_.
 By creating files, Nuxt will take care of integrating them in your Vue application's.
@@ -145,6 +141,10 @@ With Nuxt, this routing will look like this:
 
 **Renaming a route is now just changing a file/folder name.**
 And you have the **page code splitting out of the box.**
+
+{% caption Who does not like todo lists? %}
+{% asset_img routing.svg 700 285 "a Vue todo list longer than the Nuxt one 'a Vue todo list longer than the Nuxt one'" %}
+{% endcaption %}
 
 ### store
 
@@ -217,7 +217,7 @@ Now `browser.js` will be removed from the server bundle, and we're assured that 
 ## Prototyping & evolution
 
 {% caption that escalated quickly %}
-{% asset_img evolution.svg 650 285 "a people playing blocks until he build a castler 'a people playing blocks until he build a castler'" %}
+{% asset_img evolution.svg 650 285 "a people playing blocks until he build a castle 'a people playing blocks until he build a castle'" %}
 {% endcaption %}
 
 In my opinion the main advantage of Nuxt is how convenient it is to make a small prototype and build upon it until a first result.
