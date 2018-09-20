@@ -103,7 +103,7 @@ No need to install an additional module 👍
 
 I usually make the same [npm scripts](https://docs.npmjs.com/misc/scripts) aliases across all my projects:
 
-{% include_code lang:json 12-vue-with-nuxt/npm-script.json %}
+{% include_code lang:json 12-vue-with-nuxt/01-npm-script.json %}
 
 After that, I can do `yarn dev` to start coding & `yarn build` to export.
 Those commands will stay independent of whatever the application is using underneath.
@@ -120,7 +120,7 @@ Here are the main domains where it shines.
 In a standard Vue application you'll need to manually configure the router.
 This how the `router.js` usually looks like:
 
-{% include_code lang:js 12-vue-with-nuxt/vue-router.js %}
+{% include_code lang:js 12-vue-with-nuxt/02-vue-router.js %}
 
 This has some drawbacks when refactoring.
 If you want to rename a route, you'll have to:
@@ -150,7 +150,7 @@ And you have the **page code splitting out of the box.**
 
 The same goes with a standard Vuex store:
 
-{% include_code lang:js 12-vue-with-nuxt/vuex-store.js %}
+{% include_code lang:js 12-vue-with-nuxt/03-vuex-store.js %}
 
 And as you've guessed in Nuxt it just follows the same principles as for the routing:
 
@@ -182,11 +182,11 @@ This is well [documented here](https://nuxtjs.org/guide/plugins).
 
 For example, create a `i18n.js` file in the `plugin` folder…
 
-{% include_code lang:js 12-vue-with-nuxt/nuxt-plugin.js %}
+{% include_code lang:js 12-vue-with-nuxt/04-nuxt-plugin.js %}
 
 …and update the `nuxt.config.js`…
 
-{% include_code lang:js 12-vue-with-nuxt/nuxt-config.js %}
+{% include_code lang:js 12-vue-with-nuxt/05-nuxt-config.js %}
 
 …and you can use `$t('my-i18n0key')` inside your app!
 
@@ -210,7 +210,7 @@ If you're only targeting the browser (SPA), you don't have to worry about it.
 
 Nuxt prevents that with a [small additional configuration](https://nuxtjs.org/guide/plugins#client-side-only).
 
-{% include_code lang:js 12-vue-with-nuxt/nuxt-config-ssr.js %}
+{% include_code lang:js 12-vue-with-nuxt/06-nuxt-config-ssr.js %}
 
 Now `browser.js` will be removed from the server bundle, and we're assured that our code won't `throw` because of a missing `window` object in the NodeJs environment 😅
 
@@ -243,11 +243,11 @@ I'll use Koa 🐨
 
 In a `server/index.js` file:
 
-{% include_code lang:js 12-vue-with-nuxt/nuxt-koa.js %}
+{% include_code lang:js 12-vue-with-nuxt/07-nuxt-koa.js %}
 
 In the `package.json` you can add this script:
 
-{% include_code lang:json 12-vue-with-nuxt/server-script.json %}
+{% include_code lang:json 12-vue-with-nuxt/08-server-script.json %}
 
 And minus updating your store's actions to point to your new API, you're done.
 No need to modify other parts of your Vue application.
