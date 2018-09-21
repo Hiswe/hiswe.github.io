@@ -252,6 +252,16 @@ In the `package.json` you can add this script:
 And minus updating your store's actions to point to your new API, you're done.
 No need to modify other parts of your Vue application.
 
+### benefits of a SPA
+
+Building a SPA can seem unnecessary but it comes with some advantages:
+
+- Better initial rendering time
+- Can make an application that doesn't need Javascript
+  - I'm a believer of [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement)
+  - Android Chrome might run your site [without Javascript](https://timkadlec.com/remembers/2018-09-06-chromes-noscript-intervention/)
+- Should have a better SEO
+
 ## And also…
 
 This post isn't an exhaustive list of what Nuxt can offer you.
@@ -281,6 +291,8 @@ If you want to learn more, here are some useful links I've came across recently:
   ](https://medium.com/@dericksozo)
   Another analysis about the strong points of nuxt
 - [Vue.js — There and Back Again in 1.5 years](https://medium.com/@koreus/vue-js-there-and-back-again-in-1-5-years-756c1582aa96) by [Coreus](https://medium.com/@koreus).
-  It's not about nuxt, but it talk about living in the long term with a Vue Application.  
+  It's not about nuxt, but it talks about living in the long term with a Vue Application.  
   There is also a small part about [component/views folder structure](https://medium.com/@koreus/vue-js-there-and-back-again-in-1-5-years-756c1582aa96#5aea) that resonates with what I'm talking about.
 - A [list of tutorials](https://github.com/nuxt-community/awesome-nuxt#tutorials) gathered by [Nuxt community](https://github.com/nuxt-community)
+
+So if you're using Vue, you might want to try Nuxt.
