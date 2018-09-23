@@ -31,6 +31,8 @@ But how Nuxt differs from a Standard Vue Application?
 
 <!-- more -->
 
+**`[UPDATE]`** use now [Nuxt 2](https://github.com/nuxt/nuxt.js/releases/tag/v2.0.0)
+
 ### installation
 
 Nuxt provides two [installation's ways](https://nuxtjs.org/guide/installation):
@@ -245,12 +247,18 @@ In a `server/index.js` file:
 
 {% include_code lang:js 12-vue-with-nuxt/07-nuxt-koa.js %}
 
-In the `package.json` you can add this script:
+In the `package.json` you should update your scripts:
 
 {% include_code lang:json 12-vue-with-nuxt/08-server-script.json %}
 
-And minus updating your store's actions to point to your new API, you're done.
-No need to modify other parts of your Vue application.
+You will need to update a little bit your existing code
+
+- Take care of your store's actions to point to your new API.
+- use [backpack](https://www.npmjs.com/package/backpack-core) to run/compile your server application.  
+  This is mainly due to the fact that we're using [ES Modules](https://nodejs.org/dist/latest-v10.x/docs/api/esm.html) on the server, and that NodeJS isn't still there.
+
+Besides that there isn't much more to do.  
+Everything will work as expected.
 
 ### benefits of a SPA
 
@@ -260,7 +268,7 @@ Building a SPA can seem unnecessary but it comes with some advantages:
 - Can make an application that doesn't need Javascript
   - I'm a believer of [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement)
   - Android Chrome might run your site [without Javascript](https://timkadlec.com/remembers/2018-09-06-chromes-noscript-intervention/)
-- Should have a better SEO
+- Should have a better SEO (you can read more about SEO [here](https://itnext.io/seo-friendly-spas-d3c461a56217))
 
 ## And also…
 

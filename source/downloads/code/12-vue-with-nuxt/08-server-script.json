@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "serve": "node server/index.js"
+    "dev": "backpack dev",
+    "build": "nuxt build && backpack build",
+    "start": "yarn build && yarn serve",
+    "serve": "cross-env NODE_ENV=production node build/main.js"
   }
 }

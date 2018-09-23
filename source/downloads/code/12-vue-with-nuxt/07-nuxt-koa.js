@@ -1,7 +1,9 @@
-const Koa = require('koa')
-const Router = require('koa-router')
-const koaBody = require('koa-body')
-const { Nuxt, Builder } = require('nuxt')
+import Koa from 'koa'
+import Router from 'koa-router'
+import koaBody from 'koa-body'
+import { Nuxt, Builder } from 'nuxt'
+
+import config from '../nuxt.config.js'
 
 startServer()
 
@@ -40,7 +42,6 @@ async function startServer() {
 
   //----- NUXT
 
-  const config = require('../nuxt.config.js')
   config.dev = !(app.env === `production`)
 
   // Instantiate nuxt.js
