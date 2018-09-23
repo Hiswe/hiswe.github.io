@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   plugins: [
     `@/plugins/i18n.js`,
     // remove Server Side Rendering (SSR) from this specific file
