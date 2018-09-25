@@ -233,7 +233,7 @@ You can make a simple static API by putting some JSON files inside the `static` 
 
 Hosting solutions like [firebase](https://firebase.google.com/), [netlify](https://www.netlify.com/) or [github pages](https://pages.github.com/) provide a way to share your application for a free cost.
 
-### universal web application
+### Universal Web Application
 
 And now that you're satisfied with your prototype, you can push it further by integrating it to a Node server.
 Nuxt provides some templates to see how integration works many frameworks:
@@ -260,15 +260,17 @@ You will need to update a little bit your existing code
 Besides that there isn't much more to do.  
 Everything will work as expected.
 
-### benefits of a SPA
+### benefits of a UWA
 
-Building a SPA can seem unnecessary but it comes with some advantages:
+Building a Universal Web Application can seem unnecessary but it comes with some advantages:
 
 - Better initial rendering time
-- Can make an application that doesn't need Javascript
+- Can make an application that works without browser Javascript
   - I'm a believer of [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement)
   - Android Chrome might run your site [without Javascript](https://timkadlec.com/remembers/2018-09-06-chromes-noscript-intervention/)
 - Should have a better SEO (you can read more about SEO [here](https://itnext.io/seo-friendly-spas-d3c461a56217))
+
+If you want to read more about this subject you can check [Stereobooster's](https://dev.to/stereobooster) article about [Server Side Rendering pros and cons](https://dev.to/stereobooster/server-side-rendering-or-ssr-what-is-it-for-and-when-to-use-it-2cpg).
 
 ## And also…
 
