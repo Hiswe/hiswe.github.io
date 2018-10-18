@@ -7,8 +7,10 @@ const log = require(`fancy-log`)
 const lazypipe = require(`lazypipe`)
 const args = require(`yargs`).argv
 const browserSync = require(`browser-sync`).create()
-const webpack = require(`webpack`)
+const path = require(`path`)
+// const webpack = require(`webpack`)
 const reload = browserSync.reload
+const Parcel = require('parcel-bundler')
 
 const isDev = args.prod !== true
 const themeDir = `themes/hiswe-theme`
@@ -67,16 +69,18 @@ const css = gulp.series(cleanCSS, copyHighlightJSFile, compileSass)
 // JS
 ////////
 
-const bundler = webpack(require(`./webpack.config.js`))
+const themeFolder = path.join(__dirname, `/themes/hiswe-theme`)
+const jsSource = path.join(themeFolder, `client-javascript/index.js`)
+const jsDest = path.join(themeFolder, `source`)
 
-const js = done => {
-  bundler.run((err, stats) => {
-    if (err) return done(err)
-    const info = stats.toJson()
-    if (stats.hasErrors()) return done(stats.toString({ colors: true }))
-    done()
-  })
-}
+const jsBundler = new Parcel(jsSource, {
+  outDir: `./themes/hiswe-theme/source`,
+  outFile: `hiswe-theme.js`,
+  minify: true,
+  sourceMaps: false,
+})
+
+const js = () => jsBundler.bundle()
 
 js.description = `Bundle front-app, app server & api-server`
 
