@@ -6,6 +6,7 @@
 Thumbs.db
 db.json
 *.log
+*.map
 node_modules/
 public/
 themes/**/svg-icons.scss

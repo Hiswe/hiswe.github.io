@@ -8,7 +8,6 @@ const lazypipe = require(`lazypipe`)
 const args = require(`yargs`).argv
 const browserSync = require(`browser-sync`).create()
 const path = require(`path`)
-// const webpack = require(`webpack`)
 const reload = browserSync.reload
 const Parcel = require('parcel-bundler')
 
@@ -73,14 +72,13 @@ const themeFolder = path.join(__dirname, `/themes/hiswe-theme`)
 const jsSource = path.join(themeFolder, `client-javascript/index.js`)
 const jsDest = path.join(themeFolder, `source`)
 
-const jsBundler = new Parcel(jsSource, {
-  outDir: `./themes/hiswe-theme/source`,
+const bundleJs = new Parcel(jsSource, {
+  outDir: jsDest,
   outFile: `hiswe-theme.js`,
-  minify: true,
-  sourceMaps: false,
+  watch: false,
 })
-
-const js = () => jsBundler.bundle()
+bundleJs.on(`buildEnd`, reload)
+const js = () => bundleJs.bundle()
 
 js.description = `Bundle front-app, app server & api-server`
 
@@ -167,7 +165,6 @@ function reloadBrowser(done) {
   done()
 }
 
-let hash
 function watch() {
   gulp.watch(`source/**/**.{md,svg,png,jpg}`, reloadBrowser)
   gulp.watch(
@@ -177,37 +174,17 @@ function watch() {
     ],
     css
   )
-  bundler.watch(
-    {
-      watch: true,
-      progress: true,
-      ignored: /node_modules/,
-    },
-    (err, stats) => {
-      log(`webpack watch bundle…`)
-      if (err) return onError(err)
-      const info = stats.toJson()
-      if (stats.hasErrors()) return log(info.errors)
-      if (stats.hasWarnings()) log(info.warnings)
-      if (hash !== stats.hash) {
-        hash = stats.hash
-        log(`…BUNDLED`)
-        setTimeout(reload, 400)
-      }
-    }
-  )
+  gulp.watch(`${themeDir}/client-javascript/*.js`, js)
 }
 
-const bsAndWatch = () => {
+const bsAndWatch = done => {
   bs()
   watch()
+  done()
 }
 
-const dev = gulp.series(build, bsAndWatch)
-
-gulp.task(`dev`, dev)
+gulp.task(`dev`, bsAndWatch)
 gulp.task(`build`, build)
 gulp.task(`sass`, compileSass)
 gulp.task(`css`, css)
 gulp.task(`icons`, icons)
-gulp.task(`default`, build)
