@@ -1,4 +1,4 @@
-app.use(ctx => {
+async function nuxtMiddleware(ctx) {
   // koa defaults to 404 when it sees that status is unset
   ctx.status = 200
 
@@ -10,4 +10,6 @@ app.use(ctx => {
       promise.then(resolve).catch(reject)
     })
   })
-})
+}
+
+app.use(nuxtMiddleware)
