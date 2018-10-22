@@ -13,6 +13,7 @@ export const mutations = {
 export const actions = {
   nuxtServerInit({ commit }, nuxtCtx) {
     const { req } = nuxtCtx
+    // here we find again our server data
     const { serverData } = req
 
     if (!serverData) return

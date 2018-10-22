@@ -1,4 +1,4 @@
-app.use(async function passSessionToNuxt(ctx, nuxt) {
+app.use(async function passSessionToNuxt(ctx, next) {
   ctx.req.serverData = {
     validation: ctx.session.validation || {},
   }
