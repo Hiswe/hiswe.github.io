@@ -11,7 +11,6 @@ categories:
 date: 2018-10-23 11:58:37
 ---
 
-
 ## Introduction
 
 You're ready to make your new application.
@@ -46,8 +45,8 @@ You just need to call it like any express middleware:
 
 {% include_code lang:js 13-koa-nuxt/01-express-middleware.js %}
 
-Since we wants to use Koa, we will need to make our own middleware.
-No need to think a lot about integration since this has already been solved but the [nuxt community](https://github.com/nuxt/create-nuxt-app/blob/master/template/server/index-koa.js)
+Since we want to use Koa, we will need to make our own middleware.
+No need to think a lot about integration since this has already been solved but the [Nuxt community](https://github.com/nuxt/create-nuxt-app/blob/master/template/server/index-koa.js)
 
 {% include_code lang:js 13-koa-nuxt/02-koa-middleware.js %}
 
@@ -58,7 +57,7 @@ This will work perfectly if you're only interested in server rendering.
 Let say we want to be able to post a form.
 
 - First we will install/use [koa-router](https://www.npmjs.com/package/koa-router) and [koa-body](https://www.npmjs.com/package/koa-body)
-- Then with those we will be able to handle our `POST` action
+- Then with those, we will be able to handle our `POST` action
 - And we might want to do a database call inside it (`doSomethingAsync` in the example)
 
 {% include_code lang:js 13-koa-nuxt/03-koa-form.js %}
@@ -70,7 +69,7 @@ This is kind of ok:
 
 JSON response can be added by later by
 
-- checking what the request `Content-Type` header (`ctx.is('application/json')`)
+- checking what's the request `Content-Type` header (`ctx.is('application/json')`)
 - don't redirect
 - send back the appropriate response
 
@@ -82,7 +81,7 @@ To catch all the things, it will be our first middleware.
 
 {% include_code lang:js 13-koa-nuxt/04-koa-form-error.js %}
 
-So now if anything throw (DB call, JSON parsing…) we will serve a page with the error printed.
+So now if anything throw (DB call, JSON parsing…) we will render a page with the error printed.
 
 ## Handling Server data with Nuxt
 
@@ -117,7 +116,7 @@ Here is the different steps to follow:
   - a [Nuxt middleware](https://nuxtjs.org/guide/routing#middleware)
   - the [nuxtServerInit](https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action) for Vuex integration
     Right now let's start with `nuxtServerInit`.
-- …and since now all is in the Vue realm now, just use our Vue Components.
+- …and since now all is in the Vue realm, just use our Vue Components.
 
 {% include_code lang:js 13-koa-nuxt/05-validation.js %}
 
@@ -132,15 +131,15 @@ Use [the mapState helper](https://vuex.vuejs.org/guide/state.html#the-mapstate-h
 
 Right now, we set the validation on our POST route, and never update it again.
 
-It means that the validation will be kept until the user send a good form.
+It means that the validation will be persisted until the user send a good form.
 So if the user change page and go back to the form, _the application will still display the last validation result._
-This isn't right, we should clear this once displayed.
+This isn't right, we should clear the validation once displayed.
 
 This should be easy by updating our Koa middleware that link our session to nuxt.
 
 {% include_code lang:js 13-koa-nuxt/07-naive-validation-clearing.js %}
 
-**But this won't work**
+⚠️ **But this won't work**
 
 You'll find in the server logs a `Can't set headers after they are sent`.
 The problem comes from the `nuxtMiddleware` & how it bypasses the regular Koa flow.
@@ -167,18 +166,18 @@ So we have to refactor our server code like this:
 
 {% include_code lang:js 13-koa-nuxt/08-manually-commit.js %}
 
-This will solve our problem ❤️.
+This will solve our problem ❤️
 We just have now to remember calling `manuallyCommit()` every time we update the session… 😶
 
 ## Displaying all errors with Nuxt
 
-There is one last thing we have to handle.
+There is one last thing we have to take care of.
 Right now our `handleError` middleware will make Koa show the error.
-But in Nuxt we can have an [error layout](https://nuxtjs.org/guide/views#error-page) and we should take advantage of it.
+But Nuxt support an [error layout](https://nuxtjs.org/guide/views#error-page) and we should take advantage of it.
 
 To do this we'll need to modify our `handleError` middleware:
 
-- set the error to the `ctx.req` object (Nuxt still only work with `req` & `res`)
+- set the error to the `ctx.req` object (Remember Nuxt still only work with `req` & `res`)
 - call Nuxt to render the page inside our `handleError` middleware
 - [write a Nuxt middleware](https://nuxtjs.org/guide/routing#middleware) that will render the error page by calling [nuxtContext.error](https://nuxtjs.org/api/context)
 
@@ -208,8 +207,8 @@ _Supporting asynchronous code should be easy_
 
 - Koa is build around that
 - [nuxtServerInit](https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action) supports [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-- the same goes for [nuxt middleware](https://nuxtjs.org/guide/routing#middleware)
+- the same goes for [Nuxt middleware](https://nuxtjs.org/guide/routing#middleware)
 
-…and as said before you can find a full example [here](https://github.com/Hiswe/koa-nuxt-example)
+As a reminder you can find a full example [here](https://github.com/Hiswe/koa-nuxt-example)
 
-💚 Nuxt
+💚 _Nuxt_ 💙 _KOA_
