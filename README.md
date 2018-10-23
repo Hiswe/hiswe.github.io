@@ -24,14 +24,14 @@ npm start
 yarn hexo new [layout] <title>
 ```
 
-- post  (source/_posts)
-- page  (source)
-- draft (source/_drafts)
+- post (source/\_posts)
+- page (source)
+- draft (source/\_drafts)
 
 ### converting a draft
 
 ```
-yarn run hexo publish <title>
+yarn hexo publish <title>
 ```
 
 ### converting videos

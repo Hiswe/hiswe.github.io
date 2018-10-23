@@ -1,14 +1,16 @@
 ---
 title: Writing koa/nuxt applications
-cover: cover.png
-comments: false
-description: How we can integrate Nuxt in a Koa server
 tags:
   - advanced
   - vue
+cover: cover.png
+comments: false
+description: How we can integrate Nuxt in a Koa server
 categories:
   - web
+date: 2018-10-23 11:58:37
 ---
+
 
 ## Introduction
 
