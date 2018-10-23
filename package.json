@@ -17,7 +17,7 @@
     "build": "cross-env NODE_ENV=production gulp build",
     "build:dev": "gulp build",
     "build:icons": "gulp icons",
-    "release": "hexo clean && gulp --prod && hexo generate --deploy"
+    "release": "hexo clean && yarn build && hexo generate --deploy"
   },
   "dependencies": {
     "cross-env": "^5.2.0",
