@@ -9,7 +9,7 @@ koa.use(async function handleErrors(ctx, next) {
       await nuxtMiddleware(ctx)
     } catch (nuxtError) {
       // we tried our best
-      // but if something wrong happened with Nuxt, we should handle it
+      // but if something's still wrong, go without Nuxt
       ctx.body = error
     }
   }

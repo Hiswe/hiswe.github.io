@@ -50,27 +50,42 @@ This will work perfectly if you're only interested in server rendering.
 
 ## Handling POST
 
-Since one of our goal is to be able to work without JS on the client side, we'll need to add more code.
 Let say we want to be able to post a form.
 
-- First we will use [koa-router](https://www.npmjs.com/package/koa-router) and [koa-body](https://www.npmjs.com/package/koa-body)
-- Then with those we will able to handle our `POST` action
+- First we will install/use [koa-router](https://www.npmjs.com/package/koa-router) and [koa-body](https://www.npmjs.com/package/koa-body)
+- Then with those we will be able to handle our `POST` action
 - And we might want to do a database call inside it (`doSomethingAsync` in the example)
 
 {% include_code lang:js 13-koa-nuxt/03-koa-form.js %}
 
 This is kind of ok:
 
-- we can now post some data without JS activated
+- we can now post some data
 - redirect to `/` where Nuxt will handle the markup
 
-_We should write an error middleware_ to be sure that if something went wrong, this will not crash our application
+JSON response can be added by later by
+
+- checking what the request `Content-Type` header (`ctx.is('application/json')`)
+- don't redirect
+- send back the appropriate response
+
+## Handling errors
+
+We should write an error middleware.  
+It will make sure that if something went wrong, our application won't crash.
+To catch all the things, it will be our first middleware.
 
 {% include_code lang:js 13-koa-nuxt/04-koa-form-error.js %}
 
-This will work but it's a bit rough: we should send back some data validation to the user form.
+So now if anything throw (DB call, JSON parsing…) we will serve a page with the error printed.
 
-## Handling Server data in Nuxt
+## Handling Server data with Nuxt
+
+We also should send back some data validation to the user form.
+
+{% caption Oh no! %}
+{% asset_img validation.svg 500 250 "a form field with a validation error 'a form field with a validation error'" %}
+{% endcaption %}
 
 In order to display any validation in the Nuxt application we will need to:
 
@@ -86,7 +101,7 @@ We'll use [koa-session](https://www.npmjs.com/package/koa-session) for this.
 The [installation guide](https://www.npmjs.com/package/koa-session#example) is pretty self explanatory.
 This will add a `ctx.session` object where we can pass any kind of information.
 
-Here is the different steps we have to make:
+Here is the different steps to follow:
 
 - Validate our form
 - Add the validation to the session
@@ -96,8 +111,8 @@ Here is the different steps we have to make:
 - Integrate it in the Nuxt application by either using:
   - a [Nuxt middleware](https://nuxtjs.org/guide/routing#middleware)
   - the [nuxtServerInit](https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action) for Vuex integration
-    The example will use this.
-- Do what we want in our Vue components with those
+    Right now let's start with `nuxtServerInit`.
+- …and since now all is in the Vue realm now, just use our Vue Components.
 
 {% include_code lang:js 13-koa-nuxt/05-validation.js %}
 
@@ -105,13 +120,15 @@ In the _store/index.js_
 
 {% include_code lang:js 13-koa-nuxt/06-vuex-store.js %}
 
-And that's it, we now have a store updated with our server validation.
+And that's it, we now have a Vuex store updated with our server validation.
 Use [the mapState helper](https://vuex.vuejs.org/guide/state.html#the-mapstate-helper) in our Vue component to access it.
 
 ### Can't set headers after they are sent
 
 Right now, we set the validation on our POST route, and never update it again.
-This means that if the user reload the form, _the application will still display the last validation result._
+
+It means that the validation will be kept until the user send a good form.
+So if the user change page and go back to the form, _the application will still display the last validation result._
 This isn't right, we should clear this once displayed.
 
 This should be easy by updating our Koa middleware that link our session to nuxt.
@@ -141,11 +158,12 @@ To fix that we need to make sure that our headers are set before the Nuxt middle
 
 Koa-session lets us send the headers manually with [the manuallyCommit() method](https://www.npmjs.com/package/koa-session#sessionmanuallycommit)
 
-So we have to refactor our code like this:
+So we have to refactor our server code like this:
 
 {% include_code lang:js 13-koa-nuxt/08-manually-commit.js %}
 
-This will solve our problem. The main issue there is that we have to remember calling `manuallyCommit()` every time we update the session
+This will solve our problem ❤️.
+We just have now to remember calling `manuallyCommit()` every time we update the session… 😶
 
 ## Displaying all errors with Nuxt
 
@@ -153,15 +171,18 @@ There is one last thing we have to handle.
 Right now our `handleError` middleware will make Koa show the error.
 But in Nuxt we can have an [error layout](https://nuxtjs.org/guide/views#error-page) and we should take advantage of it.
 
-To do this we'll need to:
+To do this we'll need to modify our `handleError` middleware:
 
 - set the error to the `ctx.req` object (Nuxt still only work with `req` & `res`)
 - call Nuxt to render the page inside our `handleError` middleware
-- [write a Nuxt middleware](https://nuxtjs.org/guide/routing#middleware) that will render the error page by calling [nuxtContex.error](https://nuxtjs.org/api/context)
+- [write a Nuxt middleware](https://nuxtjs.org/guide/routing#middleware) that will render the error page by calling [nuxtContext.error](https://nuxtjs.org/api/context)
 
 {% include_code lang:js 13-koa-nuxt/09-koa-nuxt-error.js %}
 
-In a `middleware/handle-server-errors.js` file. (don't forget to reference it in your `nuxt.config.js`)
+And for the Nuxt part:
+
+- create a `middleware/handle-server-errors.js` file
+- reference it in the `nuxt.config.js`
 
 {% include_code lang:js 13-koa-nuxt/10-nuxt-error-middleware.js %}
 
@@ -173,15 +194,17 @@ Still I prefer {% post_link 07-from-express-to-koa working with Koa %}, and with
 I'm sure there is room for improvements, but it's working for me.
 The downside is mainly more boilerplate code and handling session updates manually.
 
-- if you just want some basic server rendering everything will stay simple
-- if you don't want to support any kind of session everything will stay simple
-- supporting `asynchronous code` should be easy
-  - Koa is build around that
-  - [nuxtServerInit](https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action) supports [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-  - the same goes for [nuxt middleware](https://nuxtjs.org/guide/routing#middleware)
-- in Koa you can differentiate a `no-js` client environment from an AJAX environment by checking the `ctx.request.type === 'application/json'`
+_Most of the code here isn't necessary if_
 
-Nuxt is a very smart piece of software, and can really handle every use case we have in the server environment!
+- you just want some basic server rendering
+- you don't need to support any kind of session
 
-As a side note I've extract the `nuxtMiddleware` in a [npm package](https://www.npmjs.com/package/@hiswe/koa-nuxt)
+_Supporting asynchronous code should be easy_
+
+- Koa is build around that
+- [nuxtServerInit](https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action) supports [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- the same goes for [nuxt middleware](https://nuxtjs.org/guide/routing#middleware)
+
 …and as said before you can find a full example [here](https://github.com/Hiswe/koa-nuxt-example)
+
+💚 Nuxt
