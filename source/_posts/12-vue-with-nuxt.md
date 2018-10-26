@@ -17,11 +17,11 @@ date: 2018-09-19 18:56:58
 To use it we have two major tools:
 
 - [Vue CLI 3](https://cli.vuejs.org/) _the Standard Tooling for Vue.js Development_
-  The official solution to setup quickly a vue application.
+  The official solution to quickly setup a Vue application.
 - [Nuxt](https://nuxtjs.org/) _Universal Vue.js Applications_
   Yeah, we will talk about that.
 
-But how Nuxt differs from a Standard Vue Application?
+But how dœs Nuxt differ from a Standard Vue Application?
 
 **`[TL;DR]`**
 
@@ -35,12 +35,12 @@ But how Nuxt differs from a Standard Vue Application?
 
 ### installation
 
-Nuxt provides two [installation's ways](https://nuxtjs.org/guide/installation):
+There's [two ways](https://nuxtjs.org/guide/installation) Nuxt can be installed:
 
 - with vue-cli
 - a basic `npm install nuxt` or `yarn add nuxt` if you're a [yarn](https://yarnpkg.com/en/) person, create some folders and add some modules if you want to [use pre-processors](https://nuxtjs.org/faq/pre-processors#how-to-use-pre-processors-)
 
-I prefer the latter as it doesn't rely on any global dependency… and it's also a good way to integrate Nuxt to an existing project.
+I prefer the latter one as it doesn't rely on any global dependency… and it's also a good way to integrate Nuxt to an existing project.
 
 For a web application, I always add:
 
@@ -60,12 +60,12 @@ If you use Vue CLI, it will create this kind of structure:
 
 - vue.config.js `vue configuration`
 - 📁 src
-  - main.js `your application entry point`
+  - main.js `your application's entry point`
   - router.js `configuring routes`
   - App.vue `main Vue component`
   - 📁 assets `all static files`
   - 📁 components `other vue components`
-  - 📁 views `your pages components`
+  - 📁 views `your pages' components`
   - 📁 store
     - index.js `your Vuex Store`
 
@@ -112,7 +112,7 @@ Those commands will stay independent of whatever the application is using undern
 
 ## Small Nuxt overview
 
-Nuxt relies in some part in _convention over configuration_.
+Nuxt relies in some part on _convention over configuration_.
 By creating files, Nuxt will take care of integrating them in your Vue application's.
 
 Here are the main domains where it shines.
@@ -120,7 +120,7 @@ Here are the main domains where it shines.
 ### routing
 
 In a standard Vue application you'll need to manually configure the router.
-This how the `router.js` usually looks like:
+This is how the `router.js` usually looks like:
 
 {% include_code lang:js 12-vue-with-nuxt/02-vue-router.js %}
 
@@ -165,7 +165,7 @@ Still, there is a [classic mode](https://nuxtjs.org/guide/vuex-store#classic-mod
 
 ### a note on layouts
 
-Nuxt provides a way to handle [many page layout](https://nuxtjs.org/guide/views#layouts) in a breeze.
+Nuxt provides a way to handle [many page layouts](https://nuxtjs.org/guide/views#layouts) in a breeze.
 
 I think most of the time you'll stick with the basic:
 
