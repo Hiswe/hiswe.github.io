@@ -148,7 +148,10 @@ icons.description = `bundle SVG files`
 // DEV
 ////////
 
-const build = gulp.parallel(css, js)
+const build = gulp.series(
+  icons,
+  gulp.parallel(css, js)
+)
 
 function bs() {
   return browserSync.init({

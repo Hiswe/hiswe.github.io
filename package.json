@@ -7,7 +7,7 @@
     "yarn": ">=1.13.0"
   },
   "hexo": {
-    "version": "3.7.1"
+    "version": "3.8.0"
   },
   "scripts": {
     "start": "yarn dev",
