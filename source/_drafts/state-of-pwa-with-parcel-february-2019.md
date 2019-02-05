@@ -3,9 +3,10 @@ title: State of PWA with Parcel, february 2019
 cover: cover.png
 comments: false
 description: How the Parcel bundler plays now with PWA
-tags:
-  - web
 categories:
+  - web
+tags:
+  - advanced
 ---
 
 ## Introduction
@@ -151,3 +152,8 @@ navigator.serviceWorker.register(swName);
 Webpack propose a smoother experience due to the more mature ecosystem it has, but working with Parcel to build a PWA is a way smoother experience than it was. Goog Game Parcel! 🏆
 
 The main small invonvenience is to generate the different application icons… which isn't that bad.
+
+You can find the web applications here:
+
+- [Thailpha](https://github.com/hiswe/thailpha) which uses webpack
+- [Thaime](https://github.com/hiswe/thaime) which uses Parcel
