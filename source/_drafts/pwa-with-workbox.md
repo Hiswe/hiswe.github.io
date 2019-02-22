@@ -1,5 +1,5 @@
 ---
-title: pwa-with-workbox
+title: Nuxt PWA
 cover: cover.png
 comments: false
 description:
