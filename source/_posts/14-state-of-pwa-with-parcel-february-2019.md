@@ -1,12 +1,13 @@
 ---
-title: State of PWA with Parcel, february 2019
+title: 'State of PWA with Parcel, february 2019'
+tags:
+  - advanced
 cover: cover.png
 comments: false
 description: How the Parcel bundler plays now with PWA
 categories:
   - web
-tags:
-  - advanced
+date: 2019-02-24 17:09:11
 ---
 
 ## Introduction
@@ -23,7 +24,7 @@ If you're already familiar with the title, you can skip this part 🥳.
 
 ### Progressive Web Application (PWA)
 
-To be very very short a PWA is a website that use a certain set of web technologies in order to be  used like a regular iOS/Android application.
+To be very very short a PWA is a website that use a certain set of web technologies in order to be used like a regular iOS/Android application.
 
 To dig a little more into it:
 
@@ -36,9 +37,9 @@ To dig a little more into it:
 It needs:
 
 - that you're hosting your website in HTTPS
-- a browser that supports the [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) 
+- a browser that supports the [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 - a [webmanifest file](https://developer.mozilla.org/en-US/docs/Web/Manifest): a JSON file that provides informations about your web-application
-- a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API): a Javascript file that uses the SW Api to do stuff (yeah “stuff”, coz you can do many many things) 
+- a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API): a Javascript file that uses the SW Api to do stuff (yeah “stuff”, coz you can do many many things)
 
 You can write the latter in your preferred text editor, but…
 
@@ -58,22 +59,23 @@ It helps people to compile things in web technologies (HTML, CSS & JS)
 
 It means to be a simpler alternative to webpack (that has the same purpose, and whose main critic is to be hard to configure).
 
-You can check  {% post_link 11-parcel-with-vue this post about Parcel %} if you want more informations. (Yeah, self promotion 😎)
+You can check {% post_link 11-parcel-with-vue this post about Parcel %} if you want more informations. (Yeah, self promotion 😎)
 
-## How was it with Parcel in mid-2018
+## How was it with Parcel in the mid-2018
 
 The main principle of Parcel is that it will parse your application entry point, follow any file path within it, and compile/optimise/hash them.
 It can be almost anything (see the [asset types](https://en.parceljs.org/getting_started.html) in the doc!), so HTML, CSS, JS, images, JSON… ANYTHING!
 
 So this is good & fine, but it can be a problems as Parcel tends to be too greedy (being too greedy is bad).
 
-To have a PWA we need to (in order): 
+To have a PWA we need to (in order):
 
-_**1.**_ have some application icons 
-_**2.**_ have a `manifest.webmanifest` file 
+_**1.**_ have some application icons
+_**2.**_ have a `manifest.webmanifest` file
 _**3.**_ build our HTML/JS/CSS/assets
 • our HTML should reference the manifest with a `<link rel="manifest" href="/manifest.webmanifest">`
 • our future service worker should be called in our JS file
+
 ```js
 if (`serviceWorker` in navigator) {
   window.addEventListener(`load`, () => {
@@ -81,6 +83,7 @@ if (`serviceWorker` in navigator) {
   })
 }
 ```
+
 _**4.**_ build our service worker with Workbox that will cache any of the assets needed for the application
 _**5.**_ …and that's it 🎉
 
@@ -96,9 +99,10 @@ In order to avoid that you would have to:
 - come with another simplified HTML file to use the Parcel dev server
 - generate the service worker with [workbox-build](https://developers.google.com/web/tools/workbox/guides/generate-service-worker/workbox-build)
 - create a different production HTML that:
+
   - reference the manifest file
   - have a script tag that install our service worker (this way it won't be parsed by Parcel)
-  
+
 ## manifest.webmanifest
 
 ### with webpack
@@ -143,8 +147,8 @@ But to prevent the “too greedy“ behavior of Parcel you have to use a [small 
 
 ```js
 // this way Parcel won't check `my-application-service-worker.js`
-const swName = `/my-application-service-worker.js`; 
-navigator.serviceWorker.register(swName);
+const swName = `/my-application-service-worker.js`
+navigator.serviceWorker.register(swName)
 ```
 
 ## Conclusion
