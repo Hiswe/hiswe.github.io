@@ -1,5 +1,5 @@
 ---
-title: 'State of PWA with Parcel, february 2019'
+title: 'State of PWA with Parcel, February 2019'
 tags:
   - advanced
 cover: cover.png
@@ -13,8 +13,8 @@ date: 2019-02-24 17:09:11
 ## Introduction
 
 In the mid 2018 I have played with Parcel to build a [VueJs](https://vuejs.org/) [Progressive Web Application](https://en.wikipedia.org/wiki/Progressive_Web_Apps) (PWA).
-At the moment there were some quirks to do so.  
-Reworking on it, I can tell how it compares with [Webpack](https://webpack.js.org/) and the work the Parcel's team have done to improve the experience.
+Back then it was kind of quirky to do so.  
+Reworking on it, I can tell how it compares with [Webpack](https://webpack.js.org/) and how Parcel improve its PWA experience.
 
 <!-- more -->
 
@@ -38,32 +38,32 @@ It needs:
 
 - that you're hosting your website in HTTPS
 - a browser that supports the [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
-- a [webmanifest file](https://developer.mozilla.org/en-US/docs/Web/Manifest): a JSON file that provides informations about your web-application
-- a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API): a Javascript file that uses the SW Api to do stuff (yeah “stuff”, coz you can do many many things)
+- a [webmanifest file](https://developer.mozilla.org/en-US/docs/Web/Manifest): a JSON file that provides information about your web-application
+- a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API): a JavaScript file that uses the SW API to do stuff (yeah “stuff”, coz you can do many many things)
 
 You can write the latter in your preferred text editor, but…
 
 ### …workbox
 
-is a [tool developped & maintained by Google](https://developers.google.com/web/tools/workbox/) to help you write the service worker file.
+is a [tool developed & maintained by Google](https://developers.google.com/web/tools/workbox/) to help you write the service worker file.
 
-Even if you can come up with your own SW file, I personaly prefer to use tools that streamline my process and prevents me for doing silly errors.
+Even if you can come up with your own SW file, I personally prefer to use tools that streamline my process and prevents me for doing silly errors.
 
-If you haven't yet, try it. Documentation is good and the tool is easy to use.
+If you haven't yet, try it. Documentation is good and the tool is easy to use.  
 And mostly: Workbox really helps.
 
-### ParcelJS 1.11.0
+### Parcel 1.11.0
 
 It's the _Blazing fast, zero configuration web application bundler._
 It helps people to compile things in web technologies (HTML, CSS & JS)
 
 It means to be a simpler alternative to webpack (that has the same purpose, and whose main critic is to be hard to configure).
 
-You can check {% post_link 11-parcel-with-vue this post about Parcel %} if you want more informations. (Yeah, self promotion 😎)
+You can check {% post_link 11-parcel-with-vue this post about Parcel %} if you want more information. (Yeah, self promotion 😎)
 
 ## How was it with Parcel in the mid-2018
 
-The main principle of Parcel is that it will parse your application entry point, follow any file path within it, and compile/optimise/hash them.
+The main principle of Parcel is that it will parse your application entry point, follow any file path within it, and compile/optimize/hash them.
 It can be almost anything (see the [asset types](https://en.parceljs.org/getting_started.html) in the doc!), so HTML, CSS, JS, images, JSON… ANYTHING!
 
 So this is good & fine, but it can be a problems as Parcel tends to be too greedy (being too greedy is bad).
@@ -90,12 +90,12 @@ _**5.**_ …and that's it 🎉
 But at this time Parcel would have:
 
 - followed our manifest link and converted it to a js file 😨
-- followed our service worker'registration and breaks because it doesn't exist yet 😰
+- followed our service worker's registration and breaks because it doesn't exist yet 😰
 - and so 😱
 
 In order to avoid that you would have to:
 
-- avoid your HTML file as an enrty point (so compile only the JS/CSS)
+- avoid your HTML file as an entry point (so compile only the JS/CSS)
 - come with another simplified HTML file to use the Parcel dev server
 - generate the service worker with [workbox-build](https://developers.google.com/web/tools/workbox/guides/generate-service-worker/workbox-build)
 - create a different production HTML that:
@@ -124,13 +124,13 @@ Coming up with your own manifest file is not a problem per se. It's just a small
 As for the icons, I've found the [node-image-resizer](https://www.npmjs.com/package/node-image-resizer) that will help you generate the different app icons sizes. And because it uses [jimp](https://www.npmjs.com/package/jimp) under the hood, you won't be bothered to install any external dependencies (like GraphicMagic).
 
 So event if it's less “plug and play” than using webpack, it's now way better than not using your HTML file as an entry point (mostly for the dev server).
-I would like to see a webpack-pwa-manifest alternatives but coming with my own will stay on my list of opensource projet to do that I know I won't find the time to make but it could be helpful to build 😔
+I would like to see a webpack-pwa-manifest alternatives but coming with my own will stay on my list of open source project to do that I know I won't find the time to make but it could be helpful to build 😔
 
 ## service worker
 
 ### with webpack
 
-Google developps & maintain the [workbox-webpack-plugin](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#top_of_page) that lets you generate a worker file.
+Google develops & maintain the [workbox-webpack-plugin](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#top_of_page) that lets you generate a worker file.
 
 On `inject mode` it has some nice additions which are:
 
@@ -153,9 +153,9 @@ navigator.serviceWorker.register(swName)
 
 ## Conclusion
 
-Webpack propose a smoother experience due to the more mature ecosystem it has, but working with Parcel to build a PWA is a way smoother experience than it was. Goog Game Parcel! 🏆
+Webpack propose a smoother experience due to the more mature ecosystem it has, but working with Parcel to build a PWA is a way smoother experience than it was. Good Game Parcel! 🏆
 
-The main small invonvenience is to generate the different application icons… which isn't that bad.
+The main small inconvenience is to generate the different application icons… which isn't that bad.
 
 You can find the web applications here:
 
