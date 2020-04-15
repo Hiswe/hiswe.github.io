@@ -73,8 +73,8 @@ To have a PWA we need to (in order):
 _**1.**_ have some application icons
 _**2.**_ have a `manifest.webmanifest` file
 _**3.**_ build our HTML/JS/CSS/assets
-• our HTML should reference the manifest with a `<link rel="manifest" href="/manifest.webmanifest">`
-• our future service worker should be called in our JS file
+  • our HTML should reference the manifest with a `<link rel="manifest" href="/manifest.webmanifest">`
+  • our future service worker should be called in our JS file
 
 ```js
 if (`serviceWorker` in navigator) {
@@ -87,7 +87,9 @@ if (`serviceWorker` in navigator) {
 _**4.**_ build our service worker with Workbox that will cache any of the assets needed for the application
 _**5.**_ …and that's it 🎉
 
+
 But at this time Parcel would have:
+
 
 - followed our manifest link and converted it to a js file 😨
 - followed our service worker's registration and breaks because it doesn't exist yet 😰
@@ -99,7 +101,6 @@ In order to avoid that you would have to:
 - come with another simplified HTML file to use the Parcel dev server
 - generate the service worker with [workbox-build](https://developers.google.com/web/tools/workbox/guides/generate-service-worker/workbox-build)
 - create a different production HTML that:
-
   - reference the manifest file
   - have a script tag that install our service worker (this way it won't be parsed by Parcel)
 
