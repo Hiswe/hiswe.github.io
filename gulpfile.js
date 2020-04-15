@@ -55,7 +55,7 @@ function compileSass() {
     .pipe($.plumber(onError))
     .pipe($.sourcemaps.init())
     .pipe($.sass())
-    .pipe($.postcss([autoprefixer({ browsers: ['ie 10', 'last 2 versions'] })]))
+    .pipe($.postcss([autoprefixer({ overrideBrowserslist: ['ie 10', 'last 2 versions'] })]))
     .pipe($.if(isDev, cssDev(), cssProd()))
     .pipe($.rename({ basename: `hiswe-theme` }))
     .pipe(gulp.dest(cssDest))
