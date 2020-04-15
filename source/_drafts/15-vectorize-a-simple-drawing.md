@@ -25,7 +25,7 @@ If you don't know anything about vector creation, you should read those two arti
 - {% post_link 01-vector-basics %}: explain what is a `vector` drawing
 - {% post_link 02-vector-creation-basics %}: and some basic vector software usage
 
-## Start: drawing the shapes
+## Drawing the shapes
 
 This image will be our starting point:
 
@@ -58,7 +58,7 @@ And you can draw with the **pen tool**.
 {% asset_img lineart.svg 450 450 "A hand drawn tiny cat with vector lines 'A hand drawn tiny cat with vector lines'" %}
 {% endcaption %}
 
-And this is the image without any image
+And this is the image without any background sketch:
 
 {% caption I'm traced, and I lost my sketch! %}
 {% asset_img lineart-2.svg 450 450 "A cat composed only of lines 'A cat composed only of lines'" %}
@@ -66,18 +66,60 @@ And this is the image without any image
 
 That's _33%_ of the job done!
 
-## Middle: Ordering shapes & coloring
+## Ordering shapes & coloring
 
-While tracing without fill, it's hard to notice which shape is upon the other.
+While tracing without fill, it's hard to notice which shape is above the other.
 By adding some basic colors, you will see where the overlaps are.
 
 {% caption Ow noes! Me missing things! %}
 {% asset_img basic-color.svg 450 450 "the vector drawing with some parts missing 'the vector drawing with some parts missing'" %}
 {% endcaption %}
 
-To ease you ordering there is some tricks:
+### Layer panel
 
-**You can switch to a _outline view mode_**
+All ordering can be done inside _the layer panel_ (on the right).
+It's just a matter of dragging & dropping…
+
+{% caption A very well organized layer panel 🌈 %}
+{% asset_img layer-panel.png 330 300 "a well organized layer panel 'a well organized layer panel'" %}
+{% endcaption %}
+
+…and it can be a little bit boring.
+So shortcuts to the rescue! (being lazy is learning shortcuts…)
+
+{% caption Order fast 🏃‍♀️%}
+{% asset_img ordering-shortcuts.png 436 281 "The arrange menu 'The arrange menu'" %}
+{% endcaption %}
+
+Just use and abuse `cmd + [` and `cmd + ]`.
+
+### Groups & Path
+
+If you look closely in the layer panel you will see that, next to the path names, there is between parenthesis more information. (And yeah by the way you can rename things by double clicking on them)
+
+It's the **type of thing**
+
+And so you see that you can put a path inside:
+
+- another **path**
+- or a **group**
+
+The difference between the 2 is that  _everything inside a path will be cut to fit this parent._  
+And so with with all this mighty knowledge we can:
+
+- group all the part of the face
+- put the the belly inside the body, to make sure it doesn't spill out outside
+- and so on!
+
+
+{% caption Flat but OK! %}
+{% asset_img grouping-reordering.svg 450 450 "A flat colored decent cat 'A flat colored decent cat'" %}
+{% endcaption %}
+
+### “X-Ray” outline mode
+
+Sometimes you might feel overwhelm by the paths, and just loose the sight of them! 👀  
+It's where the outline view mode can spark you some joy.
 
 This will help figure out if you're missing some path…  
 …and will help you select anything easily!
@@ -92,18 +134,12 @@ Learning the shortcut (`cmd + Y`) will help you going back and forth those 2 vie
 {% asset_img outline-view.png 379 379 "the cat in outline view 'the cat in outline view'" %}
 {% endcaption %}
 
-**Ordering will be _in the layer panel_**
+## Refining
 
-{% caption A very well organized layer panel 🌈 %}
-{% asset_img layer-panel.png 330 300 "a well organized layer panel 'a well organized layer panel'" %}
-{% endcaption %}
-
-{% caption Flat but OK! %}
-{% asset_img grouping-reordering.svg 450 450 "A flat colored decent cat 'A flat colored decent cat'" %}
-{% endcaption %}
-
-## End: Refining
+And now it's just a matter of adding stuff.  
 
 {% caption The Mighty Meow %}
 {% asset_img color-tweaking.svg 450 450 "A refined colored cat 'A refined colored cat'" %}
 {% endcaption %}
+
+## Wrapping up
