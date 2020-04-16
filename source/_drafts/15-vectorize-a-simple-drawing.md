@@ -8,30 +8,29 @@ tags:
   - beginner
 categories:
   - drawing
+cover: cover.png
 ---
 
 ## Introduction
 
 This will simply show you a little step-by-step to transform a sketch into a vector image!
 
-Even if the example will use {% link Affinity Designer https://affinity.serif.com/designer/ %}, the process could be applied to any vector software!
+Even if the example will use {% link Affinity Designer https://affinity.serif.com/designer/ %}, the process could be applied with any vector software.
 
 <!-- more -->
 
-## Before we begin…
+## (Before we begin)
 
 If you don't know anything about vector creation, you should read those two articles:
 
 - {% post_link 01-vector-basics %}:  explain what is a `vector` drawing 
 - {% post_link 02-vector-creation-basics %}: and some basic vector software usage
 
-And if you're ready, just continue the reading thingy 🤓 
-
 ## Drawing the shapes
 
 The following image will be our starting point:
 
-{% caption Meow %}
+{% caption Meow ©Alessandra %}
 {% asset_img source.png 450 450 "A hand drawn tiny cat 'A hand drawn tiny cat'" %}
 {% endcaption %}
 
@@ -48,11 +47,11 @@ And we can use the specificity of shapes:
 
 ### Comfortable line style
 
-To keep easy the tracing part we will use a basic style: 
+To keep easy the tracing part, we will use a basic style: 
 
-- pick a **stroke color**: I usually go with a pink #ff0078 to contrast with the line art 
-- a **stroke size**: usually a little thinner than the sketch's pen
-- **remove any fill**: so we won't cover any part of our sketch
+- pick a **stroke color:** usually I go with a pink #ff0078 to contrast with the line art 
+- a **stroke size:** usually a little thinner than the sketch's pen
+- **remove any fill:** so we won't cover any part of our sketch
 
 {% caption The appearance should look like this %}
 {% asset_img base-style-appearance.png 326 96 "base style with stroke and no fill 'base style with stroke and no fill'" %}
@@ -60,7 +59,7 @@ To keep easy the tracing part we will use a basic style:
 
 ### Drawing time
 
-And now you can draw with the **pen tool**.
+And now you can draw with the **pen tool**. (keyboard shortcut is the `p` key)
 
 - keep the number of points as low as possible. It will be easier to edit afterwards.
 - don't try to be too precise because…
@@ -70,7 +69,7 @@ And now you can draw with the **pen tool**.
 
 It's very easy to use the pen tool to make some shapes.  
 You can try to be as accurate as you want in the first attempt or, you can be quick & dirty.  
-Then you can refine with the white arrow tool (aka. Node Tool).
+Afterwards you can refine with the white arrow tool (aka. Node Tool).
 
 {% video path-editing.mp4 %}
 
@@ -89,13 +88,15 @@ And then:
 
 TADDAAAA! ✨
 
+N.B. The pen tool can also be used as a Node tool with shortcuts! But it won't be covered here. 🤫
+
 ### Straight to curved path
 
 One thing that I really like, is that Affinity make it easy to convert straight path to curves.
 
 In order to do that you will:
 
-- activate the `white-arrow` (the shortcut is the `a` key)
+- activate the `Node Tool` (the shortcut is the `a` key)
 - select your path
 - go hover your straigth section
 - drag & drop when your satisfied.
@@ -194,3 +195,21 @@ And so this can be your final result 😽
 {% endcaption %}
 
 ## Wrapping up
+
+Vectorizing a sketch can be pretty satisfying and can be achieved in a few small steps:
+
+- trace your sketch
+- refine paths the Node Tool
+- fill them with colors
+- reorganize the paths
+  - with groups
+  - or path inside path
+- and add more stuff until your statisfied!
+
+And a list of shortcuts:
+
+- `p` Pen Tool
+- `a` Node Tool
+- `cmd + G` Group
+- `shift + cmd + G` Un-group
+- `cmd + Y` Toggle outline mode
