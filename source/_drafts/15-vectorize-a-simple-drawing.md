@@ -18,20 +18,26 @@ Even if the example will use {% link Affinity Designer https://affinity.serif.co
 
 <!-- more -->
 
-## Before we begin
+## Before we begin…
 
 If you don't know anything about vector creation, you should read those two articles:
 
-- {% post_link 01-vector-basics %}: explain what is a `vector` drawing
+
+
+- {% post_link 01-vector-basics %}:  explain what is a `vector` drawing 
 - {% post_link 02-vector-creation-basics %}: and some basic vector software usage
+
+And if you're ready, just continue the reading thingy 🤓 
 
 ## Drawing the shapes
 
-This image will be our starting point:
+The following image will be our starting point:
 
 {% caption Meow %}
 {% asset_img source.png 450 450 "A hand drawn tiny cat 'A hand drawn tiny cat'" %}
 {% endcaption %}
+
+### Shape thinking
 
 To be efficient (aka. lazy), you need to **think about shapes** (that's all what vector illustration is about).  
 
@@ -42,15 +48,23 @@ And we can use the specificity of shapes:
 - the can be **open**:
   this will be for everything else, including the legs.
 
-So now you just to:
+### Comfortable line style
 
-- pick a **stroke color** (I like a kind of pink like this #ff0078) 
-- a **stroke size** (usually a little thinner than the sketch's pen)
-- remove any fill (so we won't cover any part of our sketch)
+To keep easy the tracing part we will use a basic style: 
 
-And you can draw with the **pen tool**.
+- pick a **stroke color**: I usually go with a pink #ff0078 to contrast with the line art 
+- a **stroke size**: usually a little thinner than the sketch's pen
+- **remove any fill**: so we won't cover any part of our sketch
 
-- keep the number of points as low as possible (easier to edit afterwards)
+{% caption The appearance should look like this %}
+{% asset_img base-style-appearance.png 326 96 "base style with stroke and no fill 'base style with stroke and no fill'" %}
+{% endcaption %}
+
+### Drawing time
+
+And now you can draw with the **pen tool**.
+
+- keep the number of points as low as possible. It will be easier to edit afterwards.
 - don't try to be too precise because…
 - …you will go over your path with the **white arrow** to adjust them if necessary
 
@@ -64,7 +78,18 @@ And this is the image without any background sketch:
 {% asset_img lineart-2.svg 450 450 "A cat composed only of lines 'A cat composed only of lines'" %}
 {% endcaption %}
 
-That's _33%_ of the job done!
+### Straight to curved path
+
+One thing that I really like, is that Affinity make it easy to convert straight path to curves.
+
+In order to do that you will:
+
+- activate the `white-arrow` (the shortcut is the `a` key)
+- select your path
+- go hover your straigth section
+- drag & drop when your satisfied.
+
+{% video white-arrow-curve-path.mp4 %}
 
 ## Ordering shapes & coloring
 
@@ -78,24 +103,29 @@ By adding some basic colors, you will see where the overlaps are.
 ### Layer panel
 
 All ordering can be done inside _the layer panel_ (on the right).
-It's just a matter of dragging & dropping…
+You will have to drag & drop to re-organize.
+
+{% video ordering-grouping.mp4 %}
+
+In the video you can notice may things. 
+
+You can **rename things by double clicking on them.**  
+When you drag, there is **2 positions of the drop-zone**:
+
+1. takes **all the width: _this is moving_**
+2. **begin after a path preview: _this nesting_**
+
+More on this on the next Section 🔜
+
+The end result could be something like that:
 
 {% caption A very well organized layer panel 🌈 %}
 {% asset_img layer-panel.png 330 300 "a well organized layer panel 'a well organized layer panel'" %}
 {% endcaption %}
 
-…and it can be a little bit boring.
-So shortcuts to the rescue! (being lazy is learning shortcuts…)
-
-{% caption Order fast 🏃‍♀️%}
-{% asset_img ordering-shortcuts.png 436 281 "The arrange menu 'The arrange menu'" %}
-{% endcaption %}
-
-Just use and abuse `cmd + [` and `cmd + ]`.
-
 ### Groups & Path
 
-If you look closely in the layer panel you will see that, next to the path names, there is between parenthesis more information. (And yeah by the way you can rename things by double clicking on them)
+If you look closely in the layer panel you will see that, next to the path names, there is between parenthesis more information.
 
 It's the **type of thing**
 
@@ -104,13 +134,16 @@ And so you see that you can put a path inside:
 - another **path**
 - or a **group**
 
-The difference between the 2 is that  _everything inside a path will be cut to fit this parent._  
+**This can be done when dragging if the dropzone begin after the preview.**
+
+**_If a path is inside another one it will be cut to fit his parent_**.
+Grouping is just to be well organized, and move things together with ease. 
+
 And so with with all this mighty knowledge we can:
 
 - group all the part of the face
 - put the the belly inside the body, to make sure it doesn't spill out outside
 - and so on!
-
 
 {% caption Flat but OK! %}
 {% asset_img grouping-reordering.svg 450 450 "A flat colored decent cat 'A flat colored decent cat'" %}
@@ -136,7 +169,14 @@ Learning the shortcut (`cmd + Y`) will help you going back and forth those 2 vie
 
 ## Refining
 
-And now it's just a matter of adding stuff.  
+And now if you want, you can add stuff:  
+
+- keep your path in order
+- **to make some easy inner shadows, create path inside other paths!**
+  you even have a shortcut in top-right to place your next path inside another!
+  {% asset_img insert-inside.png 171 68 "Insert inside shortcut 'Insert inside shortcut'" %}
+
+And so this can be your final result 😽
 
 {% caption The Mighty Meow %}
 {% asset_img color-tweaking.svg 450 450 "A refined colored cat 'A refined colored cat'" %}

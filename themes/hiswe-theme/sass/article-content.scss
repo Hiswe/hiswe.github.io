@@ -1,7 +1,8 @@
 .article-long__content {
   counter-reset: section;
   counter-reset: caption;
-  line-height: var(--baseline);
+  // line-height: var(--baseline);
+  line-height: 1.25;
 
   p,
   blockquote,
