@@ -1,15 +1,17 @@
 ---
 title: Vectorize simple drawings images
-description: Learn how vectorize a sketch
-comments: false
 tags:
   - affinity designer
   - vector
   - beginner
+description: Learn how vectorize a sketch
+comments: false
 categories:
   - drawing
 cover: cover.png
+date: 2020-04-16 17:13:06
 ---
+
 
 ## Introduction
 
