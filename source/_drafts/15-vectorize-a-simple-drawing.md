@@ -22,8 +22,6 @@ Even if the example will use {% link Affinity Designer https://affinity.serif.co
 
 If you don't know anything about vector creation, you should read those two articles:
 
-
-
 - {% post_link 01-vector-basics %}:  explain what is a `vector` drawing 
 - {% post_link 02-vector-creation-basics %}: and some basic vector software usage
 
@@ -68,15 +66,28 @@ And now you can draw with the **pen tool**.
 - don't try to be too precise because…
 - …you will go over your path with the **white arrow** to adjust them if necessary
 
+### Edit with the Node Tool (white arrow)
+
+It's very easy to use the pen tool to make some shapes.  
+You can try to be as accurate as you want in the first attempt or, you can be quick & dirty.  
+Then you can refine with the white arrow tool (aka. Node Tool).
+
+{% video path-editing.mp4 %}
+
+With the Node tool you can:
+
+- convert any point to sharp/smooth (inside the top context bar).
+  I often use that to “reset” a point if I've made some edit that I don't like.
+- adjust all handlers (keep `alt` pressed if you want to break the handler)
+- add (or remove) some points
+
+And then:
+
 {% caption I'm traced %}
-{% asset_img lineart.svg 450 450 "A hand drawn tiny cat with vector lines 'A hand drawn tiny cat with vector lines'" %}
+{% asset_img lineart-big.svg 900 450 "A hand drawn tiny cat with vector lines 'A hand drawn tiny cat with vector lines'" %}
 {% endcaption %}
 
-And this is the image without any background sketch:
-
-{% caption I'm traced, and I lost my sketch! %}
-{% asset_img lineart-2.svg 450 450 "A cat composed only of lines 'A cat composed only of lines'" %}
-{% endcaption %}
+TADDAAAA! ✨
 
 ### Straight to curved path
 
