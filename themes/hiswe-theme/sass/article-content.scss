@@ -251,7 +251,8 @@
     }
   }
 
-  a[href^="https://en.wikipedia.org"]::after {
+  a[href^="https://en.wikipedia.org"]::after,
+  a[href^="https://fr.wikipedia.org"]::after {
     content: ' (wikipedia)';
     color: var(--c-primary);
   }

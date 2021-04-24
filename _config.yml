@@ -9,13 +9,14 @@ description:
 author: Hiswe Halya
 locale: en
 language:
-  - en
-  - fr
+- en
+- fr
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://hiswe.github.io
 root: /
+# permalink: :lang/:year/:post_title/
 permalink: :lang/:year/:title/
 permalink_defaults:
   lang: en
@@ -32,7 +33,7 @@ skip_render:
   - downloads/code/**
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :lang/:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 filename_case: 0
