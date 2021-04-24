@@ -7,14 +7,18 @@ title: hiswepedia
 subtitle:
 description:
 author: Hiswe Halya
-language: default
+locale: en
+language:
+  - en
+  - fr
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://hiswe.github.io
 root: /
-permalink: :year/:title/
+permalink: :lang/:year/:title/
 permalink_defaults:
+  lang: en
 
 # Directory
 source_dir: source

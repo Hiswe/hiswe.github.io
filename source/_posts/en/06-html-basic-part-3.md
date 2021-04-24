@@ -1,5 +1,6 @@
 ---
 title: html basic (part 3)
+lang: en
 description: 'Learn even more about writing HTML: semantic in HTML, encoding & meta elements'
 tags:
   - beginner
@@ -13,7 +14,7 @@ date: 2018-03-08 12:02:58
 
 ## Introduction
 
-In {% post_link 04-html-basic-part-1 the first %} and {% post_link 05-html-basic-part-2 the second %} part we've seen the basis of how to write an HTML document.
+In {% post_link en/04-html-basic-part-1 the first %} and {% post_link en/05-html-basic-part-2 the second %} part we've seen the basis of how to write an HTML document.
 
 Now we're going to play with that and expand our HTML document.  
 This will help us to learn more about HTML and how we can easily make it more [accessible](https://en.wikipedia.org/wiki/Web_accessibility) for people with disabilities.
@@ -64,7 +65,7 @@ So why not include a link to the author website where all his glorious contents 
 </address>
 {% endcodeblock %} 
 
-As seen in {% post_link 05-html-basic-part-2 part 2 %} the `parent` (`<address>` here) can have many `children`.  
+As seen in {% post_link en/05-html-basic-part-2 part 2 %} the `parent` (`<address>` here) can have many `children`.  
 And __you can mix in any order text child with HTML element child__ 
 
 #### Semantic of `<a>` and `href`
@@ -85,7 +86,7 @@ the `href` attribute refers to `hyperlink reference` (hyperlink is the technical
 
 Even if we wrote the “by” and “Hiswe” on two lines with white-spaces before, __the output will be rendered on a single line.__
 
-We have seen in {% post_link 04-html-basic-part-1 part one %} that __*the browser merges multiple spaces and ignore carriage return.*__
+We have seen in {% post_link en/04-html-basic-part-1 part one %} that __*the browser merges multiple spaces and ignore carriage return.*__
 This comes in handy here! This __allow us to have a proper indentation in our code without worrying about the browser rendering__ 😇
 
 But for a better understanding, we can write our code in that way:

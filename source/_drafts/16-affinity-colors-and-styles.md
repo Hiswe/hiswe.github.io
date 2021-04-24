@@ -20,8 +20,8 @@ It should help you to define/reuse your colors, make gradients & palets and mayb
 
 Yet again, if you don't know anything about Vector drawings you can look into:
 
-- {% post_link 01-vector-basics %}: explain what is a `vector` drawing
-- {% post_link 02-vector-creation-basics %}: and some basic vector software usage
+- {% post_link en/01-vector-basics %}: explain what is a `vector` drawing
+- {% post_link en/02-vector-creation-basics %}: and some basic vector software usage
 
 ## Stroke & Fills reminder
 

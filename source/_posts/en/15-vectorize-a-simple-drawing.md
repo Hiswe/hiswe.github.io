@@ -1,5 +1,6 @@
 ---
 title: Vectorize simple drawings images
+lang: en
 tags:
   - affinity designer
   - vector
@@ -25,8 +26,8 @@ Even if the example will use {% link Affinity Designer https://affinity.serif.co
 
 If you don't know anything about vector creation, you should read those two articles:
 
-- {% post_link 01-vector-basics %}:  explain what is a `vector` drawing 
-- {% post_link 02-vector-creation-basics %}: and some basic vector software usage
+- {% post_link en/01-vector-basics %}:  explain what is a `vector` drawing 
+- {% post_link en/02-vector-creation-basics %}: and some basic vector software usage
 
 ## Drawing the shapes
 

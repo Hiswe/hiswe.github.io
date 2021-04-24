@@ -1,5 +1,6 @@
 ---
 title: sub-queries in sequelize with squel
+lang: en
 description: "handle SQL COUNT and SUM functions when Sequelize can't generate this it in an easy way"
 tags:
   - advanced

@@ -1,5 +1,6 @@
 ---
 title: html basic (part 1)
+lang: en
 description: Learn some basic things about writing HTML, like using a proper text editor and knowing what is a HTML element
 tags:
   - beginner
@@ -13,7 +14,7 @@ cover: cover.png
 
 ## Introduction
 
-As seen in {% post_link 03-basic-web-understanding %} the HTML file is the backbone of a web-page.  
+As seen in {% post_link en/03-basic-web-understanding %} the HTML file is the backbone of a web-page.  
 The purpose of this post is to have a better understanding of those, and how you can write a simple one!
 
 <!-- more -->
@@ -185,4 +186,4 @@ Now you know how to:
 - use a __proper text editor__ to create and edit a HTML document
 - what is a __HTML element__
 
-But we have more to see on {% post_link 05-html-basic-part-2 the second part %}  to make it a little bit more complex ⚙️
+But we have more to see on {% post_link en/05-html-basic-part-2 the second part %}  to make it a little bit more complex ⚙️

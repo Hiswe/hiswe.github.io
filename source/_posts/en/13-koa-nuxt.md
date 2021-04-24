@@ -1,5 +1,6 @@
 ---
 title: Writing koa/nuxt applications
+lang: en
 tags:
   - advanced
   - vue
@@ -21,7 +22,7 @@ But you want your application to be:
 - fast
 - bulletproof
 
-So you decide to make a {% post_link 12-vue-with-nuxt Universal Web Application %} with [Nuxt 2](https://nuxtjs.org/) & [Koa 2](https://koajs.com/)
+So you decide to make a {% post_link en/12-vue-with-nuxt Universal Web Application %} with [Nuxt 2](https://nuxtjs.org/) & [Koa 2](https://koajs.com/)
 It will:
 
 - fasten the first rendering
@@ -193,7 +194,7 @@ And for the Nuxt part:
 ## Conclusion
 
 Making Nuxt working with Koa isn't as smooth as with Express.
-Still I prefer {% post_link 07-from-express-to-koa working with Koa %}, and with a little more boilerplate everything's fine.
+Still I prefer {% post_link en/07-from-express-to-koa working with Koa %}, and with a little more boilerplate everything's fine.
 
 I'm sure there is room for improvements, but it's working for me.
 The downside is mainly more boilerplate code and handling session updates manually.

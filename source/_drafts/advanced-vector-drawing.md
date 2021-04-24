@@ -7,7 +7,7 @@ comments: false
 ## Introduction
 
 This is the second tutorial about creating simple vector drawings.  
-First one can be found {% post_link 02-vector-creation-basics here %}
+First one can be found {% post_link en/02-vector-creation-basics here %}
 
 Again we will cover 2 softwares:
 

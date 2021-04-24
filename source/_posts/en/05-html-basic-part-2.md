@@ -1,5 +1,6 @@
 ---
 title: html basic (part 2)
+lang: en
 description: 'Learn more about writing HTML: nesting HTML element and achieving a more complex web-page'
 tags:
   - beginner
@@ -13,7 +14,7 @@ comments: false
 
 ## Introduction
 
-With {% post_link 04-html-basic-part-1 %} we've seen how to:
+With {% post_link en/04-html-basic-part-1 %} we've seen how to:
 
 - use a *proper text editor* to create and edit a HTML document
 - what is a *HTML element*
@@ -141,7 +142,7 @@ In order to prevent this problem, we use a convention:
 __*It's really important to indent well*__: It will prevent you to do a lot of mistakes.  
 …and it looks nicer (developer's poetry 🌈)
 
-Indenting is made easy with a {% post_link 04-html-basic-part-1 a proper text editor %} like [Visual Studio Code](https://code.visualstudio.com/). 
+Indenting is made easy with a {% post_link en/04-html-basic-part-1 a proper text editor %} like [Visual Studio Code](https://code.visualstudio.com/). 
 It will also highlight HTML errors for you. Good guy 🤩
 
 ## Adding an image: self-closing HTML element & attributes
@@ -293,5 +294,5 @@ We have seen:
 - How to write everything in a clean way
 - A more pertinent organization of the HTML page
 
-It's still ugly, but before digging into that ([CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)), we will make some short improvements in the story… in {% post_link 06-html-basic-part-3 the part 3! %}
+It's still ugly, but before digging into that ([CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)), we will make some short improvements in the story… in {% post_link en/06-html-basic-part-3 the part 3! %}
 

@@ -1,5 +1,6 @@
 ---
 title: Isomorphic application with React/Redux
+lang: en
 description: 'A take on building an universal application with React/Redux that supports no-JS environment, authentication & i18n'
 tags:
   - advanced

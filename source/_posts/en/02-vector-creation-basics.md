@@ -1,5 +1,6 @@
 ---
 title: Creating vector images
+lang: en
 description: Learn how to make a vector image with Affinity Designer or Adobe Illustrator
 tags:
   - affinity designer
@@ -29,7 +30,7 @@ Choosing one upon another is more a matter of personal preference.
 ### Prerequisites
 
 Knowing about what is a vector drawing of course :)  
-I have made a small introduction {% post_link 01-vector-basics here %}
+I have made a small introduction {% post_link en/01-vector-basics here %}
 
 ### What is it NOT about
 

@@ -1,5 +1,6 @@
 ---
 title: 'State of PWA with Parcel, February 2019'
+lang: en
 tags:
   - advanced
 cover: cover.png
@@ -59,7 +60,7 @@ It helps people to compile things in web technologies (HTML, CSS & JS)
 
 It means to be a simpler alternative to webpack (that has the same purpose, and whose main critic is to be hard to configure).
 
-You can check {% post_link 11-parcel-with-vue this post about Parcel %} if you want more information. (Yeah, self promotion 😎)
+You can check {% post_link en/11-parcel-with-vue this post about Parcel %} if you want more information. (Yeah, self promotion 😎)
 
 ## How was it with Parcel in the mid-2018
 

@@ -1,5 +1,6 @@
 ---
 title: testing the parcel bundler with vue
+lang: en
 tags:
   - advanced
   - vue
@@ -157,7 +158,7 @@ It's useful if you share a lot of code between the client & the server and you w
 
 There is a [target](https://parceljs.org/cli.html#target) parameter for it. But I'm not sure if I can do variables or module replacement with it.
 
-When I was building my {% post_link 08-universal-application universal web-application %} (bad idea, don't do it at home, use [next.js](https://nextjs.org/) or [nuxt](https://nuxtjs.org/)) I had to really refine my build configuration.
+When I was building my {% post_link en/08-universal-application universal web-application %} (bad idea, don't do it at home, use [next.js](https://nextjs.org/) or [nuxt](https://nuxtjs.org/)) I had to really refine my build configuration.
 I don't know if it would have been possible by using Parcel only.
 
 ## Conclusion

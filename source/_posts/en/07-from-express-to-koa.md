@@ -1,5 +1,6 @@
 ---
 title: from express to koa
+lang: en
 description: 'How using async/await push me from using express.js to koa framework'
 tags:
   - advanced
