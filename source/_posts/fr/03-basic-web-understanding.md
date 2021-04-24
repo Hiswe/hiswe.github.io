@@ -1,5 +1,5 @@
 ---
-title: Compréhension sommaire du web
+title: Les bases du web
 lang: fr
 description: Apprendre comment on affiche une belle page internet après avoir tapé une adresse dans son navigateur
 tags:
@@ -100,48 +100,45 @@ Si vous voulez plus de détail [il  y a beaucoup plus de détails ici](https://f
 
 ### HTML
 
-So HTML is a text file but a very specific kind of text file.
-It's: 
+Donc le HTML est juste un fichier texte, mais un type de fichier spécifique.
 
-- all the information you want to have but written in a specific way 
-- all the information that the web-page need to be more friendly and helpful
+C'est : 
 
-### CSS, Javascript and other resources 
+- Tout le contenu que vous voulez écrire mais formatter d'une manière très spécifique. 
+- Toutes les autres informations supplémentaires nécessaire pour que celà s'affiche de manière plus belle.
 
-{% caption You also need CSS & JS %}
-{% asset_img server-give-css-and-js.svg 525 200 "the server giving a CSS & a JS file 'the server giving a CSS & a JS file'" %} 
+### CSS, Javascript (JS) et les autres ressources 
+
+{% caption Vous avex aussi besoin de CSS et de JS %}
+{% asset_img server-give-css-and-js.svg 525 200 "le serveur transmettant des fichiers CSS & JS 'le serveur transmettant des fichiers CSS & JS'" %} 
 {% endcaption %}
 
-The latter part is the HTML file telling the browser to ask the server for more files. 
-Beside images/videos, there are also 2 domains where it needs more specific information: 
+Dans les informations supplémentaires on va retrouver une liste de fichiers supplémentaires à demander au serveur. 
+En plus des images/vidéos, il y a aussi deux domaines précis où l'on a besoin de plus d'informations : 
 
-- for having a __nice presentation__: those are the __CSS__ text files
-- for being __interactive__: those are the __Javascript__ text files
+- pour avoir une __jolie présentation__ : ce sera donné par les informations contenue dans les fichiers textes de type  __CSS__
+- pour avoir un contenu __interactif__ : ce sera donné par les informations contenue dans les fichiers textes de type __Javascript__ (on abrège souvent en JS)
 
-### The browser magic
+### La magie du navigateur
 
-{% caption It's awesome! A beautiful web-page!  %}
-{% asset_img webbrowser-rendering.svg 480 400 "the browser rendering a web-page 'the browser rendering a web-page'" %} 
+{% caption Wow ! Ça c'est de la page web !  %}
+{% asset_img webbrowser-rendering.svg 480 400 "le navigateur rendant une page internet 'le navigateur rendant une page internet'" %} 
 {% endcaption %}
 
-And now, using all those text files, your browser will do the magic and finally show you an interactive display of the information you wanted to see!
+Et donc, avec l'ensemble de ces fichiers textes (HTML, CSS & JS), le navigateur jouera de sa magie et offrira à vous et aux autres utilisateurs un bel affichage intéractif des informations que vous voulez voir ! 
 
-## So…
+## Pour résumer
 
 {% caption Love! Love! Love! %}
-{% asset_img browser-love.svg 260 140 "the browser surrounded by heart 'the browser surrounded by heart'" %} 
+{% asset_img browser-love.svg 260 140 "le navigateur entouré d'amour 'le navigateur entouré d'amour'" %} 
 {% endcaption %}
 
-__Love your browser and keep it up to date__ 😎
+__Aimez votre navigateur !__  (et gardez le à jour 😎)
 
-You know now that : 
+Vous savez maintenant : 
 
-- a website is mainly text files
-- They are given to you by the server
-- The main text file for a website is the HTML file
+- qu'un site internet est un ensemble de fichiers texte
+- ils vous sont fournis par le serveur
+- le fichier principal d'une page web est un fichier HTML
 
-I will go into more details for all those files (HTML, CSS & Javascript) with comings posts.  
-
-*[UPDATE]* {% post_link en/03-html-basic-part-1 here is the the first part of HTML document! %} 
-
-Thanks to [xpac27](https://github.com/xpac27) for the corrections!
+Vous pouvez retrouver plus de détail à propos du HTML dans cet article : {% post_link 04-html-basic-part-1 %} 

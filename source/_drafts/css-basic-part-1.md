@@ -14,14 +14,14 @@ categories:
 
 ## Introduction
 
-As seen in {% post_link en/06-html-basic-part-3 %} the HTML file is our web-page content.  
+As seen in {% post_link 06-html-basic-part-3 %} the HTML file is our web-page content.  
 But right now it looks pretty ugly 🙁.
 
 So now it's time to make this a little bit more beautiful 💄.
 
 <!-- more -->
 
-Before reading this, make sure you have some basic knowledge of HTML (see {% post_link en/04-html-basic-part-1 previous posts %} )
+Before reading this, make sure you have some basic knowledge of HTML (see {% post_link 04-html-basic-part-1 previous posts %} )
 
 ## What's CSS?
 

@@ -138,6 +138,6 @@ You know now that : 
 
 I will go into more details for all those files (HTML, CSS & Javascript) with comings posts.  
 
-*[UPDATE]* {% post_link en/03-html-basic-part-1 here is the the first part of HTML document! %} 
+*[UPDATE]* {% post_link 04-html-basic-part-1 here is the the first part of HTML document! %} 
 
 Thanks to [xpac27](https://github.com/xpac27) for the corrections!

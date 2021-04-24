@@ -48,7 +48,7 @@ Both provide an easy way to bundle your code without getting an headache:
 To use them, you just need to have [Node.js](https://nodejs.org/en/) installed on your computer 🤖
 
 If you want an independent & still simple way to bundle them, you can try [Parcel](https://parceljs.org/).
-I {% post_link en/11-parcel-with-vue tested it %} for my first side project with Vue and it was a real quick starter.
+I {% post_link 11-parcel-with-vue tested it %} for my first side project with Vue and it was a real quick starter.
 
 All this building intro gets us to…
 
