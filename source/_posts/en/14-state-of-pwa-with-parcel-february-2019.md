@@ -1,5 +1,6 @@
 ---
 title: 'State of PWA with Parcel, February 2019'
+lang: en
 tags:
   - advanced
 cover: cover.png

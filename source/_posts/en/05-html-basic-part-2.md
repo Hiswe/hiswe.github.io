@@ -1,5 +1,6 @@
 ---
 title: html basic (part 2)
+lang: en
 description: 'Learn more about writing HTML: nesting HTML element and achieving a more complex web-page'
 tags:
   - beginner

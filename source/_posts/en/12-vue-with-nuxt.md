@@ -1,5 +1,6 @@
 ---
 title: Going Vue with Nuxt
+lang: en
 tags:
   - advanced
   - vue

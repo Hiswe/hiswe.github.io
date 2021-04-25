@@ -1,5 +1,6 @@
 ---
 title: Creating vector images
+lang: en
 description: Learn how to make a vector image with Affinity Designer or Adobe Illustrator
 tags:
   - affinity designer

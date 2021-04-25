@@ -1,5 +1,6 @@
 ---
 title: css basic (part 1)
+lang: en
 cover: cover.png
 comments: false
 description:

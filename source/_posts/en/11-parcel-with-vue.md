@@ -1,5 +1,6 @@
 ---
 title: testing the parcel bundler with vue
+lang: en
 tags:
   - advanced
   - vue

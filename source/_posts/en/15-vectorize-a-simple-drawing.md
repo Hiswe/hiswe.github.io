@@ -1,5 +1,6 @@
 ---
 title: Vectorize simple drawings images
+lang: en
 tags:
   - affinity designer
   - vector

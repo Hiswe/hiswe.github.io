@@ -1,5 +1,6 @@
 ---
 title: html basic (part 3)
+lang: en
 description: 'Learn even more about writing HTML: semantic in HTML, encoding & meta elements'
 tags:
   - beginner

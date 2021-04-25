@@ -3,7 +3,6 @@
 const gulp = require(`gulp`)
 const $ = require(`gulp-load-plugins`)()
 const del = require(`del`)
-const log = require(`fancy-log`)
 const lazypipe = require(`lazypipe`)
 const args = require(`yargs`).argv
 const browserSync = require(`browser-sync`).create()
@@ -30,7 +29,6 @@ function onError(err) {
 // CSS
 ////////
 
-const autoprefixer = require('autoprefixer')
 const cssDest = `${themeDir}/source`
 
 const cssDev = lazypipe().pipe($.sourcemaps.write)
@@ -55,7 +53,6 @@ function compileSass() {
     .pipe($.plumber(onError))
     .pipe($.sourcemaps.init())
     .pipe($.sass())
-    .pipe($.postcss([autoprefixer({ overrideBrowserslist: ['ie 10', 'last 2 versions'] })]))
     .pipe($.if(isDev, cssDev(), cssProd()))
     .pipe($.rename({ basename: `hiswe-theme` }))
     .pipe(gulp.dest(cssDest))

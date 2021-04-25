@@ -1,5 +1,6 @@
 ---
 title: Vector basics
+lang: en
 description: Learn what is a vector image and some basic concepts evolving around it
 date: 2016-01-30 18:51:23
 tags:

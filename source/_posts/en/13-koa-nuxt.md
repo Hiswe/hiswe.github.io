@@ -1,5 +1,6 @@
 ---
 title: Writing koa/nuxt applications
+lang: en
 tags:
   - advanced
   - vue

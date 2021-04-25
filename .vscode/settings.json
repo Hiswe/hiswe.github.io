@@ -19,5 +19,15 @@
     "unzoom",
     "xpac"
   ],
-  "cSpell.language": "en"
+  "cSpell.language": "en",
+  "cSpell.overrides": [
+    {
+      "language": "fr",
+      "filename": "**/fr/**/*.md"
+    },
+    {
+      "language": "fr",
+      "filename": "**/fr.yml"
+    },
+  ]
 }

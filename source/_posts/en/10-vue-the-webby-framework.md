@@ -1,5 +1,6 @@
 ---
 title: 'Vue, the webby framework'
+lang: en
 tags:
   - advanced
   - react
