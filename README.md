@@ -21,7 +21,7 @@ npm start
 ### writing
 
 ```
-yarn hexo new [layout] <title>
+yarn hexo new [layout] '<title>' --lang fr
 ```
 
 - post (source/\_posts)
@@ -54,6 +54,10 @@ https://cards-dev.twitter.com/validator
 #### validate open graph
 
 https://developers.facebook.com/tools/debug/sharing
+
+### documentation
+
+https://bluemix.github.io/en/2017/multilingual-blogging-with-Hexo/
 
 ## TODO
 
