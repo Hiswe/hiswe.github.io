@@ -100,9 +100,9 @@ Pour plus de confort on peut réorganiser l'espace de travail comme suit :
    {% asset_img codepen-maximize-html-editor.png 435 325 "bouton maximiser le bloc HTML 'bouton maximiser le bloc HTML'" %}
    {% endcaption %}
 
-### enregistrer son travail (optionnel)
+### Enregistrer son travail (optionnel)
 
-Il faut s'enregistrer depuis l'interface.  
+Il faut s'inscrire depuis l'interface.  
 Le bouton d'inscription se trouve tout en bas de la popup de connection !
 
 ## Créer une page du contenu
