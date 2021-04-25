@@ -18,7 +18,7 @@ Comment se servir de Codepen pour apprendre et créer des croquis de page intern
 
 <!-- more -->
 
-## Quelques (brefs) rappels sur le web
+## Rappels sur le web
 
 Quand on veut afficher une page internet, on va rentrer dans son navigateur une adresse.
 
@@ -31,6 +31,7 @@ Outre tout les fichiers d'images/vidéos/son qu'on va pouvoir avoir il en existe
 - JavaScript (On abrège en JS presque tout le temps)
 
 **Ce sont tous des fichiers texte.**  
+
 C'est à dire&nbsp;:
 
 - qu'ils sont composés de caractères lisibles par un être humain
@@ -38,24 +39,24 @@ C'est à dire&nbsp;:
 
 Vous pouvez retrouver une explication plus détaillée dans cet article : {% post_link 03-les-bases-du-web %}
 
-### Rôle des fichiers HTML/CSS/JS
+### HTML, CSS et JS
 
 Si on devait comparer la construction d'une maison avec celle d'une page internet alors :
 
-- le HTML va donner toute la description de la maison.  
-  Par exemple&nbsp;: c'est une maison avec un salon, qui a une table et 4 chaises, etc.
-- le CSS va donner tout ce qui est apparence.  
-  Par exemple&nbsp;: Le salon fait 15m², il est peint de rose, la table est carré et les 4 chaises sont autour, etc.
-- le JS va donner tout ce qui est comportements.  
-  Par exemple&nbsp;: si on appui sur l'interrupteur du mur, la lumière s'allume
+- le fichier HTML va donner toute la description de la maison.  
+  Par exemple&nbsp;: c'est une maison avec un salon qui a une table et 4 chaises, etc.
+- le fichier CSS va donner tout ce qui est apparence.  
+  Par exemple&nbsp;: Le salon fait 15m², il est peint de blanc, la table est carré et les 4 chaises sont autour, etc.
+- le fichier JS va donner tout ce qui est comportements.  
+  Par exemple&nbsp;: si on appui sur l'interrupteur du mur du salon, la lumière s'allume, etc.
 
-En terme technique :
+En termes plus techniques :
 
 - le HTML c'est le contenu
 - le CSS, l'apparence
 - le JS, les comportements
 
-{% caption HTML : contenu, CSS : apparence, JS : comportements %}
+{% caption HTML&nbsp;: contenu, CSS&nbsp;: apparence, JS&nbsp;: comportements %}
 {% asset_img web-page-file-types.svg 500 150 "des fichiers HTML, CSS et JS 'des fichiers HTML, CSS et JS'" %}
 {% endcaption %}
 
@@ -65,16 +66,17 @@ Le web a été designé dans cet état d'esprit.
 
 - On doit pouvoir lire le contenu dans n'importe quelle langue (changement de direction pour l'arabe par exemple)
 - On doit pouvoir accéder au contenu quand on est en situation de handicap (avec des technologies comme [voice-over](https://www.apple.com/fr/accessibility/))
-- Enlever le plus de frein pour la création de contenu&nbsp;:
+- Il faut avoir le moins possible de freins pour créer du contenu&nbsp;:
   - le code est lisible par un être humain
-  - on n'a pas besoin de payer de licenses pour créer
+  - on n'a pas besoin de payer quoique ce soit pour en écrire
+  - les outils qui peuvent nous aider sont gratuits
 
 ## Codepen
 
 [Copepen](https://codepen.io/about) est un environnement de développement web en ligne.  
-Il permets de faciliter la création croquis de page internet !
+Il permets de faciliter la création de croquis de page internet !
 
-Pour celà il suffit d'aller sur&nbsp;:
+Pour celà il faut aller sur&nbsp;:
 
 [https://codepen.io/pen/](https://codepen.io/pen/)
 
@@ -98,7 +100,7 @@ Pour plus de confort on peut réorganiser l'espace de travail comme suit :
    {% asset_img codepen-maximize-html-editor.png 435 325 "bouton maximiser le bloc HTML 'bouton maximiser le bloc HTML'" %}
    {% endcaption %}
 
-### Optionnel&nbsp;: enregistrer son travail
+### enregistrer son travail (optionnel)
 
 Il faut s'enregistrer depuis l'interface.  
 Le bouton d'inscription se trouve tout en bas de la popup de connection !
@@ -114,7 +116,7 @@ Pour moi ça donnerait quelque chose comme :
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
-### Pourquoi tout est sur une même ligne ?
+### Tout sur une même ligne ?
 
 {% caption Hey, je fais juste mon travail… %}
 {% asset_img browser-rendering-text.svg 430 400 "le navigateur affichant le contenu textuel 'le navigateur affichant le contenu textuel'" %}
@@ -125,19 +127,19 @@ Celà veut dire que pour avoir une meilleure expérience de lecture il nous faud
 
 - [des entêtes (article en anglais)](https://en.wikipedia.org/wiki/Headline)
 - [de paragraphes](https://fr.wikipedia.org/wiki/Paragraphe)
+- des retours chariots
 - des listes
-- Peut-être du formatage de texte comme du <b>gras</b> ou de l'<i>italique</i>.
 
-**Là où dans Word, vous pouvez cliquer sur un bouton pour cela, en HTML, vous devez l'écrire pour que le navigateur Web le comprenne.**
+**Là où dans Word, vous pouvez cliquer sur un bouton pour cela, en HTML, vous devez l'écrire pour que le navigateur le comprenne.**
 
 Actuellement, vous avez une idée de comment ça doit être présenté mais le navigateur, lui, ne voit que du texte.  
 En plus, _il va combiner les espaces multiples et ignorer les retours à la ligne_ 😇
 (Et croyez-moi il faut ça pour votre propre bien)
 
-### Disons au navigateur que nous voulons des entêtes et des paragraphes !
+### Entêtes et paragraphes
 
-{% caption Ah OK! you want a heading & a paragraph! %}
-{% asset_img browser-rendering-html.svg 430 450 "The browser rendering the example below 'The browser rendering the example below'" %}
+{% caption Ah OK! tu veux un entête et des paragraphes&nbsp;! %}
+{% asset_img browser-rendering-html.svg 430 450 "rendu de navigateur 'rendu de navigateur'" %}
 {% endcaption %}
 
 Nous devons mettre à jour notre code comme suit&nbsp;:
@@ -148,7 +150,7 @@ Nous devons mettre à jour notre code comme suit&nbsp;:
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
-### Que s'est-il passé ? les éléments HTML
+### Les éléments HTML
 
 **On vient juste de dire au navigateur quel type de contenu nous voulions** 😊  
 
@@ -170,8 +172,6 @@ C'est composé la plupart du temps:
 - un **tag fermant** (`</h1>` & `</p>` dans notre cas) qui est comme notre tag ouvrant _mais_ :  
   ⚠️ **on ajoute un** `/` **après le signe supérieur !**
 
-Vous pouvez en apprendre plus sur [l'article wikipedia )](https://en.wikipedia.org/wiki/HTML_element#Syntax) (en anglais)
-
 #### Tags ouvrant et fermant 
 
 C'est la manière que l'on a de dire au navigateur où un élément commence et fini.
@@ -189,7 +189,7 @@ Comme dit précédemment, chaque élément HTML a un __sens__, donc :
 Comme le HTML a été conçu par des américains, les abbreviation viennent de l'anglais
 Vous pouvez voir la  [liste complète des éléments HTML ici](https://developer.mozilla.org/fr/docs/Web/HTML/Element)
 
-### Mieux présenter une liste
+## Améliorer son contenu
 
 On voit que l'on a encore des choses à améliorer&nbsp;:
 
@@ -254,7 +254,7 @@ Pour exemple, si on voulait décrire en HTML ce panier de fruit avec ses trois p
 Bien sûr `panier-de-fruit` et `pomme` ne sont pas des éléments HTML valides ⛔ 🗑 + 🍎
 Ne les utilisez pas dans vos prochains projets ! 
 
-### Parent & Enfant
+### Parent & enfants
 
 C'est de la poésie de développeur 🌈 
 On parle souvent __d'un élément HTML en contenant d'autres__ comme __d'un parent__ et de __ses enfants__  
@@ -265,7 +265,7 @@ Dans l'exemple du dessus&nbsp;:
 - les enfants du panier seraient les pommes
 
 
-### Une erreur facile à faire&nbsp;: ne pas imbriquer correctement les éléments
+## Une erreur facile à faire : mal imbriquer ses éléments
 
 {% caption Le navigateur n'aime pas les éléments HTML dans un état quantique %}
 {% asset_img intertwined-apple.svg 270 180 "une pomme piégée sur le rebord du panier 'une pomme piégée sur le rebord du panier'" %} 
@@ -303,11 +303,12 @@ Il __se ferme *en dehors*__ de son parent
 
 ## Conclusion
 
-- le HTML c'est simplement du texte
+- le HTML c'est du texte
 - ça permets de hiérarchiser l'information
 - celà s'écrit avec des balises HTML
+- les balises ont un sens
+- toutes les balises s'écrivent avec des tags
 - les tags s'écrivent avec des lettres entourées de chevrons
-- les tags ont un sens
 
 Si vous voulez plus d'information il y a [cet excellent article](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics) de disponible&nbsp;!
 
