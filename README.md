@@ -3,19 +3,19 @@
 ## launching
 
 ```
-npm install
+yarn
 ```
 
 ### release
 
 ```
-npm run release
+yarn release
 ```
 
 ### dev
 
 ```
-npm start
+yarn start
 ```
 
 ### writing
@@ -28,10 +28,16 @@ yarn hexo new [layout] '<title>' --lang fr
 - page (source)
 - draft (source/\_drafts)
 
-### converting a draft
+#### creating a draft
 
+```sh
+yarn draft '<title>' --lang fr
 ```
-yarn hexo publish <title>
+
+#### converting a draft
+
+```sh
+yarn publish '<title>'
 ```
 
 ### converting videos

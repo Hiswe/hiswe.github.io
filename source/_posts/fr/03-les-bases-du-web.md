@@ -57,7 +57,7 @@ Ce sont plutôt les entreprises qui en possèdent.
 [//]: # ( need to use {% link %} regular link doesn't handle well parenthesis )
 {% link Un article complet sur les serveurs https://fr.wikipedia.org/wiki/Serveur_informatique %}
 
-Petite remarque : Internet consiste à faire en sorte que les ordinateurs se parlent entre eux.
+Petite remarque&nbsp;: Internet consiste à faire en sorte que les ordinateurs se parlent entre eux.
 Vous pouvez donc transformer votre propre ordinateur en serveur si vous le souhaitez en installant des logiciels spécifiques !
 
 ### Le navigateur
@@ -76,7 +76,7 @@ Voici quelques navigateurs connus:
 - [Apple Safari](https://support.apple.com/downloads/safari)
 
 Il va tout faire pour que vous ayez une belle représentation visuelle de ce que vous avez demandé.  
-Ui, ça semble évidente mais c'est une des choses principale des ordinateurs : comment avec des [bits](https://fr.wikipedia.org/wiki/Bit) vous pouvez avoir un affichage interactif ✨ 
+Ui, ça semble évidente mais c'est une des choses principale des ordinateurs&nbsp;: comment avec des [bits](https://fr.wikipedia.org/wiki/Bit) vous pouvez avoir un affichage interactif ✨ 
 
 ## Comment ça fonctionne
 
@@ -102,22 +102,22 @@ Si vous voulez plus de détail [il  y a beaucoup plus de détails ici](https://f
 
 Donc le HTML est juste un fichier texte, mais un type de fichier spécifique.
 
-C'est : 
+C'est&nbsp;: 
 
 - Tout le contenu que vous voulez écrire mais formatter d'une manière très spécifique. 
 - Toutes les autres informations supplémentaires nécessaire pour que celà s'affiche de manière plus belle.
 
 ### CSS, Javascript (JS) et les autres ressources 
 
-{% caption Vous avex aussi besoin de CSS et de JS %}
+{% caption Vous avez aussi besoin de CSS et de JS %}
 {% asset_img server-give-css-and-js.svg 525 200 "le serveur transmettant des fichiers CSS & JS 'le serveur transmettant des fichiers CSS & JS'" %} 
 {% endcaption %}
 
 Dans les informations supplémentaires on va retrouver une liste de fichiers supplémentaires à demander au serveur. 
-En plus des images/vidéos, il y a aussi deux domaines précis où l'on a besoin de plus d'informations : 
+En plus des images/vidéos, il y a aussi deux domaines précis où l'on a besoin de plus d'informations&nbsp;: 
 
-- pour avoir une __jolie présentation__ : ce sera donné par les informations contenue dans les fichiers textes de type  __CSS__
-- pour avoir un contenu __interactif__ : ce sera donné par les informations contenue dans les fichiers textes de type __Javascript__ (on abrège souvent en JS)
+- pour avoir une __jolie présentation__&nbsp;: ce sera donné par les informations contenue dans les fichiers textes de type  __CSS__
+- pour avoir un contenu __interactif__&nbsp;: ce sera donné par les informations contenue dans les fichiers textes de type __Javascript__ (on abrège souvent en JS)
 
 ### La magie du navigateur
 

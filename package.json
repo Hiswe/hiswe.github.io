@@ -3,21 +3,24 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=10.15.0",
-    "yarn": ">=1.13.0"
+    "node": ">=14.15.5",
+    "yarn": ">=1.22.10"
   },
   "hexo": {
     "version": "5.4.0"
   },
   "scripts": {
-    "start": "yarn dev",
-    "dev": "hexo clean && yarn build:dev && run-p dev:*",
-    "dev:watch": "gulp dev",
-    "dev:serve": "hexo server --draft",
     "build": "cross-env NODE_ENV=production gulp build",
     "build:dev": "gulp build",
     "build:icons": "gulp icons",
-    "release": "hexo clean && yarn build && hexo generate --deploy"
+    "clean": "yarn hexo clean",
+    "dev": "hexo clean && yarn build:dev && run-p dev:*",
+    "dev:serve": "hexo server --draft",
+    "dev:watch": "gulp dev",
+    "draft": "yarn hexo new draft",
+    "draft:publish": "yarn hexo publish",
+    "release": "yarn clean && yarn build && hexo generate --deploy",
+    "start": "yarn dev"
   },
   "dependencies": {
     "cross-env": "^7.0.3",

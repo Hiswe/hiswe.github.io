@@ -23,6 +23,10 @@
   "cSpell.overrides": [
     {
       "language": "fr",
+      "filename": "**/_drafts/*.md"
+    },
+    {
+      "language": "fr",
       "filename": "**/fr/**/*.md"
     },
     {
