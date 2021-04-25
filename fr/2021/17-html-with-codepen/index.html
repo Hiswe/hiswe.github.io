@@ -1,0 +1,479 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>Initiation au HTML avec Codepen | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="Apprendre à créer une structure HTML avec Codepen" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="Initiation au HTML avec Codepen"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/fr/2021/17-html-with-codepen/" />
+  
+  <meta name="og:description" content="Apprendre à créer une structure HTML avec Codepen" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/fr/2021/17-html-with-codepen/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2021-04-25T16:12:46.000Z">
+        <a href="/fr/2021/17-html-with-codepen/">
+          25-04-2021
+        </a>
+      </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/fr/2021/17-html-with-codepen/">Initiation au HTML avec Codepen</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rappels-sur-le-web"><span class="toc-text">Rappels sur le web</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-CSS-et-JS"><span class="toc-text">HTML, CSS et JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Le-web-un-espace-inclusif-et-accessible"><span class="toc-text">Le web : un espace inclusif et accessible</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Codepen"><span class="toc-text">Codepen</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#L%E2%80%99interface"><span class="toc-text">L’interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configurer-l%E2%80%99interface"><span class="toc-text">Configurer l’interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Enregistrer-son-travail-optionnel"><span class="toc-text">Enregistrer son travail (optionnel)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creer-une-page-du-contenu"><span class="toc-text">Créer une page du contenu</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tout-sur-une-meme-ligne"><span class="toc-text">Tout sur une même ligne ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entetes-et-paragraphes"><span class="toc-text">Entêtes et paragraphes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Les-elements-HTML"><span class="toc-text">Les éléments HTML</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ameliorer-son-contenu"><span class="toc-text">Améliorer son contenu</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tags-auto-fermants"><span class="toc-text">Tags auto fermants</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Imbrication-d%E2%80%99elements-HTML"><span class="toc-text">Imbrication d’éléments HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parent-amp-enfants"><span class="toc-text">Parent &amp; enfants</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Une-erreur-facile-a-faire-mal-imbriquer-ses-elements"><span class="toc-text">Une erreur facile à faire : mal imbriquer ses éléments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Comment se servir de Codepen pour apprendre et créer des croquis de page internet.<br>Le but est de comprendre l’écriture du HTML.</p>
+<span id="more"></span>
+
+<h2 id="Rappels-sur-le-web"><a href="#Rappels-sur-le-web" class="headerlink" title="Rappels sur le web"></a>Rappels sur le web</h2><p>Quand on veut afficher une page internet, on va rentrer dans son navigateur une adresse.</p>
+<p>Le navigateur va alors demander à un autre ordinateur qui “vit” là (le serveur) de lui renvoyer les fichiers qui s’y trouvent.</p>
+<p>Outre tout les fichiers d’images/vidéos/son qu’on va pouvoir avoir il en existe 3 types particuliers. Les fichiers&nbsp;:</p>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript (On abrège en JS presque tout le temps)</li>
+</ul>
+<p><strong>Ce sont tous des fichiers texte.</strong>  </p>
+<p>C’est à dire&nbsp;:</p>
+<ul>
+<li>qu’ils sont composés de caractères lisibles par un être humain</li>
+<li>qu’ils peuvent s’ouvrir dans un éditeur de texte (pas comme Word mais presque !)</li>
+</ul>
+<p>Vous pouvez retrouver une explication plus détaillée dans cet article : <a href="/fr/2021/03-les-bases-du-web/" title="Les bases du web">Les bases du web</a></p>
+<h3 id="HTML-CSS-et-JS"><a href="#HTML-CSS-et-JS" class="headerlink" title="HTML, CSS et JS"></a>HTML, CSS et JS</h3><p>Si on devait comparer la construction d’une maison avec celle d’une page internet alors :</p>
+<ul>
+<li>le fichier HTML va donner toute la description de la maison.<br>Par exemple&nbsp;: c’est une maison avec un salon qui a une table et 4 chaises, etc.</li>
+<li>le fichier CSS va donner tout ce qui est apparence.<br>Par exemple&nbsp;: Le salon fait 15m², il est peint de blanc, la table est carré et les 4 chaises sont autour, etc.</li>
+<li>le fichier JS va donner tout ce qui est comportements.<br>Par exemple&nbsp;: si on appui sur l’interrupteur du mur du salon, la lumière s’allume, etc.</li>
+</ul>
+<p>En termes plus techniques :</p>
+<ul>
+<li>le HTML c’est le contenu</li>
+<li>le CSS, l’apparence</li>
+<li>le JS, les comportements</li>
+</ul>
+
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/web-page-file-types.svg" class="" width="500" height="150" title="des fichiers HTML, CSS et JS " alt="des fichiers HTML, CSS et JS">
+  <figcaption class="image-container__caption">HTML&nbsp;: contenu, CSS&nbsp;: apparence, JS&nbsp;: comportements</figcaption>
+</figure>
+
+
+<h3 id="Le-web-un-espace-inclusif-et-accessible"><a href="#Le-web-un-espace-inclusif-et-accessible" class="headerlink" title="Le web : un espace inclusif et accessible"></a>Le web : un espace inclusif et accessible</h3><p>Le web a été designé dans cet état d’esprit.</p>
+<ul>
+<li>On doit pouvoir lire le contenu dans n’importe quelle langue (changement de direction pour l’arabe par exemple)</li>
+<li>On doit pouvoir accéder au contenu quand on est en situation de handicap (avec des technologies comme <a target="_blank" rel="noopener" href="https://www.apple.com/fr/accessibility/">voice-over</a>)</li>
+<li>Il faut avoir le moins possible de freins pour créer du contenu&nbsp;:<ul>
+<li>le code est lisible par un être humain</li>
+<li>on n’a pas besoin de payer quoique ce soit pour en écrire</li>
+<li>les outils qui peuvent nous aider sont gratuits</li>
+</ul>
+</li>
+</ul>
+<h2 id="Codepen"><a href="#Codepen" class="headerlink" title="Codepen"></a>Codepen</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/about">Copepen</a> est un environnement de développement web en ligne.<br>Il permets de faciliter la création de croquis de page internet !</p>
+<p>Pour celà il faut aller sur&nbsp;:</p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/pen/">https://codepen.io/pen/</a></p>
+<h3 id="L’interface"><a href="#L’interface" class="headerlink" title="L’interface"></a>L’interface</h3><p>On va retrouver 4 zones&nbsp;:</p>
+<ul>
+<li>3 de ces zones sont là où on va pouvoir coder notre HTML/CSS/JS</li>
+<li>la dernière est une prévisualisation en temps réel du rendu de notre code 🥳</li>
+</ul>
+<h3 id="Configurer-l’interface"><a href="#Configurer-l’interface" class="headerlink" title="Configurer l’interface"></a>Configurer l’interface</h3><p>Pour plus de confort on peut réorganiser l’espace de travail comme suit :</p>
+<ol>
+<li>Mettre côte à côte le code et le rendu
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/codepen-change-editor-layout.png" class="" width="420" height="190" title="bouton changer de layout dans codepen " alt="bouton changer de layout dans codepen">
+  <figcaption class="image-container__caption">HTML : change view => premier icône</figcaption>
+</figure>
+</li>
+<li>Ne garder que la fenêtre HTML
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/codepen-maximize-html-editor.png" class="" width="435" height="325" title="bouton maximiser le bloc HTML " alt="bouton maximiser le bloc HTML">
+  <figcaption class="image-container__caption">HTML menu => Maximize HTML editor</figcaption>
+</figure>
+</li>
+</ol>
+<h3 id="Enregistrer-son-travail-optionnel"><a href="#Enregistrer-son-travail-optionnel" class="headerlink" title="Enregistrer son travail (optionnel)"></a>Enregistrer son travail (optionnel)</h3><p>Il faut s’inscrire depuis l’interface.<br>Le bouton d’inscription se trouve tout en bas de la popup de connection !</p>
+<h2 id="Creer-une-page-du-contenu"><a href="#Creer-une-page-du-contenu" class="headerlink" title="Créer une page du contenu"></a>Créer une page du contenu</h2><p>Pour l’exemple, on va essayer de raconter sa journée d’hier.<br>Pour moi ça donnerait quelque chose comme :</p>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="poRGGzq" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="plain-text">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/Hiswe/pen/poRGGzq">
+  plain-text</a> by Hiswe (<a target="_blank" rel="noopener" href="https://codepen.io/Hiswe">@Hiswe</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h3 id="Tout-sur-une-meme-ligne"><a href="#Tout-sur-une-meme-ligne" class="headerlink" title="Tout sur une même ligne ?"></a>Tout sur une même ligne ?</h3>
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/browser-rendering-text.svg" class="" width="430" height="400" title="le navigateur affichant le contenu textuel " alt="le navigateur affichant le contenu textuel">
+  <figcaption class="image-container__caption">Hey, je fais juste mon travail…</figcaption>
+</figure>
+
+
+<p>On veut avoir un texte formaté, non ?<br>Celà veut dire que pour avoir une meilleure expérience de lecture il nous faudrait :</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Headline">des entêtes (article en anglais)</a></li>
+<li><a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Paragraphe">de paragraphes</a></li>
+<li>des retours chariots</li>
+<li>des listes</li>
+</ul>
+<p><strong>Là où dans Word, vous pouvez cliquer sur un bouton pour cela, en HTML, vous devez l’écrire pour que le navigateur le comprenne.</strong></p>
+<p>Actuellement, vous avez une idée de comment ça doit être présenté mais le navigateur, lui, ne voit que du texte.<br>En plus, <em>il va combiner les espaces multiples et ignorer les retours à la ligne</em> 😇<br>(Et croyez-moi il faut ça pour votre propre bien)</p>
+<h3 id="Entetes-et-paragraphes"><a href="#Entetes-et-paragraphes" class="headerlink" title="Entêtes et paragraphes"></a>Entêtes et paragraphes</h3>
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/browser-rendering-html.svg" class="" width="430" height="450" title="rendu de navigateur " alt="rendu de navigateur">
+  <figcaption class="image-container__caption">Ah OK! tu veux un entête et des paragraphes&nbsp;!</figcaption>
+</figure>
+
+
+<p>Nous devons mettre à jour notre code comme suit&nbsp;:</p>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="NWdoorL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="basic-html-tagging">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/Hiswe/pen/NWdoorL">
+  basic-html-tagging</a> by Hiswe (<a target="_blank" rel="noopener" href="https://codepen.io/Hiswe">@Hiswe</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h3 id="Les-elements-HTML"><a href="#Les-elements-HTML" class="headerlink" title="Les éléments HTML"></a>Les éléments HTML</h3><p><strong>On vient juste de dire au navigateur quel type de contenu nous voulions</strong> 😊  </p>
+<h4 id="Anatomie-d’un-element-HTML"><a href="#Anatomie-d’un-element-HTML" class="headerlink" title="Anatomie d’un élément HTML"></a>Anatomie d’un élément HTML</h4>
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/html-element-anatomy.svg" class="" width="500" height="280" title="2 éléments HTML détaillés " alt="2 éléments HTML détaillés">
+  <figcaption class="image-container__caption">vision au rayon X d'un élément HTML</figcaption>
+</figure>
+
+
+<p>Un élément HTML est un <em>groupe qui a une signification</em> (comme entête, paragraphe, liste…)<br>C’est composé la plupart du temps:</p>
+<ul>
+<li>d’un <strong>tag ouvrant</strong> (<code>&lt;h1&gt;</code> &amp; <code>&lt;p&gt;</code> dans notre exemple) toujours écrit de la façon suivant<ul>
+<li>le signe supérieur <code>&lt;</code></li>
+<li>le nom du tag</li>
+<li>le signe inférieur <code>&gt;</code></li>
+<li>… ou pour le dire plus simplement : le nom du tag entouré de 2 chevrons</li>
+</ul>
+</li>
+<li>le <strong>contenu</strong> (les différents textes)</li>
+<li>un <strong>tag fermant</strong> (<code>&lt;/h1&gt;</code> &amp; <code>&lt;/p&gt;</code> dans notre cas) qui est comme notre tag ouvrant <em>mais</em> :<br>⚠️ <strong>on ajoute un</strong> <code>/</code> <strong>après le signe supérieur !</strong></li>
+</ul>
+<h4 id="Tags-ouvrant-et-fermant"><a href="#Tags-ouvrant-et-fermant" class="headerlink" title="Tags ouvrant et fermant"></a>Tags ouvrant et fermant</h4><p>C’est la manière que l’on a de dire au navigateur où un élément commence et fini.<br>Sans celà, aussi intelligent qu’il soit, il ne pourra pas deviner ce que vous aviez en tête quand vous avez écrit votre code.</p>
+<p><strong><em>Savoir écrire comme il faut un élément HTML est la chose la plus importante à comprendre à propos de l’HTML!</em></strong></p>
+<h4 id="h1-amp-p"><a href="#h1-amp-p" class="headerlink" title="h1 &amp; p"></a>h1 &amp; p</h4><p>Comme dit précédemment, chaque élément HTML a un <strong>sens</strong>, donc :  </p>
+<ul>
+<li><code>h1</code> représente un <b>h</b>eading de <strong>1</strong><sup>er</sup> niveau</li>
+<li><code>p</code> représente un <b>p</b>aragraph</li>
+</ul>
+<p>Comme le HTML a été conçu par des américains, les abbreviation viennent de l’anglais<br>Vous pouvez voir la  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">liste complète des éléments HTML ici</a></p>
+<h2 id="Ameliorer-son-contenu"><a href="#Ameliorer-son-contenu" class="headerlink" title="Améliorer son contenu"></a>Améliorer son contenu</h2><p>On voit que l’on a encore des choses à améliorer&nbsp;:</p>
+<ul>
+<li>il manque des retours à la ligne</li>
+<li>la liste n’est pas jolie</li>
+</ul>
+<p>Le code pourrait être amélioré comme suit&nbsp;:</p>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="KKaJJrP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="html-tagging-improvement">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/Hiswe/pen/KKaJJrP">
+  html-tagging-improvement</a> by Hiswe (<a target="_blank" rel="noopener" href="https://codepen.io/Hiswe">@Hiswe</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h4 id="Signification-des-nouveaux-elements"><a href="#Signification-des-nouveaux-elements" class="headerlink" title="Signification des nouveaux éléments"></a>Signification des nouveaux éléments</h4><p>On l’a déjà vu, <strong>un élément HTML a un sens</strong>:  </p>
+<ul>
+<li><code>br</code> représente un <b>br</b>eak </li>
+<li><code>ul</code> représente une <b>u</b>norganized <b>l</b>ist (non-organisée car il n’y a pas d’ordre donné à cette liste, et donc elle s’affichera sans chiffres)</li>
+<li><code>li</code> représente un <b>l</b>ist <b>i</b>tem</li>
+</ul>
+<p>Et parce que nous voulions des retours chariots &amp;  une liste, le choix évident était ce couple d’éléments 😎</p>
+<h3 id="Tags-auto-fermants"><a href="#Tags-auto-fermants" class="headerlink" title="Tags auto fermants"></a>Tags auto fermants</h3>
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/auto-closing-tag.svg" class="" width="300" height="140" title="un élément HTML auto-fermant " alt="un élément HTML auto-fermant"> 
+  <figcaption class="image-container__caption">Je suis un élément auto-fermant !</figcaption>
+</figure>
+
+
+<p>Certain éléments HTML n’autorisent pas de contenu.<br>C’est le cas pour un retour chariot.<br>C’est aussi le cas pour une image par exemple ! Une image est une image, Qu’est-ce qu’on pourrait rajouter d’autre ?</p>
+<p>Pour les écrire:</p>
+<ul>
+<li>ne faire  <strong>qu’un seul tag</strong></li>
+<li>il doit  <strong>finir par <em><span class="u-c-accent">/</span>&gt;</em></strong></li>
+</ul>
+<p>Et c’est tout 🤓</p>
+<h3 id="Imbrication-d’elements-HTML"><a href="#Imbrication-d’elements-HTML" class="headerlink" title="Imbrication d’éléments HTML"></a>Imbrication d’éléments HTML</h3>
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/basket-of-apples.svg" class="" width="410" height="180" title="un panier de fruit avec 3 pommes " alt="un panier de fruit avec 3 pommes"> 
+  <figcaption class="image-container__caption">enfants pommes contenue dans papa panier de fruits</figcaption>
+</figure>
+
+
+<p>Plus haut j’avais dit que le contenu serait votre texte.<br>C’était vrai mais incomplet&nbsp;: <strong>Il peut aussi contenir d’autres éléments HTML</strong>  </p>
+<p>Pour exemple, si on voulait décrire en HTML ce panier de fruit avec ses trois pommes on pourrait écrire quelque chose comme :</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">panier-de-fruit</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">pomme</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pomme</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">pomme</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pomme</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">pomme</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pomme</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">panier-de-fruit</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>Bien sûr <code>panier-de-fruit</code> et <code>pomme</code> ne sont pas des éléments HTML valides ⛔ 🗑 + 🍎<br>Ne les utilisez pas dans vos prochains projets ! </p>
+<h3 id="Parent-amp-enfants"><a href="#Parent-amp-enfants" class="headerlink" title="Parent &amp; enfants"></a>Parent &amp; enfants</h3><p>C’est de la poésie de développeur 🌈<br>On parle souvent <strong>d’un élément HTML en contenant d’autres</strong> comme <strong>d’un parent</strong> et de <strong>ses enfants</strong>  </p>
+<p>Dans l’exemple du dessus&nbsp;:</p>
+<ul>
+<li>le parent serait le panier</li>
+<li>les enfants du panier seraient les pommes</li>
+</ul>
+<h2 id="Une-erreur-facile-a-faire-mal-imbriquer-ses-elements"><a href="#Une-erreur-facile-a-faire-mal-imbriquer-ses-elements" class="headerlink" title="Une erreur facile à faire : mal imbriquer ses éléments"></a>Une erreur facile à faire : mal imbriquer ses éléments</h2>
+<figure class="image-container">
+  <img src="/fr/2021/17-html-with-codepen/intertwined-apple.svg" class="" width="270" height="180" title="une pomme piégée sur le rebord du panier " alt="une pomme piégée sur le rebord du panier"> 
+  <figcaption class="image-container__caption">Le navigateur n'aime pas les éléments HTML dans un état quantique</figcaption>
+</figure>
+
+
+<p>Il est important de comprendre que le navigateur doit savoir quand commence et s’arrête quelque chose.<br>Donc <strong>si on ne respecte pas l’ordre d’ouverture et de fermeture</strong> cela pourra <strong>créer des problèmes</strong>.</p>
+<p>Le navigateur est votre allié. Il essaiera de corriger vos erreurs mais peut-être pas comme vous le vouliez.</p>
+<h4 id="Ce-code-HTML-n’est-pas-bon"><a href="#Ce-code-HTML-n’est-pas-bon" class="headerlink" title="Ce code HTML n’est pas bon"></a>Ce code HTML n’est pas bon</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>une pomme<br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>Le navigateur ne le comprendra pas&nbsp;: </p>
+<p>le <code>&lt;li&gt;</code> <strong>commence <em>dans</em></strong> le <code>&lt;ul&gt;</code><br><strong><em>MAIS</em></strong><br>Il <strong>se ferme <em>en dehors</em></strong> de son parent</p>
+<h4 id="La-bonne-maniere-de-l’ecrire"><a href="#La-bonne-maniere-de-l’ecrire" class="headerlink" title="La bonne manière de l’écrire"></a>La bonne manière de l’écrire</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>une pomme<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
+<li>le HTML c’est du texte</li>
+<li>ça permets de hiérarchiser l’information</li>
+<li>celà s’écrit avec des balises HTML</li>
+<li>les balises ont un sens</li>
+<li>toutes les balises s’écrivent avec des tags</li>
+<li>les tags s’écrivent avec des lettres entourées de chevrons</li>
+</ul>
+<p>Si vous voulez plus d’information il y a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics">cet excellent article</a> de disponible&nbsp;!</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/web/">web</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/beginner/">beginner</a>, <a href="/tags/html/">html</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>10</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>9</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>4</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>
