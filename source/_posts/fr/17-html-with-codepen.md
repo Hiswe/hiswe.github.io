@@ -14,7 +14,8 @@ date: 2021-04-25 18:12:46
 
 ## Introduction
 
-Comment se servir de Codepen pour apprendre et créer des croquis de page internet
+Comment se servir de Codepen pour apprendre et créer des croquis de page internet.  
+Le but est de comprendre l'écriture du HTML.
 
 <!-- more -->
 
