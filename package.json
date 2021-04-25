@@ -14,9 +14,11 @@
     "dev": "hexo clean && yarn build:dev && run-p dev:*",
     "dev:watch": "gulp dev",
     "dev:serve": "hexo server --draft",
+    "draft": "yarn hexo new draft",
     "build": "cross-env NODE_ENV=production gulp build",
     "build:dev": "gulp build",
     "build:icons": "gulp icons",
+    "publish": "yarn hexo publish",
     "release": "hexo clean && yarn build && hexo generate --deploy"
   },
   "dependencies": {
