@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>Vector basics | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="Learn what is a vector image and some basic concepts evolving around it" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="Vector basics"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2016/01-vector-basics/" />
+  
+  <meta name="og:description" content="Learn what is a vector image and some basic concepts evolving around it" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2016-01-30T17:51:23.000Z">
+        <a href="/en/2016/01-vector-basics/">
+          30-01-2016
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.764Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2016/01-vector-basics/">Vector basics</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vector-vs-pixels"><span class="toc-text">vector vs pixels</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#why-choose-vector"><span class="toc-text">why choose vector?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#what-is%E2%80%A6"><span class="toc-text">what is…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%A6a-shape"><span class="toc-text">…a shape?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%A6a-stroke-a-point"><span class="toc-text">…a stroke? a point?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%A6handlers"><span class="toc-text">…handlers?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-mystery-of-strokes"><span class="toc-text">The mystery of strokes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Styling"><span class="toc-text">Styling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Softwares"><span class="toc-text">Softwares</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="vector-vs-pixels"><a href="#vector-vs-pixels" class="headerlink" title="vector vs pixels"></a>vector vs pixels</h3><p>Pixel images are composed of a grid of colored square (fig.01)</p>
+
+<figure class="image-container">
+  <img src="/en/2016/01-vector-basics/pixel-example.png" class="" title="a pixel image and a zoom on it">
+  <figcaption class="image-container__caption">when zoomed, we see squares</figcaption>
+</figure>
+
+
+<p>Vector are defined by shapes that are rendered by the computer (fig.02) </p>
+
+<figure class="image-container">
+  <img src="/en/2016/01-vector-basics/vector-example.jpg" class="" title="a vector image and a zoom on it"> 
+  <figcaption class="image-container__caption">vectors can be zoomed without quality loss</figcaption>
+</figure>
+
+
+<p>See <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vector_graphics">wikipedia</a> for more details</p>
+<h3 id="why-choose-vector"><a href="#why-choose-vector" class="headerlink" title="why choose vector?"></a>why choose vector?</h3><p>Vector are getting you a very clean render. Also it’s easily editable.<br>For some works like:</p>
+<ul>
+<li>Logo design</li>
+<li>web-design</li>
+<li>even illustrations</li>
+</ul>
+<p>that can be great advantages.</p>
+<span id="more"></span>
+
+<h2 id="what-is…"><a href="#what-is…" class="headerlink" title="what is…"></a>what is…</h2><h3 id="…a-shape"><a href="#…a-shape" class="headerlink" title="…a shape?"></a>…a shape?</h3><ul>
+<li>it’s a whole composed of <code>many point</code></li>
+<li>it can be left open or close</li>
+<li>each points will be linked by a <code>stroke</code></li>
+</ul>
+
+<figure class="image-container">
+  <img src="/en/2016/01-vector-basics/shape-basic.svg" class="" title="an open and close path"> 
+  <figcaption class="image-container__caption">an open and close path</figcaption>
+</figure>
+
+
+<ul>
+<li>path have a begin and an end (the red point)</li>
+</ul>
+<h3 id="…a-stroke-a-point"><a href="#…a-stroke-a-point" class="headerlink" title="…a stroke? a point?"></a>…a stroke? a point?</h3><ul>
+<li>strokes are drawn automatically by the computer</li>
+<li>a stroke link two consecutive points together</li>
+</ul>
+
+<figure class="image-container">
+  <img src="/en/2016/01-vector-basics/point-basic.svg" class="" title="different states of points"> 
+  <figcaption class="image-container__caption">point without and with handles</figcaption>
+</figure>
+
+
+<ul>
+<li>points can have 0, 1 or 2 <code>handlers</code>.</li>
+<li>on the left side of fig.04, there is a shape where all points doesn’t have handlers</li>
+<li>on the right side, the points are at the same place, but they had handlers attached to them</li>
+</ul>
+<h3 id="…handlers"><a href="#…handlers" class="headerlink" title="…handlers?"></a>…handlers?</h3><ul>
+<li><code>handlers</code> are what make your path curvy (instead of straight)</li>
+<li>both handler can be :<ul>
+<li><strong>aligned</strong> (fig.04 point A)</li>
+<li><strong>broken</strong> (fig.04 point B)</li>
+<li><strong>alone</strong> (fig.04 point C)</li>
+</ul>
+</li>
+<li>and can be any sized</li>
+</ul>
+<h2 id="The-mystery-of-strokes"><a href="#The-mystery-of-strokes" class="headerlink" title="The mystery of strokes"></a>The mystery of strokes</h2><p>As said before, strokes are determine by the 2 points that are on its end.</p>
+<ul>
+<li>a stroke will always take the shortest path to link 2 points</li>
+<li>handler are modifiers of this behavior </li>
+<li>They “attract” the stroke (like some kind of “gravity force”)</li>
+</ul>
+
+<figure class="image-container">
+  <img src="/en/2016/01-vector-basics/handler-basic.svg" class="" title="handler explanation"> 
+  <figcaption class="image-container__caption">handler explanation</figcaption>
+</figure>
+
+
+<ul>
+<li>So without handlers: no deviations</li>
+<li>with handlers: deviations</li>
+<li>the bigger the handler is, the more powerful the deviation will be</li>
+</ul>
+<h2 id="Styling"><a href="#Styling" class="headerlink" title="Styling"></a>Styling</h2>
+<figure class="image-container">
+  <img src="/en/2016/01-vector-basics/shape-style.svg" class="" title="different path"> 
+  <figcaption class="image-container__caption">different path</figcaption>
+</figure>
+
+
+<ul>
+<li>it accepts a <code>stroke</code> and and <code>fill</code> that can be styled differently (fig.06 left)</li>
+<li>if the path is <em>open</em> the fill <em>only</em> will join the ends. (fig.06 middle)</li>
+<li>shapes are always piled up (fig.06 right)</li>
+</ul>
+<h2 id="Softwares"><a href="#Softwares" class="headerlink" title="Softwares"></a>Softwares</h2><p>Here is a short list of softwares you can use for editing vector graphics:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://affinity.serif.com/designer/">Affinity designer</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.adobe.com/products/illustrator.html">Adobe Illustrator</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.sketchapp.com/">Sketch</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.inkscape.org/">Inkscape</a> (Free and Open Source)</li>
+<li>…</li>
+</ul>
+<p>And many more of course :)</p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/drawing/">drawing</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/vector/">vector</a>, <a href="/tags/beginner/">beginner</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

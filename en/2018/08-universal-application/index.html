@@ -1,0 +1,636 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>Isomorphic application with React/Redux | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="A take on building an universal application with React/Redux that supports no-JS environment, authentication &amp; i18n" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="Isomorphic application with React/Redux"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2018/08-universal-application/" />
+  
+  <meta name="og:description" content="A take on building an universal application with React/Redux that supports no-JS environment, authentication &amp; i18n" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2018/08-universal-application/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2018-05-19T09:52:34.000Z">
+        <a href="/en/2018/08-universal-application/">
+          19-05-2018
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.800Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2018/08-universal-application/">Isomorphic application with React/Redux</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prerequisite"><span class="toc-text">prerequisite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#purpose-of-server-rendering"><span class="toc-text">purpose of server rendering</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#the-API"><span class="toc-text">the API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#supported-features-amp-Tech"><span class="toc-text">supported features &amp; Tech</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#files"><span class="toc-text">files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#building-the-applications"><span class="toc-text">building the applications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sharing-the-configuration"><span class="toc-text">sharing the configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#application-flow-summary"><span class="toc-text">application flow summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#routing-with-React-Router-amp-Redux"><span class="toc-text">routing with React-Router &amp; Redux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#isomorphic-fetch"><span class="toc-text">isomorphic-fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#authentication"><span class="toc-text">authentication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I18N-with-React-Intel"><span class="toc-text">I18N with React-Intel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adding-React-Helmet"><span class="toc-text">adding React-Helmet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#the-full-chain-of-components"><span class="toc-text">the full chain of components</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>So I wanted to build an isomorphic/universal web-application…</p>
+<p>This will be a <strong>long document about the <em>how</em> and the <em>why</em></strong><br>The web-app was greatly influenced by this <a target="_blank" rel="noopener" href="http://blog.koorchik.com/isomorphic-react/">Viktor Turskyi’s post</a>.</p>
+<p>Unlike most articles, I won’t produce here any code example.<br>I will try to focus on <strong>how different piece of code put together will solve building an universal applications</strong> problems.</p>
+<p>It’s my first take on this kind of application, so I’m sure there are many flaws &amp; rooms for improvement.<br>But hey! we need a start in order to advance 🏃‍♀️</p>
+<span id="more"></span>
+
+<h2 id="prerequisite"><a href="#prerequisite" class="headerlink" title="prerequisite"></a>prerequisite</h2><p>You should have some notions with:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/">React</a><ul>
+<li>what is a <a target="_blank" rel="noopener" href="https://reactjs.org/docs/components-and-props.html">Component</a></li>
+<li>what is a <a target="_blank" rel="noopener" href="https://reactjs.org/docs/components-and-props.html">High-Order Component (HoC)</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://redux.js.org/">Redux</a><ul>
+<li>what is a <a target="_blank" rel="noopener" href="https://redux.js.org/basics/store">store</a></li>
+<li>what is an <a target="_blank" rel="noopener" href="https://redux.js.org/basics/actions">action</a></li>
+<li>what is a <a target="_blank" rel="noopener" href="https://redux.js.org/basics/reducers">reducer</a></li>
+<li>how to use <a target="_blank" rel="noopener" href="https://redux.js.org/basics/usage-with-react">react-redux</a> to connect our React components to the store</li>
+</ul>
+</li>
+<li>Some javascript tooling:<ul>
+<li><a target="_blank" rel="noopener" href="https://webpack.js.org/">Webpack</a> for bundling our application</li>
+<li><a target="_blank" rel="noopener" href="http://babeljs.io/">BabelJs</a> for converting <a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-jsx.html">React jsx</a> code to plain javascript</li>
+</ul>
+</li>
+</ul>
+<h2 id="purpose-of-server-rendering"><a href="#purpose-of-server-rendering" class="headerlink" title="purpose of server rendering"></a>purpose of server rendering</h2><p>Server rendering seems a good idea for 2 main reasons:</p>
+<ul>
+<li>make our <strong>first render quicker</strong></li>
+<li><strong>support no-JS environments</strong></li>
+</ul>
+<p>For this we need to:</p>
+<ol>
+<li>grab the right components to render (using the <a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-dom-server.html">React methods for server rendering</a>)<br> a non exiting route means rendering the 404 component</li>
+<li> make sure that the components have the right data to begin with.</li>
+<li> pass everything to the client</li>
+<li> after that the client will initialize and run as a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Single-page_application">single page application</a></li>
+</ol>
+<h2 id="the-API"><a href="#the-API" class="headerlink" title="the API"></a>the API</h2><p>The web-application will interact with an API (<code>packages/api</code>) which will not be detailed here.<br>The only thing we need to know about the API is that:</p>
+<ul>
+<li>it’s a REST like API (uses only GET &amp; POST)</li>
+<li>communicates with JSON</li>
+<li>authenticates with a JSON Web Token (JWT)</li>
+</ul>
+<p>this document will <strong>only focus</strong> on the <code>packages/web-app</code> folder</p>
+<p><strong>Why no GraphQL?</strong> <a target="_blank" rel="noopener" href="http://graphql.org/">GraphQL</a> seems to be a nice tech, but I simply didn’t have time to dig into it.</p>
+<h2 id="supported-features-amp-Tech"><a href="#supported-features-amp-Tech" class="headerlink" title="supported features &amp; Tech"></a>supported features &amp; Tech</h2><h5 id="NOT-USING-CREATE-REACT-APP-OR-NEXT-JS"><a href="#NOT-USING-CREATE-REACT-APP-OR-NEXT-JS" class="headerlink" title="NOT USING CREATE-REACT-APP OR NEXT.JS"></a>NOT USING <em>CREATE-REACT-APP</em> OR <em>NEXT.JS</em></h5><p>I made this universal application to learn more about React.</p>
+<ul>
+<li>I wanted to know how things work, so I didn’t use any frameworks like <a target="_blank" rel="noopener" href="https://github.com/zeit/next.js/">next.js</a> or <a target="_blank" rel="noopener" href="https://github.com/facebook/create-react-app">create-react-app</a> that will build things for me that I don’t truly understand.</li>
+<li>I also wanted to make an exhaustive application: not a TODO app example.<br>There are plenty of those already, It’s good to begin with but whenever you want to build something more complex, you’ll have a hard time stitching the pieces together.</li>
+</ul>
+<h5 id="FEATURES"><a href="#FEATURES" class="headerlink" title="FEATURES"></a>FEATURES</h5><p>In order to make it the most <em>real life</em> example this web-app will:</p>
+<ul>
+<li><strong>mutualise all the code</strong> we can</li>
+<li>support <strong>authentication</strong></li>
+<li>support <strong>Internationalization</strong> (i18n)</li>
+<li>be <strong>testable</strong> (even if there isn’t as much tests as I wanted 😨)</li>
+<li>should <strong>work without JS</strong> in the browser<ul>
+<li>I believe in progressive enhancement</li>
+<li>while developing, this allows us to make API POST request without taking care about the redux actions.<br>Those can be created in a second time.</li>
+<li>I will use <code>browser cookie</code> to store the JWT.<br>It’s the only way to store informations on the browser without relying on Javascript.<br>Sadly a browser without JS &amp; cookie is doomed 😔</li>
+</ul>
+</li>
+</ul>
+<h5 id="TECH-STACK"><a href="#TECH-STACK" class="headerlink" title="TECH STACK"></a>TECH STACK</h5><p><strong>React library</strong>, among others, is a great way to <strong>ensure</strong> that <strong>our applications is perfectly in sync with our</strong> application <strong>state</strong>.<br>So we can rely on it to <strong>always render the proper thing</strong> depending on the route/user actions/API queries.<br>Thus, we will omit this part from this document (<em>i.e.</em> considering that changing the route/state will always render the right HTML)</p>
+<p>Here are all the main modules used:</p>
+<ul>
+<li><strong>views</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/">React 16.3</a></li>
+</ul>
+</li>
+<li><strong>routing</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://reacttraining.com/react-router/">React router 4</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react-router-config">react-router-config 1</a> for the universal support</li>
+</ul>
+</li>
+<li><strong>application state</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://redux.js.org/">redux 4</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/redux-thunk">redux thunk</a> for a better handling of asynchronous actions</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/reactjs/react-redux">react redux</a> for a better integration with React</li>
+</ul>
+</li>
+<li><strong>server</strong><ul>
+<li><a target="_blank" rel="noopener" href="http://koajs.com/">Koa 2</a> (see <a href="https://hiswe.github.io/2018/07-from-express-to-koa/">this post</a> about why I chose Koa)</li>
+</ul>
+</li>
+</ul>
+<h2 id="files"><a href="#files" class="headerlink" title="files"></a>files</h2><h5 id="STRUCTURE"><a href="#STRUCTURE" class="headerlink" title="STRUCTURE"></a>STRUCTURE</h5><p>I tried to avoid nesting folders too deeply.<br>I used <a target="_blank" rel="noopener" href="https://lernajs.io/">lerna</a> to have a clear separation between our API &amp; the web-app.<br>I may move to <a target="_blank" rel="noopener" href="https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/">yarn workspaces</a> when it will leave its experimental status</p>
+<p>Here are the main choices:</p>
+<ul>
+<li><strong>client</strong>:<ul>
+<li><code>root</code>: a single file to initialize the Redux-store, the router and hydrate our React application</li>
+</ul>
+</li>
+<li><strong>server</strong><ul>
+<li><code>root</code>: initializing our Koa app &amp; the routing</li>
+<li><code>public</code>: all our compiled JS/CSS + some assets</li>
+</ul>
+</li>
+<li><strong>shared</strong><ul>
+<li><code>root</code><ul>
+<li>isomorphic files</li>
+<li>main HoC (will come to them later)</li>
+</ul>
+</li>
+<li><code>redux-ducks</code>: all our Redux related code using the <a target="_blank" rel="noopener" href="https://github.com/erikras/ducks-modular-redux">ducks convention</a><br>This helps keeping all our Redux related code in one file</li>
+<li><code>[…components]</code>: organized by domain<br>The <code>ui</code> are mostly presentational components<br> I could have used more external components</li>
+</ul>
+</li>
+</ul>
+<h5 id="MUTUALIZATION"><a href="#MUTUALIZATION" class="headerlink" title="MUTUALIZATION"></a>MUTUALIZATION</h5><p>As for the version 1.1.0:</p>
+<table>
+<thead>
+<tr>
+<th align="right">front</th>
+<th align="right">server</th>
+<th align="right">shared front/client</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">36 loc</td>
+<td align="right">279 loc</td>
+<td align="right">6476 loc</td>
+</tr>
+<tr>
+<td align="right">1%</td>
+<td align="right">4%</td>
+<td align="right">95%</td>
+</tr>
+</tbody></table>
+
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/loc-chart.svg" class="" width="300" height="260" title="lines of code repartition pie chart " alt="lines of code repartition pie chart">
+  <figcaption class="image-container__caption">just write once</figcaption>
+</figure>
+
+
+<p>I don’t expect this repartition to change much with futur versions.<br>There should be:</p>
+<ul>
+<li>more &amp; more code into the shared folder</li>
+<li>some small additions in server code (mainly for proxying POST fallback)</li>
+</ul>
+<h2 id="building-the-applications"><a href="#building-the-applications" class="headerlink" title="building the applications"></a>building the applications</h2><p>Using React with <a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-jsx.html">JSX</a> makes the code easier to write and to maintain so:</p>
+<ul>
+<li>a building step is <strong>required to convert JSX to regular JS</strong></li>
+<li>the most <strong>popular solution</strong> right now is the couple <a target="_blank" rel="noopener" href="https://webpack.js.org/">Webpack</a>/<a target="_blank" rel="noopener" href="http://babeljs.io/">Babel</a><ul>
+<li>Webpack in version 4 since a while<br>It promises to be simpler, but you will still find yourself adding some plugins/loaders at one point or another</li>
+<li>as the latest version of Ava use babel 7, I picked it for my build process also.<br>At this time (may 2018) it’s in <code>beta 47</code> 😳 and working perfectly<br>I can’t thank enough all the people contributing to this project and I really hope that the final release will come soon</li>
+</ul>
+</li>
+<li>since we have a build step, why not<ul>
+<li>use <a target="_blank" rel="noopener" href="https://ponyfoo.com/articles/es6-modules-in-depth">ES2015 modules</a></li>
+<li><strong>import our <code>scss</code> files directly in the components.</strong><br>This is <strong>totally optional</strong> and could have been done in a classical way (like compiling a SCSS folder to a CSS file)<br>But I found that it really <strong>helps to isolate concerns about what your Component is about</strong><br>Also it will make it easy to <strong>keep the styles next to the markup</strong> (no more back &amp; forth from component folder to a scss folder)</li>
+</ul>
+</li>
+<li>I <strong>don’t use <code>@babel/register</code> in my server code</strong> because it might have a performance cost so:<ul>
+<li><strong>build also the server code with webpack</strong><br>And that will also allow me to replace some files when needed</li>
+<li><strong>don’t build the code for tests</strong><br>performance aren’t an issue there and we can use <code>@babel/register</code> without worrying</li>
+</ul>
+</li>
+</ul>
+<h5 id="SERVER"><a href="#SERVER" class="headerlink" title="SERVER"></a>SERVER</h5><ul>
+<li>don’t want to bundle the <code>node_modules</code>: they are already accessible in nodeJS environment<br>→ done with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/webpack-node-externals">webpack-node-externals</a></li>
+<li>want to always have access of source-map<br>→ done with the the <a target="_blank" rel="noopener" href="https://webpack.js.org/plugins/banner-plugin/">webpack banner-plugin</a> and the <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/source-map-support">source-map-support</a> module</li>
+<li>ignore <code>.scss</code> requires<br>→ done with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-plugin-transform-require-ignore">babel-plugin-transform-require-ignore</a></li>
+</ul>
+<h5 id="CLIENT"><a href="#CLIENT" class="headerlink" title="CLIENT"></a>CLIENT</h5><ul>
+<li>want to bundle the <code>node_modules</code> in a separate file<br>→ done with <a target="_blank" rel="noopener" href="https://webpack.js.org/plugins/split-chunks-plugin/">webpack split-chunks-plugin</a></li>
+<li>want to bundle <code>.scss</code> in a <code>.css</code> separate file<br>→ done with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/extract-text-webpack-plugin">webpack extract-text-webpack-plugin</a><br>The <code>@next version</code> is working fine with <code>webpack 4</code> but I should migrate to <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/mini-css-extract-plugin">webpack mini-css-extract-plugin</a> (here is <a target="_blank" rel="noopener" href="https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/749#issuecomment-374549467">why</a>)</li>
+</ul>
+<h5 id="BUILD-SUMMARY"><a href="#BUILD-SUMMARY" class="headerlink" title="BUILD SUMMARY"></a>BUILD SUMMARY</h5>
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/build.svg" class="" width="900" height="640" title="building flow " alt="building flow">
+  <figcaption class="image-container__caption">processing & processing code & getting what we want</figcaption>
+</figure>
+
+
+<h5 id="PARCEL-JS-SIDE-NOTE"><a href="#PARCEL-JS-SIDE-NOTE" class="headerlink" title="PARCEL JS SIDE-NOTE"></a>PARCEL JS SIDE-NOTE</h5><p>On a side node <a target="_blank" rel="noopener" href="https://parceljs.org/">ParcelJs</a> seems very promising.<br>As I see it, it’s still too young (version 1 released on december 2017).<br>I’ll wait a little bit for more documentation &amp; tutorials, and surely try it on another side projet</p>
+<h2 id="sharing-the-configuration"><a href="#sharing-the-configuration" class="headerlink" title="sharing the configuration"></a>sharing the configuration</h2><p>I use to manage my server configuration with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/rc">rc</a>.<br>I wanted to keep it that way but an isomorphic configuration <a target="_blank" rel="noopener" href="http://blog.koorchik.com/isomorphic-react/#Isomorphic_configuration">comes with some challenges</a>.</p>
+<p>To keep it versatile, I wanted to pass my configuration down to the client like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">rc → server → client<br></code></pre></td></tr></table></figure>
+
+<p>Unlike Viktor Turskyi’s solution, I replaced the config import with specific server/client files.<br><strong>This prevents mixing ES modules with Node’s CommonJS modules syntax</strong></p>
+<p>→ done with Webpack’s <a target="_blank" rel="noopener" href="https://webpack.js.org/plugins/normal-module-replacement-plugin/">normal-module-replacement-plugin</a></p>
+<h5 id="SERVER-1"><a href="#SERVER-1" class="headerlink" title="SERVER"></a>SERVER</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> &#123; <span class="hljs-keyword">default</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../server/config&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<h5 id="CLIENT-1"><a href="#CLIENT-1" class="headerlink" title="CLIENT"></a>CLIENT</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-built_in">window</span>.__CONFIG__;<br></code></pre></td></tr></table></figure>
+
+<p>where <code>window.__CONFIG__</code> is passed by the server</p>
+<h5 id="DURING-TEST"><a href="#DURING-TEST" class="headerlink" title="DURING TEST"></a>DURING TEST</h5><p><a target="_blank" rel="noopener" href="https://github.com/avajs/ava">AVA</a> is used for testing.<br>By default it uses babel to convert JSX. So I tried to keep it that way so → no Webpack.<br>This will make it easier to require a single component and test it.</p>
+<p>So I just use my configuration’s entry point as the test configuration: no need to replace it with webpack!<br>I use the same babel configuration than the server’s one to prevent including the SCSS 😀</p>
+<h5 id="CONFIGURATION-SUMMARY"><a href="#CONFIGURATION-SUMMARY" class="headerlink" title="CONFIGURATION SUMMARY"></a>CONFIGURATION SUMMARY</h5>
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/configuration.svg" class="" width="860" height="500" title="configuration flow " alt="configuration flow">
+  <figcaption class="image-container__caption">now we can configure our application without the need of rebuilding it!</figcaption>
+</figure>
+
+
+<h2 id="application-flow-summary"><a href="#application-flow-summary" class="headerlink" title="application flow summary"></a>application flow summary</h2><p>This is how the app behaves from the <strong>first render</strong> made by the <strong>server</strong> to the <strong>subsequent client handling</strong></p>
+<p>Here is a little bit of explanation:</p>
+<ul>
+<li><strong>symbols</strong><ul>
+<li><img src="/en/2018/08-universal-application/cookie-symbol.svg" class="" width="16" height="16" title="cookie symbol " alt="cookie symbol"> represents a cookie either read from a server request, or from the browser</li>
+<li><img src="/en/2018/08-universal-application/jwt-symbol.svg" class="" width="16" height="16" title="JWT symbol " alt="JWT symbol"> represents a JWT which will be used for authentication between our web-application and the API</li>
+<li>arrows between them represent reading/writing from/to the cookie</li>
+</ul>
+</li>
+<li><strong>REACT-ROUTER</strong> will mutualise all our pages routes<ul>
+<li>on the <strong>server</strong>: direct call to the API (either in GET or POST) will be manually proxied</li>
+<li>this for supporting <strong>no-JS</strong> environment</li>
+<li>this is done in the <code>server/routing-api-backup.js</code></li>
+</ul>
+</li>
+<li><strong>REDUX</strong> will maintain our app state<ul>
+<li>I uses the <a target="_blank" rel="noopener" href="https://github.com/erikras/ducks-modular-redux">duck convention</a> to organize the code</li>
+<li>API calls will be made in <code>redux actions</code></li>
+</ul>
+</li>
+<li><strong>ISO-FETCH</strong> is a small wrapper around <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/isomorphic-fetch">isomorphic-fetch</a><br>It will handle any Fetch request to the API<br>Keep in mind that:<ul>
+<li>on the <strong>server</strong>: the cookie content will be provided by the server</li>
+<li>on the <strong>client</strong>: it can read the browser’s cookie content by itself</li>
+</ul>
+</li>
+</ul>
+
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/flow.svg" class="" width="1240" height="1280" title="application flow " alt="application flow">
+  <figcaption class="image-container__caption">simple, right?</figcaption>
+</figure>
+
+
+<h2 id="routing-with-React-Router-amp-Redux"><a href="#routing-with-React-Router-amp-Redux" class="headerlink" title="routing with React-Router &amp; Redux"></a>routing with React-Router &amp; Redux</h2><h5 id="WHAT-IS-REACT-ROUTER"><a href="#WHAT-IS-REACT-ROUTER" class="headerlink" title="WHAT IS REACT-ROUTER"></a>WHAT IS REACT-ROUTER</h5><p><a target="_blank" rel="noopener" href="https://reacttraining.com/react-router/">React-router</a> is, I think, the most common routing solution for React.<br>They have recently updated their library to the version 4.</p>
+<p>There is a huge <a target="_blank" rel="noopener" href="https://reacttraining.com/react-router/core/guides/philosophy">shift of philosophy</a> between the previous versions and this one.<br>They call it <em>dynamic routing</em> and it’s very different from the classical way.</p>
+<h5 id="INTERFACING-WITH-THE-SERVER"><a href="#INTERFACING-WITH-THE-SERVER" class="headerlink" title="INTERFACING WITH THE SERVER"></a>INTERFACING WITH THE SERVER</h5><p>To interface nicely with our Koa server, we need something that:</p>
+<ol>
+<li> is more traditional &amp; plays well with a server routing</li>
+<li> can be easily shared between the server/client</li>
+</ol>
+<p>For that they have made a package named <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react-router-config">react-router-config</a>.<br>It’s still in beta but is already working as expected.</p>
+<p>React Router Config mainly does 3 things:</p>
+<ul>
+<li>a way to define a <strong>routing configuration</strong></li>
+<li>a method to <strong>retrieve the component that match the route</strong></li>
+<li>give a way for the router to <strong>give back informations to the server</strong> (like not found &amp; redirection) so we can serve the pages with right HTTP code.</li>
+</ul>
+<h5 id="GET-REDUX-ACTIONS-FROM-COMPONENTS"><a href="#GET-REDUX-ACTIONS-FROM-COMPONENTS" class="headerlink" title="GET REDUX ACTIONS FROM COMPONENTS"></a>GET REDUX ACTIONS FROM COMPONENTS</h5><p>Like seen before, with react-router-config <strong>it’s easy to get which components to render.</strong></p>
+<p>But we need a way to tell our server which data those components need.<br>We will rely on Redux to maintain a coherent state.</p>
+<p>What we <strong>need is redux actions</strong> that we <strong>dispatch to our store</strong> and redux will do his job.</p>
+<p>But because it’s an universal application:</p>
+<ul>
+<li>on the <strong>server</strong> we will need the <strong>actions to be called <em>before</em> instantiating our components</strong><br>→ this is solved by using a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static">static method</a> on our components</li>
+<li>on the <strong>client</strong> we will need the <strong>actions to be called in <a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-component.html#componentdidmount">componentDidMount()</a></strong></li>
+<li>on <strong>first rendering</strong> we must <strong>prevent the client to call the componentDidMount() actions</strong><br>Calling them twice won’t have a lot of side effects but making the same set of requests is inefficient…</li>
+</ul>
+<p>The solution came again from <a target="_blank" rel="noopener" href="http://blog.koorchik.com/isomorphic-react/#Data_fetching">Viktor Turskyi’s post</a> about data fetching.</p>
+<p>We need to make a <a target="_blank" rel="noopener" href="https://reactjs.org/docs/higher-order-components.html">HoC</a> to take care of this.</p>
+<p>It will:</p>
+<ol>
+<li> take as an input a <code>component</code> and an array of redux actions (<code>actionsCreators</code>)</li>
+<li> always add the authentication action (needed for the app to ensure the right display)</li>
+<li> return the <code>component</code> in the <code>render()</code>, passing in any <code>props</code></li>
+<li> for the <strong>server</strong>: expose a static method named <code>fetchData</code> which will <code>dispatch</code> any <code>actions</code> of the <code>actionsCreators</code> array</li>
+<li> for the <strong>client</strong>: call <code>fetchData</code> in <code>componentDidMount</code></li>
+<li> prevent the first call of <code>componentDidMount</code> (with a module variable named <code>SKIP_FIRST_COMPONENTDIDMOUNT</code>)</li>
+</ol>
+
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/page-fetch-actions.svg" class="" width="900" height="510" title="route fetch actions " alt="route fetch actions">
+  <figcaption class="image-container__caption">giving the possibility to fetch data before or after a component is instantiated</figcaption>
+</figure>
+
+
+<h5 id="LIMITATIONS"><a href="#LIMITATIONS" class="headerlink" title="LIMITATIONS"></a>LIMITATIONS</h5><p>The main issue of doing so is that we <strong>need to call all the actions needed for all the children components in the top <code>page component</code></strong></p>
+<p>It would be nicer to declare all those actions on the concerned components and find a way to hoist &amp; aggregate them to the page component.</p>
+<h5 id="SERVER-FLOW-SUMMARY"><a href="#SERVER-FLOW-SUMMARY" class="headerlink" title="SERVER FLOW SUMMARY"></a>SERVER FLOW SUMMARY</h5>
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/server-rendering.svg" class="" width="1020" height="520" title="the server flow " alt="the server flow">
+  <figcaption class="image-container__caption">from server to client</figcaption>
+</figure>
+
+
+<h2 id="isomorphic-fetch"><a href="#isomorphic-fetch" class="headerlink" title="isomorphic-fetch"></a>isomorphic-fetch</h2><p>One of the problem was to be able to send the JWT on any request.</p>
+<ul>
+<li>on the <strong>client</strong> we have <strong>access to the browser cookies at any time</strong><br>→ no problems here</li>
+<li>on the <strong>server</strong> we have <strong>access to the browser cookies only in Koa context</strong><ul>
+<li><code>isomorphic-fetch</code> won’t be able to grab them on its own</li>
+<li><strong>we need to make possible to feed the JWT</strong> to <code>isomorphic-fetch</code></li>
+<li>we have to keep in mind that <code>isomorphic-fetch</code> can be called in <code>redux-actions</code> so we need to pass the <strong>JWT in redux-actions</strong> also</li>
+</ul>
+</li>
+</ul>
+<h5 id="FETCH-SUMMARY"><a href="#FETCH-SUMMARY" class="headerlink" title="FETCH SUMMARY"></a>FETCH SUMMARY</h5>
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/isomorphic-fetch.svg" class="" width="450" height="375" title="the isomorphic-fetch flow " alt="the isomorphic-fetch flow">
+  <figcaption class="image-container__caption">JWT is important</figcaption>
+</figure>
+
+
+<h2 id="authentication"><a href="#authentication" class="headerlink" title="authentication"></a>authentication</h2><p>This one is quite easy.</p>
+<p>Authentication is handled by 2 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/components-and-props.html">HoC</a>:</p>
+<ol>
+<li><strong>public route</strong> will redirect to private home if connected<br> → done in <code>authentication-forbidden.js</code></li>
+<li><strong>private route</strong> will redirect to login page if NOT connected<br> → done in <code>authentication-required.js</code></li>
+</ol>
+<p>They have the same requirements:</p>
+<ol>
+<li>be <strong>connected to the redux store</strong> to check authentication<br> → done with <a target="_blank" rel="noopener" href="https://redux.js.org/basics/usage-with-react#presentational-and-container-components">react-redux</a></li>
+<li>be <strong>connected to the react router</strong> to access the redirection<br> → done with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react-router-config">react-router-config</a><br> On the <strong>server</strong> we also a provide a <code>serverContext</code> object<br> (on the documentation they call it <a target="_blank" rel="noopener" href="https://reacttraining.com/react-router/web/guides/server-rendering">staticContext</a> but I find it more obvious to call it serverContext)</li>
+<li> the Component to render if everything’s ok</li>
+</ol>
+<p>And they will act in the same way:</p>
+<ol>
+<li> check <code>redux store</code> authentication status</li>
+<li>handle the redirection if needed<br> on the server we will update update <code>serverContext</code> if a redirection happens.<br> <strong>This will help Koa to set the right HTTP status code when serving the page</strong></li>
+<li> OR render the Component if not redirection is necessary</li>
+</ol>
+<h5 id="AUTHENTICATION-HOC-FLOW"><a href="#AUTHENTICATION-HOC-FLOW" class="headerlink" title="AUTHENTICATION HOC FLOW"></a>AUTHENTICATION HOC FLOW</h5>
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/hoc-authentication.svg" class="" width="1000" height="330" title="the authentication hoc ordering " alt="the authentication hoc ordering">
+  <figcaption class="image-container__caption">Auth made simple, I guess…</figcaption>
+</figure>
+
+
+<h2 id="I18N-with-React-Intel"><a href="#I18N-with-React-Intel" class="headerlink" title="I18N with React-Intel"></a>I18N with React-Intel</h2><p><a target="_blank" rel="noopener" href="https://github.com/yahoo/react-intl/wiki">React-Intel</a> fits my needs:</p>
+<ul>
+<li>formating numbers &amp; prices</li>
+<li>formating dates</li>
+<li>providing translations</li>
+</ul>
+<p>The documentation is quite good and the implementation straightforward.</p>
+<p>We just need to:</p>
+<ul>
+<li>keep our current locale in the <code>Redux-Store</code> so we can change it dynamically</li>
+<li>wrap our application with the <code>&lt;IntlProvider /&gt;</code> component</li>
+<li>define our <code>locales</code> files</li>
+<li>follow the guide to <a target="_blank" rel="noopener" href="https://github.com/yahoo/react-intl/wiki#locale-data-in-nodejs">server rendering</a></li>
+</ul>
+<p>What we can improve:</p>
+<p>This simple take is <strong>suitable for a small application</strong> but may be <strong>hard to maintain on a larger scale</strong>.</p>
+<ul>
+<li>load asynchronously our <code>locales</code> files<ul>
+<li>right now all <code>locales</code> are bundled into the different applications</li>
+</ul>
+</li>
+<li>have a way to extract our translation’s keys from the application<ul>
+<li>a very interesting post was written by <a target="_blank" rel="noopener" href="https://blog.idagio.com/localisation-or-how-i-learned-to-stop-worrying-and-love-babel-plugin-react-intl-8eeb51d80d77">Vlad Goran</a> about extracting those keys with <a target="_blank" rel="noopener" href="https://github.com/yahoo/babel-plugin-react-intl">babel-plugin-react-intl</a> but <a target="_blank" rel="noopener" href="https://github.com/yahoo/babel-plugin-react-intl/issues/122">it doesn’t seem to work with babel-7</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="adding-React-Helmet"><a href="#adding-React-Helmet" class="headerlink" title="adding React-Helmet"></a>adding React-Helmet</h2><p>We still need to provide <code>&lt;head&gt;</code> and <code>&lt;script&gt;</code> tags.<br>In order to do so, and to keep most of the code on the shared folder, just use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react-helmet">React-Helmet</a></p>
+<p>It will handle for us:</p>
+<ul>
+<li>the <code>&lt;html&gt;</code> tag</li>
+<li>the <code>&lt;title&gt;</code> tag</li>
+<li>any <code>&lt;meta&gt;</code> and <code>&lt;stylesheet&gt;</code></li>
+</ul>
+<p>I didn’t put any <code>&lt;script&gt;</code> for a reason that I can’t remember 😶</p>
+<p>Since most of the HTML will be handled by React, on the server we won’t need to write a lot of tags, thus we can use Javascript template strings instead of a regular template engine.</p>
+<h2 id="the-full-chain-of-components"><a href="#the-full-chain-of-components" class="headerlink" title="the full chain of components"></a>the full chain of components</h2><p>So from top to bottom this how our components fits together.<br>The main thing is that our <strong>HoC won’t change over time</strong> so we just have to write our application without worrying about server/client, auth, i18n anymore!</p>
+
+<figure class="image-container">
+  <img src="/en/2018/08-universal-application/components-chaining.svg" class="" width="850" height="1220" title="how components chains to each other " alt="how components chains to each other">
+  <figcaption class="image-container__caption">React's Russian Doll</figcaption>
+</figure>
+
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/nodejs/">nodejs</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/advanced/">advanced</a>, <a href="/tags/react/">react</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+app.use(nuxt.render)

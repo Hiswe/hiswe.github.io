@@ -1,0 +1,529 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>Creating vector images | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="Learn how to make a vector image with Affinity Designer or Adobe Illustrator" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="Creating vector images"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2016/02-vector-creation-basics/" />
+  
+  <meta name="og:description" content="Learn how to make a vector image with Affinity Designer or Adobe Illustrator" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2016-02-06T15:14:44.000Z">
+        <a href="/en/2016/02-vector-creation-basics/">
+          06-02-2016
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.767Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2016/02-vector-creation-basics/">Creating vector images</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prerequisites"><span class="toc-text">Prerequisites</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-it-NOT-about"><span class="toc-text">What is it NOT about</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Keyboard-shortcuts"><span class="toc-text">Keyboard shortcuts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface"><span class="toc-text">Interface</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Context-properties%E2%80%A6"><span class="toc-text">Context properties…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toolbar"><span class="toc-text">Toolbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Artboard-s"><span class="toc-text">Artboard(s)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Panels"><span class="toc-text">Panels</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Information-Keyboards-modifications-help"><span class="toc-text">Information &#x2F; Keyboards modifications help</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moving"><span class="toc-text">Moving</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hand-amp-magnifying-glass"><span class="toc-text">Hand &amp; magnifying glass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-better-way"><span class="toc-text">the better way</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artboard"><span class="toc-text">Artboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-shapes"><span class="toc-text">Creating shapes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Making-the-shape"><span class="toc-text">Making the shape</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Editing-the-shape"><span class="toc-text">Editing the shape</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Styling-shapes"><span class="toc-text">Styling shapes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Colors"><span class="toc-text">Colors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stroke"><span class="toc-text">Stroke</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exporting-an-artwork"><span class="toc-text">Exporting an artwork</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This will be a short tutorial about how to create simple vector drawings.</p>
+<p>This small guide will cover 2 softwares:</p>
+<ul>
+<li><a href="http://www.adobe.com/products/illustrator.html" title="" target="">Adobe Illustrator</a> (AI – left)</li>
+<li><a href="https://affinity.serif.com/designer/" title="" target="">Affinity Designer</a> (AD – right)</li>
+</ul>
+<p>Talking about different softwares is, I think, a good way to understand that they do the same thing: creating vectors.<br>Choosing one upon another is more a matter of personal preference. </p>
+<span id="more"></span>
+
+<h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><p>Knowing about what is a vector drawing of course :)<br>I have made a small introduction <a href="/en/2016/01-vector-basics/" title="here">here</a></p>
+<h3 id="What-is-it-NOT-about"><a href="#What-is-it-NOT-about" class="headerlink" title="What is it NOT about"></a>What is it NOT about</h3><p>Softwares are just tools.<br>So it won’t improve your drawing/design skills in any way.<br>It will just allow you to express whatever you’re able to do in another way.</p>
+<h3 id="Keyboard-shortcuts"><a href="#Keyboard-shortcuts" class="headerlink" title="Keyboard shortcuts"></a>Keyboard shortcuts</h3><p>For working right, you really need to learn some basic keyboard shortcuts.<br>This will greatly improve your experience with the software and make things more natural.  </p>
+<p>Of course you don’t have to remember everything :) Just the most common ones.</p>
+<h4 id="Mac-PC"><a href="#Mac-PC" class="headerlink" title="Mac/PC"></a>Mac/PC</h4><p>In Illustrator (as AD is mac only) when I will talk about the key <code>CMD</code> you should replace it with <code>CTRL</code></p>
+<h4 id="doing-undoing"><a href="#doing-undoing" class="headerlink" title="doing/undoing"></a>doing/undoing</h4><p>Like in every software you can achieve those actions by pressing:</p>
+<p><em>undo</em>: <code>CMD</code> + <code>Z</code><br><em>redo</em>: <code>SHIFT</code> + <code>CMD</code> + <code>Z</code></p>
+<h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><p>The folks from Affinity organized AD in almost the same way as AI.<br>There is some differences of course, but globally things are the same.</p>
+
+<dl class="split">
+  <dt class="split__title split__title--first">Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <img src="/en/2016/02-vector-creation-basics/zoning-illustrator.svg" class="" title="Illustrator zoning">
+  </dd>
+  <dt  class="split__title split__title--second">Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <img src="/en/2016/02-vector-creation-basics/zoning-designer.svg" class="" title="Designer zoning">
+  </dd>
+</dl>
+
+<h3 id="Context-properties…"><a href="#Context-properties…" class="headerlink" title="Context properties…"></a>Context properties…</h3><p>…will change with the tools you use or the selection you have.<br>It will provide the most common options you should need a this moment</p>
+<h3 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h3><p>It’s the same things as real tools, they are needed to do stuff.<br><em>One very important thing is</em> every tools has multiple powers.<br>Those are unlocked by pressing additional keys (<code>CMD</code>  <code>ALT</code> <code>SHIFT</code>) while using them.</p>
+<p>Of course, using a tool, is clicking on it to select it.</p>
+<h4 id="More-tools"><a href="#More-tools" class="headerlink" title="More tools!"></a>More tools!</h4><p>When you see an arrow in the tool square, It means that by making a <strong>long press on this tool</strong>, you can <strong>access other tools!</strong></p>
+<!-- **MORE TOOLS IMAGE** -->
+
+<h3 id="Artboard-s"><a href="#Artboard-s" class="headerlink" title="Artboard(s)"></a>Artboard(s)</h3><p>This will be your main working zone. Details will be provided later on.</p>
+<h3 id="Panels"><a href="#Panels" class="headerlink" title="Panels"></a>Panels</h3><p>A lot of stuff are placed here.<br>It can be colors, layers and so on.<br>Every panel can be grouped with <code>tabs</code>.</p>
+<!-- **TABS IMAGE** -->
+
+<p>And every panel as some options:</p>
+<!-- **OPTION ICON** -->
+
+<p>You can check it every time you want. Be curious :P</p>
+<h3 id="Information-Keyboards-modifications-help"><a href="#Information-Keyboards-modifications-help" class="headerlink" title="Information / Keyboards modifications help"></a>Information / Keyboards modifications help</h3>
+<dl class="split">
+  <dt class="split__title split__title--first">Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <ul>
+<li>At the bottom, there is different information about the zoom level, which artboard are you working on and the current tool used.  </li>
+<li>When you use <strong>modification keys</strong> (see <a href="/#toolbar">Toolbar</a>) the current tool will change to reflect what you are going to do</li>
+</ul>
+
+  </dd>
+  <dt  class="split__title split__title--second">Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <ul>
+<li>Every time a small description of what and how you can achieve with the tool you have selected.  </li>
+<li>They also list all the <strong>modification keys</strong> you can use, and how they will change the behavior of the current tool.</li>
+</ul>
+
+  </dd>
+</dl>
+
+<h2 id="Moving"><a href="#Moving" class="headerlink" title="Moving"></a>Moving</h2><p>Working is always getting on different parts of your artwork.<br>With a virtual paper, you have new ways to navigate inside your design.</p>
+<h3 id="Hand-amp-magnifying-glass"><a href="#Hand-amp-magnifying-glass" class="headerlink" title="Hand &amp; magnifying glass"></a>Hand &amp; magnifying glass</h3>
+<dl class="split">
+  <dt class="split__title split__title--first">Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <img src="/en/2016/02-vector-creation-basics/move-zoom-illustrator.gif" class="" title="Illustrator moving and zooming tool">
+  </dd>
+  <dt  class="split__title split__title--second">Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <img src="/en/2016/02-vector-creation-basics/move-zoom-designer.gif" class="" title="Designer moving and zooming tool">
+  </dd>
+</dl>   
+
+<p><em>move:</em> this is the <strong>hand tool</strong>. It will allow you to span around the working zone<br>This by doing <code>click &amp; drag</code></p>
+<p><em>zoom:</em> this is the <strong>magnifying glass tool</strong>. It will allow you to be closer or farther of your design.<br><code>ALT</code> to unzoom.</p>
+<h3 id="the-better-way"><a href="#the-better-way" class="headerlink" title="the better way"></a>the better way</h3><p>whatever tool you have selected those shortcuts works:</p>
+<p><em>move:</em> <code>SPACE</code> + <code>click &amp; drag</code><br><em>zoom/unzoom</em> <code>CMD</code> + <code>+</code> / <code>CMD</code> + <code>-</code></p>
+<h2 id="Artboard"><a href="#Artboard" class="headerlink" title="Artboard"></a>Artboard</h2><p>Those are your working area.<br>It’s like <strong>custom sized sheets of paper</strong> and you can have as many as you want.</p>
+<p>I won’t cover it here, and stick to the default preset: 1 artboard.</p>
+<h2 id="Creating-shapes"><a href="#Creating-shapes" class="headerlink" title="Creating shapes"></a>Creating shapes</h2><p>We will cover here only one tool to create <strong>custom shapes</strong>:  the <strong>pen tool.</strong><br><strong>Predefined shapes</strong> (like rectangles, ellipse and so on) usage is I think obvious.</p>
+<p>There is of course other way to create shapes, but focusing on the <strong>pen tool</strong> is a good to way to know the core of making vector shapes.</p>
+<h3 id="Making-the-shape"><a href="#Making-the-shape" class="headerlink" title="Making the shape"></a>Making the shape</h3><ul>
+<li>Select the <code>pen tool</code></li>
+</ul>
+
+<dl class="split">
+  <dt class="split__title split__title--first">Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <img src="/en/2016/02-vector-creation-basics/pen-tool-illustrator.gif" class="" title="Illustrator pen tool">
+  </dd>
+  <dt  class="split__title split__title--second">Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <img src="/en/2016/02-vector-creation-basics/pen-tool-designer.gif" class="" title="Designer pen tool">
+  </dd>
+</dl>   
+
+
+<ul>
+<li>Then click on your artboard.  </li>
+<li>Each click will make another point.  </li>
+<li>If you <code>click &amp; drag</code>, then you will create a point with handlers.</li>
+</ul>
+
+<div class="video-wrapper">
+  <video src="/en/2016/02-vector-creation-basics/pen-tool.m4v" controls muted>
+</div>
+
+
+<p>To <em>close a path</em> click on the first point you have created (like in the above example).</p>
+<h3 id="Editing-the-shape"><a href="#Editing-the-shape" class="headerlink" title="Editing the shape"></a>Editing the shape</h3><p>You may to edit your object in 2 ways:</p>
+<ul>
+<li>move, rotate or scale the <strong>whole object</strong></li>
+<li>edit the shape in itself</li>
+</ul>
+<p>And there is 2 different tools to accomplish this:</p>
+
+<dl class="split">
+  <dt class="split__title split__title--first">Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <img src="/en/2016/02-vector-creation-basics/arrows-illustrator.gif" class="" title="Illustrator pen tool">   
+__Black arrow__: named *selection tool*  
+__White arrow__: named *direct selection tool*
+  </dd>
+  <dt  class="split__title split__title--second">Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <img src="/en/2016/02-vector-creation-basics/arrows-designer.gif" class="" title="Designer pen tool"> 
+__Black arrow__: named *move tool*  
+__White arrow__: named *node tool*
+  </dd>
+</dl>  
+
+<h4 id="The-black-arrow"><a href="#The-black-arrow" class="headerlink" title="The black arrow"></a>The black arrow</h4><p>will allow you to <strong>select a whole path</strong>.<br>When a path is selected, you have a selection box around your object.  </p>
+
+<div class="video-wrapper">
+  <video src="/en/2016/02-vector-creation-basics/black-arrow-tool.m4v" controls muted>
+</div>
+
+
+<ul>
+<li><strong>moving:</strong> <code>click &amp; drag</code> from <em>inside</em> the shape<ul>
+<li>multiple can be made by pressing <code>SHIFT</code> and click on the shapes you want</li>
+</ul>
+</li>
+<li><strong>rotating:</strong>  <code>click &amp; drag</code> from a <em>little further</em> from a corner. <em>the icon should change appearance</em></li>
+<li><strong>resizing:</strong>  <code>click &amp; drag</code> from any point of selection box</li>
+<li><strong>constraint:</strong> each transforms can be constrains (move on determined angles, scales proportionally…) by pushing <code>SHIFT</code> <em>while dragging</em></li>
+</ul>
+<h4 id="The-white-arrow"><a href="#The-white-arrow" class="headerlink" title="The white arrow"></a>The white arrow</h4><p>will allow you to <strong>select a point</strong> in a path.<br>And also to modify the <strong>handlers of a point</strong> (if any).</p>
+
+<div class="video-wrapper">
+  <video src="/en/2016/02-vector-creation-basics/white-arrow-tool.m4v" controls muted>
+</div>
+
+
+<p>You can move many points by selecting them with <code>SHIFT</code>.</p>
+<p>There is some difference in behavior in AD an AD: </p>
+
+<dl class="split">
+  <dt class="split__title split__title--first">In Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <p>…selecting a shape with the <strong>white arrow</strong> will select all the points<br>So <strong>be aware of your selection</strong>.</p>
+
+  </dd>
+  <dt  class="split__title split__title--second">In Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <p>…the <strong>white arrow</strong> allow also to modify a <code>stroke</code>.<br>Simply <code>Click &amp; drag</code> on a stroke to reshape it.</p>
+
+  </dd>
+</dl>  
+
+<h4 id="pen-tool-the-return"><a href="#pen-tool-the-return" class="headerlink" title="pen tool (the return)"></a>pen tool (the return)</h4><p>The <strong>pen tool</strong> has also abilities of editing a shape thanks to the <strong>modification keys</strong><br>AD &amp; AI treats it differently:</p>
+
+<dl class="split">
+  <dt class="split__title split__title--first">In Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <p><strong>Adding a point:</strong><br><code>click</code> on a path<br><strong>Moving a point:</strong><br><code>CMD</code> for getting in <em>white arrow mode</em> (<code>SHIFT</code> for multiple selection)<br><strong>Removing a point:</strong><br><code>click</code> on a point<br><strong>Adding handlers to a point:</strong><br><code>ALT</code> + <code>click &amp; drag</code> on a point<br><strong>Removing handlers of a point:</strong><br><code>ALT</code> + <code>click</code> on a point<br><strong>Breaking handlers</strong><br>with selected point <code>ALT</code> + <code>click &amp; drag</code> on an handler</p>
+
+  </dd>
+  <dt  class="split__title split__title--second">In Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <p><strong>Adding a point:</strong><br><code>CMD</code> + <code>click</code> <em>on a stroke</em> to add a point<br><strong>Moving a point:</strong><br><code>click  &amp; drag</code> <em>on a point</em> (<code>SHIFT</code> for multiple selection)<br><strong>Removing a point:</strong><br>select points by <code>click</code> then press <code>DEL</code><br><strong>Adding handlers to a point:</strong><br><code>click &amp; drag</code> on a point (have to be on <code>Mode: pen</code> in the <strong>context bar</strong>)<br><strong>Removing handlers of a point:</strong><br>selecting handlers and in the <strong>context bar</strong> click on <code>convert -&gt; the type you want</code><br><strong>Breaking handlers:</strong><br>while <code>dragging an handler</code> click on <code>ALT</code><br><strong>Reshaping a stroke:</strong><br><code>click &amp; drag</code> on a stroke</p>
+
+  </dd>
+</dl>  
+
+<h2 id="Styling-shapes"><a href="#Styling-shapes" class="headerlink" title="Styling shapes"></a>Styling shapes</h2><h3 id="Colors"><a href="#Colors" class="headerlink" title="Colors"></a>Colors</h3><p><strong>After having a shape selected</strong>, fill &amp; border can be styled in the color panel:</p>
+
+<dl class="split">
+  <dt class="split__title split__title--first">Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <img src="/en/2016/02-vector-creation-basics/color-panel-illustrator.png" class="" title="Illustrator pen tool">
+  </dd>
+  <dt  class="split__title split__title--second">Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <img src="/en/2016/02-vector-creation-basics/color-panel-designer.png" class="" title="Designer pen tool">
+  </dd>
+</dl>  
+
+<ul>
+<li><strong>What you are styling appears above the other one</strong>.  </li>
+<li><code>click</code> to select between border &amp; fill.  </li>
+<li><code>double click</code> to open a more detailed color panel.</li>
+</ul>
+
+<div class="video-wrapper">
+  <video src="/en/2016/02-vector-creation-basics/fill-stroke-color.m4v" controls muted>
+</div>
+
+
+<h3 id="Stroke"><a href="#Stroke" class="headerlink" title="Stroke"></a>Stroke</h3><p>You can also <strong>modify the size of the stroke</strong> by tweaking on the <strong>context properties</strong>.</p>
+
+<dl class="split">
+  <dt class="split__title split__title--first">In Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <p>All the stroke properties are put next to each another.<br>You can also access a stroke panel by clicking on the <em>stroke link</em></p>
+
+  </dd>
+  <dt  class="split__title split__title--second">In Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <p>by clicking on the <strong>stroke line</strong>, a panel will open with all the options you need</p>
+
+  </dd>
+</dl>  
+
+<h2 id="Exporting-an-artwork"><a href="#Exporting-an-artwork" class="headerlink" title="Exporting an artwork"></a>Exporting an artwork</h2><p>Because vector drawing drawings are computed, you can generate a lot of different files type with those, including JPG (pixel), PDF and SVG (one of the most interoperable vector format)</p>
+<p><strong>Artboards helps you by cropping everything that’s outside their boundaries.</strong></p>
+
+<dl class="split">
+  <dt class="split__title split__title--first">In Illustrator</dt>
+  <dd class="split__content split__content--first">
+    <ul>
+<li><strong>In the menu</strong>: File -&gt; Export</li>
+<li>Choose the format (JPEG is good for showing to anybody)</li>
+<li><strong>check the Use Artboards checkbox</strong></li>
+<li><code>click</code> export</li>
+</ul>
+
+  </dd>
+  <dt  class="split__title split__title--second">In Affinity Designer</dt>
+  <dd class="split__content split__content--second">
+    <ul>
+<li><strong>In the menu</strong>: File -&gt; Export</li>
+<li>Choose the format</li>
+<li><code>click</code> export</li>
+</ul>
+
+  </dd>
+</dl>  
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>There is of course more to see like:</p>
+<ul>
+<li>layers</li>
+<li>Combining shapes</li>
+<li>effects</li>
+<li>…</li>
+</ul>
+<p>Affinity provides a lot of great tutorials <a target="_blank" rel="noopener" href="https://affinity.serif.com/tutorials/designer/">here</a></p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/drawing/">drawing</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/affinity-designer/">affinity designer</a>, <a href="/tags/vector/">vector</a>, <a href="/tags/beginner/">beginner</a>, <a href="/tags/adobe-illustrator/">adobe illustrator</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

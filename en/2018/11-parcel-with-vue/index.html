@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>testing the parcel bundler with vue | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="how the “Blazing fast, zero configuration web application bundler” is keeping its promise" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="testing the parcel bundler with vue"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2018/11-parcel-with-vue/" />
+  
+  <meta name="og:description" content="how the “Blazing fast, zero configuration web application bundler” is keeping its promise" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2018/11-parcel-with-vue/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2018-07-29T16:10:23.000Z">
+        <a href="/en/2018/11-parcel-with-vue/">
+          29-07-2018
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.808Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2018/11-parcel-with-vue/">testing the parcel bundler with vue</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-history-of-bundling"><span class="toc-text">The history of bundling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-bundling-vue"><span class="toc-text">Why bundling vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Parcel"><span class="toc-text">Parcel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-use"><span class="toc-text">Main use</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transform-configuration"><span class="toc-text">Transform configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-splitting"><span class="toc-text">Code splitting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Where-simplicity-breaks"><span class="toc-text">Where simplicity breaks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Things-I-didn%E2%80%99t-test"><span class="toc-text">Things I didn’t test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In this era of libraries needing a build step <small>(even if you can use them without it, c’mon it’s better to do so)</small> I want to talk about the <a target="_blank" rel="noopener" href="https://parceljs.org/">parcel bundler</a>.</p>
+<p>The baseline is: <strong>Blazing fast, zero configuration web application bundler</strong>.</p>
+<p>How this holds up?</p>
+<span id="more"></span>
+
+<h2 id="The-history-of-bundling"><a href="#The-history-of-bundling" class="headerlink" title="The history of bundling"></a>The history of bundling</h2><p>I feel like it’s important to know from where we came before talking about what Parcel is trying to solve.</p>
+<p>That’s my personal take about how we get there 🤓</p>
+<ol>
+<li> In the beginning, bundling wasn’t a thing: just reference javascript/CSS files in your HTML and you were done (the good ol’days in a way (but damn I hated IE6))</li>
+<li> Then we began to take care of file sizes and we <a href="https://en.wikipedia.org/wiki/Minification_(programming)" title="" target="">minified them</a> with non-JS tools (<a target="_blank" rel="noopener" href="https://developers.google.com/closure/compiler/">Google Clojure compiler</a> for example)</li>
+<li> Then we began to use <a target="_blank" rel="noopener" href="https://drupalize.me/videos/what-css-preprocessor?p=1175">CSS preprocessor</a> which add a lot of handy stuff (mainly variables, selector nesting &amp; import) with non-JS tools (<a target="_blank" rel="noopener" href="https://sass-lang.com/ruby-sass">Ruby-Sass</a> for example)</li>
+<li> Then <a target="_blank" rel="noopener" href="https://nodejs.org/en/">node.js</a> came and we used its UNLIMITED POWER ⚡️ to handle dependencies &amp; tooling</li>
+<li>Then <a target="_blank" rel="noopener" href="http://browserify.org/">Browserify</a> came and we began to bundle our Javascript that way:<br> better dependencies management and the possibility to split our JS code in multiple files</li>
+<li>Then building tools like <a target="_blank" rel="noopener" href="https://gruntjs.com/">Grunt</a> or <a target="_blank" rel="noopener" href="https://gulpjs.com/">Gulp</a> let us coordinate all those build step together.<br> It staid that way a couple of time…</li>
+<li>Then <a target="_blank" rel="noopener" href="https://reactjs.org/">React</a> appeared.<br> Even if it was just one step further from previous frameworks (like <a target="_blank" rel="noopener" href="http://backbonejs.org/">backbone</a> or <a target="_blank" rel="noopener" href="https://angularjs.org/">angularJS</a>), the full component way of doing things made people want to bundle thing, not on a language basis, but on a component basis.</li>
+<li>Thus <a target="_blank" rel="noopener" href="https://webpack.js.org/">webpack</a> appeared.<br> Doing an amazing job with the drawback of a sometime tricky <a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/#options">configuration</a> (and the team is really pushing hard to solve this 💪).</li>
+<li>Then appeared <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Command-line_interface">CLI</a> for each framework to simplify the use of webpack.<br> Tools configuring tools to use other tools.</li>
+<li>And recently <strong>Parcel</strong> appeared with a <strong>no configuration promise</strong></li>
+</ol>
+<p>It’s not that we don’t like simple stuff anymore (no one likes build steps), it’s more that our needs <em>vs.</em> what the browser can natively do aren’t matching:</p>
+<ul>
+<li>no <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Javascript modules</a> until recently</li>
+<li>no <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">CSS variables</a> until recently</li>
+<li>etc.</li>
+<li>also things that will never land in browsers like:<ul>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-jsx.html">JSX</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">Typescript</a></li>
+</ul>
+</li>
+</ul>
+<p>And we still need to support legacy browsers.</p>
+<p>I’m pretty sure it’s still every dev’s dream to use a thing that <em>just works</em> in every situation (<em>“building”</em> appeared in <a target="_blank" rel="noopener" href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">javascript</a> <a target="_blank" rel="noopener" href="https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4">fatigue</a> posts quite often).</p>
+<p>On a side note, the web-community is pushing forward for native tools.</p>
+<p>After all:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">document.querySelectorAll</a> is just <a target="_blank" rel="noopener" href="https://jquery.com/">jQuery</a>‘s idea natively implemented</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">JS arrow functions</a> is inspired by Coffeescript’s <a target="_blank" rel="noopener" href="https://coffeescript.org/#functions">functions</a></li>
+<li>JS modules, and CSS custom properties as talked before ⏪.</li>
+</ul>
+<p>Maybe <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web Components</a> will be the native solution’s equivalent for React/Angular/Vue <small>(Even if I think they will stick because of how much other benefits they can provide)</small></p>
+<h2 id="Why-bundling-vue"><a href="#Why-bundling-vue" class="headerlink" title="Why bundling vue"></a>Why bundling vue</h2><p>If we look at the <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/single-file-components.html#ad">vue’s single file component</a> we can see that:</p>
+<ul>
+<li><strong>Templates</strong> can be <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a> or <a target="_blank" rel="noopener" href="https://pugjs.org/api/getting-started.html">Pug template</a></li>
+<li><strong>Style</strong> can be <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>, <a target="_blank" rel="noopener" href="https://postcss.org/">PostCSS</a>, <a target="_blank" rel="noopener" href="http://lesscss.org/">less</a>, <a target="_blank" rel="noopener" href="https://sass-lang.com/">SASS/SCSS</a> or <a target="_blank" rel="noopener" href="http://stylus-lang.com/">Stylus</a> with the support of <a target="_blank" rel="noopener" href="https://vue-loader.vuejs.org/en/features/scoped-css.html">style scoping</a> or not</li>
+<li><strong>Script</strong> can be <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/javascript">Javascript</a> (with the support of the latest additions to the language with <a target="_blank" rel="noopener" href="http://babeljs.io/">babel</a>) or <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">typescript</a></li>
+</ul>
+<p>So it’s a good candidate for testing Parcel’s ability to bundle anything 😎</p>
+<h2 id="Parcel"><a href="#Parcel" class="headerlink" title="Parcel"></a>Parcel</h2><p>There isn’t a lot of things to learn about Parcel.<br>They said <strong>simplicity</strong> and simplicity it is: look at how <a target="_blank" rel="noopener" href="https://parceljs.org/cli.html#options">little options</a> there are!</p>
+<p>Mainly (copied &amp; trimmed from the official doc):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> options = &#123;<br>  outDir: <span class="hljs-string">&quot;./dist&quot;</span>, <span class="hljs-comment">// The out directory to put the build files in, defaults to dist</span><br>  outFile: <span class="hljs-string">&quot;index.html&quot;</span>, <span class="hljs-comment">// The name of the outputFile</span><br>  publicUrl: <span class="hljs-string">&quot;./&quot;</span>, <span class="hljs-comment">// The url to server on, defaults to dist</span><br>  target: <span class="hljs-string">&quot;browser&quot;</span> <span class="hljs-comment">// browser/node/electron, defaults to browser</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>That’s it.</p>
+<p>I hope you’re not afraid of the void 🌑.</p>
+<h2 id="Main-use"><a href="#Main-use" class="headerlink" title="Main use"></a>Main use</h2><p>Just specify an entry file (either HTML, JS or CSS) and it will crawl all its dependencies and bundle them.<br>That’s it.</p>
+<p>You may have to install other <a target="_blank" rel="noopener" href="https://www.npmjs.com/">NPM packages</a> by I’ve found that Parcel tries to <a target="_blank" rel="noopener" href="https://parceljs.org/hmr.html#automagically-installed-dependencies">install some of them for you</a>. That’s such a good idea!</p>
+<p>Also being able to run a <a target="_blank" rel="noopener" href="https://parceljs.org/hmr.html">Hot Module Replacement</a> server in development is quick way to start coding a web-application.</p>
+<h2 id="Transform-configuration"><a href="#Transform-configuration" class="headerlink" title="Transform configuration"></a>Transform configuration</h2><p>Parcel will pass down some configuration to the tools that it uses under the hood:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://parceljs.org/transforms.html#babel">.babelrc</a> for babel</li>
+<li><a target="_blank" rel="noopener" href="https://parceljs.org/transforms.html#posthtml">.posthtmlrc</a> for post html</li>
+<li>etc.</li>
+</ul>
+<p>This can lead to some <a target="_blank" rel="noopener" href="https://github.com/parcel-bundler/parcel/issues/1103#issuecomment-406483009">strange issues</a> sometimes…</p>
+<p>Also be aware that as for now (august 2018) <a target="_blank" rel="noopener" href="https://github.com/parcel-bundler/parcel/issues/868">Parcel relies on Babel 6</a> and not on <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@babel/core/v/7.0.0-beta.55">Babel 7</a> (still on beta but working fine)</p>
+<p>That’s a small common problem among the <em>“under the hood”</em> solutions (CLI included), you never know what’s going on before reading the <code>package.json</code> (or some github issues).</p>
+<h2 id="Code-splitting"><a href="#Code-splitting" class="headerlink" title="Code splitting"></a>Code splitting</h2><p>Like every bundler, Parcel <a target="_blank" rel="noopener" href="https://parceljs.org/code_splitting.html">supports it</a>.<br>They rely on <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-dynamic-import">a future addition to the JS language</a> to do so.<br>As it is in <a target="_blank" rel="noopener" href="https://tc39.github.io/process-document/">stage 3</a> the syntax won’t change in the future and it’s safe to use it now without thinking about refactoring due to specifications change after 👌</p>
+<h2 id="Where-simplicity-breaks"><a href="#Where-simplicity-breaks" class="headerlink" title="Where simplicity breaks"></a>Where simplicity breaks</h2><p>I was able to set up a development vue application in an instant.<br>Every things that Vue supports seems to work seamlessly.</p>
+<p>So that was a real time saver and a good entry point in Vue’s ecosystem.</p>
+<p>But the <strong>promise of <em>“simplicity”</em> as some drawbacks:</strong></p>
+<ul>
+<li>when you have a problem it’s most likely you’ll have to wait for a new version</li>
+<li>I had some problem with building &amp; minifying <code>.vue</code> files in production mode for example…</li>
+</ul>
+<p><strong>When building from an html file:</strong></p>
+<ul>
+<li>Parcel can’t simply ignore assets: a <code>manifest.webmanifest</code> file will be converted to <code>manifest.b01ff217.js</code>…</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/parcel-bundler/parcel/issues/301">no PWA support</a>, and since every resource is parsed, you can’t include a PWA file generated by <a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/workbox/">workbox</a> (same as above)</li>
+</ul>
+<p>I resolved myself to:</p>
+<ul>
+<li>write a simple <code>html</code> file for the dev (it was my entry point)</li>
+<li>write another production <code>html</code> file and shift my entry point to my JS file so that it doesn’t parse my HTML code</li>
+</ul>
+<h2 id="Things-I-didn’t-test"><a href="#Things-I-didn’t-test" class="headerlink" title="Things I didn’t test"></a>Things I didn’t test</h2><p>Bundling a node.js application with it.</p>
+<p>It’s useful if you share a lot of code between the client &amp; the server and you want your server code to run as fast as possible.</p>
+<p>There is a <a target="_blank" rel="noopener" href="https://parceljs.org/cli.html#target">target</a> parameter for it. But I’m not sure if I can do variables or module replacement with it.</p>
+<p>When I was building my <a href="/en/2018/08-universal-application/" title="universal web-application">universal web-application</a> (bad idea, don’t do it at home, use <a target="_blank" rel="noopener" href="https://nextjs.org/">next.js</a> or <a target="_blank" rel="noopener" href="https://nuxtjs.org/">nuxt</a>) I had to really refine my build configuration.<br>I don’t know if it would have been possible by using Parcel only.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p><strong>Parcel is very promising</strong> and very young.<br>The team is doing an amazing job ❤️ and is pushing the bundling step in a good direction: simple and working 🎉.</p>
+<p><strong>I won’t advice it (yet) for big projects</strong>. I think, for now, frameworks’ CLI are more reliable.</p>
+<p>BUT in the future, if I’ll be able to use the same simple bundle tool for all my projects I’ll go for it! (I’m a lazy 🐮 having to read yet another CLI doc isn’t my stuff).</p>
+<p>I really hope they will keep up with the hard work of developing an ambitious open source projects like that.</p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/nodejs/">nodejs</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/advanced/">advanced</a>, <a href="/tags/vue/">vue</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

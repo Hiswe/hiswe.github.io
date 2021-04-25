@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>html basic (part 2) | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="Learn more about writing HTML: nesting HTML element and achieving a more complex web-page" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="html basic (part 2)"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2018/05-html-basic-part-2/" />
+  
+  <meta name="og:description" content="Learn more about writing HTML: nesting HTML element and achieving a more complex web-page" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2018/05-html-basic-part-2/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2018-03-01T09:13:24.000Z">
+        <a href="/en/2018/05-html-basic-part-2/">
+          01-03-2018
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.792Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2018/05-html-basic-part-2/">html basic (part 2)</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-can-we-improve"><span class="toc-text">What can we improve?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enumerating-toys-nesting-HTML-elements"><span class="toc-text">Enumerating toys: nesting HTML elements</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Semantic-of-ul-amp-li"><span class="toc-text">Semantic of ul &amp; li</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-element-content"><span class="toc-text">HTML element content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parent-amp-Children"><span class="toc-text">Parent &amp; Children</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-common-mistake-not-nesting-properly"><span class="toc-text">A common mistake: not nesting properly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-the-spaces-before-lt-li-gt"><span class="toc-text">Why the spaces before &lt;li&gt;?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-an-image-self-closing-HTML-element-amp-attributes"><span class="toc-text">Adding an image: self-closing HTML element &amp; attributes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Semantic-of-img"><span class="toc-text">Semantic of img</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Self-closing-HTML-elements"><span class="toc-text">Self-closing HTML elements</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-anatomy-of-attributes"><span class="toc-text">The anatomy of attributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-image-src-attribute"><span class="toc-text">The image src attribute</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-page-title"><span class="toc-text">The page title</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-lt-html-gt-lt-head-gt-amp-lt-body-gt"><span class="toc-text">Why &lt;html&gt;, &lt;head&gt; &amp; &lt;body&gt;?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wrapping-up"><span class="toc-text">wrapping up</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>With <a href="/en/2018/04-html-basic-part-1/" title="html basic (part 1)">html basic (part 1)</a> we’ve seen how to:</p>
+<ul>
+<li>use a <em>proper text editor</em> to create and edit a HTML document</li>
+<li>what is a <em>HTML element</em></li>
+</ul>
+<p>Now we will see how to build more upon that!</p>
+<span id="more"></span>
+
+<h3 id="What-can-we-improve"><a href="#What-can-we-improve" class="headerlink" title="What can we improve?"></a>What can we improve?</h3><ul>
+<li>A more detailed article, like enumerate the toys</li>
+<li>Add an image</li>
+<li>Add a title to the page</li>
+</ul>
+<h2 id="Enumerating-toys-nesting-HTML-elements"><a href="#Enumerating-toys-nesting-HTML-elements" class="headerlink" title="Enumerating toys: nesting HTML elements"></a>Enumerating toys: nesting HTML elements</h2>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/toys.svg" class="" width="500" height="170" title="a sheppard, a sheep, a wolf and an dinosaur " alt="a sheppard, a sheep, a wolf and an dinosaur"> 
+  <figcaption class="image-container__caption">An amazing cast</figcaption>
+</figure>
+
+
+<p>It could be nice if we make a list of toys 🐑<br>Something like: </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">- a bunch of sheep<br>- a shepherd<br>- a dinosaur<br>- a wolf<br></code></pre></td></tr></table></figure>
+
+<p>How this translate to HTML?</p>
+<figure class="highlight html"><figcaption><span>01-list.html</span><a href="/downloads/code/05-html-basic-part-2/01-list.html">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>The Boy Who Cried Wolf<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>He just cried wolf while playing with his toys:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a bunch of sheep<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a shepherd<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a dinosaur<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a wolf<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Semantic-of-ul-amp-li"><a href="#Semantic-of-ul-amp-li" class="headerlink" title="Semantic of ul &amp; li"></a>Semantic of ul &amp; li</h3><p>As seen before, <strong>HTML elements carry a semantic value</strong>:  </p>
+<ul>
+<li><code>ul</code> stands for __u__norganized __l__ist (unorganized because it’s bullet points and not a numeric value)</li>
+<li><code>li</code> stands for __l__ist <strong>item</strong></li>
+</ul>
+<p>So because we wanted a list of elements, the obvious choice was to use those elements 😎</p>
+<h3 id="HTML-element-content"><a href="#HTML-element-content" class="headerlink" title="HTML element content"></a>HTML element content</h3>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/basket-of-apples.svg" class="" width="410" height="180" title="a basket with 3 apples " alt="a basket with 3 apples"> 
+  <figcaption class="image-container__caption">Yummy child apples inside daddy basket</figcaption>
+</figure>
+
+
+<p>In the first part I said that the content contains your text.<br>That was partially true: <strong>It can also contain other HTML elements!</strong>  </p>
+<p>As example, if we want to describe in HTML a basket with 3 apples we can do something like:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">basket</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">apple</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">apple</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">apple</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">apple</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">apple</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">apple</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">basket</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>Of course <code>basket</code> and <code>apple</code> are not proper HTML elements ⛔ 🗑 + 🍎<br>Don’t use them in your HTML code. </p>
+<h3 id="Parent-amp-Children"><a href="#Parent-amp-Children" class="headerlink" title="Parent &amp; Children"></a>Parent &amp; Children</h3><p>This is developer’s poetry 🌈<br>We often refer to the <strong>HTML elements containing the other</strong> as <strong>the parent</strong> of <strong>his children</strong>  </p>
+<p>In the example above:</p>
+<ul>
+<li>the parent will be the basket</li>
+<li>the children of the basket will be the apples</li>
+</ul>
+<h3 id="A-common-mistake-not-nesting-properly"><a href="#A-common-mistake-not-nesting-properly" class="headerlink" title="A common mistake: not nesting properly"></a>A common mistake: not nesting properly</h3>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/intertwined-apple.svg" class="" width="270" height="180" title="an apple stuck in the border of a basket " alt="an apple stuck in the border of a basket"> 
+  <figcaption class="image-container__caption">Browser doesn't like HTML elements in a quantum state</figcaption>
+</figure>
+
+
+<p>What is very important to understand, is that the browser need to know where to start and where to stop.<br>So <strong>if we mess with the order of starting and closing tags</strong> it can <strong>lead to some problems:</strong></p>
+<p>Your browser is an amazing thing. He will try to fix it for you, but maybe not in the way you intended.</p>
+<h4 id="So-this-HTML-code-is-bad"><a href="#So-this-HTML-code-is-bad" class="headerlink" title="So this HTML code is bad:"></a>So this HTML code is bad:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a dinosaur<br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>The browser won’t understand it:<br>the <code>&lt;li&gt;</code> <strong>starts <em>inside</em></strong> the <code>&lt;ul&gt;</code><br><strong><em>BUT</em></strong><br>it <strong>ends <em>outside</em></strong> his parent</p>
+<h4 id="This-is-the-right-way-to-write-it"><a href="#This-is-the-right-way-to-write-it" class="headerlink" title="This is the right way to write it:"></a>This is the right way to write it:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a dinosaur<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Why-the-spaces-before-lt-li-gt"><a href="#Why-the-spaces-before-lt-li-gt" class="headerlink" title="Why the spaces before &lt;li&gt;?"></a>Why the spaces before <code>&lt;li&gt;</code>?</h3>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/indentation.svg" class="" width="500" height="260" title="a nested kitchen, table, basket &amp; apples separated by spaces " alt="a nested kitchen, table, basket &amp; apples separated by spaces"> 
+  <figcaption class="image-container__caption">Spaces are helping you to read, always</figcaption>
+</figure>
+
+
+<p>In order to prevent this problem, we use a convention:</p>
+<ul>
+<li>just <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Indentation_style">indent</a> the content</li>
+<li>so we can see better what’s <strong>inside</strong> what</li>
+</ul>
+<p><strong><em>It’s really important to indent well</em></strong>: It will prevent you to do a lot of mistakes.<br>…and it looks nicer (developer’s poetry 🌈)</p>
+<p>Indenting is made easy with a <a href="/en/2018/04-html-basic-part-1/" title="a proper text editor">a proper text editor</a> like <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>.<br>It will also highlight HTML errors for you. Good guy 🤩</p>
+<h2 id="Adding-an-image-self-closing-HTML-element-amp-attributes"><a href="#Adding-an-image-self-closing-HTML-element-amp-attributes" class="headerlink" title="Adding an image: self-closing HTML element &amp; attributes"></a>Adding an image: self-closing HTML element &amp; attributes</h2>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/browser-needing-a-picture.svg" class="" width="300" height="140" title="a browser taking a picture with his tiny hands " alt="a browser taking a picture with his tiny hands"> 
+  <figcaption class="image-container__caption">Hey, I need U ❤️</figcaption>
+</figure>
+
+
+<p>Let’s move on and make our HTML more fun:<br>Add an illustration (illustrations are good)</p>
+<figure class="highlight html"><figcaption><span>02-image.html</span><a href="/downloads/code/05-html-basic-part-2/02-image.html">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>The Boy Who Cried Wolf<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;wolf-cover.png&quot;</span> /&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>He just cried wolf while playing with his toys:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a bunch of sheep<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a shepherd<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a dinosaur<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a wolf<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Semantic-of-img"><a href="#Semantic-of-img" class="headerlink" title="Semantic of img"></a>Semantic of img</h3><p>This one is easy:</p>
+<ul>
+<li><code>img</code> stands for __im__a<strong>g</strong>e</li>
+</ul>
+<p>Want an image? use <code>img</code> 🌆</p>
+<h3 id="Self-closing-HTML-elements"><a href="#Self-closing-HTML-elements" class="headerlink" title="Self-closing HTML elements"></a>Self-closing HTML elements</h3>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/what-is-this.svg" class="" width="320" height="210" title="a picture looking perplexedly at a text " alt="a picture looking perplexedly at a text"> 
+  <figcaption class="image-container__caption">What is it?</figcaption>
+</figure>
+
+
+<p>Some HTML elements don’t need content.<br>In the <code>img</code> element example, well… <strong>an image is an image, what else do you want to add?</strong></p>
+<p>to write them:</p>
+<ul>
+<li>just make <strong>only 1 tag</strong></li>
+<li>have to <strong>finish with <em><span class="u-c-accent">/</span>&gt;</em></strong></li>
+</ul>
+
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/auto-closing-tag.svg" class="" width="300" height="140" title="a HTML element with a self-closed tag " alt="a HTML element with a self-closed tag"> 
+  <figcaption class="image-container__caption">I'm a self-closed HTML element!</figcaption>
+</figure>
+
+
+<h3 id="The-anatomy-of-attributes"><a href="#The-anatomy-of-attributes" class="headerlink" title="The anatomy of attributes"></a>The anatomy of attributes</h3>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/basket-of-colored-apples.svg" class="" width="270" height="180" title="a basket with 3 apples of different kind " alt="a basket with 3 apples of different kind"> 
+  <figcaption class="image-container__caption">Yummy apples can come in all sort of kind</figcaption>
+</figure>
+
+
+<p>If we go on a deeper view, HTML elements can also have some properties that describe it.<br>Following our basket/apple example, we might want to know more about the apples:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">basket</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">apple</span> <span class="hljs-attr">skin</span>=<span class="hljs-string">&quot;pink&quot;</span> <span class="hljs-attr">taste</span>=<span class="hljs-string">&quot;sugary&quot;</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">apple</span> <span class="hljs-attr">skin</span>=<span class="hljs-string">&quot;blue&quot;</span> <span class="hljs-attr">taste</span>=<span class="hljs-string">&quot;sour&quot;</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">apple</span> <span class="hljs-attr">skin</span>=<span class="hljs-string">&quot;soft-pink&quot;</span> <span class="hljs-attr">taste</span>=<span class="hljs-string">&quot;not so much&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">basket</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="How-to-write-an-attributes"><a href="#How-to-write-an-attributes" class="headerlink" title="How to write an attributes"></a>How to write an attributes</h4>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/anatomy-of-an-attribute.svg" class="" width="480" height="280" title="a description of a tag " alt="a description of a tag"> 
+  <figcaption class="image-container__caption">XRay the tag</figcaption>
+</figure>
+
+
+<ul>
+<li>those properties are named <strong><em>attributes</em></strong></li>
+<li>those attributes are <strong><em>always on the starting tag</em></strong></li>
+<li>those attributes <strong><em>come</em></strong> more often <strong><em>in two parts</em></strong>:<ul>
+<li>an <strong><em>attribute name</em></strong>: a text <em>without</em> space</li>
+<li>an <strong><em>attribute value</em></strong>: a text that can contain space</li>
+</ul>
+</li>
+<li>we always write it that way: <code>attribute-name=&quot;the content on my property&quot;</code>  <ul>
+<li>Notice the <strong><em>equal sign</em> right after the attribute name</strong></li>
+<li>The <strong>equal sign <em>shouldn’t be separate by space</em></strong>  (<code>attribute-name = &quot;the content on my property&quot;</code> is wrong)</li>
+<li>The <strong>content</strong> always come <strong>surrounded by double quotes</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="The-image-src-attribute"><a href="#The-image-src-attribute" class="headerlink" title="The image src attribute"></a>The image src attribute</h3><p><strong>The <code>src</code> attribute stands for <em>source</em></strong></p>
+<p>Some information like the one for an image, can’t be included in the HTML document.<br>We need to tell the browser where to find them.  </p>
+<p>The <code>src</code> attribute is simply that: where we can find the file containing the data of my image!</p>
+<h4 id="Beware-of-spaces-and-letter-case"><a href="#Beware-of-spaces-and-letter-case" class="headerlink" title="Beware of spaces and letter case"></a>Beware of spaces and letter case</h4>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/wolf-vs-wolf.svg" class="" width="460" height="180" title="two wolfs" alt="picture, which are written one in lowercase &amp; the other in uppercase "> 
+  <figcaption class="image-container__caption">Don't mess with the wolves</figcaption>
+</figure>
+
+
+<p>The browser takes a deep care of respecting what you write.<br><strong>He will even make a difference between <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Letter_case">lowercase and uppercase</a></strong> so a file named <code>WOLF.jpg</code> and <code>wolf.jpg</code> are not similar to him.<br>In the same ways, spaces can be a tricky thing so <strong><em>as a rule of thumb</em></strong>:</p>
+<ul>
+<li><strong>always name your files in lowercase</strong></li>
+<li><strong>replace spaces by <code>-</code> in the name</strong></li>
+</ul>
+<p><em>example:</em></p>
+<p><code>My long Image name.jpg</code> is better written <code>my-long-image-name.jpg</code></p>
+<h2 id="The-page-title"><a href="#The-page-title" class="headerlink" title="The page title"></a>The page title</h2>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/website-title.svg" class="" width="220" height="160" title="The browser tab is named “wolf story” " alt="The browser tab is named “wolf story”"> 
+  <figcaption class="image-container__caption">There is a title here</figcaption>
+</figure>
+
+
+<p>The browser let’s us specify the text that appear in the tab.<br>We call it the page title.</p>
+<p>In order to do this we need some adjustments:</p>
+<figure class="highlight html"><figcaption><span>03-page-title.html</span><a href="/downloads/code/05-html-basic-part-2/03-page-title.html">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Wolf Story<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>The Boy Who Cried Wolf<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;wolf-cover.png&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>He just cried wolf while playing with his toys:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a bunch of sheep<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a shepherd<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a dinosaur<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a wolf<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Why-lt-html-gt-lt-head-gt-amp-lt-body-gt"><a href="#Why-lt-html-gt-lt-head-gt-amp-lt-body-gt" class="headerlink" title="Why &lt;html&gt;, &lt;head&gt; &amp; &lt;body&gt;?"></a>Why &lt;html&gt;, &lt;head&gt; &amp; &lt;body&gt;?</h3>
+<figure class="image-container">
+  <img src="/en/2018/05-html-basic-part-2/head-and-body.svg" class="" width="380" height="280" title="a HTML file with a brain, having a “wolf story” book open in front of him " alt="a HTML file with a brain, having a “wolf story” book open in front of him"> 
+  <figcaption class="image-container__caption">You can't see no brain… But read my story!</figcaption>
+</figure>
+
+
+<p>Developers are poet 🌈 But like poetry there is some conventions: like keeping things simple &amp; stupid 👷‍♀<br>If something is organized with <code>parent ➡️ children</code> relations, then we should apply it everywhere, no exceptions allowed.</p>
+<h4 id="lt-html-gt"><a href="#lt-html-gt" class="headerlink" title="&lt;html&gt;"></a>&lt;html&gt;</h4><p>Before, we used to just put our content, floating inside the HTML file.  </p>
+<p>Now we put a single parent for everything: the <code>&lt;html&gt;</code> element, just to make sure that nobody’s left without a parent.<br>And we called it <code>&lt;html&gt;</code> because it’s what we’re writing right?</p>
+<h4 id="lt-head-gt"><a href="#lt-head-gt" class="headerlink" title="&lt;head&gt;"></a>&lt;head&gt;</h4><p>In the <code>&lt;head&gt;</code> we will keep <strong>everything that’s invisible inside the webpage.</strong>  </p>
+<p>Look at it as your thought &amp; identity.<br>Important but less obvious than the rest.</p>
+<h4 id="lt-body-gt"><a href="#lt-body-gt" class="headerlink" title="&lt;body&gt;"></a>&lt;body&gt;</h4><p>In the <code>&lt;body&gt;</code> we will keep <strong>everything that’s visible</strong>.<br>Our content 📘</p>
+<h2 id="wrapping-up"><a href="#wrapping-up" class="headerlink" title="wrapping up"></a>wrapping up</h2><p>We have seen:</p>
+<ul>
+<li>More HTML elements and their associated semantic</li>
+<li>That we can nest HTML elements inside each other</li>
+<li>That HTML elements can have attributes</li>
+<li>How to write everything in a clean way</li>
+<li>A more pertinent organization of the HTML page</li>
+</ul>
+<p>It’s still ugly, but before digging into that (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a>), we will make some short improvements in the story… in <a href="/en/2018/06-html-basic-part-3/" title="the part 3!">the part 3!</a></p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/web/">web</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/beginner/">beginner</a>, <a href="/tags/html/">html</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

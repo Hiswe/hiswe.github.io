@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>Writing koa/nuxt applications | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="How we can integrate Nuxt in a Koa server" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="Writing koa/nuxt applications"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2018/13-koa-nuxt/" />
+  
+  <meta name="og:description" content="How we can integrate Nuxt in a Koa server" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2018/13-koa-nuxt/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2018-10-23T09:58:37.000Z">
+        <a href="/en/2018/13-koa-nuxt/">
+          23-10-2018
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.813Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2018/13-koa-nuxt/">Writing koa/nuxt applications</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shaped-for-express"><span class="toc-text">Shaped for express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handling-POST"><span class="toc-text">Handling POST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handling-errors"><span class="toc-text">Handling errors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handling-Server-data-with-Nuxt"><span class="toc-text">Handling Server data with Nuxt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Koa-session"><span class="toc-text">Koa-session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Can%E2%80%99t-set-headers-after-they-are-sent"><span class="toc-text">Can’t set headers after they are sent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#autoCommit-false-to-the-rescue"><span class="toc-text">autoCommit: false to the rescue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Displaying-all-errors-with-Nuxt"><span class="toc-text">Displaying all errors with Nuxt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>You’re ready to make your new application.<br>You take <a target="_blank" rel="noopener" href="https://vuejs.org/">Vue 2</a> as your framework</p>
+<p>But you want your application to be:</p>
+<ul>
+<li>fast</li>
+<li>bulletproof</li>
+</ul>
+<p>So you decide to make a <a href="/en/2018/12-vue-with-nuxt/" title="Universal Web Application">Universal Web Application</a> with <a target="_blank" rel="noopener" href="https://nuxtjs.org/">Nuxt 2</a> &amp; <a target="_blank" rel="noopener" href="https://koajs.com/">Koa 2</a><br>It will:</p>
+<ul>
+<li>fasten the first rendering</li>
+<li>be able to run without JS activated on the client side</li>
+</ul>
+<span id="more"></span>
+
+<p><strong>Notes:</strong></p>
+<ul>
+<li>You will need to be familiar with Koa/Nuxt.</li>
+<li>Be aware that both Nuxt and Koa use the concepts of <code>context (ctx)</code> &amp; <code>middleware</code>.<br>I’ve tried to differentiate them as much as I could in the following post, but if you’re confused reread carefully and try to sort it out 😅</li>
+<li>You can find a working example of what I’m talking next in the <a target="_blank" rel="noopener" href="https://github.com/Hiswe/koa-nuxt-example">koa-nuxt-example repository</a></li>
+</ul>
+<h2 id="Shaped-for-express"><a href="#Shaped-for-express" class="headerlink" title="Shaped for express"></a>Shaped for express</h2><p>Because <a target="_blank" rel="noopener" href="https://expressjs.com/">express.js</a> is the most commonly used Node.js server framework, most of the UWA frameworks <code>render function</code> are shaped for it.</p>
+<p>This means that in express, <a target="_blank" rel="noopener" href="https://github.com/nuxt/create-nuxt-app/blob/master/template/server/index-express.js">Nuxt integration came out of the box</a>.<br>You just need to call it like any express middleware:</p>
+<figure class="highlight js"><figcaption><span>01-express-middleware.js</span><a href="/downloads/code/13-koa-nuxt/01-express-middleware.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(nuxt.render)<br></code></pre></td></tr></table></figure>
+
+<p>Since we want to use Koa, we will need to make our own middleware.<br>No need to think a lot about integration since this has already been solved but the <a target="_blank" rel="noopener" href="https://github.com/nuxt/create-nuxt-app/blob/master/template/server/index-koa.js">Nuxt community</a></p>
+<figure class="highlight js"><figcaption><span>02-koa-middleware.js</span><a href="/downloads/code/13-koa-nuxt/02-koa-middleware.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nuxtMiddleware</span>(<span class="hljs-params">ctx</span>) </span>{<br>  <span class="hljs-comment">// koa defaults to 404 when it sees that status is unset</span><br>  ctx.status = <span class="hljs-number">200</span><br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {<br>    ctx.res.on(<span class="hljs-string">&#x27;close&#x27;</span>, resolve)<br>    ctx.res.on(<span class="hljs-string">&#x27;finish&#x27;</span>, resolve)<br>    nuxt.render(ctx.req, ctx.res, <span class="hljs-function"><span class="hljs-params">promise</span> =&gt;</span> {<br>      <span class="hljs-comment">// nuxt.render passes a rejected promise into callback on error.</span><br>      promise.then(resolve).catch(reject)<br>    })<br>  })<br>}<br><br>app.use(nuxtMiddleware)<br></code></pre></td></tr></table></figure>
+
+<p>This will work perfectly if you’re only interested in server rendering.</p>
+<h2 id="Handling-POST"><a href="#Handling-POST" class="headerlink" title="Handling POST"></a>Handling POST</h2><p>Let say we want to be able to post a form.</p>
+<ul>
+<li>First we will install/use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/koa-router">koa-router</a> and <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/koa-body">koa-body</a></li>
+<li>Then with those, we will be able to handle our <code>POST</code> action</li>
+<li>And we might want to do a database call inside it (<code>doSomethingAsync</code> in the example)</li>
+</ul>
+<figure class="highlight js"><figcaption><span>03-koa-form.js</span><a href="/downloads/code/13-koa-nuxt/03-koa-form.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// …koa app creation + middleware</span><br><br><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> Router()<br><br>router.post(<span class="hljs-string">`/my-action`</span>, koaBody(), <span class="hljs-keyword">async</span> ctx =&gt; {<br>  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> doSomethingAsync(ctx.request.body)<br>  ctx.redirect(<span class="hljs-string">`/`</span>)<br>})<br><br>app.use(router.routes())<br>app.use(router.allowedMethods())<br><br><span class="hljs-comment">// …call our Nuxt middleware to handle anything that aren&#x27;t our custom actions</span><br></code></pre></td></tr></table></figure>
+
+<p>This is kind of ok:</p>
+<ul>
+<li>we can now post some data</li>
+<li>redirect to <code>/</code> where Nuxt will handle the markup</li>
+</ul>
+<p>JSON response can be added by later by</p>
+<ul>
+<li>checking what’s the request <code>Content-Type</code> header (<code>ctx.is(&#39;application/json&#39;)</code>)</li>
+<li>don’t redirect</li>
+<li>send back the appropriate response</li>
+</ul>
+<h2 id="Handling-errors"><a href="#Handling-errors" class="headerlink" title="Handling errors"></a>Handling errors</h2><p>We should write an error middleware.<br>It will make sure that if something went wrong, our application won’t crash.<br>To catch all the things, it will be our first middleware.</p>
+<figure class="highlight js"><figcaption><span>04-koa-form-error.js</span><a href="/downloads/code/13-koa-nuxt/04-koa-form-error.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// koa app creation + middleware + router creation</span><br><br>koa.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleErrors</span>(<span class="hljs-params">ctx, next</span>) </span>{<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">await</span> next()<br>  } <span class="hljs-keyword">catch</span> (error) {<br>    ctx.status = <span class="hljs-number">500</span><br>    ctx.body = error<br>  }<br>})<br><br>router.post(<span class="hljs-string">`/my-action`</span>, koaBody(), <span class="hljs-keyword">async</span> ctx =&gt; {<br>  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> doSomethingAsync(ctx.request.body)<br>  ctx.redirect(<span class="hljs-string">`/`</span>)<br>})<br><br><span class="hljs-comment">// mount router + Nuxt</span><br></code></pre></td></tr></table></figure>
+
+<p>So now if anything throw (DB call, JSON parsing…) we will render a page with the error printed.</p>
+<h2 id="Handling-Server-data-with-Nuxt"><a href="#Handling-Server-data-with-Nuxt" class="headerlink" title="Handling Server data with Nuxt"></a>Handling Server data with Nuxt</h2><p>We also should send back some data validation to the user form.</p>
+
+<figure class="image-container">
+  <img src="/en/2018/13-koa-nuxt/validation.svg" class="" width="500" height="250" title="a form field with a validation error " alt="a form field with a validation error">
+  <figcaption class="image-container__caption">Oh no!</figcaption>
+</figure>
+
+
+<p>In order to display any validation in the Nuxt application we will need to:</p>
+<ul>
+<li>persist data between our post route and the redirection</li>
+<li>pass those data down to the Nuxt application</li>
+<li>do something with it</li>
+</ul>
+<h3 id="Koa-session"><a href="#Koa-session" class="headerlink" title="Koa-session"></a>Koa-session</h3><p>The most common way to handle data between routes is with sessions.<br>We’ll use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/koa-session">koa-session</a> for this.</p>
+<p>The <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/koa-session#example">installation guide</a> is pretty self explanatory.<br>This will add a <code>ctx.session</code> object where we can pass any kind of information.</p>
+<p>Here is the different steps to follow:</p>
+<ul>
+<li>Validate our form</li>
+<li>Add the validation to the session</li>
+<li>Pass it to Nuxt<ul>
+<li>Because Nuxt doesn’t use the Koa <code>ctx</code> but use <code>req</code> &amp; <code>res</code>, copy our session information into those objects.</li>
+<li>This will be done in a Koa middleware just before the nuxt-rendering middleware</li>
+</ul>
+</li>
+<li>Integrate it in the Nuxt application by either using:<ul>
+<li>a <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/routing#middleware">Nuxt middleware</a></li>
+<li>the <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action">nuxtServerInit</a> for Vuex integration<br>Right now let’s start with <code>nuxtServerInit</code>.</li>
+</ul>
+</li>
+<li>…and since now all is in the Vue realm, just use our Vue Components.</li>
+</ul>
+<figure class="highlight js"><figcaption><span>05-validation.js</span><a href="/downloads/code/13-koa-nuxt/05-validation.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// after setting up koa-session</span><br><br>router.post(<span class="hljs-string">`/my-action`</span>, koaBody(), <span class="hljs-keyword">async</span> ctx =&gt; {<br>  <span class="hljs-keyword">const</span> { body } = ctx.request<br>  <span class="hljs-comment">// assuming that we have defined `isFormValid` before</span><br>  <span class="hljs-keyword">const</span> isValid = isFormValid(body)<br>  <span class="hljs-keyword">if</span> (isValid) {<br>    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> doSomethingAsync(body)<br>  } <span class="hljs-keyword">else</span> {<br>    <span class="hljs-comment">// assuming that we have defined `getValidation` before</span><br>    ctx.session.validation = getValidation(body)<br>  }<br>  ctx.redirect(<span class="hljs-string">`/`</span>)<br>})<br><br>app.use(router.routes())<br>app.use(router.allowedMethods())<br><br><span class="hljs-comment">// put some data to the req object</span><br><span class="hljs-comment">// so we will be able to access them in the Nuxt app</span><br><span class="hljs-comment">// – in Vuex nuxtServerInit</span><br><span class="hljs-comment">// - in a Nuxt Middleware</span><br>app.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">passSessionToNuxt</span>(<span class="hljs-params">ctx, next</span>) </span>{<br>  ctx.req.serverData = {<br>    validation: ctx.session.validation || {},<br>  }<br>  <span class="hljs-keyword">await</span> next()<br>})<br></code></pre></td></tr></table></figure>
+
+<p>In the <em>store/index.js</em></p>
+<figure class="highlight js"><figcaption><span>06-vuex-store.js</span><a href="/downloads/code/13-koa-nuxt/06-vuex-store.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> state = <span class="hljs-function">() =&gt;</span> ({<br>  validation: {},<br>})<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> UPDATE_VALIDATION = <span class="hljs-string">`UPDATE_VALIDATION`</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mutations = {<br>  [UPDATE_VALIDATION](state, payload) {<br>    state.validation = payload<br>  },<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> actions = {<br>  <span class="hljs-function"><span class="hljs-title">nuxtServerInit</span>(<span class="hljs-params">{ commit }, nuxtCtx</span>)</span> {<br>    <span class="hljs-keyword">const</span> { req } = nuxtCtx<br>    <span class="hljs-comment">// here we find again our server data</span><br>    <span class="hljs-keyword">const</span> { serverData } = req<br><br>    <span class="hljs-keyword">if</span> (!serverData) <span class="hljs-keyword">return</span><br>    <span class="hljs-keyword">if</span> (serverData.validation) {<br>      commit(UPDATE_VALIDATION, serverData.validation)<br>    }<br>  },<br>}<br></code></pre></td></tr></table></figure>
+
+<p>And that’s it, we now have a Vuex store updated with our server validation.<br>Use <a target="_blank" rel="noopener" href="https://vuex.vuejs.org/guide/state.html#the-mapstate-helper">the mapState helper</a> in our Vue component to access it.</p>
+<h3 id="Can’t-set-headers-after-they-are-sent"><a href="#Can’t-set-headers-after-they-are-sent" class="headerlink" title="Can’t set headers after they are sent"></a>Can’t set headers after they are sent</h3><p>Right now, we set the validation on our POST route, and never update it again.</p>
+<p>It means that the validation will be persisted until the user send a good form.<br>So if the user change page and go back to the form, <em>the application will still display the last validation result.</em><br>This isn’t right, we should clear the validation once displayed.</p>
+<p>This should be easy by updating our Koa middleware that link our session to nuxt.</p>
+<figure class="highlight js"><figcaption><span>07-naive-validation-clearing.js</span><a href="/downloads/code/13-koa-nuxt/07-naive-validation-clearing.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">passSessionToNuxt</span>(<span class="hljs-params">ctx, next</span>) </span>{<br>  ctx.req.serverData = {<br>    validation: ctx.session.validation || {},<br>  }<br>  <span class="hljs-comment">// don&#x27;t persist the validation on more than one page</span><br>  <span class="hljs-keyword">delete</span> ctx.session.validation<br>  <span class="hljs-keyword">await</span> next()<br>})<br></code></pre></td></tr></table></figure>
+
+<p>⚠️ <strong>But this won’t work</strong></p>
+<p>You’ll find in the server logs a <code>Can&#39;t set headers after they are sent</code>.<br>The problem comes from the <code>nuxtMiddleware</code> &amp; how it bypasses the regular Koa flow.</p>
+<p>Usually we set a <code>ctx.body</code> and all the previous middleware will continue their work.</p>
+
+<figure class="image-container">
+  <img src="/en/2018/13-koa-nuxt/regular-flow.svg" class="" width="500" height="400" title="regular koa flow " alt="regular koa flow">
+  <figcaption class="image-container__caption">regular flow</figcaption>
+</figure>
+
+
+<p>But that’s what happen here</p>
+
+<figure class="image-container">
+  <img src="/en/2018/13-koa-nuxt/nuxt-flow.svg" class="" width="555" height="400" title="koa-nuxt flow " alt="koa-nuxt flow">
+  <figcaption class="image-container__caption">koa-nuxt flow</figcaption>
+</figure>
+
+
+<p>To fix that we need to make sure that our headers are set before the Nuxt middleware.</p>
+<h3 id="autoCommit-false-to-the-rescue"><a href="#autoCommit-false-to-the-rescue" class="headerlink" title="autoCommit: false to the rescue"></a>autoCommit: false to the rescue</h3><p>Koa-session lets us send the headers manually with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/koa-session#sessionmanuallycommit">the manuallyCommit() method</a></p>
+<p>So we have to refactor our server code like this:</p>
+<figure class="highlight js"><figcaption><span>08-manually-commit.js</span><a href="/downloads/code/13-koa-nuxt/08-manually-commit.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> sessionOptions = {<br>  <span class="hljs-comment">// don&#x27;t autoCommit</span><br>  <span class="hljs-comment">// we will handle the header update ourself</span><br>  autoCommit: <span class="hljs-literal">false</span>,<br>}<br>app.use(session(sessionOptions, app))<br><br>router.post(<span class="hljs-string">`/my-action`</span>, koaBody(), <span class="hljs-keyword">async</span> ctx =&gt; {<br>  <span class="hljs-keyword">const</span> { body } = ctx.request<br>  <span class="hljs-keyword">const</span> isValid = isFormValid(body)<br>  <span class="hljs-keyword">if</span> (isValid) {<br>    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> doSomethingAsync(body)<br>  } <span class="hljs-keyword">else</span> {<br>    ctx.session.validation = getValidation(body)<br>    <span class="hljs-comment">// set the headers manually</span><br>    <span class="hljs-keyword">await</span> ctx.session.manuallyCommit()<br>  }<br>  ctx.redirect(<span class="hljs-string">`/`</span>)<br>})<br><br><span class="hljs-comment">// …mount the router…</span><br><br>app.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">passSessionToNuxt</span>(<span class="hljs-params">ctx, next</span>) </span>{<br>  ctx.req.serverData = {<br>    validation: ctx.session.validation || {},<br>  }<br>  <span class="hljs-comment">// don&#x27;t persist the validation on more than one page</span><br>  <span class="hljs-keyword">delete</span> ctx.session.validation<br>  <span class="hljs-comment">// set the headers manually</span><br>  <span class="hljs-keyword">await</span> ctx.session.manuallyCommit()<br>  <span class="hljs-keyword">await</span> next()<br>})<br><br><span class="hljs-comment">// headers are set! we can safely call our Nuxt middleware</span><br></code></pre></td></tr></table></figure>
+
+<p>This will solve our problem ❤️<br>We just have now to remember calling <code>manuallyCommit()</code> every time we update the session… 😶</p>
+<h2 id="Displaying-all-errors-with-Nuxt"><a href="#Displaying-all-errors-with-Nuxt" class="headerlink" title="Displaying all errors with Nuxt"></a>Displaying all errors with Nuxt</h2><p>There is one last thing we have to take care of.<br>Right now our <code>handleError</code> middleware will make Koa show the error.<br>But Nuxt support an <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/views#error-page">error layout</a> and we should take advantage of it.</p>
+<p>To do this we’ll need to modify our <code>handleError</code> middleware:</p>
+<ul>
+<li>set the error to the <code>ctx.req</code> object (Remember Nuxt still only work with <code>req</code> &amp; <code>res</code>)</li>
+<li>call Nuxt to render the page inside our <code>handleError</code> middleware</li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/routing#middleware">write a Nuxt middleware</a> that will render the error page by calling <a target="_blank" rel="noopener" href="https://nuxtjs.org/api/context">nuxtContext.error</a></li>
+</ul>
+<figure class="highlight js"><figcaption><span>09-koa-nuxt-error.js</span><a href="/downloads/code/13-koa-nuxt/09-koa-nuxt-error.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">koa.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleErrors</span>(<span class="hljs-params">ctx, next</span>) </span>{<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">await</span> next()<br>  } <span class="hljs-keyword">catch</span> (error) {<br>    ctx.status = <span class="hljs-number">500</span><br>    ctx.req.serverError = error<br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-comment">// let Nuxt handle the response</span><br>      <span class="hljs-keyword">await</span> nuxtMiddleware(ctx)<br>    } <span class="hljs-keyword">catch</span> (nuxtError) {<br>      <span class="hljs-comment">// we tried our best</span><br>      <span class="hljs-comment">// but if something&#x27;s still wrong, go without Nuxt</span><br>      ctx.body = error<br>    }<br>  }<br>})<br></code></pre></td></tr></table></figure>
+
+<p>And for the Nuxt part:</p>
+<ul>
+<li>create a <code>middleware/handle-server-errors.js</code> file</li>
+<li>reference it in the <code>nuxt.config.js</code></li>
+</ul>
+<figure class="highlight js"><figcaption><span>10-nuxt-error-middleware.js</span><a href="/downloads/code/13-koa-nuxt/10-nuxt-error-middleware.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nuxtContext</span>) </span>{<br>  <span class="hljs-keyword">const</span> { req, error } = nuxtContext<br>  <span class="hljs-keyword">if</span> (process.client) <span class="hljs-keyword">return</span><br>  <span class="hljs-comment">// here we catch the error send by the server</span><br>  <span class="hljs-keyword">if</span> (!req.serverError) <span class="hljs-keyword">return</span><br>  <span class="hljs-comment">// calling the error function will render the error layout</span><br>  error({<br>    statusCode: req.error.statusCode || <span class="hljs-number">500</span>,<br>    message: req.error.message || <span class="hljs-string">`a fatal error as occurred`</span>,<br>  })<br>}<br></code></pre></td></tr></table></figure>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Making Nuxt working with Koa isn’t as smooth as with Express.<br>Still I prefer <a href="/en/2018/07-from-express-to-koa/" title="working with Koa">working with Koa</a>, and with a little more boilerplate everything’s fine.</p>
+<p>I’m sure there is room for improvements, but it’s working for me.<br>The downside is mainly more boilerplate code and handling session updates manually.</p>
+<p><em>Most of the code here isn’t necessary if</em></p>
+<ul>
+<li>you just want some basic server rendering</li>
+<li>you don’t need to support any kind of session</li>
+</ul>
+<p><em>Supporting asynchronous code should be easy</em></p>
+<ul>
+<li>Koa is build around that</li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action">nuxtServerInit</a> supports <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async function</a></li>
+<li>the same goes for <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/routing#middleware">Nuxt middleware</a></li>
+</ul>
+<p>As a reminder you can find a full example <a target="_blank" rel="noopener" href="https://github.com/Hiswe/koa-nuxt-example">here</a></p>
+<p>💚 <em>Nuxt</em> 💙 <em>KOA</em></p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/web/">web</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/advanced/">advanced</a>, <a href="/tags/vue/">vue</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

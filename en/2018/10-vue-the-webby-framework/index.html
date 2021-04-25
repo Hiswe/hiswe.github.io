@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>Vue, the webby framework | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="A small overview of Vue compared to React" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="Vue, the webby framework"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2018/10-vue-the-webby-framework/" />
+  
+  <meta name="og:description" content="A small overview of Vue compared to React" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2018/10-vue-the-webby-framework/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2018-07-27T16:15:01.000Z">
+        <a href="/en/2018/10-vue-the-webby-framework/">
+          27-07-2018
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.807Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2018/10-vue-the-webby-framework/">Vue, the webby framework</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-lib"><span class="toc-text">The main lib</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#building-considerations"><span class="toc-text">building considerations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSX-Vue-templates"><span class="toc-text">JSX&#x2F;Vue templates</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Styling-components"><span class="toc-text">Styling components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Components-logic"><span class="toc-text">Components logic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#writing-Components"><span class="toc-text">writing Components</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#referencing-components"><span class="toc-text">referencing components</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Building-a-web-app"><span class="toc-text">Building a web-app</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#routing"><span class="toc-text">routing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-store"><span class="toc-text">application store</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-note-on-documentation"><span class="toc-text">A note on documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Both <a target="_blank" rel="noopener" href="https://reactjs.org/">React 16</a> &amp; <a target="_blank" rel="noopener" href="https://vuejs.org/">Vue 2</a> are javascript libraries that solve the same issue: writing components which are kept in sync with your application’s state.</p>
+<p>Having used both of them lately, here is my opinion on the main differences between them.</p>
+<p>I’m not trying to convince anyone of which one is better here, but more to describe how comfortable I was while learning &amp; using them.<br>When it’s about making stuff, just choose your preferred tool <small>(if you have the choice of course)</small>.</p>
+<p><strong><code>[TL;DR]</code></strong> Vue feels more <em>webby</em> and React more <em>tecky</em> <small>(If that means something 🙃)</small><br>And coming from a web-developer background, I feel using Vue is more natural for me.</p>
+<span id="more"></span>
+
+<h2 id="The-main-lib"><a href="#The-main-lib" class="headerlink" title="The main lib"></a>The main lib</h2><h3 id="building-considerations"><a href="#building-considerations" class="headerlink" title="building considerations"></a>building considerations</h3><p>Both those frameworks can be used by just dropping the JS file in your webpage and by starting using it!<br>That’s really great! (I mean it 👍)</p>
+<p>That being said, using a <strong>compilation step makes it sure that you can use everything the library can provide</strong> (like <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/single-file-components.html">single file components</a> for Vue and <a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-jsx.html">JSX</a> for React)</p>
+<p>Those libraries try their best to make things simple for the developers:</p>
+<p><strong>If they say there is a better way to use their framework, you can trust them.</strong></p>
+<p>Both provide an easy way to bundle your code without getting an headache:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebook/create-react-app">create-react-app</a> for React</li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@vue/cli">@vue/cli</a> for Vue</li>
+</ul>
+<p>To use them, you just need to have <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> installed on your computer 🤖</p>
+<p>If you want an independent &amp; still simple way to bundle them, you can try <a target="_blank" rel="noopener" href="https://parceljs.org/">Parcel</a>.<br>I <a href="/en/2018/11-parcel-with-vue/" title="tested it">tested it</a> for my first side project with Vue and it was a real quick starter.</p>
+<p>All this building intro gets us to…</p>
+<h3 id="JSX-Vue-templates"><a href="#JSX-Vue-templates" class="headerlink" title="JSX/Vue templates"></a>JSX/Vue templates</h3><p>If you’re working in the web, you’ve probably heard of (or are using) them.</p>
+<p>They are both a way to write a kind of HTML that will be compiled to Javascript.</p>
+<p>This is how I will represent them on a JS/HTML scale:</p>
+
+<figure class="image-container">
+  <img src="/en/2018/10-vue-the-webby-framework/jsx-vue-template.svg" class="" width="700" height="280" title="JSX&#x2F;Vue proximity with HTML " alt="JSX&#x2F;Vue proximity with HTML">
+  <figcaption class="image-container__caption">Don't need to be a javascript expert to write a Vue template</figcaption>
+</figure>
+
+
+<p>This is the same component written in:</p>
+<h4 id="React’s-JSX"><a href="#React’s-JSX" class="headerlink" title="React’s JSX"></a>React’s JSX</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params">props</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> componentClasses = [<span class="hljs-string">`foo`</span>];<br>  <span class="hljs-keyword">if</span> (props.secondary) componentClasses.push(<span class="hljs-string">`foo--secondary`</span>);<br>  <span class="hljs-keyword">if</span> (props.className) componentClasses.push(props.className);<br>  <span class="hljs-keyword">return</span> (<br>    &lt;div className=&#123;componentClasses.join(<span class="hljs-string">` `</span>)&#125;&gt;<br>      &#123;props.bar &amp;&amp; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;foo__bar&quot;</span>&gt;</span>&#123;props.bar&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span>&#125;<br>      &lt;ul className=<span class="hljs-string">&quot;foo__list&quot;</span>&gt;<br>        &#123;props.entries.map(<span class="hljs-function"><span class="hljs-params">entry</span> =&gt;</span> (<br>          &lt;li key=&#123;entry.id&#125;&gt;<br>            &lt;h6&gt;&#123;entry.title&#125;&lt;/h6&gt;<br>            &lt;p&gt;&#123;entry.content&#125;&lt;/p&gt;<br>          &lt;/li&gt;<br>        ))&#125;<br>      &lt;/ul&gt;<br>      &#123;props.children&#125;<br>    &lt;/div&gt;<br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="Vue-template"><a href="#Vue-template" class="headerlink" title="Vue template"></a>Vue template</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;&#123;foo: true, &#x27;foo--secondary&#x27;: secondary&#125;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;bar&quot;</span>&gt;</span>&#123;&#123;bar&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo__list&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;entry in entries&quot;</span> <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">&quot;entry.id&quot;</span> &gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>&#123;&#123;entry.title&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>  <br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123;entry.content&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>  <br>      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>I found <a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-jsx.html">JSX</a> more difficult to read and write:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/dom-elements.html#classname">Attributes are different</a> than their HTML counterpart (<code>className</code> for <code>class</code>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Camel_case">camelCase</a> attributes, etc.)</li>
+<li>no build in <strong>support for setting/un-setting classes</strong> (I end up using the <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/classnames">classnames</a> module)</li>
+<li>no build in support for <strong>passing down HTML classes</strong> from a parent to its child components</li>
+<li>no build-in solutions for <strong>having many part/slot to fill</strong> (for a better explanation about what I’m talking about, read <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/components-slots.html">the Vue’s slot doc</a>)</li>
+<li><strong>but most importantly design patterns</strong>: while learning React and writing JSX, I’ve found myself spending a lot of time learning how to write a clean conditional, what is a <a target="_blank" rel="noopener" href="https://reactjs.org/docs/render-props.html#use-render-props-for-cross-cutting-concerns">render prop</a>, how you can <a target="_blank" rel="noopener" href="https://hackernoon.com/do-more-with-less-using-render-props-de5bcdfbe74c">use</a> <a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/understanding-react-render-props-by-example-71f2162fd0f2">them</a>, what is a <a target="_blank" rel="noopener" href="https://reactjs.org/docs/higher-order-components.html#use-hocs-for-cross-cutting-concerns">HOC</a> and how to <a target="_blank" rel="noopener" href="https://medium.com/@toastui/a-deep-dive-into-the-react-hoc-1-fb431c131866">use</a> <a target="_blank" rel="noopener" href="https://medium.com/@toastui/a-deep-dive-into-the-react-hoc-2-3e8ed18b848b">them</a>…</li>
+<li>on a lower note, it’s a good thing to be able to use regular javascript in your template but:<ul>
+<li>writing conditional is strange <code>&#123;props.bar &amp;&amp;…&#125;</code></li>
+<li>I don’t like the look of the map function ending <code>))&#125;</code></li>
+<li>…so yeah, it’s mainly purely aesthetic considerations 🌈</li>
+</ul>
+</li>
+</ul>
+<h4 id="Vue-with-JSX"><a href="#Vue-with-JSX" class="headerlink" title="Vue with JSX"></a>Vue with JSX</h4><p>But if JSX is your way to go, <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/render-function.html#JSX">Vue supports it!</a></p>
+<h4 id="Vue-with-Pug"><a href="#Vue-with-Pug" class="headerlink" title="Vue with Pug"></a>Vue with Pug</h4><p>I’ve been using <a target="_blank" rel="noopener" href="https://pugjs.org/api/getting-started.html">Pug</a> (<a target="_blank" rel="noopener" href="https://github.com/pugjs/pug#rename-from-jade">ex-Jade</a>) template engine for a very long time now.<br>I’m still using it: I’m found of the simple syntax (I hate writing closing tags 😤).<br>It makes me write/refactor my markup quicker.</p>
+<p>Being able to use it with Vue is a really nice addition!</p>
+<h4 id="Root-node-handling"><a href="#Root-node-handling" class="headerlink" title="Root node handling"></a>Root node handling</h4><p>Both those frameworks need a <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/components.html#A-Single-Root-Element">single root element</a> for every components.</p>
+<p>But React allows it <em>NOT</em> to be rendered, thanks to <a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-api.html#reactfragment">React.Fragment</a>.</p>
+<p>That is a thing that I missed when working with Vue… even if it’s not that important (but I really like to keep my markup as simple as possible 🛁)</p>
+<h2 id="Styling-components"><a href="#Styling-components" class="headerlink" title="Styling components"></a>Styling components</h2><p>Because it’s all markup, you can still make a global CSS file and include it on your application.<br>That will work.</p>
+<p>But keeping your component styles near your component markup make a lot of sense:</p>
+<ul>
+<li>no need to go back and forth from a <code>style</code> folder</li>
+<li>you have a better overview of your component style perimeter</li>
+</ul>
+<p>in React there are <a target="_blank" rel="noopener" href="https://javascriptplayground.com/css-modules-webpack-react/">many</a>, <a target="_blank" rel="noopener" href="https://github.com/tuchk4/awesome-css-in-js#libraries">many</a> solutions. I won’t address here the merit or not of CSS-in-JS.<br>My point is more: you have to choose one thing.</p>
+<p>I went with importing a <a target="_blank" rel="noopener" href="https://sass-lang.com/">SCSS</a> file in my components:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;./foo.scss&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params">props</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> (<br>    &lt;dl className=<span class="hljs-string">&quot;foo&quot;</span>&gt;<br>      &lt;dt className=<span class="hljs-string">&quot;foo__title&quot;</span>&gt;foo&lt;/dt&gt;<br>      &lt;dd className=<span class="hljs-string">&quot;foo__content&quot;</span>&gt;bar&lt;/dd&gt;<br>    &lt;/dl&gt;<br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Vue provides a way to style from the same file with a <a target="_blank" rel="noopener" href="https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors">load of options</a> and supports <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS">vanilla CSS</a>, <a target="_blank" rel="noopener" href="https://postcss.org/">PostCSS</a>, <a target="_blank" rel="noopener" href="http://lesscss.org/">less</a>, <a target="_blank" rel="noopener" href="https://sass-lang.com/">sass/scss</a> or <a target="_blank" rel="noopener" href="http://stylus-lang.com/">Stylus</a> + <a target="_blank" rel="noopener" href="https://vue-loader.vuejs.org/en/features/scoped-css.html">style scoping</a>.<br>Just write your CSS inside the <code>&lt;style /&gt;</code> element.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo__title&quot;</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo__content&quot;</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;scss&quot;</span> <span class="hljs-attr">scoped</span>&gt;</span><br>.foo &#123;<br><span class="css">  <span class="hljs-attribute">background</span>: white;</span><br><br>  &amp;__title &#123;<br><span class="css">    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2rem</span>;</span><br>  &#125;<br>  &amp;__content &#123;<br><span class="css">    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5rem</span>;</span><br><span class="css">    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5</span>;</span><br>  &#125;<br>&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>I really like that: my styles are just sitting next to my markup 😎<br>And also <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/comparison.html#Component-Scoped-CSS">scoped styles</a> just works out of the box if you need them! ✨</p>
+<h2 id="Components-logic"><a href="#Components-logic" class="headerlink" title="Components logic"></a>Components logic</h2><p>That’s the heart of every component.</p>
+<h3 id="writing-Components"><a href="#writing-Components" class="headerlink" title="writing Components"></a>writing Components</h3><p>In React writing a component can take <a target="_blank" rel="noopener" href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">2 forms</a>:</p>
+<ul>
+<li>functional component</li>
+<li>Class component</li>
+</ul>
+<p>Class components can inherit from:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-api.html#reactcomponent">React.Component</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-api.html#reactpurecomponent">React.PureComponent</a></li>
+</ul>
+<p>There is a subtle difference between the two but I won’t go into details here.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;<br>    <span class="hljs-built_in">super</span>(props)<br>    <span class="hljs-built_in">this</span>.state = &#123;<br>      counter: <span class="hljs-number">0</span>,<br>    &#125;<br>    <span class="hljs-comment">// we need to be sure that the context of handleClick</span><br>    <span class="hljs-comment">// won&#x27;t be change by the event handling</span><br>    <span class="hljs-built_in">this</span>.handleClick = <span class="hljs-built_in">this</span>.handleClick.bind(<span class="hljs-built_in">this</span>)<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-title">handleClick</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-comment">// setState method is inherited</span><br>    <span class="hljs-comment">// and is asynchronous</span><br>    <span class="hljs-built_in">this</span>.setState(<span class="hljs-function">(<span class="hljs-params">prevState, props</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> &#123;<span class="hljs-attr">counter</span>: prevState.counter + <span class="hljs-number">1</span>&#125;;<br>    &#125;);<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> (<br>      &lt;div className=<span class="hljs-string">&quot;foo&quot;</span> onClick=&#123;<span class="hljs-built_in">this</span>.handleClick&#125;&gt;<br>        &#123;<span class="hljs-built_in">this</span>.state.counter&#125;<br>      &lt;/div&gt;<br>    )<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/components.html">Vue components</a> are just JS objects with <a target="_blank" rel="noopener" href="https://vuejs.org/v2/api/#Options-Data">many options</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;handleClick&quot;</span>&gt;</span><br>    &#123;&#123;counter&#125;&#125;<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="javascript">  name: <span class="hljs-string">`foo`</span>,</span><br><span class="javascript">  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> &#123;</span><br>      counter: 0<br>    &#125;;<br>  &#125;,<br>  methods: &#123;<br><span class="javascript">    <span class="hljs-function"><span class="hljs-title">handleClick</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">      <span class="hljs-built_in">this</span>.counter = <span class="hljs-built_in">this</span>.counter + <span class="hljs-number">1</span>;</span><br>    &#125;<br>  &#125;<br>&#125;;<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>You won’t need to take care about bindings or <code>this</code> in your template, Vue will do it for you 😮<br>And they make <strong>updating the state as simple as assigning a value to the state object</strong> 😲 The one thing we have done since ever 🤤</p>
+<p>It may look like more code to write, but I found it more obvious to read:<br>Need a computed property? write this in the <code>computed</code> key of your component</p>
+<p>And if you’re a fan of <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/render-function.html#Functional-Components">functional components</a> Vue supports them.</p>
+<h3 id="referencing-components"><a href="#referencing-components" class="headerlink" title="referencing components"></a>referencing components</h3><p>This may be the only thing that I found strange in Vue.</p>
+<p>In React, referencing a component is just using a regular Javascript <code>import</code>:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;React&quot;</span>;<br><br><span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./foo&quot;</span>;<br><span class="hljs-keyword">import</span> Bar <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./bar&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Baz</span>(<span class="hljs-params">props</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> (<br>    &lt;div className=<span class="hljs-string">&quot;baz&quot;</span>&gt;<br>      &lt;p&gt;Hello Foo &amp; Bar!&lt;/p&gt;<br>      &lt;Foo /&gt;<br>      &lt;Bar /&gt;<br>    &lt;/div&gt;<br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>in Vue JS you’ll have to <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/components-registration.html">register the components</a> in your application.</p>
+<p>This can be done globally or locally.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;<br><br><span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./foo&quot;</span>;<br><br><span class="hljs-comment">// global registration</span><br>Vue.component(<span class="hljs-string">`foo`</span>, Foo);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;baz&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello Foo &amp; Bar!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bar</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript"><span class="hljs-keyword">import</span> Bar <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./bar&quot;</span>;</span><br><br><span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="javascript">  name: <span class="hljs-string">`baz`</span>,</span><br><span class="javascript">  <span class="hljs-comment">// register locally</span></span><br>  components: &#123;<br>    bar: Bar<br>  &#125;<br>&#125;;<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>It kind of feels weird at first, but not having to import your UI components again and again can save you some time.</p>
+<h2 id="Building-a-web-app"><a href="#Building-a-web-app" class="headerlink" title="Building a web-app"></a>Building a web-app</h2><p>Those libraries are mostly the <em>view part</em> in the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MV*</a> pattern.<br>They also support a state management per component (<a target="_blank" rel="noopener" href="https://reactjs.org/docs/state-and-lifecycle.html">react state</a> &amp; <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/instance.html#Data-and-Methods">vue data</a>) which is very handy.<br>In this case, React comes with a little bit more with the help of <a target="_blank" rel="noopener" href="https://reactjs.org/docs/context.html">react context</a>.<br>That allows you to share data across components in an elegant way.</p>
+<p><strong>BUT</strong></p>
+<p>Let’s be honest, you will quickly need (at least):</p>
+<ul>
+<li><strong>a router</strong>: for navigation</li>
+<li><strong>a state manager</strong>: to centralize and manage your application’s state in a single source of truth (the application store)</li>
+</ul>
+<p>The React team doesn’t provide any of those &amp; won’t give you any advice about what to use.<br>But there are some popular options out there for that.<br><small>N.B. I didn’t make any real research about how popular they are, so that’s mostly my feeling… guess you’ll have to go with it even if I’m wrong 😐</small>.</p>
+<p>On the contrary, the Vue team provides some official packages.<br>You still can use other packages but when learning, it’s a good thing to know that you can start with the official ones.</p>
+<p><strong>So here’s my list of the most common solutions to fulfill those needs:</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://reacttraining.com/react-router/">react-router</a>/<a target="_blank" rel="noopener" href="https://router.vuejs.org/guide/">vue-router</a></li>
+<li><a target="_blank" rel="noopener" href="https://redux.js.org/">redux</a>/<a target="_blank" rel="noopener" href="https://router.vuejs.org/guide/">vuex</a></li>
+</ul>
+<h3 id="routing"><a href="#routing" class="headerlink" title="routing"></a>routing</h3><p>They both work in a pretty straightforward way.</p>
+<p>The main difference is that, if one of your React components needs to access the router, you’ll have to wrap them in the <a target="_blank" rel="noopener" href="https://reacttraining.com/react-router/web/api/withRouter">withRouter function</a>.</p>
+<p>In Vue the router will be available in every component (<a target="_blank" rel="noopener" href="https://router.vuejs.org/api/#router-instance-methods">this.$router</a> &amp;&amp; <a target="_blank" rel="noopener" href="https://router.vuejs.org/api/#the-route-object">this.$route</a>).<br>That’s one less thing to take care of.</p>
+<h3 id="application-store"><a href="#application-store" class="headerlink" title="application store"></a>application store</h3><p>Redux is:</p>
+<ul>
+<li>framework agnostic ❤️</li>
+<li>working only with <a target="_blank" rel="noopener" href="https://www.sitepoint.com/immutability-javascript/">immutable data</a></li>
+<li>very focused on what it’s doing (kind of not supporting <a target="_blank" rel="noopener" href="https://redux.js.org/advanced/async-actions">asynchronous actions</a> out of the box. <small>possible though… just need to write more code than expected</small>)</li>
+</ul>
+<p>You can use it without installing more packages, but I find it better to use libraries to help me with that:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://redux.js.org/basics/usage-with-react">react-redux</a> will make Redux play more nicely with React</li>
+<li><a target="_blank" rel="noopener" href="https://facebook.github.io/immutable-js/">immutable-js</a> prevents you from accidentally mutate your state</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/reduxjs/redux-thunk">redux-thunk</a> handles async actions in a more friendly way</li>
+</ul>
+<p>So when you’re starting, that’s a lot to learn.</p>
+<p>On the contrary, Vuex just handles all those things for you:</p>
+<ul>
+<li>already integrated with Vue</li>
+<li>no need for immutable data</li>
+<li>handle <a target="_blank" rel="noopener" href="https://vuex.vuejs.org/guide/actions.html">async code</a></li>
+</ul>
+<h4 id="accessing-the-store-from-a-component"><a href="#accessing-the-store-from-a-component" class="headerlink" title="accessing the store from a component"></a>accessing the store from a component</h4><p>In React, passing properties can be made with <a target="_blank" rel="noopener" href="https://reactjs.org/docs/higher-order-components.html">high order components</a><br>It’s the way that react-redux is sharing the state with your components.</p>
+<p>I have found myself writing of lot of things like that:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; bindActionCreators &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;redux&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; connect &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react-redux&quot;</span>;<br><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> actions <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./actions&quot;</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params">props</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> (<br>    &lt;button <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;foo&quot;</span> onClick=&#123;props.toggleStatus&#125;&gt;<br>      &#123;props.status&#125;<br>    &lt;/button&gt;<br>  );<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapState2props</span>(<span class="hljs-params">state</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    status: state.status<br>  &#125;;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapDispatch2props</span>(<span class="hljs-params">dispatch</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> bindActionCreators(<br>    &#123;<br>      toggleStatus: actions.toggleStatus<br>    &#125;,<br>    dispatch<br>  );<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(<br>  mapState2props,<br>  mapDispatch2props<br>)(Foo);<br></code></pre></td></tr></table></figure>
+
+<p>Whereas in Vue, the state is always accessible from any components:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;&#123;toggleStatus&#125;&quot;</span>&gt;</span><br>    &#123;&#123;status&#125;&#125;<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="javascript">  name: <span class="hljs-string">`foo`</span>,</span><br>  computed: &#123;<br><span class="javascript">    <span class="hljs-function"><span class="hljs-title">status</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.$store.state.status;</span><br>    &#125;<br>  &#125;,<br>  methods: &#123;<br><span class="javascript">    <span class="hljs-function"><span class="hljs-title">toggleStatus</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">      <span class="hljs-built_in">this</span>.$store.commit(<span class="hljs-string">`toggleStatus`</span>);</span><br>    &#125;<br>  &#125;<br>&#125;;<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>Vuex also provides helper functions to write this in a nicer way (<a target="_blank" rel="noopener" href="https://vuex.vuejs.org/api/#mapstate">mapState</a> &amp; <a target="_blank" rel="noopener" href="https://vuex.vuejs.org/api/#mapmutations">mapMutations</a> to name a few)</p>
+<p>It’s two different ways of doing the same thing, but:</p>
+<ul>
+<li>I was happy to avoid writing the <code>connect boilerplate</code> thing anymore.</li>
+<li>having a build-in way of handling async actions without searching for yet another module (should I use <a target="_blank" rel="noopener" href="https://redux-saga.js.org/">redux-saga</a> instead of redux-thunk?).</li>
+</ul>
+<h2 id="A-note-on-documentation"><a href="#A-note-on-documentation" class="headerlink" title="A note on documentation"></a>A note on documentation</h2><p>React and Vue have a good documentation.</p>
+<p>You need a little time to learn how React’s documentation is structured, but once you get it, it’s ok.</p>
+<p>For Vue, I really don’t know how to explain this feeling but in a way I find it too complete 🤨.<br>All the options are scattered inside categories with sub-categories. So most of the time I just use the search field.<br>There’s the <a target="_blank" rel="noopener" href="https://vuejs-tips.github.io/cheatsheet/">vue cheatsheet</a> that can helps, but I miss a big fat example with almost everything used.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>React is freedom. They just provide you a minimal thing that works perfectly for what it was created for.</p>
+<p>You may have to:</p>
+<ul>
+<li>Learn a bunch of (useful) concepts like High Order Functions, Immutable, Render props…</li>
+<li>Choose some of the many modules that will help you make your application</li>
+<li>Learn how to use them</li>
+<li>Tight them altogether</li>
+</ul>
+<p>Vue is more like: “Oh, you’re a web-developer, let’s write some HTML, CSS &amp; JS together”</p>
+<ul>
+<li>you feel familiar</li>
+<li>writing a component logic is just writing a javascript object</li>
+<li>the team provides some must-have modules</li>
+<li>those modules integrate quickly in your application</li>
+<li>…but you’re still free to<ul>
+<li>find other modules</li>
+<li>code the way you prefer</li>
+</ul>
+</li>
+</ul>
+<p>Again it isn’t about rating those libraries.<br>They are both carefully crafted by very skilled peoples and fulfill the same mission brilliantly.</p>
+<p>But as a web-developer I like webby things… And for me, Vue feels like more webby, and less about coding patterns &amp; code philosophy.</p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/web/">web</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/advanced/">advanced</a>, <a href="/tags/react/">react</a>, <a href="/tags/vue/">vue</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

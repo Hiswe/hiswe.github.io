@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>from express to koa | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="How using async/await push me from using express.js to koa framework" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="from express to koa"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2018/07-from-express-to-koa/" />
+  
+  <meta name="og:description" content="How using async/await push me from using express.js to koa framework" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2018/07-from-express-to-koa/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2018-05-08T14:02:19.000Z">
+        <a href="/en/2018/07-from-express-to-koa/">
+          08-05-2018
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.799Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2018/07-from-express-to-koa/">from express to koa</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TL-DR"><span class="toc-text">TL;DR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Express"><span class="toc-text">Express</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#node-style-callbacks"><span class="toc-text">node style callbacks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#promises"><span class="toc-text">promises</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#async-await"><span class="toc-text">async&#x2F;await</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#better-async-await"><span class="toc-text">better async&#x2F;await</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KOA"><span class="toc-text">KOA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#what-is-KOA"><span class="toc-text">what is KOA?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setting-up-the-router-and-error-middleware"><span class="toc-text">setting up the router and error middleware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#writing-our-routes"><span class="toc-text">writing our routes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About-Koa-ecosystem"><span class="toc-text">About Koa ecosystem</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>There are a few nodeJs web framework. One of the most popular is <a target="_blank" rel="noopener" href="https://expressjs.com/">express.js</a>.</p>
+<p>I want to explain here why when writing server code, I choose to move from <em>express.js</em> to <a target="_blank" rel="noopener" href="https://koajs.com/">koa</a>.</p>
+<span id="more"></span>
+
+<p>To understand this article you should know about:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/bm/docs/Web/JavaScript">javascript</a><ul>
+<li>what is <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">a promise</a></li>
+<li>how to write promises with <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async/await</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">nodeJs</a><ul>
+<li>how to setup up a simple <a target="_blank" rel="noopener" href="https://expressjs.com/">express.js</a> server</li>
+<li>what is an <a target="_blank" rel="noopener" href="https://expressjs.com/en/guide/writing-middleware.html">express middleware</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>With <a target="_blank" rel="noopener" href="https://nodejs.org/en/">NodeJS</a> version 7 came the <a target="_blank" rel="noopener" href="http://node.green/#ES2017-features-async-functions">support of <code>async/await</code> function</a>.<br>Koa just plays more naturally with them ➡️ use Koa.</p>
+<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><p>We will write a simple route that will:</p>
+<ol>
+<li> query a database to get some stuff</li>
+<li> pass the result to a second database call</li>
+<li> then send the final result as the response</li>
+</ol>
+<h3 id="node-style-callbacks"><a href="#node-style-callbacks" class="headerlink" title="node style callbacks"></a>node style callbacks</h3><p>We will use here the nodeJs style callback signature:<br>A callback function with <code>error</code> as the first argument &amp; <code>result</code> as the second.</p>
+<figure class="highlight js"><figcaption><span>01-express-node-callback.js</span><a href="/downloads/code/07-from-express-to-koa/01-express-node-callback.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs js">app.get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">request, response, next</span>) =&gt;</span> {<br>  database.doStuff(<span class="hljs-function">(<span class="hljs-params">error, firstResult</span>) =&gt;</span> {<br>    <span class="hljs-comment">// will send it the error middleware below</span><br>    <span class="hljs-keyword">if</span> (error) <span class="hljs-keyword">return</span> next(error);<br>    <span class="hljs-comment">// we need another database call</span><br>    <span class="hljs-comment">// a little bit of callback hell here but:</span><br>    <span class="hljs-comment">// – we could have extract our callback to functions…</span><br>    <span class="hljs-comment">//   …living on the first level of our route handler</span><br>    database.doAnotherStuff(firstResult, <span class="hljs-function">(<span class="hljs-params">error, finalResult</span>) =&gt;</span> {<br>      <span class="hljs-comment">// will send it the error middleware below. Again.</span><br>      <span class="hljs-keyword">if</span> (error) <span class="hljs-keyword">return</span> next(error);<br>      <span class="hljs-comment">// no error, send the result</span><br>      response.json(finalResult);<br>    });<br>  });<br>});<br><span class="hljs-comment">// our middleware that handle any errors</span><br><span class="hljs-comment">// – will catch anything that might have happened in our route</span><br><span class="hljs-comment">//   only if called with next(error)</span><br><span class="hljs-comment">// – won&#x27;t catch an JSON.parse() error</span><br>app.use(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorMiddleware</span>(<span class="hljs-params">error, request, response, next</span>) </span>{<br>  response.status(<span class="hljs-number">500</span>);<br>  response.send(error);<br>});<br></code></pre></td></tr></table></figure>
+
+<p>So far so good.<br>But luckily for us our database object support also promises.</p>
+<h3 id="promises"><a href="#promises" class="headerlink" title="promises"></a>promises</h3><p>The following will do the same as the code above but:</p>
+<ul>
+<li>we achieved to flatten our code</li>
+<li>we don’t duplicate anymore the error control</li>
+<li>the <code>catch</code> will not handle synchronous errors</li>
+</ul>
+<figure class="highlight js"><figcaption><span>02-express-promise.js</span><a href="/downloads/code/07-from-express-to-koa/02-express-promise.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js">app.get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">request, response, next</span>) =&gt;</span> {<br>  database<br>    .doStuff()<br>    .then(<span class="hljs-function"><span class="hljs-params">firstResult</span> =&gt;</span> database.doAnotherStuff(firstResult))<br>    .then(<span class="hljs-function"><span class="hljs-params">finalResult</span> =&gt;</span> response.json(finalResult))<br>    .catch(next);<br>});<br>app.use(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorMiddleware</span>(<span class="hljs-params">error, request, response, next</span>) </span>{<br>  response.status(<span class="hljs-number">500</span>);<br>  response.send(error);<br>});<br></code></pre></td></tr></table></figure>
+
+<p>So far so good.<br>But luckily since we use nodeJS &gt;= 7 we can use async/await.</p>
+<h3 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h3><p>The following will do the same as the code above but:</p>
+<ul>
+<li>we achieved to have a less cumbersome code</li>
+<li>we still don’t duplicate the error control</li>
+<li>any error inside the <code>try/catch</code> will be handled</li>
+</ul>
+<figure class="highlight js"><figcaption><span>03-express-async-await.js</span><a href="/downloads/code/07-from-express-to-koa/03-express-async-await.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// declare an async function to allow “await”</span><br>app.get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">async</span> (request, response, next) =&gt; {<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">const</span> firstResult = <span class="hljs-keyword">await</span> database.doStuff();<br>    <span class="hljs-keyword">const</span> finalResult = <span class="hljs-keyword">await</span> database.doAnotherStuff(firstResult);<br>    response.json(finalResult);<br>  } <span class="hljs-keyword">catch</span> (error) {<br>    next(error);<br>  }<br>});<br>app.use(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorMiddleware</span>(<span class="hljs-params">error, request, response, next</span>) </span>{<br>  response.status(<span class="hljs-number">500</span>);<br>  response.send(error);<br>});<br></code></pre></td></tr></table></figure>
+
+<p>So far so good.<br>But it will get a little messier if we add more routes:</p>
+<figure class="highlight js"><figcaption><span>04-express-async-multiple-routes.js</span><a href="/downloads/code/07-from-express-to-koa/04-express-async-multiple-routes.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js">app.get(<span class="hljs-string">&quot;/:id&quot;</span>, <span class="hljs-keyword">async</span> (request, response, next) =&gt; {<br>  <span class="hljs-keyword">const</span> { id } = req.params;<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">const</span> firstResult = <span class="hljs-keyword">await</span> database.doStuff(id);<br>    <span class="hljs-keyword">const</span> finalResult = <span class="hljs-keyword">await</span> database.doAnotherStuff(firstResult);<br>    response.json(finalResult);<br>  } <span class="hljs-keyword">catch</span> (error) {<br>    next(error);<br>  }<br>});<br>app.get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">async</span> (request, response, next) =&gt; {<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">const</span> firstResult = <span class="hljs-keyword">await</span> database.doStuff();<br>    <span class="hljs-keyword">const</span> finalResult = <span class="hljs-keyword">await</span> database.doAnotherStuff(firstResult);<br>    response.json(finalResult);<br>  } <span class="hljs-keyword">catch</span> (error) {<br>    next(error);<br>  }<br>});<br>app.use(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorMiddleware</span>(<span class="hljs-params">error, request, response, next</span>) </span>{<br>  response.status(<span class="hljs-number">500</span>);<br>  response.send(error);<br>});<br></code></pre></td></tr></table></figure>
+
+<p>You see?<br>We write again and again <code>try &#123;&#125; catch(error)&#123; next(error) &#125;</code><br>Not a big deal but quite boring at the end…<br>But luckily we can write a wrapper function for that!</p>
+<h3 id="better-async-await"><a href="#better-async-await" class="headerlink" title="better async/await"></a>better async/await</h3><p>So let’s write our wrapper:</p>
+<figure class="highlight js"><figcaption><span>05-express-async-wrapper.js</span><a href="/downloads/code/07-from-express-to-koa/05-express-async-wrapper.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// make a closure to keep a reference to our original async function</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncWrapper</span>(<span class="hljs-params">asyncRouteHandler</span>) </span>{<br>  <span class="hljs-comment">// this is what will be called by express.js</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">routeHandler</span>(<span class="hljs-params">request, response, next</span>) </span>{<br>    <span class="hljs-comment">// because it&#x27;s an async function it will always return a promise</span><br>    <span class="hljs-comment">// – just call it with express&#x27; callback parameters</span><br>    <span class="hljs-keyword">return</span> (<br>      asyncRouteHandler(request, response, next)<br>        <span class="hljs-comment">// catch any error that might happen in our async function</span><br>        .catch(next)<br>    );<br>  };<br>}<br><span class="hljs-comment">// OR:</span><br><span class="hljs-comment">// thanks to arrow functions and params destructuring</span><br><span class="hljs-comment">// we can write it that way:</span><br><span class="hljs-keyword">const</span> asyncWrapper = <span class="hljs-function"><span class="hljs-params">fn</span> =&gt;</span> <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> fn(...args).catch(args[<span class="hljs-number">2</span>]);<br></code></pre></td></tr></table></figure>
+
+<p>A more detailed article about that was written by <a target="_blank" rel="noopener" href="https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016">Alex Bazhenov</a></p>
+<p>Finally lets use it in our code:</p>
+<figure class="highlight js"><figcaption><span>06-express-async-with-wrapper.js</span><a href="/downloads/code/07-from-express-to-koa/06-express-async-with-wrapper.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> asyncWrapper = <span class="hljs-function"><span class="hljs-params">fn</span> =&gt;</span> <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> fn(...args).catch(args[<span class="hljs-number">2</span>]);<br><br>app.get(<br>  <span class="hljs-string">&quot;/:id&quot;</span>,<br>  asyncWrapper(<span class="hljs-keyword">async</span> (request, response, next) =&gt; {<br>    <span class="hljs-keyword">const</span> { id } = req.params;<br>    <span class="hljs-keyword">const</span> firstResult = <span class="hljs-keyword">await</span> database.doStuff(id);<br>    <span class="hljs-keyword">const</span> finalResult = <span class="hljs-keyword">await</span> database.doAnotherStuff(firstResult);<br>    response.json(finalResult);<br>  })<br>);<br><br>app.get(<br>  <span class="hljs-string">&quot;/&quot;</span>,<br>  asyncWrapper(<span class="hljs-keyword">async</span> (request, response, next) =&gt; {<br>    <span class="hljs-keyword">const</span> firstResult = <span class="hljs-keyword">await</span> database.doStuff();<br>    <span class="hljs-keyword">const</span> finalResult = <span class="hljs-keyword">await</span> database.doAnotherStuff(firstResult);<br>    response.json(finalResult);<br>  })<br>);<br><br>app.use(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorMiddleware</span>(<span class="hljs-params">error, request, response, next</span>) </span>{<br>  response.status(<span class="hljs-number">500</span>);<br>  response.send(error);<br>});<br></code></pre></td></tr></table></figure>
+
+<p>So far so good.<br>But we still have to write some boilerplate to handle that…<br>Here comes KOA!</p>
+<h2 id="KOA"><a href="#KOA" class="headerlink" title="KOA"></a>KOA</h2><h3 id="what-is-KOA"><a href="#what-is-KOA" class="headerlink" title="what is KOA?"></a>what is KOA?</h3><p>to sum up: it’s the same team behind express.js that have written a web framework using the recent additions in the Javascript language.<br><strong>At its core it’s using promises with async/await</strong><br>You can find the <a target="_blank" rel="noopener" href="https://koajs.com/#introduction">full introduction here</a></p>
+<p>Setting up a server with Koa is very straightforward.<br>For the routing, as nothing is provided by default, we will use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/koa-router">koa-router</a></p>
+<h3 id="setting-up-the-router-and-error-middleware"><a href="#setting-up-the-router-and-error-middleware" class="headerlink" title="setting up the router and error middleware"></a>setting up the router and error middleware</h3><p>This snippet should be enough:</p>
+<figure class="highlight js"><figcaption><span>07-koa-boilerplate.js</span><a href="/downloads/code/07-from-express-to-koa/07-koa-boilerplate.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> Koa = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;koa&quot;</span>);<br><span class="hljs-keyword">const</span> Router = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;koa-router&quot;</span>);<br><br><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Koa();<br><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> Router();<br><br><span class="hljs-comment">// unlike in Express.js</span><br><span class="hljs-comment">// – declare our error middleware to the top most position</span><br><span class="hljs-comment">// – this will ensure to catch all the errors</span><br><span class="hljs-comment">//   that might happen in the following middleware call</span><br>app.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleError</span>(<span class="hljs-params">context, next</span>) </span>{<br>  <span class="hljs-comment">// call our next middleware</span><br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">await</span> next();<br>    <span class="hljs-comment">// catch any error that might have occurred</span><br>  } <span class="hljs-keyword">catch</span> (error) {<br>    context.status = <span class="hljs-number">500</span>;<br>    context.body = error;<br>  }<br>});<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * We will configure here our router later</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-comment">// mount the router to our web application</span><br>app.use(router.routes());<br>app.use(router.allowedMethods());<br><br><span class="hljs-comment">// launch the server</span><br>app.listen(<span class="hljs-number">3000</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="writing-our-routes"><a href="#writing-our-routes" class="headerlink" title="writing our routes"></a>writing our routes</h3><p>And this is how we will write our application code:</p>
+<figure class="highlight js"><figcaption><span>08-koa-with-routes.js</span><a href="/downloads/code/07-from-express-to-koa/08-koa-with-routes.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleError</span>(<span class="hljs-params">context, next</span>) </span>{<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">await</span> next();<br>  } <span class="hljs-keyword">catch</span> (error) {<br>    context.status = <span class="hljs-number">500</span>;<br>    context.body = error;<br>  }<br>});<br><br>router<br>  .get(<span class="hljs-string">&quot;/:id&quot;</span>, <span class="hljs-keyword">async</span> (context, next) =&gt; {<br>    <span class="hljs-keyword">const</span> { id } = context.params;<br>    <span class="hljs-keyword">const</span> firstResult = <span class="hljs-keyword">await</span> database.doStuff(id);<br>    <span class="hljs-keyword">const</span> finalResult = <span class="hljs-keyword">await</span> database.doAnotherStuff(firstResult);<br>    context.body(finalResult);<br>  })<br>  .get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">async</span> (context, next) =&gt; {<br>    <span class="hljs-keyword">const</span> firstResult = <span class="hljs-keyword">await</span> database.doStuff();<br>    <span class="hljs-keyword">const</span> finalResult = <span class="hljs-keyword">await</span> database.doAnotherStuff(firstResult);<br>    context.body(finalResult);<br>  });<br></code></pre></td></tr></table></figure>
+
+<p>which appears to me more leaner 😀</p>
+<ul>
+<li>no duplicated <code>try/catch</code></li>
+<li>no need to write an async middleware</li>
+<li>no need to wrap all our route handlers into that middleware</li>
+<li>handle both sync/async errors</li>
+</ul>
+<h2 id="About-Koa-ecosystem"><a href="#About-Koa-ecosystem" class="headerlink" title="About Koa ecosystem"></a>About Koa ecosystem</h2><p>As for now, Koa hasn’t as much middleware as express.js.<br>This can be an issue in migrating.</p>
+<p>But the <em>must have</em> middlewares are already here, and writing your own is quite easy.<br>I never found myself in a situation where I couldn’t achieve what I wanted to do with Koa.</p>
+<p>So if you like <code>async/await</code> code style, give Koa a try 🙂</p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/nodejs/">nodejs</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/advanced/">advanced</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

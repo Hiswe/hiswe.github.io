@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>Going Vue with Nuxt | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="why use nuxt instead of “vanilla” Vue" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="Going Vue with Nuxt"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2018/12-vue-with-nuxt/" />
+  
+  <meta name="og:description" content="why use nuxt instead of “vanilla” Vue" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2018/12-vue-with-nuxt/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2018-09-19T16:56:58.000Z">
+        <a href="/en/2018/12-vue-with-nuxt/">
+          19-09-2018
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.810Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2018/12-vue-with-nuxt/">Going Vue with Nuxt</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#installation"><span class="toc-text">installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-structure"><span class="toc-text">application structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commands"><span class="toc-text">commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Small-Nuxt-overview"><span class="toc-text">Small Nuxt overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#routing"><span class="toc-text">routing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#store"><span class="toc-text">store</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-note-on-layouts"><span class="toc-text">a note on layouts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#plugins-like-vue-I18N"><span class="toc-text">plugins (like vue I18N)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prototyping-amp-evolution"><span class="toc-text">Prototyping &amp; evolution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#single-page-application"><span class="toc-text">single page application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Universal-Web-Application"><span class="toc-text">Universal Web Application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#benefits-of-a-UWA"><span class="toc-text">benefits of a UWA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-also%E2%80%A6"><span class="toc-text">And also…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a target="_blank" rel="noopener" href="https://vuejs.org/">Vue.js</a> is a solid option for building web applications.<br>To use it we have two major tools:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cli.vuejs.org/">Vue CLI 3</a> <em>the Standard Tooling for Vue.js Development</em><br>The official solution to quickly setup a Vue application.</li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/">Nuxt</a> <em>Universal Vue.js Applications</em><br>Yeah, we will talk about that.</li>
+</ul>
+<p>But how dœs Nuxt differ from a Standard Vue Application?</p>
+<p><strong><code>[TL;DR]</code></strong></p>
+<ul>
+<li>A different tool to setup your Vue application</li>
+<li>Some <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Convention_over_configuration">convention over configuration</a></li>
+<li>The ability to move from a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Single-page_application">Single-page application (SPA)</a> to a <a target="_blank" rel="noopener" href="http://www.acuriousanimal.com/2016/08/10/universal-applications.html">Universal Web application</a></li>
+</ul>
+<span id="more"></span>
+
+<p><strong><code>[UPDATE]</code></strong> use now <a target="_blank" rel="noopener" href="https://github.com/nuxt/nuxt.js/releases/tag/v2.0.0">Nuxt 2</a></p>
+<h3 id="installation"><a href="#installation" class="headerlink" title="installation"></a>installation</h3><p>There’s <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/installation">two ways</a> Nuxt can be installed:</p>
+<ul>
+<li>with vue-cli</li>
+<li>a basic <code>npm install nuxt</code> or <code>yarn add nuxt</code> if you’re a <a target="_blank" rel="noopener" href="https://yarnpkg.com/en/">yarn</a> person, create some folders and add some modules if you want to <a target="_blank" rel="noopener" href="https://nuxtjs.org/faq/pre-processors#how-to-use-pre-processors-">use pre-processors</a></li>
+</ul>
+<p>I prefer the latter one as it doesn’t rely on any global dependency… and it’s also a good way to integrate Nuxt to an existing project.</p>
+<p>For a web application, I always add:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://router.vuejs.org/guide/">Vue Router</a></li>
+<li><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/guide/">Vuex Store</a></li>
+<li><a target="_blank" rel="noopener" href="https://kazupon.github.io/vue-i18n/">Vue I18N</a></li>
+</ul>
+<p>I’m 100% sure that at one point or another I will need them.</p>
+<p>Having the internationalization being done as soon as possible doesn’t demand a lot of extra efforts and prevents me the boring task of including it later (going file by file and adding the i18n calls &amp; keys…)</p>
+<h3 id="application-structure"><a href="#application-structure" class="headerlink" title="application structure"></a>application structure</h3><p>Vue doesn’t enforce any kind of structure but we all like &amp; need to stay organized.</p>
+<p>If you use Vue CLI, it will create this kind of structure:</p>
+<ul>
+<li>vue.config.js <code>vue configuration</code></li>
+<li>📁 src<ul>
+<li>main.js <code>your application&#39;s entry point</code></li>
+<li>router.js <code>configuring routes</code></li>
+<li>App.vue <code>main Vue component</code></li>
+<li>📁 assets <code>all static files</code></li>
+<li>📁 components <code>other vue components</code></li>
+<li>📁 views <code>your pages&#39; components</code></li>
+<li>📁 store<ul>
+<li>index.js <code>your Vuex Store</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Nuxt will require something <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/directory-structure">like that</a>:</p>
+<ul>
+<li>nuxt.config.js <code>nuxt configuration</code></li>
+<li>📁 static <code>all static files</code></li>
+<li>📁 pages <code>all page files</code></li>
+<li>📁 layouts <code>all layouts files</code> (a nuxt thingy thing that we will speak about later)</li>
+<li>📁 store <code>your Vuex Store</code></li>
+<li>📁 plugins <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/plugins.html#Using-a-Plugin">Vue plugins</a></li>
+</ul>
+<p>It’s a flatter structure with obvious names.</p>
+
+<figure class="image-container">
+  <img src="/en/2018/12-vue-with-nuxt/structure.svg" class="" width="600" height="285" title="Comparison between Vue &amp; Nuxt file structure " alt="Comparison between Vue &amp; Nuxt file structure">
+  <figcaption class="image-container__caption">I ❤️ folders</figcaption>
+</figure>
+
+
+<h3 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h3><p>Both Vue CLI &amp; Nuxt propose a bunch of useful commands.<br>I’ll just speak about the main ones. They both serve the same purpose:</p>
+<ul>
+<li>make a quick development server to start coding</li>
+<li>build for production</li>
+</ul>
+<p>Vue CLI use <a target="_blank" rel="noopener" href="https://cli.vuejs.org/guide/cli-service.html">vue-cli-service</a> which is a local package to launch the magic.</p>
+<ul>
+<li><code>vue-cli-service serve</code> development server</li>
+<li><code>vue-cli-service build</code> build for production</li>
+</ul>
+<p>Nuxt has the equivalent <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/commands">commands</a>.<br>No need to install an additional module 👍</p>
+<ul>
+<li><code>nuxt</code> development server</li>
+<li><code>nuxt build</code> build for production</li>
+</ul>
+<p>I usually make the same <a target="_blank" rel="noopener" href="https://docs.npmjs.com/misc/scripts">npm scripts</a> aliases across all my projects:</p>
+<figure class="highlight json"><figcaption><span>01-npm-script.json</span><a href="/downloads/code/12-vue-with-nuxt/01-npm-script.json">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">{<br>  <span class="hljs-attr">&quot;scripts&quot;</span>: {<br>    <span class="hljs-attr">&quot;dev&quot;</span>: <span class="hljs-string">&quot;nuxt&quot;</span>,<br>    <span class="hljs-attr">&quot;build&quot;</span>: <span class="hljs-string">&quot;nuxt build&quot;</span><br>  }<br>}<br></code></pre></td></tr></table></figure>
+
+<p>After that, I can do <code>yarn dev</code> to start coding &amp; <code>yarn build</code> to export.<br>Those commands will stay independent of whatever the application is using underneath.</p>
+<h2 id="Small-Nuxt-overview"><a href="#Small-Nuxt-overview" class="headerlink" title="Small Nuxt overview"></a>Small Nuxt overview</h2><p>Nuxt relies in some part on <em>convention over configuration</em>.<br>By creating files, Nuxt will take care of integrating them in your Vue application’s.</p>
+<p>Here are the main domains where it shines.</p>
+<h3 id="routing"><a href="#routing" class="headerlink" title="routing"></a>routing</h3><p>In a standard Vue application you’ll need to manually configure the router.<br>This is how the <code>router.js</code> usually looks like:</p>
+<figure class="highlight js"><figcaption><span>02-vue-router.js</span><a href="/downloads/code/12-vue-with-nuxt/02-vue-router.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./views/Home.vue&#x27;</span><br><span class="hljs-keyword">import</span> NotFound <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./views/NotFound.vue&#x27;</span><br><br>Vue.use(Router)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({<br>  routes: [<br>    {<br>      path: <span class="hljs-string">&#x27;/&#x27;</span>,<br>      name: <span class="hljs-string">&#x27;home&#x27;</span>,<br>      component: Home,<br>    },<br>    {<br>      path: <span class="hljs-string">&#x27;/foo&#x27;</span>,<br>      name: <span class="hljs-string">&#x27;foo&#x27;</span>,<br>      <span class="hljs-comment">// needed for webpack&#x27;s code splitting</span><br>      component: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-comment">/* webpackChunkName: &quot;foo&quot; */</span> <span class="hljs-string">&#x27;./views/Foo.vue&#x27;</span>),<br>    },<br>    {<br>      path: <span class="hljs-string">&#x27;/bar/:id&#x27;</span>,<br>      name: <span class="hljs-string">&#x27;bar&#x27;</span>,<br>      component: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-comment">/* webpackChunkName: &quot;bar&quot; */</span> <span class="hljs-string">&#x27;./views/Bar.vue&#x27;</span>),<br>    },<br>    {<br>      path: <span class="hljs-string">&#x27;*&#x27;</span>,<br>      component: NotFound,<br>    },<br>  ],<br>})<br></code></pre></td></tr></table></figure>
+
+<p>This has some drawbacks when refactoring.<br>If you want to rename a route, you’ll have to:</p>
+<ul>
+<li>rename the component</li>
+<li>modify the <code>router.js</code> file<ul>
+<li>change the route name</li>
+<li>change the component import</li>
+<li>change the webpack chunk name</li>
+</ul>
+</li>
+</ul>
+<p>With Nuxt, this routing will look like this:</p>
+<ul>
+<li>📁 pages<ul>
+<li>index.vue</li>
+<li>foo.vue</li>
+<li>📁 bar<ul>
+<li>_id.vue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Renaming a route is now just changing a file/folder name.</strong><br>And you have the <strong>page code splitting out of the box.</strong></p>
+
+<figure class="image-container">
+  <img src="/en/2018/12-vue-with-nuxt/routing.svg" class="" width="700" height="285" title="a Vue todo list longer than the Nuxt one " alt="a Vue todo list longer than the Nuxt one">
+  <figcaption class="image-container__caption">Who does not like todo lists?</figcaption>
+</figure>
+
+
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>The same goes with a standard Vuex store:</p>
+<figure class="highlight js"><figcaption><span>03-vuex-store.js</span><a href="/downloads/code/12-vue-with-nuxt/03-vuex-store.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-keyword">import</span> Vuex <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> foo <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./foo&#x27;</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> bar <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./bar&#x27;</span><br><br>Vue.use(Vuex)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Vuex.Store({<br>  modules: {<br>    foo,<br>    bar,<br>  },<br>  plugins: [],<br>})<br></code></pre></td></tr></table></figure>
+
+<p>And as you’ve guessed in Nuxt it just follows the same principles as for the routing:</p>
+<ul>
+<li>📁 store<ul>
+<li>foo.js</li>
+<li>bar.js</li>
+</ul>
+</li>
+</ul>
+<p>With the same advantages as the routing.<br>Still, there is a <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/vuex-store#classic-mode">classic mode</a> if you want to have more control over it.</p>
+<h3 id="a-note-on-layouts"><a href="#a-note-on-layouts" class="headerlink" title="a note on layouts"></a>a note on layouts</h3><p>Nuxt provides a way to handle <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/views#layouts">many page layouts</a> in a breeze.</p>
+<p>I think most of the time you’ll stick with the basic:</p>
+<ul>
+<li><code>layouts/default.vue</code></li>
+<li><code>layouts/error.vue</code></li>
+</ul>
+<p>If you want to achieve this in a regular Vue application, you’ll have to do it manually by wrapping every page components inside the desired layout component… which will bloat a little bit your code.</p>
+<p>So <em>not a must have</em> but definitively a nice addition 🏅.</p>
+<h3 id="plugins-like-vue-I18N"><a href="#plugins-like-vue-I18N" class="headerlink" title="plugins (like vue I18N)"></a>plugins (like vue I18N)</h3><p>Integrating more things from the Vue ecosystem is similar to what it is in a standard Vue application.</p>
+<p>This is well <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/plugins">documented here</a>.</p>
+<p>For example, create a <code>i18n.js</code> file in the <code>plugin</code> folder…</p>
+<figure class="highlight js"><figcaption><span>04-nuxt-plugin.js</span><a href="/downloads/code/12-vue-with-nuxt/04-nuxt-plugin.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-keyword">import</span> VueI18n <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-i18n&#x27;</span><br><br><span class="hljs-keyword">import</span> { en, fr } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;~/locales&#x27;</span><br><br>Vue.use(VueI18n)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> nuxtContext =&gt; {<br>  <span class="hljs-keyword">const</span> { app } = nuxtContext<br>  app.i18n = <span class="hljs-keyword">new</span> VueI18n({<br>    fallbackLocale: <span class="hljs-string">`en`</span>,<br>    messages: { en, fr },<br>  })<br>}<br></code></pre></td></tr></table></figure>
+
+<p>…and update the <code>nuxt.config.js</code>…</p>
+<figure class="highlight js"><figcaption><span>05-nuxt-config.js</span><a href="/downloads/code/12-vue-with-nuxt/05-nuxt-config.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Nuxt 2 use ESM modules</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {<br>  plugins: [<br>    <span class="hljs-comment">// reference my plugin, so Nuxt will load it</span><br>    <span class="hljs-string">`@/plugins/i18n.js`</span>,<br>  ],<br>}<br></code></pre></td></tr></table></figure>
+
+<p>…and you can use <code>$t(&#39;my-i18n0key&#39;)</code> inside your app!</p>
+<p>As for now, Nuxt doesn’t support a <code>convention over configuration</code> pattern for plugins’ integration 😐 so you’ll have to write some boilerplate code.<br>On the bright side this code is unlikely to change in the future.</p>
+<p><strong>But what in fact looks like an unnecessary configuration serves in fact a very important purpose.</strong></p>
+<p>Nuxt allows us to build <code>universal web applications</code>.<br>This means that it should be able to bundle your code:</p>
+<ul>
+<li>for the browser</li>
+<li>for the server</li>
+</ul>
+<p>If you’re only targeting the browser (SPA), you don’t have to worry about it.<br><strong>But if you’re running the code on the server, you don’t want it to break because of the use of some browser API</strong>.</p>
+
+<figure class="image-container">
+  <img src="/en/2018/12-vue-with-nuxt/node-error.svg" class="" width="300" height="240" title="Node.js being killed by window " alt="Node.js being killed by window">
+  <figcaption class="image-container__caption">window killed me!</figcaption>
+</figure>
+
+
+<p>Nuxt prevents that with a <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/plugins#client-side-only">small additional configuration</a>.</p>
+<figure class="highlight js"><figcaption><span>06-nuxt-config-ssr.js</span><a href="/downloads/code/12-vue-with-nuxt/06-nuxt-config-ssr.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {<br>  plugins: [<br>    <span class="hljs-string">`@/plugins/i18n.js`</span>,<br>    <span class="hljs-comment">// remove Server Side Rendering (SSR) from this specific file</span><br>    { <span class="hljs-attr">src</span>: <span class="hljs-string">`@/plugins/browser.js`</span>, <span class="hljs-attr">ssr</span>: <span class="hljs-literal">false</span> },<br>  ],<br>}<br></code></pre></td></tr></table></figure>
+
+<p>Now <code>browser.js</code> will be removed from the server bundle, and we’re assured that our code won’t <code>throw</code> because of a missing <code>window</code> object in the NodeJs environment 😅</p>
+<h2 id="Prototyping-amp-evolution"><a href="#Prototyping-amp-evolution" class="headerlink" title="Prototyping &amp; evolution"></a>Prototyping &amp; evolution</h2>
+<figure class="image-container">
+  <img src="/en/2018/12-vue-with-nuxt/evolution.svg" class="" width="650" height="285" title="a people playing blocks until he build a castle " alt="a people playing blocks until he build a castle">
+  <figcaption class="image-container__caption">that escalated quickly</figcaption>
+</figure>
+
+
+<p>In my opinion the main advantage of Nuxt is how convenient it is to make a small prototype and build upon it until a first result.<br>While being sure that we can make it evolve in any direction in the future.</p>
+<h3 id="single-page-application"><a href="#single-page-application" class="headerlink" title="single page application"></a>single page application</h3><p>Writing a SPA makes you able to build quite quickly a small app and give anyone the opportunity to play with it in almost real conditions.</p>
+<p>You can make a simple static API by putting some JSON files inside the <code>static</code> folder and you can persist your application’s state by using the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">local storage api</a> with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vuex-persistedstate">vuex-persistedstate</a></p>
+<p>Hosting solutions like <a target="_blank" rel="noopener" href="https://firebase.google.com/">firebase</a>, <a target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a> or <a target="_blank" rel="noopener" href="https://pages.github.com/">github pages</a> provide a way to share your application for a free cost.</p>
+<h3 id="Universal-Web-Application"><a href="#Universal-Web-Application" class="headerlink" title="Universal Web Application"></a>Universal Web Application</h3><p>And now that you’re satisfied with your prototype, you can push it further by integrating it to a Node server.<br>Nuxt provides some templates to see how integration works many frameworks:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/nuxt-community/express-template">express template</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nuxt-community/koa-template">koa template</a></li>
+</ul>
+<p>I’ll use Koa 🐨</p>
+<p>In a <code>server/index.js</code> file:</p>
+<figure class="highlight js"><figcaption><span>07-nuxt-koa.js</span><a href="/downloads/code/12-vue-with-nuxt/07-nuxt-koa.js">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Koa <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;koa&#x27;</span><br><span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;koa-router&#x27;</span><br><span class="hljs-keyword">import</span> koaBody <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;koa-body&#x27;</span><br><span class="hljs-keyword">import</span> { Nuxt, Builder } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;nuxt&#x27;</span><br><br><span class="hljs-keyword">import</span> config <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../nuxt.config.js&#x27;</span><br><br>startServer()<br><br><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startServer</span>(<span class="hljs-params"></span>) </span>{<br>  <span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Koa()<br>  <span class="hljs-keyword">const</span> HOST = process.env.HOST || <span class="hljs-string">`127.0.0.1`</span><br>  <span class="hljs-keyword">const</span> PORT = process.env.PORT || <span class="hljs-number">3000</span><br><br>  app.use(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleError</span>(<span class="hljs-params">ctx, next</span>) </span>{<br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-keyword">await</span> next()<br>    } <span class="hljs-keyword">catch</span> (err) {<br>      ctx.status = err.statusCode || err.status || <span class="hljs-number">500</span><br>      ctx.body = err<br>    }<br>  })<br><br>  <span class="hljs-comment">//----- integrate a server API</span><br><br>  <span class="hljs-keyword">const</span> apiRouter = <span class="hljs-keyword">new</span> Router({ <span class="hljs-attr">prefix</span>: <span class="hljs-string">`/api`</span> })<br><br>  apiRouter.get(<span class="hljs-string">`/foo`</span>, <span class="hljs-keyword">async</span> ctx =&gt; {<br>    ctx.body = { <span class="hljs-attr">foo</span>: <span class="hljs-string">`foo nuxt example`</span> }<br>  })<br>  apiRouter.get(<span class="hljs-string">`/bar/:id`</span>, <span class="hljs-keyword">async</span> ctx =&gt; {<br>    <span class="hljs-keyword">const</span> { id } = req.params<br>    ctx.body = { <span class="hljs-attr">bar</span>: <span class="hljs-string">`bar <span class="hljs-subst">${id}</span>`</span> }<br>  })<br>  apiRouter.post(<span class="hljs-string">`/bar/:id`</span>, koaBody(), <span class="hljs-keyword">async</span> ctx =&gt; {<br>    <span class="hljs-keyword">const</span> { id } = req.params<br>    ctx.body = { <span class="hljs-attr">bar</span>: <span class="hljs-string">`bar <span class="hljs-subst">${id}</span> is updated!`</span> }<br>  })<br><br>  app.use(apiRouter.routes())<br>  app.use(apiRouter.allowedMethods())<br><br>  <span class="hljs-comment">//----- NUXT</span><br><br>  config.dev = !(app.env === <span class="hljs-string">`production`</span>)<br><br>  <span class="hljs-comment">// Instantiate nuxt.js</span><br>  <span class="hljs-keyword">const</span> nuxt = <span class="hljs-keyword">new</span> Nuxt(config)<br><br>  <span class="hljs-comment">// Build in development</span><br>  <span class="hljs-keyword">if</span> (config.dev) {<br>    <span class="hljs-keyword">const</span> builder = <span class="hljs-keyword">new</span> Builder(nuxt)<br>    <span class="hljs-keyword">await</span> builder.build()<br>  }<br><br>  app.use(<span class="hljs-function"><span class="hljs-params">ctx</span> =&gt;</span> {<br>    ctx.status = <span class="hljs-number">200</span><br>    ctx.respond = <span class="hljs-literal">false</span><br>    ctx.req.ctx = ctx<br>    nuxt.render(ctx.req, ctx.res)<br>  })<br><br>  app.listen(PORT, HOST, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">endInit</span>(<span class="hljs-params"></span>) </span>{<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`APP Server is listening on <span class="hljs-subst">${HOST}</span>:<span class="hljs-subst">${PORT}</span>`</span>)<br>  })<br>}<br></code></pre></td></tr></table></figure>
+
+<p>In the <code>package.json</code> you should update your scripts:</p>
+<figure class="highlight json"><figcaption><span>08-server-script.json</span><a href="/downloads/code/12-vue-with-nuxt/08-server-script.json">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">{<br>  <span class="hljs-attr">&quot;scripts&quot;</span>: {<br>    <span class="hljs-attr">&quot;dev&quot;</span>: <span class="hljs-string">&quot;backpack dev&quot;</span>,<br>    <span class="hljs-attr">&quot;build&quot;</span>: <span class="hljs-string">&quot;nuxt build &amp;&amp; backpack build&quot;</span>,<br>    <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;yarn build &amp;&amp; yarn serve&quot;</span>,<br>    <span class="hljs-attr">&quot;serve&quot;</span>: <span class="hljs-string">&quot;cross-env NODE_ENV=production node build/main.js&quot;</span><br>  }<br>}<br></code></pre></td></tr></table></figure>
+
+<p>You will need to update a little bit your existing code</p>
+<ul>
+<li>Take care of your store’s actions to point to your new API.</li>
+<li>use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/backpack-core">backpack</a> to run/compile your server application.<br>This is mainly due to the fact that we’re using <a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v10.x/docs/api/esm.html">ES Modules</a> on the server, and that NodeJS isn’t still there.</li>
+</ul>
+<p>Besides that there isn’t much more to do.<br>Everything will work as expected.</p>
+<h3 id="benefits-of-a-UWA"><a href="#benefits-of-a-UWA" class="headerlink" title="benefits of a UWA"></a>benefits of a UWA</h3><p>Building a Universal Web Application can seem unnecessary but it comes with some advantages:</p>
+<ul>
+<li>Better initial rendering time</li>
+<li>Can make an application that works without browser Javascript<ul>
+<li>I’m a believer of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Progressive_enhancement">progressive enhancement</a></li>
+<li>Android Chrome might run your site <a target="_blank" rel="noopener" href="https://timkadlec.com/remembers/2018-09-06-chromes-noscript-intervention/">without Javascript</a></li>
+</ul>
+</li>
+<li>Should have a better SEO (you can read more about SEO <a target="_blank" rel="noopener" href="https://itnext.io/seo-friendly-spas-d3c461a56217">here</a>)</li>
+</ul>
+<p>If you want to read more about this subject you can check <a target="_blank" rel="noopener" href="https://dev.to/stereobooster">Stereobooster’s</a> article about <a target="_blank" rel="noopener" href="https://dev.to/stereobooster/server-side-rendering-or-ssr-what-is-it-for-and-when-to-use-it-2cpg">Server Side Rendering pros and cons</a>.</p>
+<h2 id="And-also…"><a href="#And-also…" class="headerlink" title="And also…"></a>And also…</h2><p>This post isn’t an exhaustive list of what Nuxt can offer you.<br>Here’s a quick list of other things that it provides:</p>
+<ul>
+<li>out of the box <a target="_blank" rel="noopener" href="https://nuxtjs.org/guide/views#html-head">HTML meta tags</a> with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue-meta">vue-meta</a></li>
+<li>out of the box <a target="_blank" rel="noopener" href="https://nuxtjs.org/api/pages-transition">Page transitions</a></li>
+<li>out of the box <a target="_blank" rel="noopener" href="https://nuxtjs.org/api/configuration-loading">Loading Progress Bar</a></li>
+<li>out of the box <a target="_blank" rel="noopener" href="https://nuxtjs.org/api/">asyncData</a> &amp; <a target="_blank" rel="noopener" href="https://nuxtjs.org/api/pages-fetch">fetch</a> hooks.<br>This gives a way to get async data on the server before rendering the markup</li>
+<li>a good documentation</li>
+<li>a great choice of <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/awesome-nuxt#official">modules</a> thanks to the nuxt community.<br>Those provide a good way to integrate some popular libraries (like <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/axios-module">Axios</a> for example)</li>
+<li>etc.</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Nuxt doesn’t have a beautiful GUI 😶 but it’s a very clever piece of code that makes me feel more productive while building a website or an application.</p>
+<p>I’ve made a <a target="_blank" rel="noopener" href="https://github.com/Hiswe/nuxt-universal-application">small demo repository</a> with almost the same code as used in this post.</p>
+<p>If you want to learn more, here are some useful links I’ve came across recently:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zendev.com/2018/09/17/frontend-architecture-lessons-from-nuxt-js.html">7 Frontend Architecture Lessons From Nuxt.js</a> by <a target="_blank" rel="noopener" href="https://zendev.com/authors/kball.html">Kevin Ball</a><br>A good analysis on how Nuxt can help you</li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/vue-mastery/10-reasons-to-use-nuxt-js-for-your-next-web-application-522397c9366b">10 reasons to use Nuxt.js for your next web application</a> by <a target="_blank" rel="noopener" href="https://medium.com/@dericksozo">Derick Sozo
+</a><br>Another analysis about the strong points of nuxt</li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@koreus/vue-js-there-and-back-again-in-1-5-years-756c1582aa96">Vue.js — There and Back Again in 1.5 years</a> by <a target="_blank" rel="noopener" href="https://medium.com/@koreus">Coreus</a>.<br>It’s not about nuxt, but it talks about living in the long term with a Vue Application.<br>There is also a small part about <a target="_blank" rel="noopener" href="https://medium.com/@koreus/vue-js-there-and-back-again-in-1-5-years-756c1582aa96#5aea">component/views folder structure</a> that resonates with what I’m talking about.</li>
+<li>A <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/awesome-nuxt#tutorials">list of tutorials</a> gathered by <a target="_blank" rel="noopener" href="https://github.com/nuxt-community">Nuxt community</a></li>
+</ul>
+<p>So if you’re using Vue, you might want to try Nuxt.</p>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/web/">web</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/advanced/">advanced</a>, <a href="/tags/vue/">vue</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

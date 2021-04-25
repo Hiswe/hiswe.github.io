@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <title>State of PWA with Parcel, February 2019 | hiswepedia</title>
+  
+    <meta name="author" content="Hiswe Halya" />
+  
+  <meta name="description" content="How the Parcel bundler plays now with PWA" />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="hiswepedia"/>
+  
+    <meta property="og:title" content="State of PWA with Parcel, February 2019"/>
+  
+  
+    <meta property="og:url" content="https://hiswe.github.io/en/2019/14-state-of-pwa-with-parcel-february-2019/" />
+  
+  <meta name="og:description" content="How the Parcel bundler plays now with PWA" />
+  
+    <meta property="og:image" content="https://hiswe.github.io/en/2019/14-state-of-pwa-with-parcel-february-2019/cover.png" />
+  
+
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@hiswehalya" />
+  <meta property="twitter:creator" content="@hiswehalya" />
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hiswepedia" type="application/atom+xml">
+
+  <link href='//fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/hiswe-theme.css" media="screen" type="text/css">
+  
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42058488-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42058488-2');
+</script>
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body class="layout layout--post">
+  <svg class="svg-icon-library" xmlns="http://www.w3.org/2000/svg">
+<symbol id="icon-rss-feed" viewBox="0 0 24 24"> <circle cx="6.18" cy="17.82" r="2.18"/> <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/> </symbol>
+<symbol id="icon-access-time" viewBox="0 0 24 24"> <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/> </symbol>
+<symbol id="icon-add-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 24 24"> <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/> </symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"> <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/> </symbol>
+<symbol id="icon-local-offer" viewBox="0 0 24 24"> <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/> </symbol>
+<symbol id="icon-remove-circle" viewBox="0 0 24 24"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> </symbol>
+<symbol id="icon-web" viewBox="0 0 24 24">  <path d="M20,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M4,9h10.5v3.5H4V9z M4,14.5
+		h10.5V18L4,18V14.5z M20,18l-3.5,0V9H20V18z"/> </symbol>
+<symbol id="icon-c-github" viewBox="0 0 22 22"><path d="M0,11c0,4.86 3.151,8.983 7.523,10.437c0.55,0.101 0.75,-0.239 0.75,-0.529c0,-0.262 -0.01,-1.129 -0.015,-2.047c-3.059,0.664 -3.705,-1.298 -3.705,-1.298c-0.501,-1.27 -1.222,-1.608 -1.222,-1.608c-1,-0.682 0.076,-0.669 0.076,-0.669c1.105,0.077 1.686,1.133 1.686,1.133c0.982,1.682 2.576,1.196 3.201,0.914c0.1,-0.71 0.385,-1.196 0.699,-1.47c-2.442,-0.277 -5.011,-1.221 -5.011,-5.436c0,-1.202 0.429,-2.182 1.131,-2.952c-0.112,-0.28 -0.49,-1.399 0.109,-2.913c0,0 0.923,-0.295 3.025,1.128c0.897,-0.245 1.823,-0.369 2.753,-0.37c0.93,0.001 1.857,0.126 2.754,0.371c2.099,-1.424 3.023,-1.128 3.023,-1.128c0.601,1.516 0.223,2.634 0.11,2.912c0.705,0.77 1.13,1.75 1.13,2.952c0,4.225 -2.572,5.156 -5.023,5.428c0.396,0.342 0.747,1.01 0.747,2.036c0,1.47 -0.015,2.656 -0.015,3.019c0,0.292 0.2,0.635 0.757,0.527c4.368,-1.457 7.517,-5.579 7.517,-10.437c0,-6.075 -4.925,-11 -11,-11c-6.075,0 -11,4.925 -11,11Z"/></symbol>
+<symbol id="icon-c-medium" viewBox="0 0 195 195"> <rect id="Rectangle-path" x="0" y="0" width="195" height="195"/> <path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" id="Shape" fill="#FFFFFF"/> </symbol>
+<symbol id="icon-c-twitter" viewBox="0 0 25 25"> <path d="M24,5.2126 C23.15383,5.58796 22.244295,5.841535 21.28991,5.955615 C22.264075,5.371645 23.01238,4.44693 23.364625,3.345 C22.45279,3.885845 21.442975,4.278455 20.36807,4.490055 C19.50741,3.57293 18.28105,3 16.92382,3 C14.31792,3 12.205025,5.112665 12.205025,7.718565 C12.205025,8.088405 12.24677,8.448585 12.327155,8.79393 C8.405425,8.597165 4.928515,6.718525 2.601145,3.86365 C2.194965,4.56055 1.962205,5.37107 1.962205,6.23587 C1.962205,7.87301 2.795265,9.317295 4.061415,10.163465 C3.287925,10.13897 2.56032,9.92668 1.92414,9.573285 C1.92368,9.59295 1.92368,9.61273 1.92368,9.632625 C1.92368,11.918825 3.55024,13.825985 5.708905,14.259535 C5.31296,14.367405 4.896085,14.42502 4.465755,14.42502 C4.161695,14.42502 3.866145,14.39535 3.577955,14.34038 C4.178485,16.214995 5.92108,17.579355 7.98602,17.617305 C6.371075,18.882995 4.336495,19.63728 2.12562,19.63728 C1.74474,19.63728 1.36915,19.61497 1,19.57127 C3.088285,20.910215 5.568605,21.691525 8.233385,21.691525 C16.91278,21.691525 21.659175,14.501265 21.659175,8.26562 C21.659175,8.061035 21.654575,7.8576 21.64549,7.655085 C22.567445,6.989925 23.367385,6.15882 24,5.2126 L24,5.2126 Z"/> </symbol>
+</svg>
+  <header class="main-header">
+    <div class="main-header__content">
+  <div class="main-header__title">
+    <h1>
+      <a href="/">
+        hiswepedia
+      </a>
+    </h1>
+    
+  </div>
+  <nav class="main-nav">
+    <ul class="main-nav__list">
+      
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <main role="main">
+    <article class="article-long">
+  
+  
+
+<header class="title article-long__header">
+  
+    <div class="title__dates">
+      
+      <time class="title__date title__date--published" datetime="2019-02-24T16:09:11.000Z">
+        <a href="/en/2019/14-state-of-pwa-with-parcel-february-2019/">
+          24-02-2019
+        </a>
+      </time>
+      
+        <time class="title__date title__date--updated" datetime="2021-04-25T10:07:36.818Z">
+            updated on 25-04-2021
+        </time>
+      
+    </div>
+  
+
+  <h1 class="title__heading ">
+    <a href="/en/2019/14-state-of-pwa-with-parcel-february-2019/">State of PWA with Parcel, February 2019</a>
+  </h1>
+</header>
+
+  <aside class="article-long__toc">
+    <div class="article-long__toc-sticky js-toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reminders"><span class="toc-text">Reminders</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Progressive-Web-Application-PWA"><span class="toc-text">Progressive Web Application (PWA)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%A6workbox"><span class="toc-text">…workbox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parcel-1-11-0"><span class="toc-text">Parcel 1.11.0</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-was-it-with-Parcel-in-the-mid-2018"><span class="toc-text">How was it with Parcel in the mid-2018</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#manifest-webmanifest"><span class="toc-text">manifest.webmanifest</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#with-webpack"><span class="toc-text">with webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with-Parcel"><span class="toc-text">with Parcel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#service-worker"><span class="toc-text">service worker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#with-webpack-1"><span class="toc-text">with webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with-Parcel-1"><span class="toc-text">with Parcel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    </div>
+  </aside>
+  <div class="article-long__content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In the mid 2018 I have played with Parcel to build a <a target="_blank" rel="noopener" href="https://vuejs.org/">VueJs</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Progressive_Web_Apps">Progressive Web Application</a> (PWA).<br>Back then it was kind of quirky to do so.<br>Reworking on it, I can tell how it compares with <a target="_blank" rel="noopener" href="https://webpack.js.org/">Webpack</a> and how Parcel improve its PWA experience.</p>
+<span id="more"></span>
+
+<h2 id="Reminders"><a href="#Reminders" class="headerlink" title="Reminders"></a>Reminders</h2><p>If you’re already familiar with the title, you can skip this part 🥳.</p>
+<h3 id="Progressive-Web-Application-PWA"><a href="#Progressive-Web-Application-PWA" class="headerlink" title="Progressive Web Application (PWA)"></a>Progressive Web Application (PWA)</h3><p>To be very very short a PWA is a website that use a certain set of web technologies in order to be used like a regular iOS/Android application.</p>
+<p>To dig a little more into it:</p>
+<ul>
+<li>it’s not restricted to mobile device</li>
+<li>it’s not restricted to any framework, it just needs to use web technologies</li>
+<li>it allows offline support</li>
+<li>it allows notifications</li>
+<li>and many other things…</li>
+</ul>
+<p>It needs:</p>
+<ul>
+<li>that you’re hosting your website in HTTPS</li>
+<li>a browser that supports the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a></li>
+<li>a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Manifest">webmanifest file</a>: a JSON file that provides information about your web-application</li>
+<li>a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">service worker</a>: a JavaScript file that uses the SW API to do stuff (yeah “stuff”, coz you can do many many things)</li>
+</ul>
+<p>You can write the latter in your preferred text editor, but…</p>
+<h3 id="…workbox"><a href="#…workbox" class="headerlink" title="…workbox"></a>…workbox</h3><p>is a <a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/workbox/">tool developed &amp; maintained by Google</a> to help you write the service worker file.</p>
+<p>Even if you can come up with your own SW file, I personally prefer to use tools that streamline my process and prevents me for doing silly errors.</p>
+<p>If you haven’t yet, try it. Documentation is good and the tool is easy to use.<br>And mostly: Workbox really helps.</p>
+<h3 id="Parcel-1-11-0"><a href="#Parcel-1-11-0" class="headerlink" title="Parcel 1.11.0"></a>Parcel 1.11.0</h3><p>It’s the <em>Blazing fast, zero configuration web application bundler.</em><br>It helps people to compile things in web technologies (HTML, CSS &amp; JS)</p>
+<p>It means to be a simpler alternative to webpack (that has the same purpose, and whose main critic is to be hard to configure).</p>
+<p>You can check <a href="/en/2018/11-parcel-with-vue/" title="this post about Parcel">this post about Parcel</a> if you want more information. (Yeah, self promotion 😎)</p>
+<h2 id="How-was-it-with-Parcel-in-the-mid-2018"><a href="#How-was-it-with-Parcel-in-the-mid-2018" class="headerlink" title="How was it with Parcel in the mid-2018"></a>How was it with Parcel in the mid-2018</h2><p>The main principle of Parcel is that it will parse your application entry point, follow any file path within it, and compile/optimize/hash them.<br>It can be almost anything (see the <a target="_blank" rel="noopener" href="https://en.parceljs.org/getting_started.html">asset types</a> in the doc!), so HTML, CSS, JS, images, JSON… ANYTHING!</p>
+<p>So this is good &amp; fine, but it can be a problems as Parcel tends to be too greedy (being too greedy is bad).</p>
+<p>To have a PWA we need to (in order):</p>
+<p><em><strong>1.</strong>_ have some application icons<br>_<strong>2.</strong>_ have a <code>manifest.webmanifest</code> file<br>_<strong>3.</strong></em> build our HTML/JS/CSS/assets<br>  • our HTML should reference the manifest with a <code>&lt;link rel=&quot;manifest&quot; href=&quot;/manifest.webmanifest&quot;&gt;</code><br>  • our future service worker should be called in our JS file</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (<span class="hljs-string">`serviceWorker`</span> <span class="hljs-keyword">in</span> navigator) &#123;<br>  <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">`load`</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    navigator.serviceWorker.register(<span class="hljs-string">`/my-application-service-worker.js`</span>)<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><em><strong>4.</strong>_ build our service worker with Workbox that will cache any of the assets needed for the application<br>_<strong>5.</strong></em> …and that’s it 🎉</p>
+<p>But at this time Parcel would have:</p>
+<ul>
+<li>followed our manifest link and converted it to a js file 😨</li>
+<li>followed our service worker’s registration and breaks because it doesn’t exist yet 😰</li>
+<li>and so 😱</li>
+</ul>
+<p>In order to avoid that you would have to:</p>
+<ul>
+<li>avoid your HTML file as an entry point (so compile only the JS/CSS)</li>
+<li>come with another simplified HTML file to use the Parcel dev server</li>
+<li>generate the service worker with <a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/workbox/guides/generate-service-worker/workbox-build">workbox-build</a></li>
+<li>create a different production HTML that:<ul>
+<li>reference the manifest file</li>
+<li>have a script tag that install our service worker (this way it won’t be parsed by Parcel)</li>
+</ul>
+</li>
+</ul>
+<h2 id="manifest-webmanifest"><a href="#manifest-webmanifest" class="headerlink" title="manifest.webmanifest"></a>manifest.webmanifest</h2><h3 id="with-webpack"><a href="#with-webpack" class="headerlink" title="with webpack"></a>with webpack</h3><p>In the Webpack lore it exists the <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/webpack-pwa-manifest">webpack-pwa-manifest</a> plugin which will take care of:</p>
+<ul>
+<li>creating icons</li>
+<li>creating the manifest file</li>
+<li>injecting it into the HTML</li>
+<li>take care of old proprietary tags in iOS if needed</li>
+</ul>
+<p>and this is AWESOOOOME.</p>
+<h3 id="with-Parcel"><a href="#with-Parcel" class="headerlink" title="with Parcel"></a>with Parcel</h3><p>It now supports NOT to parse/modify your manifest file, which was a real bummer in previous versions.</p>
+<p>Coming up with your own manifest file is not a problem per se. It’s just a small JSON file that won’t change a lot over time.<br>As for the icons, I’ve found the <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/node-image-resizer">node-image-resizer</a> that will help you generate the different app icons sizes. And because it uses <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/jimp">jimp</a> under the hood, you won’t be bothered to install any external dependencies (like GraphicMagic).</p>
+<p>So event if it’s less “plug and play” than using webpack, it’s now way better than not using your HTML file as an entry point (mostly for the dev server).<br>I would like to see a webpack-pwa-manifest alternatives but coming with my own will stay on my list of open source project to do that I know I won’t find the time to make but it could be helpful to build 😔</p>
+<h2 id="service-worker"><a href="#service-worker" class="headerlink" title="service worker"></a>service worker</h2><h3 id="with-webpack-1"><a href="#with-webpack-1" class="headerlink" title="with webpack"></a>with webpack</h3><p>Google develops &amp; maintain the <a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#top_of_page">workbox-webpack-plugin</a> that lets you generate a worker file.</p>
+<p>On <code>inject mode</code> it has some nice additions which are:</p>
+<ul>
+<li>injecting the workbox library for you</li>
+<li>generating a separate precache manifest file (I find it cleaner to have all those path away from the “real” service worker code)</li>
+</ul>
+<h3 id="with-Parcel-1"><a href="#with-Parcel-1" class="headerlink" title="with Parcel"></a>with Parcel</h3><p>There is the <a target="_blank" rel="noopener" href="https://github.com/mischnic/parcel-plugin-sw-cache#readme">parcel-plugin-sw-cache</a> which works quite well.<br>There isn’t the workbox-webpack-plugin nice additions but it dœs the job.<br>Also, the configuration depends on the <code>package.json</code> so it may be less flexible than a JS’ webpack configuration.</p>
+<p>But to prevent the “too greedy“ behavior of Parcel you have to use a <a target="_blank" rel="noopener" href="https://github.com/parcel-bundler/parcel/issues/2080">small twist</a> to register your service worker without Parcel noticing it:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// this way Parcel won&#x27;t check `my-application-service-worker.js`</span><br><span class="hljs-keyword">const</span> swName = <span class="hljs-string">`/my-application-service-worker.js`</span><br>navigator.serviceWorker.register(swName)<br></code></pre></td></tr></table></figure>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Webpack propose a smoother experience due to the more mature ecosystem it has, but working with Parcel to build a PWA is a way smoother experience than it was. Good Game Parcel! 🏆</p>
+<p>The main small inconvenience is to generate the different application icons… which isn’t that bad.</p>
+<p>You can find the web applications here:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/hiswe/thailpha">Thailpha</a> which uses webpack</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hiswe/thaime">Thaime</a> which uses Parcel</li>
+</ul>
+
+  </div>
+  <footer class="article-long__footer">
+    
+  
+  <div class="article-long__footer-item article__footer-item--categories">
+    <svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ <a href="/categories/web/">web</a>
+  </div>
+
+
+    
+  
+  <div class="article-long__footer-item article__footer-item--tags">
+    <svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+  <a href="/tags/advanced/">advanced</a>
+  </div>
+
+
+    
+  </footer>
+</article>
+
+
+
+    <aside class="widgets">
+      <div class="widget widget--search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    
+    <label for="search">Search</label>
+    <input type="search" name="q" results="0" placeholder="Rechercher">
+    <input type="hidden" name="q" value="site:hiswe.github.io">
+  </form>
+</div>
+
+      <div class="widget widget--social">
+  <ul class="social">
+    <li class="social__item">
+      <a href="/atom.xml">
+        <svg role="img" class="icon icon--rss-feed">
+  <use xlink:href="#icon-rss-feed"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="http://hiswe.net">
+        <svg role="img" class="icon icon--web">
+  <use xlink:href="#icon-web"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://medium.com/@hiswehalya">
+        <svg role="img" class="icon icon--c-medium">
+  <use xlink:href="#icon-c-medium"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://github.com/hiswe">
+        <svg role="img" class="icon icon--c-github">
+  <use xlink:href="#icon-c-github"></use>
+</svg>
+
+      </a>
+    </li>
+    <li class="social__item">
+      <a target="_blank" rel="noopener" href="https://twitter.com/hiswehalya">
+        <svg role="img" class="icon icon--c-twitter">
+  <use xlink:href="#icon-c-twitter"></use>
+</svg>
+
+      </a>
+    </li>
+  </ul>
+</div>
+
+      <div class="widget widget--categories-and-tags">
+        
+<div class="category-and-tag category-and-tag--category">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--folder">
+  <use xlink:href="#icon-folder"></use>
+</svg>
+ Categories</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/categories/drawing/">drawing</a><small>3</small></li>
+  
+    <li><a href="/categories/nodejs/">nodejs</a><small>4</small></li>
+  
+    <li><a href="/categories/web/">web</a><small>9</small></li>
+  
+  </ul>
+</div>
+
+
+        
+<div class="category-and-tag category-and-tag--tag">
+  <h3 class="category-and-tag__title"><svg role="img" class="icon icon--local-offer">
+  <use xlink:href="#icon-local-offer"></use>
+</svg>
+ Tags</h3>
+  <ul class="category-and-tag__entry">
+  
+    <li><a href="/tags/adobe-illustrator/">adobe illustrator</a><small>1</small></li>
+  
+    <li><a href="/tags/advanced/">advanced</a><small>8</small></li>
+  
+    <li><a href="/tags/affinity-designer/">affinity designer</a><small>2</small></li>
+  
+    <li><a href="/tags/beginner/">beginner</a><small>8</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>3</small></li>
+  
+    <li><a href="/tags/react/">react</a><small>2</small></li>
+  
+    <li><a href="/tags/vector/">vector</a><small>3</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+      </div>
+    </aside>
+  </main>
+  <footer class="main-footer">
+    <div>
+  
+  &copy; 2021 Hiswe Halya
+  
+</div>
+
+  </footer>
+  
+
+<script src="/hiswe-theme.js" async></script>
+
+</body>
+</html>

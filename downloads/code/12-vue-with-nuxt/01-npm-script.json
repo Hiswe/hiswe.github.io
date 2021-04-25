@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build"
+  }
+}
