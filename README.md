@@ -3,19 +3,19 @@
 ## launching
 
 ```
-npm install
+yarn
 ```
 
 ### release
 
 ```
-npm run release
+yarn release
 ```
 
 ### dev
 
 ```
-npm start
+yarn start
 ```
 
 ### writing
