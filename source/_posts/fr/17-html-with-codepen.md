@@ -18,8 +18,8 @@ date: 2021-04-25 18:12:46
 Le but est de comprendre l'écriture du HTML :
 
 - Vous allez voir ce qu'est le HTML
-- Vous allez apprendre à nous servir d'un éditeur de code en ligne 
-- Vous utiliserez le logiciel web codepen pour apprendre et créer des croquis de page internet
+- Vous allez apprendre à vous servir d'un éditeur de code en ligne 
+- Vous utiliserez le logiciel web codepen pour apprendre et créer un croquis de page internet
 
 <!-- more -->
 
