@@ -103,6 +103,10 @@
         </a>
       </time>
       
+        <time class="title__date title__date--updated" datetime="2021-04-27T21:42:17.972Z">
+            updated on 27-04-2021
+        </time>
+      
     </div>
   
 
@@ -117,12 +121,23 @@
     </div>
   </aside>
   <div class="article-long__content">
-    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Comment se servir de Codepen pour apprendre et créer des croquis de page internet.<br>Le but est de comprendre l’écriture du HTML.</p>
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Le but est de comprendre l’écriture du HTML :</p>
+<ul>
+<li>Vous allez voir ce qu’est le HTML</li>
+<li>Vous allez apprendre à nous servir d’un éditeur de code en ligne </li>
+<li>Vous utiliserez le logiciel web codepen pour apprendre et créer des croquis de page internet</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="Rappels-sur-le-web"><a href="#Rappels-sur-le-web" class="headerlink" title="Rappels sur le web"></a>Rappels sur le web</h2><p>Quand on veut afficher une page internet, on va rentrer dans son navigateur une adresse.</p>
-<p>Le navigateur va alors demander à un autre ordinateur qui “vit” là (le serveur) de lui renvoyer les fichiers qui s’y trouvent.</p>
-<p>Outre tout les fichiers d’images/vidéos/son qu’on va pouvoir avoir il en existe 3 types particuliers. Les fichiers&nbsp;:</p>
+<h2 id="Rappels-sur-le-web"><a href="#Rappels-sur-le-web" class="headerlink" title="Rappels sur le web"></a>Rappels sur le web</h2><!-- TODO: insérer une image de navigateur -->
+
+<ul>
+<li>Le navigateur web est le logiciel qui permet d’afficher une page internet.</li>
+<li>Une adresse est un texte qui commence par <code>http://</code> </li>
+</ul>
+<p>Pour afficher une page internet, on rentre l’adresse dans son navigateur.</p>
+<p>Le navigateur va alors demander à un autre ordinateur se trouve à cette adresse (le serveur) de lui renvoyer les fichiers qui s’y trouvent.</p>
+<p>En plus de tous les fichiers d’images/vidéos/son qui existent, il en existe 3 types particuliers.<br>Les fichiers&nbsp;:</p>
 <ul>
 <li>HTML</li>
 <li>CSS</li>
@@ -135,45 +150,45 @@
 <li>qu’ils peuvent s’ouvrir dans un éditeur de texte (pas comme Word mais presque !)</li>
 </ul>
 <p>Vous pouvez retrouver une explication plus détaillée dans cet article : <a href="/fr/2021/03-les-bases-du-web/" title="Les bases du web">Les bases du web</a></p>
-<h3 id="HTML-CSS-et-JS"><a href="#HTML-CSS-et-JS" class="headerlink" title="HTML, CSS et JS"></a>HTML, CSS et JS</h3><p>Si on devait comparer la construction d’une maison avec celle d’une page internet alors :</p>
+<h3 id="HTML-CSS-et-JS"><a href="#HTML-CSS-et-JS" class="headerlink" title="HTML, CSS et JS"></a>HTML, CSS et JS</h3><p>Si on devait comparer la construction d’une maison avec celle d’une page internet, alors :</p>
 <ul>
-<li>le fichier HTML va donner toute la description de la maison.<br>Par exemple&nbsp;: c’est une maison avec un salon qui a une table et 4 chaises, etc.</li>
-<li>le fichier CSS va donner tout ce qui est apparence.<br>Par exemple&nbsp;: Le salon fait 15m², il est peint de blanc, la table est carré et les 4 chaises sont autour, etc.</li>
-<li>le fichier JS va donner tout ce qui est comportements.<br>Par exemple&nbsp;: si on appui sur l’interrupteur du mur du salon, la lumière s’allume, etc.</li>
+<li>le fichier HTML va décrire la maison.<br>Par exemple&nbsp;: c’est une maison avec un salon qui a une table et 4 chaises, etc.</li>
+<li>le fichier CSS va décrire son apparence.<br>Par exemple&nbsp;: Le salon fait 15m², il est peint de blanc, la table est carrée et les 4 chaises sont autour, etc.</li>
+<li>le fichier JS va décrire les actions et leurs conséquences.<br>Par exemple&nbsp;: si on appuie sur l’interrupteur du mur du salon, la lumière s’allume, etc.</li>
 </ul>
-<p>En termes plus techniques :</p>
+<p>Pour résumer :</p>
 <ul>
-<li>le HTML c’est le contenu</li>
-<li>le CSS, l’apparence</li>
-<li>le JS, les comportements</li>
+<li>HTML =  contenu</li>
+<li>CSS =  l’apparence</li>
+<li>JS = comportements</li>
 </ul>
 
 <figure class="image-container">
   <img src="/fr/2021/17-html-with-codepen/web-page-file-types.svg" class="" width="500" height="150" title="des fichiers HTML, CSS et JS " alt="des fichiers HTML, CSS et JS">
-  <figcaption class="image-container__caption">HTML&nbsp;: contenu, CSS&nbsp;: apparence, JS&nbsp;: comportements</figcaption>
+  <figcaption class="image-container__caption">contenu, apparence & comportements</figcaption>
 </figure>
 
 
-<h3 id="Le-web-un-espace-inclusif-et-accessible"><a href="#Le-web-un-espace-inclusif-et-accessible" class="headerlink" title="Le web : un espace inclusif et accessible"></a>Le web : un espace inclusif et accessible</h3><p>Le web a été designé dans cet état d’esprit.</p>
+<h3 id="Le-web-un-espace-inclusif-et-accessible"><a href="#Le-web-un-espace-inclusif-et-accessible" class="headerlink" title="Le web : un espace inclusif et accessible"></a>Le web : un espace inclusif et accessible</h3><p>Le web a été designé avec cet état d’esprit.</p>
 <ul>
 <li>On doit pouvoir lire le contenu dans n’importe quelle langue (changement de direction pour l’arabe par exemple)</li>
 <li>On doit pouvoir accéder au contenu quand on est en situation de handicap (avec des technologies comme <a target="_blank" rel="noopener" href="https://www.apple.com/fr/accessibility/">voice-over</a>)</li>
 <li>Il faut avoir le moins possible de freins pour créer du contenu&nbsp;:<ul>
-<li>le code est lisible par un être humain</li>
-<li>on n’a pas besoin de payer quoique ce soit pour en écrire</li>
-<li>les outils qui peuvent nous aider sont gratuits</li>
+<li>le code doit être lisible par un être humain</li>
+<li>il n’y a pas de frais pour commencer à écrire du code</li>
+<li>Il existe des outils gratuits qui peuvent nous aider</li>
 </ul>
 </li>
 </ul>
-<h2 id="Codepen"><a href="#Codepen" class="headerlink" title="Codepen"></a>Codepen</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/about">Copepen</a> est un environnement de développement web en ligne.<br>Il permets de faciliter la création de croquis de page internet !</p>
-<p>Pour celà il faut aller sur&nbsp;:</p>
+<h2 id="Codepen"><a href="#Codepen" class="headerlink" title="Codepen"></a>Codepen</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/about">Copepen</a> est un environnement gratuit de développement web en ligne.<br>Il permet de faciliter la création de croquis de page internet.</p>
+<p>Allez sur&nbsp;:</p>
 <p><a target="_blank" rel="noopener" href="https://codepen.io/pen/">https://codepen.io/pen/</a></p>
 <h3 id="L’interface"><a href="#L’interface" class="headerlink" title="L’interface"></a>L’interface</h3><p>On va retrouver 4 zones&nbsp;:</p>
 <ul>
-<li>3 de ces zones sont là où on va pouvoir coder notre HTML/CSS/JS</li>
-<li>la dernière est une prévisualisation en temps réel du rendu de notre code 🥳</li>
+<li>les 3 premières zones sont pour le code (HTML/CSS/JS)</li>
+<li>la quatrième est une prévisualisation en temps réel du rendu de notre code 🥳</li>
 </ul>
-<h3 id="Configurer-l’interface"><a href="#Configurer-l’interface" class="headerlink" title="Configurer l’interface"></a>Configurer l’interface</h3><p>Pour plus de confort on peut réorganiser l’espace de travail comme suit :</p>
+<h3 id="Configurer-l’interface"><a href="#Configurer-l’interface" class="headerlink" title="Configurer l’interface"></a>Configurer l’interface</h3><p>Pour plus de confort, on peut réorganiser l’espace de travail comme suit :</p>
 <ol>
 <li>Mettre côte à côte le code et le rendu
 <figure class="image-container">
@@ -188,7 +203,7 @@
 </figure>
 </li>
 </ol>
-<h3 id="Enregistrer-son-travail-optionnel"><a href="#Enregistrer-son-travail-optionnel" class="headerlink" title="Enregistrer son travail (optionnel)"></a>Enregistrer son travail (optionnel)</h3><p>Il faut s’inscrire depuis l’interface.<br>Le bouton d’inscription se trouve tout en bas de la popup de connection !</p>
+<h3 id="Enregistrer-son-travail-optionnel"><a href="#Enregistrer-son-travail-optionnel" class="headerlink" title="Enregistrer son travail (optionnel)"></a>Enregistrer son travail (optionnel)</h3><p>Il faut s’inscrire depuis l’interface.<br>Le bouton d’inscription se trouve tout en bas de la popup de connection.</p>
 <h2 id="Creer-une-page-du-contenu"><a href="#Creer-une-page-du-contenu" class="headerlink" title="Créer une page du contenu"></a>Créer une page du contenu</h2><p>Pour l’exemple, on va essayer de raconter sa journée d’hier.<br>Pour moi ça donnerait quelque chose comme :</p>
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="poRGGzq" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="plain-text">
   <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/Hiswe/pen/poRGGzq">
@@ -203,15 +218,15 @@
 </figure>
 
 
-<p>On veut avoir un texte formaté, non ?<br>Celà veut dire que pour avoir une meilleure expérience de lecture il nous faudrait :</p>
+<p>On veut avoir un texte formaté, non ?<br>Cela veut dire que pour avoir une meilleure expérience de lecture il nous faudrait :</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Headline">des entêtes (article en anglais)</a></li>
-<li><a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Paragraphe">de paragraphes</a></li>
+<li><a target="_blank" rel="noopener" href="https://fr.wikipedia.org/wiki/Paragraphe">dse paragraphes</a></li>
 <li>des retours chariots</li>
 <li>des listes</li>
 </ul>
-<p><strong>Là où dans Word, vous pouvez cliquer sur un bouton pour cela, en HTML, vous devez l’écrire pour que le navigateur le comprenne.</strong></p>
-<p>Actuellement, vous avez une idée de comment ça doit être présenté mais le navigateur, lui, ne voit que du texte.<br>En plus, <em>il va combiner les espaces multiples et ignorer les retours à la ligne</em> 😇<br>(Et croyez-moi il faut ça pour votre propre bien)</p>
+<p><strong>Dans Word, pour formatter un texte, vous cliquez sur des boutons. En HTML, vous devez écrire le format que vous attendez pour que le navigateur le comprenne.</strong></p>
+<p>Actuellement, vous avez une idée de comment cela doit être présenté, mais le navigateur, lui, ne voit que du texte.<br>En plus, <em>il va combiner les espaces multiples et ignorer les retours à la ligne</em> 😇<br>(Et croyez-moi il fait ça pour votre propre bien)</p>
 <h3 id="Entetes-et-paragraphes"><a href="#Entetes-et-paragraphes" class="headerlink" title="Entêtes et paragraphes"></a>Entêtes et paragraphes</h3>
 <figure class="image-container">
   <img src="/fr/2021/17-html-with-codepen/browser-rendering-html.svg" class="" width="430" height="450" title="rendu de navigateur " alt="rendu de navigateur">
@@ -236,25 +251,25 @@
 
 <p>Un élément HTML est un <em>groupe qui a une signification</em> (comme entête, paragraphe, liste…)<br>C’est composé la plupart du temps:</p>
 <ul>
-<li>d’un <strong>tag ouvrant</strong> (<code>&lt;h1&gt;</code> &amp; <code>&lt;p&gt;</code> dans notre exemple) toujours écrit de la façon suivant<ul>
+<li>d’un <strong>tag ouvrant</strong> (<code>&lt;h1&gt;</code> &amp; <code>&lt;p&gt;</code> dans notre exemple) toujours écrit de la façon suivante<ul>
 <li>le signe supérieur <code>&lt;</code></li>
 <li>le nom du tag</li>
 <li>le signe inférieur <code>&gt;</code></li>
-<li>… ou pour le dire plus simplement : le nom du tag entouré de 2 chevrons</li>
+<li>… ou pour le dire plus simplement : le nom du tag entouré de 2 <em>chevrons</em></li>
 </ul>
 </li>
 <li>le <strong>contenu</strong> (les différents textes)</li>
 <li>un <strong>tag fermant</strong> (<code>&lt;/h1&gt;</code> &amp; <code>&lt;/p&gt;</code> dans notre cas) qui est comme notre tag ouvrant <em>mais</em> :<br>⚠️ <strong>on ajoute un</strong> <code>/</code> <strong>après le signe supérieur !</strong></li>
 </ul>
-<h4 id="Tags-ouvrant-et-fermant"><a href="#Tags-ouvrant-et-fermant" class="headerlink" title="Tags ouvrant et fermant"></a>Tags ouvrant et fermant</h4><p>C’est la manière que l’on a de dire au navigateur où un élément commence et fini.<br>Sans celà, aussi intelligent qu’il soit, il ne pourra pas deviner ce que vous aviez en tête quand vous avez écrit votre code.</p>
+<h4 id="Tags-ouvrant-et-fermant"><a href="#Tags-ouvrant-et-fermant" class="headerlink" title="Tags ouvrant et fermant"></a>Tags ouvrant et fermant</h4><p>C’est la manière qu’on utilise pour dire au navigateur où un élément commence et où il finit.<br>Sans cela, aussi intelligent qu’il soit, il ne pourra pas deviner ce que vous aviez en tête quand vous avez écrit votre code.</p>
 <p><strong><em>Savoir écrire comme il faut un élément HTML est la chose la plus importante à comprendre à propos de l’HTML!</em></strong></p>
 <h4 id="h1-amp-p"><a href="#h1-amp-p" class="headerlink" title="h1 &amp; p"></a>h1 &amp; p</h4><p>Comme dit précédemment, chaque élément HTML a un <strong>sens</strong>, donc :  </p>
 <ul>
-<li><code>h1</code> représente un <b>h</b>eading de <strong>1</strong><sup>er</sup> niveau</li>
+<li><code>h1</code> représente un <b>h</b>eading (entête) de <strong>1</strong><sup>er</sup> niveau</li>
 <li><code>p</code> représente un <b>p</b>aragraph</li>
 </ul>
-<p>Comme le HTML a été conçu par des américains, les abbreviation viennent de l’anglais<br>Vous pouvez voir la  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">liste complète des éléments HTML ici</a></p>
-<h2 id="Ameliorer-son-contenu"><a href="#Ameliorer-son-contenu" class="headerlink" title="Améliorer son contenu"></a>Améliorer son contenu</h2><p>On voit que l’on a encore des choses à améliorer&nbsp;:</p>
+<p>Comme le HTML a été conçu par des américains, les abréviations viennent de l’anglais.<br>Vous pouvez voir la  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">liste complète des éléments HTML ici</a></p>
+<h2 id="Ameliorer-son-contenu"><a href="#Ameliorer-son-contenu" class="headerlink" title="Améliorer son contenu"></a>Améliorer son contenu</h2><p>On voit qu’il y a encore des choses à améliorer&nbsp;:</p>
 <ul>
 <li>il manque des retours à la ligne</li>
 <li>la liste n’est pas jolie</li>
@@ -268,11 +283,11 @@
 
 <h4 id="Signification-des-nouveaux-elements"><a href="#Signification-des-nouveaux-elements" class="headerlink" title="Signification des nouveaux éléments"></a>Signification des nouveaux éléments</h4><p>On l’a déjà vu, <strong>un élément HTML a un sens</strong>:  </p>
 <ul>
-<li><code>br</code> représente un <b>br</b>eak </li>
+<li><code>br</code> représente un <b>br</b>eak</li>
 <li><code>ul</code> représente une <b>u</b>norganized <b>l</b>ist (non-organisée car il n’y a pas d’ordre donné à cette liste, et donc elle s’affichera sans chiffres)</li>
 <li><code>li</code> représente un <b>l</b>ist <b>i</b>tem</li>
 </ul>
-<p>Et parce que nous voulions des retours chariots &amp;  une liste, le choix évident était ce couple d’éléments 😎</p>
+<p>Et parce que nous voulions des retours à la ligne &amp;  une liste, le choix évident était ce couple d’éléments 😎</p>
 <h3 id="Tags-auto-fermants"><a href="#Tags-auto-fermants" class="headerlink" title="Tags auto fermants"></a>Tags auto fermants</h3>
 <figure class="image-container">
   <img src="/fr/2021/17-html-with-codepen/auto-closing-tag.svg" class="" width="300" height="140" title="un élément HTML auto-fermant " alt="un élément HTML auto-fermant"> 
@@ -280,7 +295,7 @@
 </figure>
 
 
-<p>Certain éléments HTML n’autorisent pas de contenu.<br>C’est le cas pour un retour chariot.<br>C’est aussi le cas pour une image par exemple ! Une image est une image, Qu’est-ce qu’on pourrait rajouter d’autre ?</p>
+<p>Certains éléments HTML n’autorisent pas de contenu.<br>C’est le cas pour un retour à la ligne.<br>C’est aussi le cas pour une image par exemple ! Une image est une image, Qu’est-ce qu’on pourrait rajouter d’autre ?</p>
 <p>Pour les écrire:</p>
 <ul>
 <li>ne faire  <strong>qu’un seul tag</strong></li>
@@ -290,20 +305,20 @@
 <h3 id="Imbrication-d’elements-HTML"><a href="#Imbrication-d’elements-HTML" class="headerlink" title="Imbrication d’éléments HTML"></a>Imbrication d’éléments HTML</h3>
 <figure class="image-container">
   <img src="/fr/2021/17-html-with-codepen/basket-of-apples.svg" class="" width="410" height="180" title="un panier de fruit avec 3 pommes " alt="un panier de fruit avec 3 pommes"> 
-  <figcaption class="image-container__caption">enfants pommes contenue dans papa panier de fruits</figcaption>
+  <figcaption class="image-container__caption">enfants pommes contenues dans papa panier de fruits</figcaption>
 </figure>
 
 
-<p>Plus haut j’avais dit que le contenu serait votre texte.<br>C’était vrai mais incomplet&nbsp;: <strong>Il peut aussi contenir d’autres éléments HTML</strong>  </p>
-<p>Pour exemple, si on voulait décrire en HTML ce panier de fruit avec ses trois pommes on pourrait écrire quelque chose comme :</p>
+<p>Plus haut nous avons vu que le contenu serait le texte.<br>C’était vrai mais incomplet&nbsp;: <strong>Il peut aussi contenir d’autres éléments HTML</strong>  </p>
+<p>Pour exemple, si on voulait décrire en HTML ce panier de fruits avec ses trois pommes on pourrait écrire quelque chose comme :</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">panier-de-fruit</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">pomme</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pomme</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">pomme</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pomme</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">pomme</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pomme</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">panier-de-fruit</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>Bien sûr <code>panier-de-fruit</code> et <code>pomme</code> ne sont pas des éléments HTML valides ⛔ 🗑 + 🍎<br>Ne les utilisez pas dans vos prochains projets ! </p>
-<h3 id="Parent-amp-enfants"><a href="#Parent-amp-enfants" class="headerlink" title="Parent &amp; enfants"></a>Parent &amp; enfants</h3><p>C’est de la poésie de développeur 🌈<br>On parle souvent <strong>d’un élément HTML en contenant d’autres</strong> comme <strong>d’un parent</strong> et de <strong>ses enfants</strong>  </p>
+<h3 id="Parent-amp-enfants"><a href="#Parent-amp-enfants" class="headerlink" title="Parent &amp; enfants"></a>Parent &amp; enfants</h3><p>C’est de la poésie de développeur 🌈<br>On parle souvent <strong>d’un élément HTML qui en contient d’autres</strong> comme <strong>d’un parent</strong> et de <strong>ses enfants</strong>  </p>
 <p>Dans l’exemple du dessus&nbsp;:</p>
 <ul>
-<li>le parent serait le panier</li>
-<li>les enfants du panier seraient les pommes</li>
+<li>le parent est le panier</li>
+<li>les enfants du panier sont les pommes</li>
 </ul>
 <h2 id="Une-erreur-facile-a-faire-mal-imbriquer-ses-elements"><a href="#Une-erreur-facile-a-faire-mal-imbriquer-ses-elements" class="headerlink" title="Une erreur facile à faire : mal imbriquer ses éléments"></a>Une erreur facile à faire : mal imbriquer ses éléments</h2>
 <figure class="image-container">
@@ -312,7 +327,7 @@
 </figure>
 
 
-<p>Il est important de comprendre que le navigateur doit savoir quand commence et s’arrête quelque chose.<br>Donc <strong>si on ne respecte pas l’ordre d’ouverture et de fermeture</strong> cela pourra <strong>créer des problèmes</strong>.</p>
+<p>Il est important de comprendre que le navigateur doit savoir quand commence et s’arrête quelque chose.<br>Donc <strong>si on ne respecte pas l’ordre d’ouverture et de fermeture</strong>,  cela peut <strong>créer des problèmes</strong>.</p>
 <p>Le navigateur est votre allié. Il essaiera de corriger vos erreurs mais peut-être pas comme vous le vouliez.</p>
 <h4 id="Ce-code-HTML-n’est-pas-bon"><a href="#Ce-code-HTML-n’est-pas-bon" class="headerlink" title="Ce code HTML n’est pas bon"></a>Ce code HTML n’est pas bon</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>une pomme<br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -321,14 +336,14 @@
 <h4 id="La-bonne-maniere-de-l’ecrire"><a href="#La-bonne-maniere-de-l’ecrire" class="headerlink" title="La bonne manière de l’écrire"></a>La bonne manière de l’écrire</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>une pomme<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
-<li>le HTML c’est du texte</li>
-<li>ça permets de hiérarchiser l’information</li>
-<li>celà s’écrit avec des balises HTML</li>
+<li>le HTML, c’est du texte</li>
+<li>cela permet de hiérarchiser l’information</li>
+<li>cela s’écrit avec des balises HTML</li>
 <li>les balises ont un sens</li>
 <li>toutes les balises s’écrivent avec des tags</li>
 <li>les tags s’écrivent avec des lettres entourées de chevrons</li>
 </ul>
-<p>Si vous voulez plus d’information il y a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics">cet excellent article</a> de disponible&nbsp;!</p>
+<p>Si vous voulez plus d’informations il y a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics">cet excellent article</a> de disponible&nbsp;!</p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
   </div>
   <footer class="article-long__footer">
