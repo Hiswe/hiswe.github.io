@@ -381,15 +381,15 @@ Pour le dire autrement, la boîte `<li>` est à la fois dans ET hors de la boît
 </ul>
 {% endcodeblock %}
 
-### Rajouter des espace (l'indentation)
+### Rajouter des espaces (l'indentation)
 
-{% caption Les espace vous aident à mieux lire %}
+{% caption Les espaces vous aident à mieux lire %}
 {% asset_img indentation.svg 500 260 "comparaison entre un contenu non indenté & indenté  'comparaison entre un contenu non indenté & indenté '" %} 
 {% endcaption %}
 
 Pour éviter ce problème il y a cette petite technique :
 
-  - Il faut [indenter](https://fr.wikipedia.org/wiki/Style_d%27indentation) le contenu (rajouter des espace)
+  - Il faut [indenter](https://fr.wikipedia.org/wiki/Style_d%27indentation) le contenu (rajouter des espaces)
   - Cela permets de repérer visuellement qui est l'enfant de quel parent.
 
 
@@ -399,7 +399,7 @@ On évitera ainsi certaines erreurs, et notre code sera plus agréable à regard
 
 ## Conclusion
 
-- Un fichier HTML, c'est du texte
+- un fichier HTML, c'est du texte
 - il permet d'organiser l'information de notre page internet
 - il s'écrit avec des éléments HTML
 - ces éléments ont un sens (titre, paragraphe…)
