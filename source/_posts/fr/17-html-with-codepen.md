@@ -41,6 +41,12 @@ Pour afficher une page internet, on rentre l'adresse dans son navigateur.
 
 Le navigateur va alors demander à un autre ordinateur se trouve à cette adresse (le serveur) de lui renvoyer les fichiers qui s'y trouvent.
 
+{% caption Là où vit google  %}
+{% asset_img browser-detail.png 630 300 "Navigateur affichant google.fr 'Capture Navigateur affichantaffiche google.fr'" %} 
+{% endcaption %}
+
+
+
 En plus de tous les fichiers d'images/vidéos/son qui existent, il en existe 3 types particuliers.  
 Les fichiers&nbsp;:
 
@@ -161,7 +167,7 @@ Cela veut dire que pour avoir une meilleure expérience de lecture il nous faudr
 
 - [des entêtes (article en anglais)](https://en.wikipedia.org/wiki/Headline)
 - [dse paragraphes](https://fr.wikipedia.org/wiki/Paragraphe)
-- des retours à la ligne
+- [des retours à la ligne](https://fr.wikipedia.org/wiki/Retour_chariot)
 - des listes
 
 **Dans Word, pour formatter un texte, vous cliquez sur des boutons.**  
@@ -169,11 +175,13 @@ Cela veut dire que pour avoir une meilleure expérience de lecture il nous faudr
 
 Actuellement, vous avez une idée de comment cela doit être présenté, mais le navigateur, lui, ne voit que du texte.  
 En plus, _il va combiner les espaces multiples et ignorer les retours à la ligne_ 😇
-(Et croyez-moi il fait ça pour votre propre bien)
+(On verra plus tard pourquoi il fait comme ceci)
 
 ### Les éléments HTML
 
-C'est grâce à eux qu'on va faire comprendre au navigateur comment un contenu doit être mis en page
+C'est grâce à eux qu'on va faire comprendre au navigateur comment un contenu doit être mis en page.  
+Ce sont des petites boîtes dans lesquelles on va mettre notre contenu, pour bien l'identifier.
+
 
 #### Anatomie d'un élément HTML
 
@@ -192,6 +200,11 @@ C'est composé la plupart du temps:
 - le **contenu** (les différents textes)
 - un **tag fermant** (`</h1>` & `</p>` dans notre cas) qui est comme notre tag ouvrant _mais_ :  
   ⚠️ **on ajoute un** `/` **après le signe supérieur !**
+
+
+{% caption Où trouver les chevrons sur un clavier français %}
+{% asset_img keyboard-fr.png 750 520 "Le positionnement des chevrons sur un clavier français 'Le positionnement des chevrons sur un clavier français'" %}
+{% endcaption %}
 
 #### Tags ouvrant et fermant 
 
@@ -221,16 +234,25 @@ Nous devons mettre à jour notre code comme suit&nbsp;:
 1. **On va avant notre première ligne ajouter le texte  `<h1>`** 
 2. **PUIS mettre un `</h1>` à la fin de la ligne**
 
+
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="NWdoorL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="basic-html-tagging">
   <span>See the Pen <a href="https://codepen.io/Hiswe/pen/NWdoorL">
   basic-html-tagging</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
+On voit que notre titre est bien mis en valeur&nbsp;!
 
 ### paragraphes
 
-**On vient juste de dire au navigateur quel type de contenu nous voulions** 😊  
+Il ne nous reste plus qu'à faire pareil pour les paragraphes&nbsp;:  
+Entourer chaque partie par des `<p>` et `</p>`. (on s'occupera de la liste plus tard)
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="bGgXwBJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="basic-html-tagging">
+  <span>See the Pen <a href="https://codepen.io/Hiswe/pen/bGgXwBJ">
+  basic-html-tagging</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
 
 ## Améliorer son contenu
 
@@ -266,7 +288,13 @@ Pour les écrire:
 
 Dans notre cas, on écrira : **`<br />`**
 
-Et c'est tout 🤓
+On peut donc les rajouter _à l'intérieur des paragraphes_ à chaque fin de ligne où la suivante doit se trouver en dessous 🤓
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="WNRVGRq" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="html-tagging-improvement-line-break">
+  <span>See the Pen <a href="https://codepen.io/Hiswe/pen/WNRVGRq">
+  html-tagging-improvement-line-break</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
 
 ### ul, li : Imbrication d'éléments HTML
 
@@ -301,18 +329,21 @@ Dans l'exemple du dessus&nbsp;:
 - le parent est le panier
 - les enfants du panier sont les pommes
 
-### Indentation
+On peut considérer que chaque élément HTML est comme une boîte qui peut contenir d'autres boîtes.
 
+Dans notre cas on a besoin :
 
-### Mise à jour du code
+1. d'une première grosse boîte qui va dire que c'est une liste (`<ul>` tout le contenu de notre liste `</ul>`)
+2. de petites sous-boîtes, qui sont seront chacun des éléments de la liste (`<li>` un élément de la liste `</li>`)
 
-Le code pourrait être amélioré comme suit&nbsp;:
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="KKaJJrP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="html-tagging-improvement">
   <span>See the Pen <a href="https://codepen.io/Hiswe/pen/KKaJJrP">
   html-tagging-improvement</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
+
+
 
 ## Une erreur facile à faire : mal imbriquer ses éléments
 
@@ -349,6 +380,23 @@ Il __se ferme *en dehors*__ de son parent
   <li>une pomme</li>
 </ul>
 {% endcodeblock %}
+
+### Rajouter des espace (l'indentation)
+
+{% caption Les espace vous aident à mieux lire %}
+{% asset_img indentation.svg 500 260 "comparaison entre un contenu non indenté & indenté  'comparaison entre un contenu non indenté & indenté '" %} 
+{% endcaption %}
+
+Pour éviter ce problème on a mis en place une petite technique :
+
+  - Il faut [indenter](https://fr.wikipedia.org/wiki/Style_d%27indentation) le contenu (rajouter des espace)
+  - Cela nous permets de repérer visuellement qui est l'enfant de quel parent.
+
+
+On évitera ainsi certaines erreurs, et notre code sera agréable à regarder (les développeurs sont des artistes 🌈).
+
+
+**C'est pour cette raison que le navigateur ignorait les espaces et les retours à la ligne !**
 
 ## Conclusion
 
