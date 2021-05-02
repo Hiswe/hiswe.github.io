@@ -50,9 +50,9 @@ Le navigateur va alors demander à un autre ordinateur se trouve à cette adress
 En plus de tous les fichiers d'images/vidéos/son qui existent, il en existe 3 types particuliers.  
 Les fichiers&nbsp;:
 
-- HTML
-- CSS
-- JavaScript (On abrège en JS presque tout le temps)
+- _HTML_
+- _CSS_
+- _JavaScript_ (On abrège en JS presque tout le temps)
 
 **Ce sont tous des fichiers texte.**  
 
@@ -67,18 +67,18 @@ Vous pouvez retrouver une explication plus détaillée dans cet article : {% pos
 
 Si on devait comparer la construction d'une maison avec celle d'une page internet, alors :
 
-- le fichier HTML va décrire la maison.  
+- [le fichier HTML](https://fr.wikipedia.org/wiki/Hypertext_Markup_Language) _va décrire la maison._  
   Par exemple&nbsp;: c'est une maison avec un salon qui a une table et 4 chaises, etc.
-- le fichier CSS va décrire son apparence.  
+- [le fichier CSS](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade) _va décrire son apparence._  
   Par exemple&nbsp;: Le salon fait 15m², il est peint de blanc, la table est carrée et les 4 chaises sont autour, etc.
-- le fichier JS va décrire les actions et leurs conséquences.  
+- [le fichier JS](https://fr.wikipedia.org/wiki/JavaScript) _va décrire les actions et leurs conséquences._  
   Par exemple&nbsp;: si on appuie sur l'interrupteur du mur du salon, la lumière s'allume, etc.
 
 Pour résumer :
 
-- HTML =  contenu
-- CSS =  apparence
-- JS = comportements
+- _HTML_ = **contenu**
+- _CSS_ = **apparence**
+- _JS_ = **comportements**
 
 {% caption contenu, apparence & comportements %}
 {% asset_img web-page-file-types.svg 500 150 "des fichiers HTML, CSS et JS 'des fichiers HTML, CSS et JS'" %}
@@ -182,7 +182,6 @@ En plus, _il va combiner les espaces multiples et ignorer les retours à la lign
 C'est grâce à eux qu'on va faire comprendre au navigateur comment un contenu doit être mis en page.  
 Ce sont des petites boîtes dans lesquelles on va mettre notre contenu, pour bien l'identifier.
 
-
 #### Anatomie d'un élément HTML
 
 {% caption vision au rayon X d'un élément HTML  %}
@@ -246,7 +245,7 @@ On voit que notre titre est bien mis en valeur&nbsp;!
 ### paragraphes
 
 Il ne nous reste plus qu'à faire pareil pour les paragraphes&nbsp;:  
-Entourer chaque partie par des `<p>` et `</p>`. (on s'occupera de la liste plus tard)
+Il faut donc entourer chaque partie par des `<p>` et `</p>`. (on s'occupera de la liste plus tard)
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="bGgXwBJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="basic-html-tagging">
   <span>See the Pen <a href="https://codepen.io/Hiswe/pen/bGgXwBJ">
@@ -256,7 +255,7 @@ Entourer chaque partie par des `<p>` et `</p>`. (on s'occupera de la liste plus 
 
 ## Améliorer son contenu
 
-On voit qu'il y a encore des choses à améliorer&nbsp;:
+Il y a encore des choses à améliorer&nbsp;:
 
 - il manque des retours à la ligne
 - la liste n'est pas jolie
@@ -336,14 +335,13 @@ Dans notre cas on a besoin :
 1. d'une première grosse boîte qui va dire que c'est une liste (`<ul>` tout le contenu de notre liste `</ul>`)
 2. de petites sous-boîtes, qui sont seront chacun des éléments de la liste (`<li>` un élément de la liste `</li>`)
 
+Ce qui donne :
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="KKaJJrP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="html-tagging-improvement">
   <span>See the Pen <a href="https://codepen.io/Hiswe/pen/KKaJJrP">
   html-tagging-improvement</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-
-
 
 ## Une erreur facile à faire : mal imbriquer ses éléments
 
@@ -370,7 +368,9 @@ Le navigateur ne le comprendra pas&nbsp;:
 
 le `<li>` __commence *dans*__ le `<ul>` 
 __*MAIS*__
-Il __se ferme *en dehors*__ de son parent
+Il __se ferme *en dehors*__ de son parent.
+
+Pour le dire autrement, la boîte `<li>` est à la fois dans ET hors de la boîte `<ul>` 🙃
 
 #### La bonne manière de l'écrire
 
@@ -387,25 +387,24 @@ Il __se ferme *en dehors*__ de son parent
 {% asset_img indentation.svg 500 260 "comparaison entre un contenu non indenté & indenté  'comparaison entre un contenu non indenté & indenté '" %} 
 {% endcaption %}
 
-Pour éviter ce problème on a mis en place une petite technique :
+Pour éviter ce problème il y a cette petite technique :
 
   - Il faut [indenter](https://fr.wikipedia.org/wiki/Style_d%27indentation) le contenu (rajouter des espace)
-  - Cela nous permets de repérer visuellement qui est l'enfant de quel parent.
+  - Cela permets de repérer visuellement qui est l'enfant de quel parent.
 
 
-On évitera ainsi certaines erreurs, et notre code sera agréable à regarder (les développeurs sont des artistes 🌈).
+On évitera ainsi certaines erreurs, et notre code sera plus agréable à regarder (les développeurs ont un côté artistique 🌈).
 
-
-**C'est pour cette raison que le navigateur ignorait les espaces et les retours à la ligne !**
+**C'est pour cette raison que le navigateur ignorait les espaces et les retours à la ligne&nbsp;:** pour nous permettre d'indenter notre code HTML sans que cela apparaisse dans le rendu du navigateur.
 
 ## Conclusion
 
-- le HTML, c'est du texte
-- cela permet d'organiser l'information
-- cela s'écrit avec des balises HTML
-- les balises ont un sens
-- toutes les balises s'écrivent avec des tags
-- les tags s'écrivent avec des lettres entourées de chevrons
+- Un fichier HTML, c'est du texte
+- il permet d'organiser l'information de notre page internet
+- il s'écrit avec des éléments HTML
+- ces éléments ont un sens (titre, paragraphe…)
+- chaque éléments s'écrit avec des tags (`<h1>Mon titre</h1>`)
+- les tags s'écrivent avec des lettres entourées de chevrons  (`<h1>`, `<p>`, `<ul>`…)
 
 Si vous voulez plus d'informations il y a [cet excellent article](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics) de disponible&nbsp;!
 
