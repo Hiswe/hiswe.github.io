@@ -39,7 +39,7 @@ Le but est de comprendre l'écriture du HTML :
 
 Pour afficher une page internet, on rentre l'adresse dans son navigateur.
 
-Le navigateur va alors demander à un autre ordinateur se trouve à cette adresse (le serveur) de lui renvoyer les fichiers qui s'y trouvent.
+Le navigateur va alors demander à un autre ordinateur qui se trouve à cette adresse (le serveur) de lui renvoyer les fichiers qui s'y trouvent.
 
 {% caption Là où vit google  %}
 {% asset_img browser-detail.png 630 300 "Navigateur affichant google.fr 'Capture Navigateur affichantaffiche google.fr'" %} 
