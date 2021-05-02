@@ -404,17 +404,6 @@
   position: relative;
   font-size: 0.9em;
 
-  // https://www.w3.org/wiki/CSS/Properties/list-style-type
-  &__caption {
-    text-align: center;
-
-    &::before {
-      content: 'fig.' counter(caption, decimal-leading-zero) ' – ';
-    }
-    &:empty::before {
-      content: 'fig.' counter(caption, decimal-leading-zero);
-    }
-  }
   p {
     margin: 0;
   }
@@ -423,6 +412,27 @@
     margin: 0 auto;
     max-width: 100%;
     height: auto;
+  }
+}
+
+// https://www.w3.org/wiki/CSS/Properties/list-style-type
+.image-container__caption {
+  text-align: center;
+
+  &::before {
+    content: 'fig.' counter(caption, decimal-leading-zero) ' – ';
+  }
+  &:empty::before {
+    content: 'fig.' counter(caption, decimal-leading-zero);
+  }
+}
+
+[lang=fr] .image-container__caption {
+  &::before {
+    content: 'image ' counter(caption, decimal-leading-zero) ' – ';
+  }
+  &:empty::before {
+    content: 'image ' counter(caption, decimal-leading-zero);
   }
 }
 

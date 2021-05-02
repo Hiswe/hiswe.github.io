@@ -1,16 +1,16 @@
 <%
-  const postUrl = url_for(item.path)
-  const isDraft = !item.published
-  const draftCLass = isDraft ? `title__heading--draft` : ``
-  const topLevalClass = typeof className === `string` ? className : ``
+  const postUrl = url_for(item.path);
+  const isDraft = !item.published;
+  const draftCLass = isDraft ? `title__heading--draft` : ``;
+  const topLevalClass = typeof className === `string` ? className : ``;
 %>
 
 <header class="title <%= topLevalClass %>">
   <% if (item.layout != 'page'){ %>
     <div class="title__dates">
       <%
-        const published = item.date.format(config.date_format)
-        const updated = item.updated.format(config.date_format)
+        const published = item.date.format(config.date_format);
+        const updated = item.updated.format(config.date_format);
       %>
       <time class="title__date title__date--published" datetime="<%= item.date.toDate().toISOString() %>">
         <a href="<%- postUrl %>">
@@ -18,9 +18,12 @@
         </a>
       </time>
       <% if (published !== updated && !index) { %>
-        <time class="title__date title__date--updated" datetime="<%= item.updated.toDate().toISOString() %>">
-            updated on <%= updated %>
+        <span class="title__date title__date--updated">
+          updated on 
+        <time datetime="<%= item.updated.toDate().toISOString() %>">
+          <%= updated %>
         </time>
+      </span>
       <% } %>
     </div>
   <% } %>
