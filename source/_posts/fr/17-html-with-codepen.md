@@ -27,6 +27,13 @@ Le but est de comprendre l'écriture du HTML :
 
 <!-- TODO: insérer une image de navigateur -->
 
+### Navigateur & adresse
+
+{% caption Des navigateurs : Edge, Chrome & Firefox  %}
+{% asset_img browsers.svg 500 150 "Edge, Chrome & Firefox logos 'Edge, Chrome & Firefox logos'" %} 
+{% endcaption %}
+
+
 - Le navigateur web est le logiciel qui permet d'afficher une page internet.
 - Une adresse est un texte qui commence par `http://` 
 
@@ -64,7 +71,7 @@ Si on devait comparer la construction d'une maison avec celle d'une page interne
 Pour résumer :
 
 - HTML =  contenu
-- CSS =  l'apparence
+- CSS =  apparence
 - JS = comportements
 
 {% caption contenu, apparence & comportements %}
@@ -73,7 +80,7 @@ Pour résumer :
 
 ### Le web : un espace inclusif et accessible
 
-Le web a été designé avec cet état d'esprit.
+Le web a été conçu avec cet état d'esprit.
 
 - On doit pouvoir lire le contenu dans n'importe quelle langue (changement de direction pour l'arabe par exemple)
 - On doit pouvoir accéder au contenu quand on est en situation de handicap (avec des technologies comme [voice-over](https://www.apple.com/fr/accessibility/))
@@ -84,21 +91,21 @@ Le web a été designé avec cet état d'esprit.
 
 ## Codepen
 
-[Copepen](https://codepen.io/about) est un environnement gratuit de développement web en ligne.  
+[Codepen](https://codepen.io/about) est un environnement gratuit de développement web en ligne.  
 Il permet de faciliter la création de croquis de page internet.
 
 Allez sur&nbsp;:
 
 [https://codepen.io/pen/](https://codepen.io/pen/)
 
-### L'interface
+#### L'interface
 
 On va retrouver 4 zones&nbsp;:
 
 - les 3 premières zones sont pour le code (HTML/CSS/JS)
 - la quatrième est une prévisualisation en temps réel du rendu de notre code 🥳
 
-### Configurer l'interface
+#### Configurer l'interface
 
 Pour plus de confort, on peut réorganiser l'espace de travail comme suit :
 
@@ -111,7 +118,7 @@ Pour plus de confort, on peut réorganiser l'espace de travail comme suit :
    {% asset_img codepen-maximize-html-editor.png 435 325 "bouton maximiser le bloc HTML 'bouton maximiser le bloc HTML'" %}
    {% endcaption %}
 
-### Enregistrer son travail (optionnel)
+#### Enregistrer son travail (optionnel)
 
 Il faut s'inscrire depuis l'interface.  
 Le bouton d'inscription se trouve tout en bas de la popup de connection.
@@ -120,6 +127,22 @@ Le bouton d'inscription se trouve tout en bas de la popup de connection.
 
 Pour l'exemple, on va essayer de raconter sa journée d'hier.  
 Pour moi ça donnerait quelque chose comme :
+
+```
+Mon dimanche dernier
+
+C'était une belle journée de printemps.  
+Je me suis levé vers 9h00 du matin. 
+Après un café je suis sorti me promener pour profiter de la chaleur de cette journée ensoleillée
+
+De retour de ma balade au parc j'ai mangé :
+
+- une salade à la feta, aux olives noires et aux tomates cerises
+- une ginger beer
+- une glace à la vanille et aux amandes
+
+Et pour la suite, ça reste à écrire !
+```
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="poRGGzq" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="plain-text">
   <span>See the Pen <a href="https://codepen.io/Hiswe/pen/poRGGzq">
@@ -138,32 +161,19 @@ Cela veut dire que pour avoir une meilleure expérience de lecture il nous faudr
 
 - [des entêtes (article en anglais)](https://en.wikipedia.org/wiki/Headline)
 - [dse paragraphes](https://fr.wikipedia.org/wiki/Paragraphe)
-- des retours chariots
+- des retours à la ligne
 - des listes
 
-**Dans Word, pour formatter un texte, vous cliquez sur des boutons. En HTML, vous devez écrire le format que vous attendez pour que le navigateur le comprenne.**
+**Dans Word, pour formatter un texte, vous cliquez sur des boutons.**  
+**En HTML, vous devez écrire le format que vous attendez pour que le navigateur le comprenne.**
 
 Actuellement, vous avez une idée de comment cela doit être présenté, mais le navigateur, lui, ne voit que du texte.  
 En plus, _il va combiner les espaces multiples et ignorer les retours à la ligne_ 😇
 (Et croyez-moi il fait ça pour votre propre bien)
 
-### Entêtes et paragraphes
-
-{% caption Ah OK! tu veux un entête et des paragraphes&nbsp;! %}
-{% asset_img browser-rendering-html.svg 430 450 "rendu de navigateur 'rendu de navigateur'" %}
-{% endcaption %}
-
-Nous devons mettre à jour notre code comme suit&nbsp;:
-
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="NWdoorL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="basic-html-tagging">
-  <span>See the Pen <a href="https://codepen.io/Hiswe/pen/NWdoorL">
-  basic-html-tagging</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-
 ### Les éléments HTML
 
-**On vient juste de dire au navigateur quel type de contenu nous voulions** 😊  
+C'est grâce à eux qu'on va faire comprendre au navigateur comment un contenu doit être mis en page
 
 #### Anatomie d'un élément HTML
 
@@ -200,6 +210,28 @@ Comme dit précédemment, chaque élément HTML a un __sens__, donc :
 Comme le HTML a été conçu par des américains, les abréviations viennent de l'anglais.
 Vous pouvez voir la  [liste complète des éléments HTML ici](https://developer.mozilla.org/fr/docs/Web/HTML/Element)
 
+{% caption Ah OK! tu veux un entête et des paragraphes&nbsp;! %}
+{% asset_img browser-rendering-html.svg 430 450 "rendu de navigateur 'rendu de navigateur'" %}
+{% endcaption %}
+
+### Entête
+
+Nous devons mettre à jour notre code comme suit&nbsp;:
+
+1. **On va avant notre première ligne ajouter le texte  `<h1>`** 
+2. **PUIS mettre un `</h1>` à la fin de la ligne**
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="NWdoorL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="basic-html-tagging">
+  <span>See the Pen <a href="https://codepen.io/Hiswe/pen/NWdoorL">
+  basic-html-tagging</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+
+### paragraphes
+
+**On vient juste de dire au navigateur quel type de contenu nous voulions** 😊  
+
 ## Améliorer son contenu
 
 On voit qu'il y a encore des choses à améliorer&nbsp;:
@@ -207,15 +239,7 @@ On voit qu'il y a encore des choses à améliorer&nbsp;:
 - il manque des retours à la ligne
 - la liste n'est pas jolie
 
-Le code pourrait être amélioré comme suit&nbsp;:
-
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="KKaJJrP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="html-tagging-improvement">
-  <span>See the Pen <a href="https://codepen.io/Hiswe/pen/KKaJJrP">
-  html-tagging-improvement</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-
-#### Signification des nouveaux éléments
+### br, ul et li
 
 On l'a déjà vu, __un élément HTML a un sens__:  
 
@@ -225,7 +249,7 @@ On l'a déjà vu, __un élément HTML a un sens__:
 
 Et parce que nous voulions des retours à la ligne &  une liste, le choix évident était ce couple d'éléments 😎
 
-### Tags auto fermants
+### br : un tag auto-fermant
 
 {% caption Je suis un élément auto-fermant ! %}
 {% asset_img auto-closing-tag.svg 300 140 "un élément HTML auto-fermant 'un élément HTML auto-fermant'" %} 
@@ -240,9 +264,11 @@ Pour les écrire:
 - ne faire  __qu'un seul tag__
 - il doit  __finir par *<span class="u-c-accent">/</span>>*__
 
+Dans notre cas, on écrira : **`<br />`**
+
 Et c'est tout 🤓
 
-### Imbrication d'éléments HTML
+### ul, li : Imbrication d'éléments HTML
 
 {% caption enfants pommes contenues dans papa panier de fruits  %}
 {% asset_img basket-of-apples.svg 410 180 "un panier de fruit avec 3 pommes 'un panier de fruit avec 3 pommes'" %} 
@@ -274,6 +300,19 @@ Dans l'exemple du dessus&nbsp;:
 
 - le parent est le panier
 - les enfants du panier sont les pommes
+
+### Indentation
+
+
+### Mise à jour du code
+
+Le code pourrait être amélioré comme suit&nbsp;:
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Hiswe" data-slug-hash="KKaJJrP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="html-tagging-improvement">
+  <span>See the Pen <a href="https://codepen.io/Hiswe/pen/KKaJJrP">
+  html-tagging-improvement</a> by Hiswe (<a href="https://codepen.io/Hiswe">@Hiswe</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
 
 ## Une erreur facile à faire : mal imbriquer ses éléments
 
@@ -314,7 +353,7 @@ Il __se ferme *en dehors*__ de son parent
 ## Conclusion
 
 - le HTML, c'est du texte
-- cela permet de hiérarchiser l'information
+- cela permet d'organiser l'information
 - cela s'écrit avec des balises HTML
 - les balises ont un sens
 - toutes les balises s'écrivent avec des tags
